@@ -49,6 +49,8 @@ jobs:
         if: steps.cache.outputs.cache-hit != 'true'
         run: python3 herramientas/generar.py
       - name: Agenda de eventos oficiales (cada día)
+        env:
+          TICKETMASTER_KEY: ${{ secrets.TICKETMASTER_KEY }}
         run: |
           rm -rf publico/eventos
           python3 herramientas/eventos.py

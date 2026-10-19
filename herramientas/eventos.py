@@ -13,7 +13,7 @@ Cada fuente es independiente: si una falla, las demás se publican igual y el fa
 Solo biblioteca estándar.
 """
 from __future__ import annotations
-import csv, datetime as dt, io, json, math, os, re, sys, unicodedata, urllib.request, urllib.parse
+import csv, datetime as dt, io, json, math, os, re, sys, unicodedata, urllib.error, urllib.request, urllib.parse
 
 RAIZ = os.path.normpath(os.path.join(os.path.dirname(os.path.abspath(__file__)), '..'))
 SALIDA = os.path.join(RAIZ, 'publico', 'eventos')
@@ -196,6 +196,74 @@ def euskadi(nombres):
     return out, total
 
 
+# ---------------- Ticketmaster (clave en el secreto TICKETMASTER_KEY de GitHub) ----------------
+def ticketmaster(nombres, munis):
+    import time
+    clave = os.environ.get('TICKETMASTER_KEY', '').strip()
+    if not clave:
+        raise RuntimeError('sin clave: falta el secreto TICKETMASTER_KEY en GitHub')
+    centros = [(m[0], m[2], m[3]) for m in munis if m[2] is not None]
+    def municipio(ciudad, lat, lng):
+        cod = nombres.get(norm(ciudad))
+        if cod: return cod
+        if lat is None: return None
+        best, bd = None, 15.0
+        for c, la, lo in centros:
+            if abs(la - lat) > 0.2 or abs(lo - lng) > 0.25: continue
+            d = math.hypot((la - lat) * 111, (lo - lng) * 111 * math.cos(math.radians(lat)))
+            if d < bd: best, bd = c, d
+        return best
+    def pedir(desde, hasta, pagina):
+        q = urllib.parse.urlencode({'apikey': clave, 'countryCode': 'ES', 'size': 200, 'page': pagina, 'sort': 'date,asc', 'locale': '*',
+                                    'startDateTime': desde.strftime('%Y-%m-%dT00:00:00Z'), 'endDateTime': hasta.strftime('%Y-%m-%dT23:59:59Z')})
+        for intento in range(4):
+            try:
+                time.sleep(0.3)
+                return json.loads(bajar('https://app.ticketmaster.com/discovery/v2/events.json?' + q, timeout=60))
+            except urllib.error.HTTPError as ex:
+                if ex.code == 401: raise RuntimeError('la clave de Ticketmaster no es válida (HTTP 401)')
+                if ex.code == 429 and intento < 3: time.sleep(5); continue
+                raise
+    out, total, ventanas = [], 0, []
+    d = HOY
+    while d <= HASTA:
+        ventanas.append((d, min(d + dt.timedelta(days=6), HASTA))); d += dt.timedelta(days=7)
+    while ventanas:
+        a, b = ventanas.pop(0)
+        res = pedir(a, b, 0)
+        n = int((res.get('page') or {}).get('totalElements') or 0)
+        if n > 1000 and a < b:  # Ticketmaster solo deja ver 1000 resultados por consulta: se parte la ventana
+            m = a + (b - a) // 2
+            ventanas[:0] = [(a, m), (m + dt.timedelta(days=1), b)]; continue
+        paginas = min(int((res.get('page') or {}).get('totalPages') or 0), 5)
+        for pg in range(paginas):
+            data = res if pg == 0 else pedir(a, b, pg)
+            for ev in (data.get('_embedded') or {}).get('events') or []:
+                total += 1
+                if total <= 2: MUESTRAS.setdefault('ticketmaster', []).append(ev)
+                ven = ((ev.get('_embedded') or {}).get('venues') or [{}])[0]
+                loc = ven.get('location') or {}
+                try: lat, lng = float(loc.get('latitude')), float(loc.get('longitude'))
+                except (TypeError, ValueError): lat = lng = None
+                cod = municipio((ven.get('city') or {}).get('name', ''), lat, lng)
+                if not cod: continue
+                st = (ev.get('dates') or {}).get('start') or {}
+                pr = (ev.get('priceRanges') or [{}])[0]
+                precio = ''
+                if pr.get('min') is not None:
+                    mon = pr.get('currency', 'EUR').replace('EUR', '€')
+                    precio = f"de {pr['min']:.0f} a {pr['max']:.0f} {mon}" if pr.get('max') and pr['max'] != pr['min'] else f"{pr['min']:.0f} {mon}"
+                cls = (ev.get('classifications') or [{}])[0]
+                cat = ' '.join(x.get('name', '') for x in (cls.get('segment') or {}, cls.get('genre') or {}) if isinstance(x, dict))
+                e = evento(ev.get('name'), st.get('localDate'), st.get('localDate'), hora(st.get('localTime')), ven.get('name'),
+                           ', '.join(x for x in ((ven.get('address') or {}).get('line1'), ven.get('postalCode')) if x), lat, lng,
+                           ev.get('url'), precio, False, 'Ticketmaster', cat)
+                if e:
+                    if (cls.get('segment') or {}).get('name') == 'Music': e['mus'] = 1
+                    out.append((cod, e))
+    return out, total
+
+
 def main():
     munis = json.load(open(os.path.join(RAIZ, 'datos', 'municipios.json'), encoding='utf-8'))['municipios']
     nombres = {}
@@ -206,7 +274,7 @@ def main():
             nombres.setdefault(norm(p), m[0])
     os.makedirs(SALIDA, exist_ok=True)
     por_muni, fuentes = {}, []
-    for nombre, fn in (('Madrid', madrid), ('Barcelona', barcelona), ('Euskadi', lambda: euskadi(nombres))):
+    for nombre, fn in (('Madrid', madrid), ('Barcelona', barcelona), ('Euskadi', lambda: euskadi(nombres)), ('Ticketmaster', lambda: ticketmaster(nombres, munis))):
         try:
             lst, leidos = fn()
             for cod, e in lst: por_muni.setdefault(cod, []).append(e)
