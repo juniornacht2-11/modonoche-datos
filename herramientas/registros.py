@@ -25,7 +25,7 @@ PUBLICO = os.environ.get('SALIDA_REGISTROS') or os.path.join(RAIZ, 'publico', 'r
 CACHE = os.path.join(RAIZ, 'cache')
 TMP = os.path.join(RAIZ, 'tmp_registros')
 UA = {'User-Agent': 'MODO-NOCHE-datos/1.0 (+https://github.com/juniornacht2-11/modonoche-datos)'}
-LIMITE_GEOCOD = int(os.environ.get('LIMITE_GEOCOD', '4000'))   # direcciones nuevas por ejecución (el resto, en las siguientes)
+LIMITE_GEOCOD = int(os.environ.get('LIMITE_GEOCOD', '15000'))   # direcciones nuevas por ejecución (el resto, en las siguientes)
 FIN = time.time() + 60 * float(os.environ.get('PRESUPUESTO_MIN', '100'))   # al acercarse, se deja el resto para la próxima vez
 def queda(min_=0):
     return time.time() < FIN - 60 * min_
@@ -361,9 +361,14 @@ def canarias():
     log('Canarias…')
     h, filas = tabla(texto(bajar('https://datos.canarias.es/catalogos/general/dataset/9f4355a2-d086-4384-ba72-d8c99aa2d544/resource/8ff8cc43-c00b-4513-8f42-a5b961c579e1/download/establecimientos-extrahoteleros-de-tipologia-vivienda-vacacional-inscritos-en-el-registro-genera.csv')))
     i = {c: k for k, c in enumerate(h)}
+    G = lambda r, c: r[i[c]] if c in i and i[c] < len(r) else ''
+    q = lambda r: f"{sin_piso(G(r, 'direccion'))}, {G(r, 'direccion_codigo_postal')} {G(r, 'direccion_municipio_nombre')}"
+    geocodificar_lote([q(r) for r in filas if not num(G(r, 'latitud'))])
     for r in filas:
         g = lambda c: r[i[c]] if c in i and i[c] < len(r) else ''
         lat, lng = num(g('latitud')), num(g('longitud'))
+        if not lat or not lng:
+            res = geocodificar(q(r)); lat, lng = (res[0], res[1]) if res else (None, None)
         if lat and lng and lat > 1000 and lng > 1000:      # algunas filas vienen en UTM 28 (REGCAN95) en vez de grados
             lat, lng = utm_a_geo(lng, lat, 28)
         elif lat and lng and lat < 0 and lng > 0:          # latitud y longitud intercambiadas
@@ -436,9 +441,15 @@ def cataluna():
         if len(ref) == 14:
             refs[muni].add(ref)
     catastro(refs)
+    q = lambda g: f"{con_numero(g('tipus_de_via'), g('nom_de_la_via'), g('numero'))}, {g('codi_postal')} {g('municipi')}"
+    pend = [(g, tipo) for g, tipo, muni, ref in regs if len(CAT.get(ref) or []) != 2]
+    pend.sort(key=lambda x: x[1] == 'vut')      # primero hoteles, casas rurales, campings…
+    geocodificar_lote([q(g) for g, tipo in pend])
     for g, tipo, muni, ref in regs:
         pt = CAT.get(ref) or []
         lat, lng = (pt[0], pt[1]) if len(pt) == 2 else (None, None)
+        if lat is None:
+            res = geocodificar(q(g)); lat, lng = (res[0], res[1]) if res else (None, None)
         dir_ = solo_calle(con_numero(g('tipus_de_via'), g('nom_de_la_via'), '')) if tipo == 'vut' else con_numero(g('tipus_de_via'), g('nom_de_la_via'), g('numero'))
         anadir('ct', (g('n_mero_inscripci') or ref or str(len(SALIDA))).replace('/', '-'), tipo, muni, lat, lng, g('r_tol'), dir_, g('total_places'), g('n_mero_inscripci'))
 
