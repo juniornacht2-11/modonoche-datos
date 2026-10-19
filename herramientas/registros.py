@@ -187,6 +187,12 @@ def con_numero(via, nombre, numero):
     return ' '.join(x for x in [VIA.get(norm(via)) or bonito(via), bonito(nombre), str(numero or '').strip()] if x and str(x).strip())[:140]
 
 
+def sin_piso(s):
+    """Quita piso, puerta, escalera… de una dirección completa (se deja calle y número)."""
+    s = re.split(r'(\b\d+\s*[ºª°]\s*(?!\d)|\b(planta|piso|pta|puerta|bajo|bjo|esc|escalera|bloque|blq|portal|local|apto|apartamento|atico|ático|entlo|entresuelo)\b|-\s*\d+\s*[ºª])', str(s or ''), maxsplit=1, flags=re.I)[0]
+    return bonito(re.sub(r'\bn[ºo°]\s*-?\s*$', '', s).strip(' ,.-'))[:140]
+
+
 def url_ok(u):
     u = str(u or '').strip()
     if not u or ' ' in u or '@' in u:
@@ -208,7 +214,7 @@ def anadir(fuente, idd, tipo, muni, lat, lng, nombre='', dir_='', plazas=None, l
     if nombre and norm(nombre) not in ('', 'vivienda', 'vivienda turistica', 'vut', 'piso'):
         r['n'] = bonito(nombre)[:100]
     if dir_:
-        r['dir'] = dir_
+        r['dir'] = sin_piso(dir_)
     p = num(plazas)
     if p and 0 < p < 5000:
         r['pl'] = int(p)
