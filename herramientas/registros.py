@@ -25,7 +25,10 @@ PUBLICO = os.environ.get('SALIDA_REGISTROS') or os.path.join(RAIZ, 'publico', 'r
 CACHE = os.path.join(RAIZ, 'cache')
 TMP = os.path.join(RAIZ, 'tmp_registros')
 UA = {'User-Agent': 'MODO-NOCHE-datos/1.0 (+https://github.com/juniornacht2-11/modonoche-datos)'}
-LIMITE_GEOCOD = int(os.environ.get('LIMITE_GEOCOD', '12000'))   # direcciones nuevas por ejecución (el resto, la semana siguiente)
+LIMITE_GEOCOD = int(os.environ.get('LIMITE_GEOCOD', '4000'))   # direcciones nuevas por ejecución (el resto, en las siguientes)
+FIN = time.time() + 60 * float(os.environ.get('PRESUPUESTO_MIN', '100'))   # al acercarse, se deja el resto para la próxima vez
+def queda(min_=0):
+    return time.time() < FIN - 60 * min_
 ST = Counter()
 
 
@@ -243,7 +246,7 @@ def geocodificar(q):
     k = norm(q)
     if k in GEO:
         return GEO[k] or None
-    if geocodificadas >= LIMITE_GEOCOD:
+    if geocodificadas >= LIMITE_GEOCOD or not queda(10):
         return None
     geocodificadas += 1
     try:
@@ -255,8 +258,14 @@ def geocodificar(q):
         res = None     # error de red: no se guarda en caché, se reintenta otra semana
     if res is not None:
         GEO[k] = res
-    time.sleep(0.05)
     return res or None
+
+
+def geocodificar_lote(consultas):
+    """Geocodifica en paralelo (4 a la vez) las que no están en caché."""
+    nuevas = list(dict.fromkeys(q for q in consultas if norm(q) not in GEO))
+    with cf.ThreadPoolExecutor(max_workers=4) as ex:
+        list(ex.map(geocodificar, nuevas))
 
 
 # ---------- Catastro: referencia catastral → punto de la parcela ----------
@@ -301,8 +310,8 @@ def catastro(refs_por_muni):
 
     def una(t):
         m, u, rs = t
-        if not u:
-            return m, {}
+        if not u or not queda(15):
+            return m, None
         try:
             b = bajar(u.replace(' ', '%20'), t=600, intentos=3)
             zf = zipfile.ZipFile(io.BytesIO(b))
@@ -320,15 +329,22 @@ def catastro(refs_por_muni):
             return m, {}
     hechos = 0
     with cf.ThreadPoolExecutor(max_workers=6) as ex:
+        sin_hacer = set()
         for m, out in ex.map(una, [t for t in tareas if t[1]]):
+            if out is None:
+                sin_hacer.add(m); continue
             CAT.update(out)
             hechos += 1
             if hechos % 100 == 0:
                 log(f'  Catastro: {hechos}/{len(tareas)} municipios')
     # las que no se encuentran se marcan para no volver a buscarlas esta vez
     for m, rs in falta.items():
+        if m in sin_hacer:
+            continue
         for r in rs:
             CAT.setdefault(r, [])
+    if sin_hacer:
+        log(f'  Catastro: {len(sin_hacer)} municipios quedan para la próxima vez (tiempo)')
 
 
 # =====================================================================================
@@ -439,6 +455,8 @@ def castilla_leon():
     log('Castilla y León…')
     h, filas = tabla(texto(bajar('https://datosabiertos.jcyl.es/web/jcyl/risp/es/turismo/viviendas-uso-turistico/1284748762495.csv')))
     i = {c.strip(): k for k, c in enumerate(h)}
+    G = lambda r, c: r[i[c]].strip() if c in i and i[c] < len(r) else ''
+    geocodificar_lote([f"{G(r, 'Dirección')}, {G(r, 'Municipio')}, {G(r, 'Provincia')}" for r in filas if not en_espana(num(G(r, 'GPS.Latitud')), num(G(r, 'GPS.Longitud')))])
     for r in filas:
         g = lambda c: r[i[c]].strip() if c in i and i[c] < len(r) else ''
         lat, lng = num(g('GPS.Latitud')), num(g('GPS.Longitud'))
@@ -456,6 +474,10 @@ def madrid():
     i = {c.strip(): k for k, c in enumerate(h)}
     TIPO = {'viviendas de uso tu': 'vut', 'hotel': 'hotel', 'hotel rural': 'hotel', 'hotel apart': 'hotel', 'hostal': 'hostal', 'casa huespedes': 'pension',
             'pension': 'pension', 'apart turistico': 'apartamento', 'casa rural': 'rural', 'apartamento rural': 'rural', 'hosterias': 'rural', 'camping': 'camping'}
+    G = lambda r, c: r[i[c]].strip() if c in i and i[c] < len(r) else ''
+    # primero los alojamientos con nombre (hoteles, hostales…), luego las viviendas turísticas
+    filas.sort(key=lambda r: TIPO.get(norm(G(r, 'alojamiento_tipo'))) == 'vut')
+    geocodificar_lote([f"{con_numero(G(r, 'via_tipo'), G(r, 'via_nombre'), G(r, 'numero'))}, {G(r, 'cdpostal')} {G(r, 'localidad')}, Madrid" for r in filas if TIPO.get(norm(G(r, 'alojamiento_tipo')))])
     for r in filas:
         g = lambda c: r[i[c]].strip() if c in i and i[c] < len(r) else ''
         tipo = TIPO.get(norm(g('alojamiento_tipo')))
@@ -472,18 +494,7 @@ def madrid():
 FUENTES = [('Canarias', canarias), ('Andalucía', andalucia), ('Cataluña', cataluna), ('C. Valenciana', valencia), ('Castilla y León', castilla_leon), ('C. de Madrid', madrid)]
 
 
-def main():
-    os.makedirs(TMP, exist_ok=True); os.makedirs(PUBLICO, exist_ok=True)
-    estado = {}
-    for nombre, fn in FUENTES:
-        t0 = time.time()
-        try:
-            fn(); estado[nombre] = 'ok'
-        except Exception as e:
-            estado[nombre] = 'error: ' + repr(e)[:150]
-            log('ERROR en', nombre, repr(e)[:200])
-        log(f'  {nombre}: {round(time.time() - t0)} s')
-        guardar_cache('geocodificacion.json', GEO); guardar_cache('catastro.json', CAT)
+def escribir(estado):
     gen = time.strftime('%Y-%m-%dT%H:%M:%SZ', time.gmtime())
     indice = {}
     for muni, lst in sorted(SALIDA.items()):
@@ -496,11 +507,29 @@ def main():
         indice[muni] = len(limpio)
     meta = {'gen': gen, 'total': sum(indice.values()), 'municipios_con_datos': len(indice), 'fuentes': estado,
             'por_tipo': {k[5:]: v for k, v in ST.items() if k.startswith('tipo ')}, 'estadisticas': {k: v for k, v in ST.items() if not k.startswith('tipo ')},
-            'geocodificadas_esta_vez': geocodificadas,
+            'geocodificadas_esta_vez': geocodificadas, 'ubicaciones_en_cache': {'catastro': len(CAT), 'direcciones': len(GEO)},
             'licencias': 'Registros oficiales de turismo de Canarias, Andalucía, Cataluña, Comunitat Valenciana, Castilla y León y Comunidad de Madrid (datos abiertos). Ubicación: © Dirección General del Catastro; CartoCiudad © IGN/CNIG.',
             'registro': LOG[-150:], 'municipios': indice}
     json.dump(meta, open(os.path.join(PUBLICO, 'indice.json'), 'w', encoding='utf-8'), ensure_ascii=False, separators=(',', ':'))
-    log('TOTAL', meta['total'], 'en', len(indice), 'municipios ·', dict(ST))
+    return meta
+
+
+def main():
+    os.makedirs(TMP, exist_ok=True); os.makedirs(PUBLICO, exist_ok=True)
+    estado = {}
+    for nombre, fn in FUENTES:
+        t0 = time.time()
+        try:
+            fn(); estado[nombre] = 'ok'
+        except Exception as e:
+            estado[nombre] = 'error: ' + repr(e)[:150]
+            log('ERROR en', nombre, repr(e)[:200])
+        log(f'  {nombre}: {round(time.time() - t0)} s')
+        guardar_cache('geocodificacion.json', GEO); guardar_cache('catastro.json', CAT)
+        escribir(estado)
+    meta = escribir(estado)
+    log('TOTAL', meta['total'], 'en', meta['municipios_con_datos'], 'municipios ·', dict(ST))
+    escribir(estado)
 
 
 if __name__ == '__main__':

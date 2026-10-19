@@ -48,25 +48,18 @@ jobs:
       - name: Generar los locales (una vez por semana)
         if: steps.cache.outputs.cache-hit != 'true'
         run: python3 herramientas/generar.py
-      - name: Recuperar los alojamientos de los registros de esta semana
-        id: cache_reg
-        uses: actions/cache@v4
-        with:
-          path: registros_pub
-          key: registros-${{ steps.semana.outputs.id }}-${{ hashFiles('herramientas/registros.py') }}
       - name: Recuperar ubicaciones ya calculadas (Catastro y CartoCiudad)
-        if: steps.cache_reg.outputs.cache-hit != 'true'
         uses: actions/cache@v4
         with:
           path: cache
           key: ubicaciones-${{ github.run_id }}
           restore-keys: ubicaciones-
-      - name: Alojamientos de los registros oficiales de turismo (una vez por semana)
-        if: steps.cache_reg.outputs.cache-hit != 'true'
+      - name: Alojamientos de los registros oficiales de turismo (cada día; lo ya situado se guarda)
         continue-on-error: true
-        timeout-minutes: 150
+        timeout-minutes: 120
         env:
           SALIDA_REGISTROS: registros_pub
+          PRESUPUESTO_MIN: '95'
         run: python3 herramientas/registros.py
       - name: Copiar los alojamientos de los registros a lo publicado
         run: |
