@@ -11,7 +11,10 @@ def tabla(nombre, url):
     p('\n##', nombre, url)
     try:
         st, ct, b = get(url)
-        txt = next(b.decode(e) for e in ('utf-8-sig', 'cp1252', 'latin-1') if not (lambda: b.decode(e))() is None)
+        txt = None
+        for e in ('utf-8-sig', 'cp1252', 'latin-1'):
+            try: txt = b.decode(e); break
+            except UnicodeDecodeError: pass
         if txt.lstrip()[:1] in '[{':
             j = json.loads(txt); rows = j if isinstance(j, list) else next((v for v in j.values() if isinstance(v, list)), [])
             p('JSON filas', len(rows)); 
