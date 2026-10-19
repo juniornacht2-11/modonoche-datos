@@ -1,0 +1,24 @@
+name: Páginas por ciudad (buscadores)
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths: ['herramientas/seo.py', '.github/workflows/seo.yml']
+permissions:
+  contents: write
+jobs:
+  seo:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - name: Generar páginas por ciudad
+        run: python3 herramientas/seo.py
+      - name: Guardar en la rama «web-seo»
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git checkout -B web-seo
+          git add -f seo_out
+          git commit -qm "Páginas por ciudad" || true
+          git push -f origin web-seo
