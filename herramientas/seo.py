@@ -127,7 +127,8 @@ def main():
         coc = Counter(d['coc'] for d in C if d.get('coc')).most_common(4)
         partes = [f'{len(clubs)} discotecas y salas' if clubs else '', f'{len(bares)} bares y pubs' if bares else '', f'{len(C)} restaurantes' if C else '',
                   f'{len(H) + vut} alojamientos' if (H or vut) else '']
-        resumen = ', '.join(p for p in partes if p)
+        partes = [re.sub(r'^(\d+)', lambda m: f'{int(m.group(1)):,}'.replace(',', '.'), x) for x in partes if x]
+        resumen = (', '.join(partes[:-1]) + ' y ' + partes[-1]) if len(partes) > 1 else (partes[0] if partes else 'locales')
         titulo = f'Ocio nocturno en {nom}: discotecas, bares, cenas y dónde dormir | MODO NOCHE'
         desc = f'Planes para salir de noche en {nom} ({prov}): {resumen}. Horarios, webs y combinaciones cerca a pie, con datos abiertos y sin precios inventados.'
         vecinos = sorted((x for x in datos if x != c and INFO[x]['lat'] is not None and i['lat'] is not None), key=lambda x: (INFO[x]['lat'] - i['lat']) ** 2 + ((INFO[x]['lng'] - i['lng']) * math.cos(math.radians(i['lat']))) ** 2)[:10] if i['lat'] is not None else []
