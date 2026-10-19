@@ -26,7 +26,7 @@ UA = 'MODO-NOCHE-datos/1.0 (https://github.com/juniornacht2-11/modonoche-datos; 
 EXTRACTOS = ['https://download.geofabrik.de/europe/spain-latest.osm.pbf',
              'https://download.geofabrik.de/africa/canary-islands-latest.osm.pbf']
 FILTRO = ['nwr/amenity=nightclub,music_venue,concert_hall,bar,pub,events_venue,restaurant,theatre',
-          'nwr/leisure=dance', 'nwr/tourism=hotel,hostel,guest_house,apartment,motel', 'r/admin_level=8']
+          'nwr/tourism=hotel,hostel,guest_house,apartment,motel', 'r/admin_level=8']
 # Etiquetas que usa la web (app.js · osmRecord). Nada más se publica.
 ETIQUETAS = ['name', 'amenity', 'tourism', 'leisure', 'theatre:type', 'cuisine', 'stars', 'rooms',
              'addr:street', 'addr:place', 'addr:housenumber', 'addr:postcode', 'addr:city',
@@ -55,7 +55,8 @@ def interesa(t: dict) -> str | None:
         return 'cenas'
     if t.get('tourism') in ALOJ:
         return 'hoteles'
-    if a in FIESTA or t.get('leisure') == 'dance' or (a == 'theatre' and t.get('theatre:type') == 'concert_hall'):
+    # leisure=dance no se usa: en España casi siempre son escuelas de baile, no salas de fiesta.
+    if a in FIESTA or (a == 'theatre' and t.get('theatre:type') == 'concert_hall'):
         return 'fiesta'
     return None
 
