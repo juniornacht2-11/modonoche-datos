@@ -1,14 +1,14 @@
 name: Datos semanales de MODO NOCHE
 
 # Todo ocurre en los servidores de GitHub (gratis en repositorios públicos):
-#   1. Descarga el extracto de OpenStreetMap de España (Geofabrik).
-#   2. Prepara un archivo de locales por municipio (herramientas/generar.py).
-#   3. Lo publica en GitHub Pages: https://juniornacht2-11.github.io/modonoche-datos/
-# Se ejecuta cada lunes, al guardar cambios del proceso y a mano (Actions → Run workflow).
+#   1. Locales (una vez por semana): extracto de OpenStreetMap de España (Geofabrik) → un archivo por municipio.
+#   2. Agenda (cada día): agendas oficiales y abiertas de Madrid, Barcelona y Euskadi (herramientas/eventos.py).
+#   3. Lo publica todo en GitHub Pages: https://juniornacht2-11.github.io/modonoche-datos/
+# Se ejecuta cada día, al guardar cambios del proceso y a mano (Actions → Run workflow).
 on:
   workflow_dispatch:
   schedule:
-    - cron: '17 4 * * 1'
+    - cron: '17 4 * * *'
   push:
     branches: [main]
     paths: ['herramientas/**', '.github/workflows/datos.yml', 'datos/**']
@@ -36,13 +36,28 @@ jobs:
           sudo apt-get update -qq
           sudo apt-get install -y -qq osmium-tool
           osmium --version | head -1
-      - name: Generar los datos
+      - name: Semana actual
+        id: semana
+        run: echo "id=$(date -u +%G-%V)" >> "$GITHUB_OUTPUT"
+      - name: Recuperar los locales de esta semana (si ya se generaron)
+        id: cache
+        uses: actions/cache@v4
+        with:
+          path: publico
+          key: locales-${{ steps.semana.outputs.id }}-${{ hashFiles('herramientas/generar.py', 'datos/municipios.json') }}
+      - name: Generar los locales (una vez por semana)
+        if: steps.cache.outputs.cache-hit != 'true'
         run: python3 herramientas/generar.py
+      - name: Agenda de eventos oficiales (cada día)
+        run: |
+          rm -rf publico/eventos
+          python3 herramientas/eventos.py
       - name: Tamaño de lo publicado
         run: |
           du -sh publico
           ls publico/locales | wc -l
           ls -la publico/locales/41091.json publico/locales/28079.json publico/locales/08019.json || true
+          ls -la publico/eventos || true
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:
