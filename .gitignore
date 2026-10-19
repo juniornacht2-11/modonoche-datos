@@ -1,3 +1,6 @@
 .trabajo/
 publico/
 __pycache__/
+tmp_registros/
+registros_pub/
+cache/

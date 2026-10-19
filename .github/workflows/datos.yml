@@ -25,7 +25,7 @@ concurrency:
 jobs:
   generar:
     runs-on: ubuntu-latest
-    timeout-minutes: 90
+    timeout-minutes: 200
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
@@ -48,6 +48,30 @@ jobs:
       - name: Generar los locales (una vez por semana)
         if: steps.cache.outputs.cache-hit != 'true'
         run: python3 herramientas/generar.py
+      - name: Recuperar los alojamientos de los registros de esta semana
+        id: cache_reg
+        uses: actions/cache@v4
+        with:
+          path: registros_pub
+          key: registros-${{ steps.semana.outputs.id }}-${{ hashFiles('herramientas/registros.py') }}
+      - name: Recuperar ubicaciones ya calculadas (Catastro y CartoCiudad)
+        if: steps.cache_reg.outputs.cache-hit != 'true'
+        uses: actions/cache@v4
+        with:
+          path: cache
+          key: ubicaciones-${{ github.run_id }}
+          restore-keys: ubicaciones-
+      - name: Alojamientos de los registros oficiales de turismo (una vez por semana)
+        if: steps.cache_reg.outputs.cache-hit != 'true'
+        continue-on-error: true
+        timeout-minutes: 150
+        env:
+          SALIDA_REGISTROS: registros_pub
+        run: python3 herramientas/registros.py
+      - name: Copiar los alojamientos de los registros a lo publicado
+        run: |
+          rm -rf publico/registros
+          if [ -d registros_pub ]; then cp -r registros_pub publico/registros; fi
       - name: Agenda de eventos oficiales (cada día)
         env:
           TICKETMASTER_KEY: ${{ secrets.TICKETMASTER_KEY }}
