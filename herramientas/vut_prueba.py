@@ -8,7 +8,7 @@ def get(url, t=90, maxb=400_000_000):
     r = urllib.request.urlopen(urllib.request.Request(url, headers=UA), timeout=t)
     return r.status, r.headers.get('content-type', ''), r.read(maxb)
 # A) catálogo nacional datos.gob.es
-for kw in ['viviendas uso turistico', 'vivienda turistica', 'viviendas turisticas', 'alojamientos turisticos', 'establecimientos turisticos', 'registro turismo', 'apartamentos turisticos', 'habitatges', 'vivienda vacacional', 'alojamiento turistico']:
+for kw in []:
     try:
         u = 'https://datos.gob.es/apidata/catalog/dataset/title/' + urllib.parse.quote(kw) + '?_pageSize=50'
         st, ct, b = get(u, 60)
@@ -53,19 +53,16 @@ def analizar(nombre, url, tipo='csv'):
     return f
 FUENTES = [
     ('Cataluña · establecimientos (Socrata)', 'https://analisi.transparenciacatalunya.cat/resource/t2h3-cgys.csv?$limit=500000'),
-    ('Cataluña · catálogo HUT', 'https://analisi.transparenciacatalunya.cat/api/catalog/v1?q=habitatges%20us%20turistic&limit=20', 'json'),
-    ('C. Valenciana · catálogo', 'https://dadesobertes.gva.es/api/3/action/package_search?q=viviendas%20turisticas&rows=10', 'json'),
-    ('C. Valenciana · viviendas ene-2025', 'https://dadesobertes.gva.es/dataset/8a1c4fa3-4696-4b3b-8a1a-6bff038abf0c/resource/2c1e8aa4-5238-47c4-9404-f574ee1269a4/download/listaviviendas_20250126.csv'),
+    ('C. Valenciana · viviendas (actual)', 'https://dadesobertes.gva.es/dataset/758f8f8e-c5af-4622-b268-a6c591710a51/resource/b1bdc28e-9813-422a-ab7a-63c21290493d/download/lista-de-viviendas-turisticas.csv'),
     ('Castilla y León · viviendas uso turístico', 'https://datosabiertos.jcyl.es/web/jcyl/risp/es/turismo/viviendas-uso-turistico/1284748762495.csv'),
-    ('Mallorca · IDEIB capas', 'https://ideib.caib.es/geoserveis/rest/services/public/GOIB_EstablimentsTuristicsMallorca/MapServer?f=json', 'json'),
-    ('Mallorca · IDEIB capa 0 recuento', 'https://ideib.caib.es/geoserveis/rest/services/public/GOIB_EstablimentsTuristicsMallorca/MapServer/0/query?where=1%3D1&returnCountOnly=true&f=json', 'json'),
-    ('C. Madrid · catálogo', 'https://datos.comunidad.madrid/catalogo/api/3/action/package_search?q=viviendas%20uso%20turistico&rows=10', 'json'),
-    ('Canarias · catálogo', 'https://datos.canarias.es/catalogos/general/api/3/action/package_search?q=vivienda%20vacacional&rows=10', 'json'),
-    ('Euskadi · catálogo datos.gob', 'https://datos.gob.es/apidata/catalog/dataset/title/alojamientos?_pageSize=50', 'json'),
-    ('Andalucía · catálogo', 'https://www.juntadeandalucia.es/datosabiertos/portal/api/3/action/package_search?q=viviendas%20fines%20turisticos&rows=10', 'json'),
-    ('Galicia · catálogo', 'https://abertos.xunta.gal/api/3/action/package_search?q=vivendas%20uso%20turistico&rows=10', 'json'),
-    ('Aragón · catálogo', 'https://opendata.aragon.es/ckan/api/3/action/package_search?q=viviendas%20uso%20turistico&rows=10', 'json'),
-    ('Asturias · catálogo', 'https://datos.gob.es/apidata/catalog/dataset/title/turismo?_pageSize=50', 'json'),
+    ('C. Madrid · VUT declaraciones', 'https://datos.comunidad.madrid/dataset/914c95d2-455e-4797-893f-97b1e2b2426e/resource/41072914-3b76-46b2-bfff-4afdd48ed3cc/download/declaraciones_actividad_viviendas_uso_turistico.csv'),
+    ('C. Madrid · alojamientos turísticos', 'https://datos.comunidad.madrid/dataset/ef437c50-5b26-4843-92c3-d8eef5507fac/resource/260e80ac-2062-41f6-9f96-4902675b1078/download/alojamientos_turisticos.csv'),
+    ('Canarias · viviendas vacacionales', 'https://datos.canarias.es/catalogos/general/dataset/9f4355a2-d086-4384-ba72-d8c99aa2d544/resource/8ff8cc43-c00b-4513-8f42-a5b961c579e1/download/establecimientos-extrahoteleros-de-tipologia-vivienda-vacacional-inscritos-en-el-registro-genera.csv'),
+    ('Andalucía · catálogo RTA', 'https://www.juntadeandalucia.es/datosabiertos/portal/api/3/action/package_search?q=registro%20turismo&rows=10', 'json'),
+    ('Galicia · catálogo', 'https://abertos.xunta.gal/api/3/action/package_search?q=turismo&rows=10', 'json'),
+    ('Aragón · catálogo', 'https://opendata.aragon.es/ckan/api/3/action/package_search?q=turismo%20alojamiento&rows=10', 'json'),
+    ('Baleares · catálogo', 'https://catalegdades.caib.cat/api/catalog/v1?q=turistic&limit=20', 'json'),
+    ('Euskadi · catálogo', 'https://opendata.euskadi.eus/catalogo/contenidos/ds_recursos_turisticos/alojamientos_turisticos_de_euskadi/opendata/alojamientos-turisticos.json', 'json'),
 ]
 for x in FUENTES: OUT['fuentes'].append(analizar(*x)); print(OUT['fuentes'][-1].get('nombre'), OUT['fuentes'][-1].get('filas'), OUT['fuentes'][-1].get('error', ''), flush=True)
 os.makedirs('publico', exist_ok=True)
