@@ -76,6 +76,8 @@ def evento(titulo, ini, fin, h, lugar, direccion, lat, lng, url, precio, gratis,
     ini = fecha(ini); fin = fecha(fin) or ini
     if not titulo or not ini or fin < HOY or ini > HASTA:
         return None
+    if re.search(r'^\s*test\b|\btest\s*\d{3,}|\bcase\s*\d{3,}|evento de prueba', str(titulo), re.I):
+        return None  # registros de prueba de la propia fuente
     if (fin - ini).days > 31:  # programas permanentes o de temporada: no son planes de una noche
         return None
     try:
