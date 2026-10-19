@@ -21,7 +21,8 @@ UA = 'MODO-NOCHE-agenda/1.0 (https://github.com/juniornacht2-11/modonoche-datos;
 HOY = dt.date.today()
 HASTA = HOY + dt.timedelta(days=60)
 GEN = dt.datetime.now(dt.timezone.utc).isoformat(timespec='seconds')
-MUSICA = re.compile(r'm[uú]sica|concierto|concert|fiesta|festa|festival|\bdj\b|dj set|jazz|flamenco|rock|\bpop\b|electr[oó]nic|techno|reggae|rap\b|hip.?hop|indie|soul|blues|salsa|verbena|sesi[oó]n|club|discoteca|kontzertu|jai', re.I)
+MUSICA = re.compile(r'm[uú]sica|concierto|concert|fiesta|festa|festival|\bdj\b|dj set|jazz|flamenco|rock|\bpop\b|electr[oó]nic|techno|reggae|\brap\b|hip.?hop|indie|\bsoul\b|blues|salsa|verbena|discoteca|kontzertu|\bjai\b|jaialdi|cantante|banda|orquesta|coro\b|zarzuela|[oó]pera\b|cabaret|karaoke|baile', re.I)
+NO_MUSICA = re.compile(r'club de lectura|lectura|taller|curso|cuentacuentos|biblioteca|infantil|beb[eé]s', re.I)
 MUESTRAS = {}
 
 
@@ -73,6 +74,8 @@ def evento(titulo, ini, fin, h, lugar, direccion, lat, lng, url, precio, gratis,
     ini = fecha(ini); fin = fecha(fin) or ini
     if not titulo or not ini or fin < HOY or ini > HASTA:
         return None
+    if (fin - ini).days > 31:  # programas permanentes o de temporada: no son planes de una noche
+        return None
     try:
         lat = float(lat) if lat not in (None, '') else None; lng = float(lng) if lng not in (None, '') else None
     except ValueError:
@@ -87,7 +90,7 @@ def evento(titulo, ini, fin, h, lugar, direccion, lat, lng, url, precio, gratis,
     if url_ok(url): e['url'] = url_ok(url)
     if precio: e['precio'] = limpio(precio, 80)
     if gratis: e['gratis'] = 1
-    if MUSICA.search(' '.join([titulo or '', cat or '', lugar or ''])): e['mus'] = 1
+    if MUSICA.search(' '.join([titulo or '', cat or ''])) and not NO_MUSICA.search(titulo or ''): e['mus'] = 1
     return e
 
 
@@ -132,32 +135,33 @@ def _buscar(d, *claves):
 
 
 def barcelona():
-    meta = json.loads(bajar('https://opendata-ajuntament.barcelona.cat/data/api/3/action/package_show?id=agenda-diaria'))
-    recursos = meta['result']['resources']
-    js = [r for r in recursos if (r.get('format') or '').lower() == 'json'] or [r for r in recursos if r.get('url', '').endswith('.json')]
-    if not js:
-        raise RuntimeError('sin recurso JSON en el catálogo')
-    datos = json.loads(bajar(js[0]['url'], timeout=180))
-    filas = datos if isinstance(datos, list) else datos.get('result', {}).get('records') or datos.get('records') or datos.get('data') or []
+    urls = ['https://opendata-ajuntament.barcelona.cat/data/dataset/a25e60cd-3083-4252-9fce-81f733871cb1/resource/877ccf66-9106-4ae2-be51-95a9f6469e4c/download',
+            'https://opendata-ajuntament.barcelona.cat/resources/bcn/Agenda/opendatabcn_agenda-csv.csv']
+    raw, err = None, None
+    for u in urls:
+        try:
+            raw = bajar(u, timeout=180)
+            if raw[:200].lstrip().lower().startswith((b'<!doctype', b'<html')):
+                err = f'{u}: devuelve una página web (control antirobots), no datos'; raw = None; continue
+            break
+        except Exception as ex:
+            err = f'{u}: {ex}'; raw = None
+    if raw is None:
+        raise RuntimeError(err)
+    for enc in ('utf-8-sig', 'utf-16', 'latin-1'):
+        try: txt = raw.decode(enc); break
+        except UnicodeDecodeError: pass
+    head = txt[:4000]
+    delim = max([',', ';', '\t'], key=head.count)
+    filas = list(csv.DictReader(io.StringIO(txt), delimiter=delim))
     MUESTRAS['barcelona'] = filas[:2]
     out = []
     for r in filas:
-        addr = (_buscar(r, 'addresses') or [{}])
-        addr = addr[0] if isinstance(addr, list) and addr else (addr if isinstance(addr, dict) else {})
-        lat = lng = None
-        loc = _buscar(addr, 'location') or {}
-        geoms = (loc.get('geometries') or []) if isinstance(loc, dict) else []
-        if geoms and isinstance(geoms[0], dict):
-            c = geoms[0].get('coordinates') or []
-            if len(c) >= 2 and abs(c[0]) <= 180: lng, lat = c[0], c[1]
-        if lat is None:
-            lat, lng = _buscar(r, 'geo_epgs_4326_lat', 'geo_epgs_4326_y', 'latitude', 'lat'), _buscar(r, 'geo_epgs_4326_lon', 'geo_epgs_4326_x', 'longitude', 'lon')
-        via = ' '.join(str(x) for x in (_buscar(addr, 'road_name', 'addresses_road_name'), _buscar(addr, 'start_street_number', 'addresses_start_street_number')) if x)
-        cats = r.get('secondary_filters_name') or r.get('values') or ''
-        e = evento(_buscar(r, 'name', 'nom', 'title'), _buscar(r, 'start_date', 'data_inici'), _buscar(r, 'end_date', 'data_fi'),
-                   hora(_buscar(r, 'start_date', 'hora_inici')), _buscar(r, 'institution_name', 'equipament', 'place') or _buscar(addr, 'district_name'),
-                   ', '.join(x for x in (via, str(_buscar(addr, 'zip_code', 'addresses_zip_code') or '')) if x), lat, lng,
-                   _buscar(r, 'url', 'link'), '', False, 'Ajuntament de Barcelona (Open Data BCN, CC BY 4.0)', json.dumps(cats, ensure_ascii=False)[:300])
+        g = lambda *ks: next(((r.get(k) or '').strip() for k in ks if (r.get(k) or '').strip()), '')
+        via = ' '.join(x for x in (g('addresses_road_name'), g('addresses_start_street_number')) if x)
+        e = evento(g('name'), g('start_date'), g('end_date'), hora(g('start_date')), g('institution_name', 'addresses_neighborhood_name'),
+                   ', '.join(x for x in (via, g('addresses_zip_code')) if x), g('geo_epgs_4326_lat', 'geo_epgs_4326_y'), g('geo_epgs_4326_lon', 'geo_epgs_4326_x'),
+                   '', '', False, 'Ajuntament de Barcelona (Open Data BCN, CC BY 4.0)', g('secondary_filters_name', 'values_value', 'values_category'))
         if e: out.append(('08019', e))
     return out, len(filas)
 
@@ -165,7 +169,7 @@ def barcelona():
 # ---------------- Euskadi (Kulturklik) ----------------
 def euskadi(nombres):
     out, total, pagina = [], 0, 1
-    while pagina <= 40:
+    while pagina <= 120:
         d = json.loads(bajar(f'https://api.euskadi.eus/culture/events/v1.0/events/upcoming?_elements=100&_page={pagina}&lang=SPANISH'))
         items = d.get('items') or []
         if pagina == 1: MUESTRAS['euskadi'] = items[:2]
