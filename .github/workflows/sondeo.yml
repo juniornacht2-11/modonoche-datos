@@ -1,0 +1,25 @@
+name: Sondeo de fuentes
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths: ['herramientas/sondeo/**']
+permissions:
+  contents: write
+jobs:
+  sondeo:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+      - name: Sondear (solo recuentos y nombres de columnas)
+        continue-on-error: true
+        run: python3 herramientas/sondeo/sondeo.py
+      - name: Guardar el resultado en la rama «sondeo»
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git checkout -B sondeo
+          git add -f salida
+          git commit -m "Resultado del sondeo" || true
+          git push -f origin sondeo
