@@ -57,6 +57,10 @@ jobs:
       - name: Comprobar servicios de fotos (Mapillary y Wikidata)
         continue-on-error: true
         run: python3 herramientas/diagnostico.py
+      - name: Probar registros oficiales de viviendas turísticas (solo recuento)
+        continue-on-error: true
+        timeout-minutes: 15
+        run: python3 herramientas/vut_prueba.py
       - name: Tamaño de lo publicado
         run: |
           du -sh publico
