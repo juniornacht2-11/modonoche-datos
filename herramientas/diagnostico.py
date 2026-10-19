@@ -7,7 +7,7 @@ TOKEN = 'MLY|29090041194015397|038d4d876aec6328a86caab4503a3753'  # token públi
 SITIOS = {'Puerta del Sol (Madrid)': (40.4169, -3.7035), 'Razzmatazz (Barcelona)': (41.3977, 2.1913), 'Alameda de Hércules (Sevilla)': (37.4007, -5.9946)}
 res = {'comprobado': dt.datetime.now(dt.timezone.utc).isoformat(timespec='seconds'), 'mapillary': {}, 'wikidata': None}
 for nombre, (lat, lng) in SITIOS.items():
-    bbox = f'{lng-0.0006},{lat-0.00045},{lng+0.0006},{lat+0.00045}'
+    bbox = f'{lng-0.0016},{lat-0.0012},{lng+0.0016},{lat+0.0012}'
     url = f'https://graph.mapillary.com/images?access_token={urllib.request.quote(TOKEN, safe="")}&fields=id,thumb_1024_url,thumb_256_url,captured_at,compass_angle,computed_geometry&bbox={bbox}&limit=20'
     try:
         req = urllib.request.Request(url, headers={'Origin': 'https://modonoche.juniornacht2.workers.dev', 'User-Agent': 'MODO-NOCHE-diagnostico/1.0'})
@@ -20,7 +20,7 @@ for nombre, (lat, lng) in SITIOS.items():
     except Exception as ex:
         res['mapillary'][nombre] = {'ok': False, 'error': str(ex)[:300]}
 try:
-    req = urllib.request.Request('https://www.wikidata.org/wiki/Special:EntityData/Q1059496.json', headers={'Origin': 'https://modonoche.juniornacht2.workers.dev', 'User-Agent': 'MODO-NOCHE-diagnostico/1.0 (https://github.com/juniornacht2-11/modonoche-datos)'})
+    req = urllib.request.Request('https://www.wikidata.org/wiki/Special:EntityData/Q2807.json', headers={'Origin': 'https://modonoche.juniornacht2.workers.dev', 'User-Agent': 'MODO-NOCHE-diagnostico/1.0 (https://github.com/juniornacht2-11/modonoche-datos)'})
     with urllib.request.urlopen(req, timeout=30) as r:
         d = json.loads(r.read()); cors = r.headers.get('Access-Control-Allow-Origin')
     ent = next(iter(d['entities'].values()))
