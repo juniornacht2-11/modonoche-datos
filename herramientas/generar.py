@@ -31,7 +31,8 @@ FILTRO = ['nwr/amenity=nightclub,music_venue,concert_hall,bar,pub,events_venue,r
 ETIQUETAS = ['name', 'amenity', 'tourism', 'leisure', 'theatre:type', 'cuisine', 'stars', 'rooms',
              'addr:street', 'addr:place', 'addr:housenumber', 'addr:postcode', 'addr:city',
              'website', 'contact:website', 'url', 'reservation:website', 'reservation:url', 'booking',
-             'phone', 'contact:phone', 'opening_hours', 'reservation', 'wheelchair', 'live_music', 'diet:vegetarian']
+             'phone', 'contact:phone', 'opening_hours', 'reservation', 'wheelchair', 'live_music', 'diet:vegetarian',
+             'website:menu', 'menu:url', 'url:menu', 'outdoor_seating', 'description']
 FIESTA = {'nightclub', 'music_venue', 'concert_hall', 'bar', 'pub', 'events_venue'}
 ALOJ = {'hotel', 'hostel', 'guest_house', 'apartment', 'motel'}
 AHORA = dt.datetime.now(dt.timezone.utc)
