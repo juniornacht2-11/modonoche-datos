@@ -22,7 +22,7 @@ HOY = dt.date.today()
 HASTA = HOY + dt.timedelta(days=60)
 GEN = dt.datetime.now(dt.timezone.utc).isoformat(timespec='seconds')
 MUSICA = re.compile(r'm[uú]sica|concierto|concert|fiesta|festa|festival|\bdj\b|dj set|jazz|flamenco|rock|\bpop\b|electr[oó]nic|techno|reggae|\brap\b|hip.?hop|indie|\bsoul\b|blues|salsa|verbena|discoteca|kontzertu|\bjai\b|jaialdi|cantante|banda|orquesta|coro\b|zarzuela|[oó]pera\b|cabaret|karaoke|baile', re.I)
-NO_MUSICA = re.compile(r'club de lectura|lectura|taller|curso|cuentacuentos|biblioteca|infantil|beb[eé]s', re.I)
+NO_MUSICA = re.compile(r'club de lectura|lectura|taller|curso|cuentacuentos|biblioteca|infantil|beb[eé]s|cine|film|zinema|pel[ií]cula|literari|literatura|exposici|erakusketa|conferencia|charla|hitzaldi|^programa\b|ciclo\b|teatro|antzerki', re.I)
 MUESTRAS = {}
 
 
@@ -57,7 +57,9 @@ def fecha(v):
 
 def hora(v):
     m = re.search(r'(\d{1,2}):(\d{2})', str(v or ''))
-    return f'{int(m[1]):02d}:{m[2]}' if m and int(m[1]) < 24 else ''
+    if not m or int(m[1]) > 23 or (m[1] in ('0', '00') and m[2] == '00'):
+        return ''  # 00:00 suele significar «sin hora publicada»
+    return f'{int(m[1]):02d}:{m[2]}'
 
 
 def url_ok(u):
@@ -90,7 +92,7 @@ def evento(titulo, ini, fin, h, lugar, direccion, lat, lng, url, precio, gratis,
     if url_ok(url): e['url'] = url_ok(url)
     if precio: e['precio'] = limpio(precio, 80)
     if gratis: e['gratis'] = 1
-    if MUSICA.search(' '.join([titulo or '', cat or ''])) and not NO_MUSICA.search(titulo or ''): e['mus'] = 1
+    if MUSICA.search(' '.join([titulo or '', cat or ''])) and not NO_MUSICA.search(' '.join([titulo or '', cat or ''])): e['mus'] = 1
     return e
 
 
