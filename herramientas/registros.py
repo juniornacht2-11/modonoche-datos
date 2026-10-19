@@ -237,6 +237,9 @@ def guardar_cache(nombre, d):
 
 GEO = cargar_cache('geocodificacion.json')
 CAT = cargar_cache('catastro.json')
+if CAT.get('_v') != 2:   # la primera ejecución marcó como «no encontradas» referencias de municipios que no llegó a descargar
+    CAT = {k: v for k, v in CAT.items() if v}
+    CAT['_v'] = 2
 geocodificadas = 0
 
 
@@ -355,6 +358,12 @@ def canarias():
     for r in filas:
         g = lambda c: r[i[c]] if c in i and i[c] < len(r) else ''
         lat, lng = num(g('latitud')), num(g('longitud'))
+        if lat and lng and lat > 1000 and lng > 1000:      # algunas filas vienen en UTM 28 (REGCAN95) en vez de grados
+            lat, lng = utm_a_geo(lng, lat, 28)
+        elif lat and lng and lat < 0 and lng > 0:          # latitud y longitud intercambiadas
+            lat, lng = lng, lat
+        if not en_espana(lat, lng):
+            ST['ic · coordenadas raras'] += 1
         prov = prov_de(g('direccion_provincia_nombre'))
         muni = muni_de(g('direccion_municipio_nombre'), prov, lat, lng)
         anadir('ic', g('establecimiento_id'), 'vut', muni, lat, lng, g('establecimiento_nombre_comercial'), solo_calle(g('direccion')), g('plazas'))
