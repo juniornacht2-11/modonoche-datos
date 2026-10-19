@@ -1,0 +1,23 @@
+name: Fotos candidatas
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths: ['fotos/candidatas.txt', 'fotos/descargar.py']
+permissions:
+  contents: write
+jobs:
+  descargar:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Descargar de Pexels
+        run: python3 fotos/descargar.py
+      - name: Guardar en la rama «candidatas»
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git checkout -B candidatas
+          git add fotos/candidatas
+          git commit -m "Fotos candidatas de Pexels" || true
+          git push -f origin candidatas
