@@ -19,9 +19,9 @@ def bajar(url, ruta):
 try:
     bajar('https://datos.juntadeandalucia.es/api/v0/openrta/all?format=csv', 'rta.csv'); p('bytes', os.path.getsize('rta.csv'))
     raw = open('rta.csv', 'rb').read(); txt = raw.decode('utf-8-sig', 'replace'); p('primeros 300', repr(txt[:300]))
-    for d in [',', ';']:
+    for d in ['|']:
         rr = list(csv.reader(io.StringIO(txt), delimiter=d)); p('delim', repr(d), 'filas', len(rr) - 1, 'longitudes', Counter(len(r) for r in rr[1:]).most_common(5), 'cab', len(rr[0]))
-    rr = list(csv.reader(io.StringIO(txt), delimiter=','))
+    rr = list(csv.reader(io.StringIO(txt), delimiter='|'))
     cab = rr[0]; buenas = [dict(zip(cab, r)) for r in rr[1:] if len(r) == len(cab)]; p('filas con longitud correcta', len(buenas))
     for k in ['group', 'group_id', 'object_type_id', 'objects_type_id', 'srid', 'provinces', 'province_id', 'modalities', 'categories', 'state_present_rtadseg', 'rental_type_ind', 'shared_ind', 'private_use_ind', 'ind_pub_open_rta', 'online_ind', 'municipality_id']:
         p(k, Counter(r.get(k) for r in buenas).most_common(25))
