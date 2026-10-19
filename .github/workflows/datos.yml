@@ -54,6 +54,9 @@ jobs:
         run: |
           rm -rf publico/eventos
           python3 herramientas/eventos.py
+      - name: Comprobar servicios de fotos (Mapillary y Wikidata)
+        continue-on-error: true
+        run: python3 herramientas/diagnostico.py
       - name: Tamaño de lo publicado
         run: |
           du -sh publico
