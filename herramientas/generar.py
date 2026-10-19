@@ -228,8 +228,15 @@ def escribir(res: dict, fecha_osm: str | None):
         with open(os.path.join(PUBLICO, 'locales', f'{cod}.json'), 'w', encoding='utf-8') as f:
             json.dump({'m': cod, 'gen': gen, 'datos': fecha_osm, 'elements': lst}, f, ensure_ascii=False, separators=(',', ':'))
         indice[cod] = len(lst)
+    por_tipo = {}
+    for lst in res['por_muni'].values():
+        for e in lst:
+            t = e.get('tags') or {}
+            k = ('tourism=' + t['tourism']) if t.get('tourism') in ALOJ else ('amenity=' + str(t.get('amenity')))
+            por_tipo[k] = por_tipo.get(k, 0) + 1
     meta = {'gen': gen, 'datos': fecha_osm, 'fuente': 'OpenStreetMap vía Geofabrik',
             'licencia': 'ODbL 1.0 · © colaboradores de OpenStreetMap', 'total': sum(indice.values()),
+            'municipios_con_datos': len(indice), 'por_tipo': dict(sorted(por_tipo.items(), key=lambda x: -x[1])),
             'estadisticas': res['st'], 'municipios': indice}
     with open(os.path.join(PUBLICO, 'indice.json'), 'w', encoding='utf-8') as f:
         json.dump(meta, f, ensure_ascii=False, separators=(',', ':'))
