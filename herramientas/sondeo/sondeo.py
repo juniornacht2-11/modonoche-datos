@@ -17,20 +17,18 @@ def bajar(url, ruta):
         except Exception as e: p('reintento', intento, repr(e)[:120])
     return False
 try:
-    bajar('https://datos.juntadeandalucia.es/api/v0/openrta/all?format=csv', 'rta.csv'); p('bytes', os.path.getsize('rta.csv'))
-    raw = open('rta.csv', 'rb').read(); txt = raw.decode('utf-8-sig', 'replace'); p('primeros 300', repr(txt[:300]))
-    for d in ['|']:
-        rr = list(csv.reader(io.StringIO(txt), delimiter=d)); p('delim', repr(d), 'filas', len(rr) - 1, 'longitudes', Counter(len(r) for r in rr[1:]).most_common(5), 'cab', len(rr[0]))
-    rr = list(csv.reader(io.StringIO(txt), delimiter='|'))
-    cabs = [(i, len(r)) for i, r in enumerate(rr) if 'coord_x' in r]; p('filas cabecera', cabs[:10])
-    for i, n in cabs[:4]: p('cabecera', i, n, rr[i])
-    for n in (92,):
-        ej = next((r for r in rr if len(r) == n), None); p('ejemplo de longitud', n, 'nº campos no vacíos', sum(1 for x in ej if x.strip()) if ej else None)
-    cab = rr[0]; buenas = [dict(zip(cab, r)) for r in rr[1:] if len(r) == len(cab)]; p('filas con longitud correcta', len(buenas))
-    for k in ['group', 'group_id', 'object_type_id', 'objects_type_id', 'srid', 'provinces', 'province_id', 'modalities', 'categories', 'state_present_rtadseg', 'rental_type_ind', 'shared_ind', 'private_use_ind', 'ind_pub_open_rta', 'online_ind', 'municipality_id']:
-        p(k, Counter(r.get(k) for r in buenas).most_common(25))
-    p('municipalities', Counter(r.get('municipalities') for r in buenas).most_common(12))
-    p('coord ejemplo', [(r.get('coord_x'), r.get('coord_y'), r.get('srid')) for r in buenas[:10]])
-    p('con nombre', sum(1 for r in buenas if r.get('name', '').strip()), 'con url', sum(1 for r in buenas if r.get('url', '').strip()), 'con coord', sum(1 for r in buenas if r.get('coord_x', '').strip()))
-except Exception as e: p('ERROR', repr(e)[:300])
+    b = urllib.request.urlopen(urllib.request.Request('https://datos.juntadeandalucia.es/api/v0/openrta/openapi.json', headers=UA), timeout=60).read()
+    import json; spec = json.loads(b)
+    for path, ops in spec.get('paths', {}).items():
+        for m, op in ops.items():
+            p('RUTA', m, path, [(x.get('name'), x.get('in'), str(x.get('schema'))[:80]) for x in op.get('parameters', [])])
+except Exception as e: p('ERROR openapi', repr(e)[:200])
+try:
+    ok = bajar('https://datos.juntadeandalucia.es/api/v0/openrta/all?format=json', 'rta.json'); p('json bajado', ok, os.path.getsize('rta.json'))
+    import json; j = json.load(open('rta.json', encoding='utf-8')); rows = j if isinstance(j, list) else next((v for v in j.values() if isinstance(v, list)), [])
+    p('filas json', len(rows)); p('conjuntos de claves', Counter(len(r) for r in rows).most_common(5))
+    ks = Counter(k for r in rows for k in r); p('claves', ks.most_common(120))
+    for k in ['objects_type_id', 'group', 'srid', 'provinces']: p(k, Counter(str(r.get(k)) for r in rows).most_common(20))
+    p('con coord', sum(1 for r in rows if r.get('coord_x')), 'con nombre', sum(1 for r in rows if (r.get('name') or '').strip()))
+except Exception as e: p('ERROR json', repr(e)[:300])
 os.makedirs('salida', exist_ok=True); open('salida/sondeo.txt', 'w', encoding='utf-8').write('\n'.join(L))
