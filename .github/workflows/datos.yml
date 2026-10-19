@@ -1,0 +1,58 @@
+name: Datos semanales de MODO NOCHE
+
+# Todo ocurre en los servidores de GitHub (gratis en repositorios públicos):
+#   1. Descarga el extracto de OpenStreetMap de España (Geofabrik).
+#   2. Prepara un archivo de locales por municipio (herramientas/generar.py).
+#   3. Lo publica en GitHub Pages: https://juniornacht2-11.github.io/modonoche-datos/
+# Se ejecuta cada lunes, al guardar cambios del proceso y a mano (Actions → Run workflow).
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '17 4 * * 1'
+  push:
+    branches: [main]
+    paths: ['herramientas/**', '.github/workflows/datos.yml', 'datos/**']
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: datos
+  cancel-in-progress: false
+
+jobs:
+  generar:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Instalar osmium
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq osmium-tool
+          osmium --version | head -1
+      - name: Generar los datos
+        run: python3 herramientas/generar.py
+      - name: Tamaño de lo publicado
+        run: |
+          du -sh publico
+          ls publico/locales | wc -l
+          ls -la publico/locales/41091.json publico/locales/28079.json publico/locales/08019.json || true
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: publico
+  publicar:
+    needs: generar
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.despliegue.outputs.page_url }}
+    steps:
+      - id: despliegue
+        uses: actions/deploy-pages@v4
