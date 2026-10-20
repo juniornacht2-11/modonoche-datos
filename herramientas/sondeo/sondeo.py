@@ -1,35 +1,37 @@
-"""Sondeo: agendas de eventos abiertas (catálogos)."""
-import json, os, urllib.parse, urllib.request
+"""Sondeo: estructura de agendas candidatas (columnas y 2 filas)."""
+import csv, io, json, os, urllib.request
+csv.field_size_limit(10**8)
 UA = {'User-Agent': 'MODO-NOCHE-datos/1.0 (+https://github.com/juniornacht2-11/modonoche-datos)'}
 L = []
 def p(*a): s = ' '.join(str(x) for x in a); L.append(s); print(s, flush=True)
-def get(u, t=60): return urllib.request.urlopen(urllib.request.Request(u, headers=UA), timeout=t).read()
-for kw in ['agenda', 'agenda cultural', 'eventos', 'actividades culturales', 'conciertos']:
-    for pag in range(0, 3):
-        try:
-            j = json.loads(get(f'https://datos.gob.es/apidata/catalog/dataset/title/{urllib.parse.quote(kw)}.json?_pageSize=50&_page={pag}'))
-            items = j.get('result', {}).get('items', [])
-            if not items: break
-            for it in items:
-                t = it.get('title'); t = t if isinstance(t, str) else next((x.get('_value') for x in (t or []) if isinstance(x, dict) and x.get('_lang') == 'es'), str(t)[:90])
-                dist = it.get('distribution') or []; dist = dist if isinstance(dist, list) else [dist]
-                us = [d.get('accessURL') for d in dist if isinstance(d, dict) and any(f in str(d.get('format', '')).lower() for f in ('csv', 'json'))][:2]
-                mod = str(it.get('modified', ''))[:10]
-                p('*', kw, '|', (t or '')[:100], '|', str(it.get('publisher', ''))[-10:], '|', mod, '|', ' '.join(map(str, us)))
-        except Exception as e: p('ERR', kw, pag, repr(e)[:120])
-for nombre, u in [('Cataluña socrata', 'https://analisi.transparenciacatalunya.cat/api/catalog/v1?q=agenda&limit=30'),
-                  ('CyL socrata', 'https://analisis.datosabiertos.jcyl.es/api/explore/v2.1/catalog/datasets?where=search(%22agenda%22)&limit=20'),
-                  ('Valencia ciudad', 'https://valencia.opendatasoft.com/api/explore/v2.1/catalog/datasets?where=search(%22agenda%22)&limit=20'),
-                  ('Málaga ckan', 'https://datosabiertos.malaga.eu/api/3/action/package_search?q=agenda&rows=10'),
-                  ('Zaragoza', 'https://www.zaragoza.es/sede/servicio/cultura/evento/list.json?rows=5')]:
+F = [('cat', 'https://analisi.transparenciacatalunya.cat/resource/rhpv-yr4f.json?$limit=3&$order=data_inici%20DESC'),
+     ('cat_count', 'https://analisi.transparenciacatalunya.cat/resource/rhpv-yr4f.json?$select=count(*)'),
+     ('bcn', 'https://opendata-ajuntament.barcelona.cat/data/dataset/2767159c-1c98-46b8-a686-2b25b40cb053/resource/3abb2414-1ee0-446e-9c25-380e938adb73/download'),
+     ('cyl', 'https://datosabiertos.jcyl.es/web/jcyl/risp/es/cultura-ocio/agenda_cultural/1284806871500.json'),
+     ('can', 'https://datos.canarias.es/catalogos/general/dataset/11dc9d88-b456-4ae2-bcf9-07ad624fd025/resource/d179079c-a2ed-40dc-a748-7b64d093c342/download/agendaproxima.csv'),
+     ('and', 'https://datos.juntadeandalucia.es/api/v0/schedule/all?format=json'),
+     ('vigo', 'https://datos.vigo.org/data/axenda/agenda-hoy.json'),
+     ('gijon', 'https://opendata.gijon.es/descargar.php?id=728&tipo=JSON')]
+for n, u in F:
     try:
-        b = get(u); j = json.loads(b)
-        if 'results' in j and isinstance(j['results'], list):
-            for r in j['results'][:30]:
-                res = r.get('resource') or r
-                p('#', nombre, '|', res.get('name') or res.get('dataset_id') or res.get('title'), '|', res.get('id') or res.get('dataset_id'), '|', str(res.get('updatedAt') or res.get('modified') or '')[:10])
-        elif 'result' in j and isinstance(j['result'], dict):
-            for r in j['result'].get('results', [])[:10]: p('#', nombre, '|', r.get('title'), '|', [x.get('url') for x in r.get('resources', [])][:3])
-        else: p('#', nombre, 'claves', list(j)[:10], str(j)[:400])
-    except Exception as e: p('ERR', nombre, repr(e)[:150])
+        b = urllib.request.urlopen(urllib.request.Request(u, headers=UA), timeout=180).read()
+        p('\n##', n, len(b), 'bytes', repr(b[:80]))
+        t = None
+        for e in ('utf-8-sig', 'latin-1'):
+            try: t = b.decode(e); break
+            except: pass
+        if t.lstrip()[:1] in '[{':
+            j = json.loads(t); rows = j if isinstance(j, list) else next((v for v in j.values() if isinstance(v, list)), None)
+            if rows is None and isinstance(j, dict):
+                for v in j.values():
+                    if isinstance(v, dict):
+                        rows = next((w for w in v.values() if isinstance(w, list)), None)
+                        if rows: break
+            p('claves raíz', list(j)[:10] if isinstance(j, dict) else 'lista', 'filas', len(rows or []))
+            for r in (rows or [])[:2]: p(json.dumps(r, ensure_ascii=False)[:1500])
+        else:
+            d = max([';', ',', '\t'], key=t[:4000].count); rr = list(csv.DictReader(io.StringIO(t), delimiter=d))
+            p('csv filas', len(rr)); 
+            for r in rr[:2]: p(json.dumps(r, ensure_ascii=False)[:1500])
+    except Exception as e: p('\n##', n, 'ERROR', repr(e)[:200])
 os.makedirs('salida', exist_ok=True); open('salida/sondeo.txt', 'w', encoding='utf-8').write('\n'.join(L))
