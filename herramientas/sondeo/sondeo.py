@@ -1,40 +1,35 @@
-"""Sondeo: email de contacto público en la web de cada discoteca de Barcelona (OpenStreetMap). Solo direcciones publicadas por el propio local."""
-import json, os, re, urllib.parse, urllib.request, concurrent.futures as cf
-UA = {'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.0 Safari/605.1.15'}
-j = json.loads(urllib.request.urlopen(urllib.request.Request('https://juniornacht2-11.github.io/modonoche-datos/locales/08019.json', headers=UA), timeout=120).read())
-locs = []
-for e in j.get('elements', []):
-    t = e.get('tags') or {}
-    if t.get('amenity') == 'nightclub' and t.get('name'):
-        locs.append({'nombre': t['name'], 'web': t.get('website') or t.get('contact:website') or t.get('url') or '', 'email': t.get('email') or t.get('contact:email') or '',
-                     'telefono': t.get('phone') or t.get('contact:phone') or '', 'calle': ' '.join(x for x in [t.get('addr:street', ''), t.get('addr:housenumber', '')] if x)})
-MAIL = re.compile(r'[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}')
-MALOS = re.compile(r'(sentry|wixpress|example|\.png|\.jpg|\.webp|\.svg|godaddy|domain|yourmail|email@|tu@|name@|curriculum|cv@|rrhh|jobs|empleo|privacy|privacidad|dpo|lopd|rgpd|legal)', re.I)
-def cfdecode(h):
-    k = int(h[:2], 16); return ''.join(chr(int(h[i:i + 2], 16) ^ k) for i in range(2, len(h), 2))
-def leer(u):
+"""Sondeo: agendas de eventos abiertas (catálogos)."""
+import json, os, urllib.parse, urllib.request
+UA = {'User-Agent': 'MODO-NOCHE-datos/1.0 (+https://github.com/juniornacht2-11/modonoche-datos)'}
+L = []
+def p(*a): s = ' '.join(str(x) for x in a); L.append(s); print(s, flush=True)
+def get(u, t=60): return urllib.request.urlopen(urllib.request.Request(u, headers=UA), timeout=t).read()
+for kw in ['agenda', 'agenda cultural', 'eventos', 'actividades culturales', 'conciertos']:
+    for pag in range(0, 3):
+        try:
+            j = json.loads(get(f'https://datos.gob.es/apidata/catalog/dataset/title/{urllib.parse.quote(kw)}.json?_pageSize=50&_page={pag}'))
+            items = j.get('result', {}).get('items', [])
+            if not items: break
+            for it in items:
+                t = it.get('title'); t = t if isinstance(t, str) else next((x.get('_value') for x in (t or []) if isinstance(x, dict) and x.get('_lang') == 'es'), str(t)[:90])
+                dist = it.get('distribution') or []; dist = dist if isinstance(dist, list) else [dist]
+                us = [d.get('accessURL') for d in dist if isinstance(d, dict) and any(f in str(d.get('format', '')).lower() for f in ('csv', 'json'))][:2]
+                mod = str(it.get('modified', ''))[:10]
+                p('*', kw, '|', (t or '')[:100], '|', str(it.get('publisher', ''))[-10:], '|', mod, '|', ' '.join(map(str, us)))
+        except Exception as e: p('ERR', kw, pag, repr(e)[:120])
+for nombre, u in [('Cataluña socrata', 'https://analisi.transparenciacatalunya.cat/api/catalog/v1?q=agenda&limit=30'),
+                  ('CyL socrata', 'https://analisis.datosabiertos.jcyl.es/api/explore/v2.1/catalog/datasets?where=search(%22agenda%22)&limit=20'),
+                  ('Valencia ciudad', 'https://valencia.opendatasoft.com/api/explore/v2.1/catalog/datasets?where=search(%22agenda%22)&limit=20'),
+                  ('Málaga ckan', 'https://datosabiertos.malaga.eu/api/3/action/package_search?q=agenda&rows=10'),
+                  ('Zaragoza', 'https://www.zaragoza.es/sede/servicio/cultura/evento/list.json?rows=5')]:
     try:
-        b = urllib.request.urlopen(urllib.request.Request(u, headers=UA), timeout=20).read(2_000_000).decode('utf-8', 'replace')
-    except Exception: return ''
-    return b
-def buscar(x):
-    if x['email'] or not x['web']: return x
-    base = x['web'] if x['web'].startswith('http') else 'https://' + x['web']
-    vistos = []
-    for ruta in ['', 'contacto', 'contacte', 'contact', 'es/contacto', 'info', 'aviso-legal', 'avis-legal', 'legal']:
-        h = leer(urllib.parse.urljoin(base if base.endswith('/') else base + '/', ruta))
-        if not h: continue
-        for c in re.findall(r'data-cfemail="([0-9a-f]+)"', h): vistos.append(cfdecode(c))
-        for m in re.findall(r'mailto:([^"\'?>\s]+)', h): vistos.append(urllib.parse.unquote(m))
-        vistos += MAIL.findall(h)
-        buenos = [v.strip().lower() for v in vistos if not MALOS.search(v)]
-        if buenos: break
-    buenos = list(dict.fromkeys(v.strip().lower().rstrip('.') for v in vistos if not MALOS.search(v)))
-    dom = urllib.parse.urlparse(base).netloc.replace('www.', '')
-    buenos.sort(key=lambda v: (dom.split('.')[0] not in v, not re.match(r'(info|hola|contact|reserv|booking|events|eventos)', v)))
-    x['email'] = buenos[0] if buenos else ''; x['otros'] = buenos[1:4]
-    return x
-with cf.ThreadPoolExecutor(8) as ex: res = list(ex.map(buscar, locs))
-res.sort(key=lambda x: x['nombre'].lower())
-os.makedirs('salida', exist_ok=True); json.dump(res, open('salida/discotecas_bcn.json', 'w', encoding='utf-8'), ensure_ascii=False, indent=1)
-open('salida/sondeo.txt', 'w').write(f"total {len(res)} con email {sum(1 for x in res if x['email'])}\n")
+        b = get(u); j = json.loads(b)
+        if 'results' in j and isinstance(j['results'], list):
+            for r in j['results'][:30]:
+                res = r.get('resource') or r
+                p('#', nombre, '|', res.get('name') or res.get('dataset_id') or res.get('title'), '|', res.get('id') or res.get('dataset_id'), '|', str(res.get('updatedAt') or res.get('modified') or '')[:10])
+        elif 'result' in j and isinstance(j['result'], dict):
+            for r in j['result'].get('results', [])[:10]: p('#', nombre, '|', r.get('title'), '|', [x.get('url') for x in r.get('resources', [])][:3])
+        else: p('#', nombre, 'claves', list(j)[:10], str(j)[:400])
+    except Exception as e: p('ERR', nombre, repr(e)[:150])
+os.makedirs('salida', exist_ok=True); open('salida/sondeo.txt', 'w', encoding='utf-8').write('\n'.join(L))
