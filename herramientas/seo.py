@@ -167,7 +167,7 @@ def main():
         ''.join(f'<a href="/ocio-nocturno/provincia-{slug(PROV.get(p, p))}">{E(PROV.get(p, p))}</a>' for p in sorted(por_prov, key=lambda p: slug(PROV.get(p, p)))) + '</p>'
     open(os.path.join(OUT, 'ocio-nocturno', 'index.html'), 'w', encoding='utf-8').write(pagina('Ocio nocturno en España por ciudades | MODO NOCHE', 'Dónde salir de noche en cada ciudad de España: discotecas, bares, cenas y alojamientos.', f'{BASE}/ocio-nocturno/', cuerpo))
     # sitemap y robots
-    urls = [f'{BASE}/', f'{BASE}/ocio-nocturno/'] + [f'{BASE}/ocio-nocturno/provincia-{slug(PROV.get(p, p))}' for p in por_prov] + [url[c] for c in datos]
+    urls = [f'{BASE}/', f'{BASE}/para-locales', f'{BASE}/ocio-nocturno/'] + [f'{BASE}/ocio-nocturno/provincia-{slug(PROV.get(p, p))}' for p in por_prov] + [url[c] for c in datos]
     open(os.path.join(OUT, 'sitemap.xml'), 'w', encoding='utf-8').write('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' +
         ''.join(f'<url><loc>{E(u)}</loc><lastmod>{HOY}</lastmod></url>\n' for u in urls) + '</urlset>\n')
     open(os.path.join(OUT, 'robots.txt'), 'w').write(f'User-agent: *\nAllow: /\nSitemap: {BASE}/sitemap.xml\n')
