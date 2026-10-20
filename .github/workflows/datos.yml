@@ -48,6 +48,12 @@ jobs:
       - name: Generar los locales (una vez por semana)
         if: steps.cache.outputs.cache-hit != 'true'
         run: python3 herramientas/generar.py
+      - name: Agenda de eventos oficiales (cada día)
+        env:
+          TICKETMASTER_KEY: ${{ secrets.TICKETMASTER_KEY }}
+        run: |
+          rm -rf publico/eventos
+          python3 herramientas/eventos.py
       - name: Recuperar ubicaciones ya calculadas (Catastro y CartoCiudad)
         uses: actions/cache@v4
         with:
@@ -65,12 +71,6 @@ jobs:
         run: |
           rm -rf publico/registros
           if [ -d registros_pub ]; then cp -r registros_pub publico/registros; fi
-      - name: Agenda de eventos oficiales (cada día)
-        env:
-          TICKETMASTER_KEY: ${{ secrets.TICKETMASTER_KEY }}
-        run: |
-          rm -rf publico/eventos
-          python3 herramientas/eventos.py
       - name: Comprobar servicios de fotos (Mapillary y Wikidata)
         continue-on-error: true
         run: python3 herramientas/diagnostico.py

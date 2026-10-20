@@ -170,6 +170,68 @@ def barcelona():
     return out, len(filas)
 
 
+# ---------------- Cataluña (Agenda cultural de la Generalitat, toda Cataluña) ----------------
+def cataluna(nombres_cat):
+    hasta = HASTA.isoformat()
+    q = urllib.parse.urlencode({'$limit': 50000, '$where': f"data_fi >= '{HOY.isoformat()}T00:00:00' AND data_inici <= '{hasta}T23:59:59' AND permanent = 'No'"})
+    filas = json.loads(bajar('https://analisi.transparenciacatalunya.cat/resource/rhpv-yr4f.json?' + q, timeout=180))
+    MUESTRAS['cataluna'] = [{k: v for k, v in r.items() if k not in ('descripcio', 'descripcio_html', 'email', 'tel_fon')} for r in filas[:2]]
+    out = []
+    for r in filas:
+        g = lambda k: str(r.get(k) or '').strip()
+        slug = (g('municipi') or g('comarca_i_municipi')).rstrip('/').split('/')[-1]
+        cod = nombres_cat.get(norm(slug.replace('-', ' ')))
+        if not cod:
+            continue
+        h = hora(g('horari'))
+        if not h:
+            m = re.search(r'\b(\d{1,2})(?:[.,:](\d{2}))?\s*h\b', g('horari'))
+            if m and int(m[1]) < 24: h = f'{int(m[1]):02d}:{m[2] or "00"}'
+        enlace = g('url') or g('linkbotoentrades') or (g('enlla_os').split(',')[0] if g('enlla_os') else '')
+        if enlace and not enlace.startswith('http'): enlace = 'https://' + enlace
+        titulo = g('denominaci') + (f' · {g("subt_tol")}' if g('subt_tol') else '')
+        cat = ' '.join([g('tags_mbits'), g('tags_categor_es')]).replace('agenda:ambits/', '').replace('agenda:categories/', '').replace('-', ' ')
+        e = evento(titulo, g('data_inici'), g('data_fi'), h, g('espai'), ', '.join(x for x in (g('adre_a'), g('codi_postal')) if x),
+                   g('latitud'), g('longitud'), enlace, g('entrades'), g('gratuita') == 'Sí', 'Generalitat de Catalunya · Agenda cultural (dades obertes)', cat)
+        if e: out.append((cod, e))
+    return out, len(filas)
+
+
+# ---------------- Castilla y León (agenda cultural geolocalizada) ----------------
+def castilla_leon(nombres_prov):
+    filas = json.loads(bajar('https://datosabiertos.jcyl.es/web/jcyl/risp/es/cultura-ocio/agenda_cultural/1284806871500.json', timeout=180))
+    MUESTRAS['castilla_leon'] = [{k: v for k, v in r.items() if k not in ('descripcion',)} for r in filas[:2]]
+    out = []
+    for r in filas:
+        g = lambda k: str(r.get(k) if r.get(k) is not None else '').strip()
+        prov = g('codigo_provincia').zfill(2)
+        cod = nombres_prov.get((prov, norm(g('nombre_localidad'))))
+        if not cod:
+            continue
+        e = evento(g('titulo'), g('fecha_inicio'), g('fecha_fin') or g('fecha_inicio'), hora(g('hora_inicio')), g('lugar_celebracion'),
+                   ', '.join(x for x in (g('calle'), g('cp')) if x), r.get('latitud'), r.get('longitud'), g('enlace_contenido'),
+                   g('precio'), 'gratu' in g('precio').lower(), 'Junta de Castilla y León · Agenda cultural (datos abiertos)', g('categoria') + ' ' + g('tematica'))
+        if e: out.append((cod, e))
+    return out, len(filas)
+
+
+# ---------------- Gijón (agenda municipal) ----------------
+def gijon():
+    filas = json.loads(bajar('https://opendata.gijon.es/descargar.php?id=728&tipo=JSON', timeout=120).decode('utf-8-sig'))
+    MUESTRAS['gijon'] = filas[:2]
+    out = []
+    for r in filas:
+        g = lambda k: str(r.get(k) or '').strip()
+        fechas = re.findall(r'\d{4}-\d{2}-\d{2}', g('fechas') or g('fecha_inicio'))
+        if not fechas:
+            continue
+        e = evento(g('titulo'), fechas[0], fechas[-1], hora(g('hora_inicio')), g('titulo_directorio') or g('field_lo_name'),
+                   g('direccion_directorio') or g('field_lo_address'), None, None, g('alias'), '', False, 'Ayuntamiento de Gijón (datos abiertos)',
+                   ' '.join([g('materia'), g('tipo'), g('etiquetas')]))
+        if e: out.append(('33024', e))
+    return out, len(filas)
+
+
 # ---------------- Euskadi (Kulturklik) ----------------
 def euskadi(nombres):
     out, total, pagina = [], 0, 1
@@ -276,7 +338,16 @@ def main():
             nombres.setdefault(norm(p), m[0])
     os.makedirs(SALIDA, exist_ok=True)
     por_muni, fuentes = {}, []
-    for nombre, fn in (('Madrid', madrid), ('Barcelona', barcelona), ('Euskadi', lambda: euskadi(nombres)), ('Ticketmaster', lambda: ticketmaster(nombres, munis))):
+    nombres_cat, nombres_prov = {}, {}
+    for m in munis:
+        for parte in [m[1]] + re.split(r'[/]', m[1]):
+            p = parte.strip(); mm = re.match(r'^(.*), (.+)$', p)
+            variantes = [p] + ([mm[2] + ' ' + mm[1], mm[1]] if mm else [])
+            for v in variantes:
+                nombres_prov.setdefault((m[0][:2], norm(v)), m[0])
+                if m[0][:2] in ('08', '17', '25', '43'): nombres_cat.setdefault(norm(v), m[0])
+    for nombre, fn in (('Madrid', madrid), ('Barcelona', barcelona), ('Cataluña', lambda: cataluna(nombres_cat)), ('Castilla y León', lambda: castilla_leon(nombres_prov)),
+                       ('Gijón', gijon), ('Euskadi', lambda: euskadi(nombres)), ('Ticketmaster', lambda: ticketmaster(nombres, munis))):
         try:
             lst, leidos = fn()
             for cod, e in lst: por_muni.setdefault(cod, []).append(e)
