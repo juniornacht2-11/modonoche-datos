@@ -74,7 +74,7 @@ def ficha(el):
 
 CSS = """:root{color-scheme:dark}*{box-sizing:border-box}body{margin:0;background:#07070B;color:#F5F3FF;font:16px/1.6 system-ui,-apple-system,"Segoe UI",sans-serif}
 a{color:#22D3EE}main{max-width:900px;margin:auto;padding:20px 16px 48px}.top{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:14px 16px;border-bottom:1px solid #29283A}
-.logo{font-weight:800;letter-spacing:.06em;color:#F5F3FF;text-decoration:none}.logo em{color:#A855F7;font-style:normal}h1{font-size:clamp(26px,5vw,40px);line-height:1.15;margin:18px 0 10px}
+.logo{font-weight:800;letter-spacing:-.01em;color:#F5F3FF;text-decoration:none;display:inline-flex;align-items:flex-end;gap:3px;line-height:1}.logo em{font-style:normal;color:transparent;background:linear-gradient(90deg,#C084FC,#A855F7 45%,#22D3EE);-webkit-background-clip:text;background-clip:text}.logo img{transform:translateY(3px)}h1{font-size:clamp(26px,5vw,40px);line-height:1.15;margin:18px 0 10px}
 h2{font-size:20px;margin:30px 0 8px;color:#C7FF4A}.lead{color:#A5A2B5}.cta{display:inline-block;margin:14px 0;padding:12px 20px;border-radius:12px;background:#A855F7;color:#fff;font-weight:700;text-decoration:none}
 .cta.sec{background:transparent;border:1px solid #3a3850;color:#F5F3FF}ul.l{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:8px}
 ul.l li{background:#101019;border:1px solid #29283A;border-radius:12px;padding:10px 12px}ul.l b{display:block}ul.l span{font-size:13px;color:#A5A2B5}.n{color:#7C798E;font-size:14px}
@@ -88,7 +88,7 @@ def pagina(titulo, desc, canon, cuerpo, og_img='og.png', ld=None):
 <meta property="og:type" content="website"><meta property="og:site_name" content="MODO NOCHE"><meta property="og:title" content="{E(titulo)}"><meta property="og:description" content="{E(desc)}">
 <meta property="og:url" content="{E(canon)}"><meta property="og:image" content="{BASE}/{og_img}"><meta name="twitter:card" content="summary_large_image"><meta name="theme-color" content="#07070B">
 <link rel="icon" href="/icono-192.png"><link rel="apple-touch-icon" href="/icono-180.png">{f'<script type="application/ld+json">{json.dumps(ld, ensure_ascii=False)}</script>' if ld else ''}
-<style>{CSS}</style></head><body><header class="top"><a class="logo" href="/">MODO<em>/</em>NOCHE</a><a href="/ocio-nocturno/">Ciudades</a></header><main>{cuerpo}
+<style>{CSS}</style></head><body><header class="top"><a class="logo" href="/">MODO <em>NOCHE</em><img src="/logo-pin.svg" alt="" width="17" height="23"></a><a href="/ocio-nocturno/">Ciudades</a></header><main>{cuerpo}
 <footer>Datos de locales: © colaboradores de <a href="https://www.openstreetmap.org/copyright" rel="nofollow">OpenStreetMap</a> (ODbL). Alojamientos: registros oficiales de turismo de las comunidades autónomas (datos abiertos). Municipios: INE. Sin precios inventados: la información de cada local la publica el propio local.</footer></main></body></html>"""
 
 
