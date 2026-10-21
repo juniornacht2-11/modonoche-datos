@@ -13,7 +13,7 @@ import json, os, re, sys, time, math, unicodedata, urllib.request, urllib.parse
 
 RAIZ = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 PUB = os.path.join(RAIZ, 'publico')
-CACHE = os.path.join(RAIZ, 'cache', 'destacados_geo.json')
+CACHE = os.path.join(RAIZ, 'cache', 'destacados_geo2.json')
 UA = {'User-Agent': 'MODO-NOCHE-datos/1.0 (+https://github.com/juniornacht2-11/modonoche-datos)'}
 FIESTA = {'nightclub', 'bar', 'pub', 'music_venue', 'events_venue', 'concert_hall', 'theatre', 'restaurant', 'biergarten'}
 GENERICAS = {'discoteca', 'disco', 'club', 'sala', 'the', 'el', 'la', 'los', 'las', 'de', 'del', 'beach', 'nightclub', 'dance',
@@ -45,18 +45,24 @@ def get(url, tries=2):
     return None
 
 
-def coincide(nombre, el):
+def calle(s):
+    """Palabras significativas de la calle de una dirección («Calle del Doctor Cortezo, 1» → {doctor, cortezo})."""
+    s = nz(str(s or '').split(',')[0])
+    return {w for w in re.split(r'[^a-z0-9]+', s) if len(w) > 2 and w not in {'calle', 'carrer', 'avenida', 'avinguda', 'plaza', 'placa', 'paseo', 'passeig', 'del', 'de', 'la', 'las', 'los', 'els', 'dels', 'les'}}
+
+
+def coincide(nombre, el, dirx=''):
+    """Mismo nombre una vez quitadas las palabras genéricas (discoteca, club, sala, la, nombre de la ciudad…).
+    No vale que un nombre contenga al otro: «Hyde Club» no es «Hyde Park» ni «Indiana» es «Bar Diana»."""
     t = el.get('tags') or {}
-    cand = [t.get('name'), t.get('name:es'), t.get('alt_name'), t.get('brand')]
     a = nucleo(nombre)
-    for c in filter(None, cand):
-        b = nucleo(c)
-        if not a or not b:
-            continue
-        if a == b:
+    for c in filter(None, [t.get('name'), t.get('name:es'), t.get('alt_name'), t.get('brand')]):
+        if a and nucleo(c) == a:
+            # si los dos tienen calle y no se parecen en nada, no es el mismo sitio
+            cs, ce = calle(dirx), calle(t.get('addr:street') or t.get('addr:place') or '')
+            if cs and ce and not (cs & ce) and re.search(r'\d', dirx or ''):
+                return 0
             return 3
-        if min(len(a), len(b)) >= 4 and (a in b or b in a):
-            return 2
     return 0
 
 
@@ -89,9 +95,9 @@ def main():
         if d.get('estilos'): marcas['mn:estilos'] = ';'.join(d['estilos'])
         if d.get('top'): marcas['mn:top'] = 'yes'
         if d.get('nueva'): marcas['mn:nueva'] = d['nueva']
-        best = max(((coincide(d['n'], e) + (1 if (e.get('tags') or {}).get('amenity') == 'nightclub' else 0), e) for e in els
+        best = max(((coincide(d['n'], e, d.get('dir', '')) + (1 if (e.get('tags') or {}).get('amenity') == 'nightclub' else 0), e) for e in els
                     if (e.get('tags') or {}).get('amenity') in FIESTA), default=(0, None), key=lambda x: x[0])
-        if best[0] >= 2:
+        if best[0] >= 3:
             best[1].setdefault('tags', {}).update(marcas)
             informe['encontrados'].append([d['n'], c, f"{best[1]['type']}/{best[1]['id']}", best[1]['tags'].get('name')])
             continue
@@ -104,7 +110,7 @@ def main():
             time.sleep(1.1)
             fallo = r is None
             for x in r or []:
-                if x.get('category') in ('amenity', 'leisure', 'tourism') and nucleo(d['n']) and (nucleo(d['n']) in nucleo(x.get('name') or '') or nucleo(x.get('name') or '') == nucleo(d['n'])):
+                if x.get('category') in ('amenity', 'leisure', 'tourism') and nucleo(d['n']) and nucleo(x.get('name') or '') == nucleo(d['n']):
                     la, lo = float(x['lat']), float(x['lon'])
                     if mlat is None or km(la, lo, mlat, mlng) < 25:
                         pos = {'lat': la, 'lng': lo, 'via': 'nominatim', 'osm': f"{x.get('osm_type')}/{x.get('osm_id')}"}; break
