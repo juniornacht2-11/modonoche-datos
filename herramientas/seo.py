@@ -85,7 +85,7 @@ def ficha(el):
         return None
     calle = ' '.join(x for x in [t.get('addr:street') or t.get('addr:place') or '', t.get('addr:housenumber') or ''] if x).strip()
     d = {'n': n[:90], 'dir': (calle or t.get('addr:full') or '')[:90], 'web': bool(t.get('website') or t.get('contact:website')), 'hor': bool(t.get('opening_hours')),
-         'lat': el.get('lat'), 'lng': el.get('lon'), 'amb': ambiente(t, n)}
+         'lat': el.get('lat'), 'lng': el.get('lon'), 'amb': ambiente(t, n), 'id': f"{el.get('type')}/{el.get('id')}"}
     if t.get('mn:motivo'):
         d['dest'] = {'m': t['mn:motivo'][:140], 'f': t.get('mn:fuente') or '', 'top': t.get('mn:top') == 'yes'}
     a, tu = t.get('amenity'), t.get('tourism')
@@ -106,7 +106,7 @@ a{color:#22D3EE}main{max-width:900px;margin:auto;padding:20px 16px 48px}.top{dis
 .logo{font-family:"Unbounded",system-ui,sans-serif;font-weight:800;font-size:19px;letter-spacing:-.015em;color:#F5F3FF;text-decoration:none;display:inline-flex;align-items:baseline;line-height:1}.logo em{font-style:normal;color:transparent;background:linear-gradient(90deg,#C084FC,#A855F7 45%,#22D3EE);-webkit-background-clip:text;background-clip:text}.logo img{height:1.22em;width:auto;margin-left:.28em;filter:drop-shadow(0 0 .3em rgba(168,85,247,.5))}h1{font-size:clamp(26px,5vw,40px);line-height:1.15;margin:18px 0 10px}
 h2{font-size:20px;margin:30px 0 8px;color:#C7FF4A}.lead{color:#A5A2B5}.cta{display:inline-block;margin:14px 0;padding:12px 20px;border-radius:12px;background:#A855F7;color:#fff;font-weight:700;text-decoration:none}
 .cta.sec{background:transparent;border:1px solid #3a3850;color:#F5F3FF}ul.l{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:8px}
-ul.l li{background:#101019;border:1px solid #29283A;border-radius:12px;padding:10px 12px}ul.l b{display:block}ul.l span{font-size:13px;color:#A5A2B5}.n{color:#7C798E;font-size:14px}
+ul.l li{background:#101019;border:1px solid #29283A;border-radius:12px;padding:10px 12px}ul.l b{display:block}ul.l b a{color:#F5F3FF;text-decoration:none}ul.l b a:hover{text-decoration:underline}ul.l span{font-size:13px;color:#A5A2B5}.n{color:#7C798E;font-size:14px}
 .chips a{display:inline-block;margin:4px 6px 0 0;padding:6px 12px;border:1px solid #3a3850;border-radius:999px;text-decoration:none;color:#F5F3FF;font-size:14px}
 ul.l em.dest{display:inline-block;font:700 10px/1 ui-monospace,monospace;letter-spacing:.1em;padding:4px 7px;border-radius:99px;margin-bottom:5px;background:rgba(168,85,247,.18);color:#d8b4fe;font-style:normal}
 ul.l em.dest.top{background:#C7FF4A;color:#0b0b10}ul.l span.mot{display:block;font-size:12px;color:#7C798E;margin-top:3px}
@@ -123,7 +123,8 @@ def pagina(titulo, desc, canon, cuerpo, og_img='og.png', ld=None):
 <footer>Datos de locales: © colaboradores de <a href="https://www.openstreetmap.org/copyright" rel="nofollow">OpenStreetMap</a> (ODbL). Alojamientos: registros oficiales de turismo de las comunidades autónomas (datos abiertos). Municipios: INE. Sin precios inventados: la información de cada local la publica el propio local.</footer></main></body></html>"""
 
 
-def lista(items, n=24):
+def lista(items, n=24, c=None):
+    from urllib.parse import quote
     out = []
     for d in items[:n]:
         de = d.get('dest'); ins = mot = ''
@@ -131,7 +132,8 @@ def lista(items, n=24):
             ins = '<em class="dest top">TOP MUNDIAL</em>' if de['top'] else '<em class="dest">DESTACADA</em>'
             fu = (' · <a href="' + E(de['f']) + '" rel="nofollow noopener" target="_blank">fuente</a>') if de.get('f') else ''
             mot = '<span class="mot">' + E(de['m']) + fu + '</span>'
-        out.append(f"<li>{ins}<b>{E(d['n'])}</b><span>{E(d['tipo'])}{(' · ' + E(d['dir'])) if d.get('dir') else ''}</span>{mot}</li>")
+        nom = f"<a href=\"/#/local/{c}/{quote(d['id'], safe='')}/{d['k']}\">{E(d['n'])}</a>" if c and d.get('id') else E(d['n'])
+        out.append(f"<li>{ins}<b>{nom}</b><span>{E(d['tipo'])}{(' · ' + E(d['dir'])) if d.get('dir') else ''}</span>{mot}</li>")
     return '<ul class="l">' + ''.join(out) + '</ul>'
 
 
@@ -215,7 +217,7 @@ def main():
                 u = f"{BASE}/ocio-nocturno/{sl}-en-{slug(nom)}-{c}"
                 cu = f"""<p class="n"><a href="/ocio-nocturno/">Ciudades</a> › <a href="/ocio-nocturno/provincia-{slug(prov)}">{E(prov)}</a> › <a href="{rel(url[c])}">{E(nom)}</a></p>
 <h1>{E(tit)} en {E(nom)}</h1><p class="lead">{len(g)} sitios en {E(nom)} según los datos abiertos de OpenStreetMap{', con los destacados por rankings y guías primero' if any(d.get('dest') for d in g) else ''}. Toca para ver horarios, cómo llegar y planes cerca.</p>
-<a class="cta" href="/#/resultados/{c}/hoy/2/fiesta">Ver en el mapa y con horarios</a>""" + lista(g, 60)
+<a class="cta" href="/#/resultados/{c}/hoy/2/fiesta">Ver en el mapa y con horarios</a>""" + lista(g, 60, c)
                 tt = f'{tit} en {nom} | MODO NOCHE'
                 open(os.path.join(OUT, 'ocio-nocturno', u.rsplit('/', 1)[1] + '.html'), 'w', encoding='utf-8').write(
                     pagina(tt, f'{tit} en {nom} ({prov}): {len(g)} sitios con dirección, horario y web. Datos abiertos, sin precios inventados.', u, cu))
@@ -225,19 +227,19 @@ def main():
 <p class="lead">En {E(nom)} hay {E(resumen)} en MODO NOCHE. Elige con quién sales y te proponemos planes con sitios reales y cercanos entre sí: cena y copa, ruta de bares, discoteca o la noche completa con hotel.</p>
 <a class="cta" href="{app}">Organiza tu noche en {E(nom)}</a> <a class="cta sec" href="/#/resultados/{c}/hoy/2/fiesta">Ver locales para salir</a>"""
         if dest:
-            cuerpo += f'<h2>Las discotecas más destacadas de {E(nom)}</h2><p class="n">Por rankings internacionales (The World\'s 100 Best Clubs, DJ Mag Top 100 Clubs), guías de ocio y prensa. Cada una con su fuente.</p>' + lista(dest, 30)
+            cuerpo += f'<h2>Las discotecas más destacadas de {E(nom)}</h2><p class="n">Por rankings internacionales (The World\'s 100 Best Clubs, DJ Mag Top 100 Clubs), guías de ocio y prensa. Cada una con su fuente.</p>' + lista(dest, 30, c)
         if estilos:
             cuerpo += f'<h2>Por estilo en {E(nom)}</h2><p class="chips">' + ''.join(f'<a href="{rel(u)}">{E(t)}</a>' for t, u in estilos) + '</p>'
         if zonas.get(c):
             cuerpo += f'<h2>Zonas para salir en {E(nom)}</h2><p class="chips">' + ''.join(f'<a href="/ocio-nocturno/{sl}">{E(nm)}</a>' for nm, sl, *_ in zonas[c]) + '</p>'
         if clubs:
-            cuerpo += f'<h2>Discotecas, clubes y música en directo en {E(nom)}</h2>' + lista(clubs)
+            cuerpo += f'<h2>Discotecas, clubes y música en directo en {E(nom)}</h2>' + lista(clubs, 24, c)
         if bares:
-            cuerpo += f'<h2>Bares y pubs en {E(nom)}</h2>' + lista(bares)
+            cuerpo += f'<h2>Bares y pubs en {E(nom)}</h2>' + lista(bares, 24, c)
         if C:
-            cuerpo += f'<h2>Dónde cenar en {E(nom)}</h2>' + (f'<p class="n">Cocinas más habituales: {E(", ".join(k for k, v in coc))}.</p>' if coc else '') + lista(C) + f'<p><a href="/#/resultados/{c}/hoy/2/cenas">Ver todos los restaurantes de {E(nom)}</a></p>'
+            cuerpo += f'<h2>Dónde cenar en {E(nom)}</h2>' + (f'<p class="n">Cocinas más habituales: {E(", ".join(k for k, v in coc))}.</p>' if coc else '') + lista(C, 24, c) + f'<p><a href="/#/resultados/{c}/hoy/2/cenas">Ver todos los restaurantes de {E(nom)}</a></p>'
         if H or vut:
-            cuerpo += f'<h2>Dónde dormir en {E(nom)}</h2>' + (lista(H, 16) if H else '') + (f'<p class="n">Además, {vut:,} alojamientos inscritos en el registro oficial de turismo (viviendas turísticas, casas rurales, apartamentos…).</p>'.replace(',', '.') if vut else '') + f'<p><a href="/#/resultados/{c}/hoy/2/hoteles">Ver alojamientos y precios en {E(nom)}</a></p>'
+            cuerpo += f'<h2>Dónde dormir en {E(nom)}</h2>' + (lista(H, 16, c) if H else '') + (f'<p class="n">Además, {vut:,} alojamientos inscritos en el registro oficial de turismo (viviendas turísticas, casas rurales, apartamentos…).</p>'.replace(',', '.') if vut else '') + f'<p><a href="/#/resultados/{c}/hoy/2/hoteles">Ver alojamientos y precios en {E(nom)}</a></p>'
         if vecinos:
             cuerpo += '<h2>Cerca de ' + E(nom) + '</h2><p class="chips">' + ''.join(f'<a href="{rel(url[x])}">{E(INFO[x]["nombre"])}</a>' for x in vecinos) + '</p>'
         ld = {'@context': 'https://schema.org', '@type': 'BreadcrumbList', 'itemListElement': [
@@ -245,6 +247,21 @@ def main():
             {'@type': 'ListItem', 'position': 2, 'name': prov, 'item': f'{BASE}/ocio-nocturno/provincia-{slug(prov)}'},
             {'@type': 'ListItem', 'position': 3, 'name': nom, 'item': url[c]}]}
         open(os.path.join(OUT, 'ocio-nocturno', f"{slug(nom)}-{c}.html"), 'w', encoding='utf-8').write(pagina(titulo, desc, url[c], cuerpo, ld=ld))
+        # página propia de cada discoteca destacada
+        from urllib.parse import quote
+        for d in dest:
+            sl = f"local-{slug(d['n'])}-{c}"; u = f'{BASE}/ocio-nocturno/{sl}'; de = d['dest']
+            fu = f' (<a href="{E(de["f"])}" rel="nofollow noopener" target="_blank">ver fuente</a>)' if de.get('f') else ''
+            mapa = f'https://www.google.com/maps/search/?api=1&query={d["lat"]},{d["lng"]}' if d.get('lat') is not None else ''
+            cu = f"""<p class="n"><a href="/ocio-nocturno/">Ciudades</a> › <a href="/ocio-nocturno/provincia-{slug(prov)}">{E(prov)}</a> › <a href="{rel(url[c])}">{E(nom)}</a></p>
+<h1>{E(d['n'])}</h1><p class="lead">{E(d['tipo'])} en {E(nom)}{(' · ' + E(d['dir'])) if d.get('dir') else ''}.</p>
+<p>{'<b style="color:#C7FF4A">TOP MUNDIAL</b> · ' if de['top'] else '<b style="color:#d8b4fe">DESTACADA</b> · '}{E(de['m'])}{fu}.</p>
+{('<p>Estilo: ' + E(', '.join(AMB[k][0] for k in d['amb'])) + '.</p>') if d.get('amb') else ''}
+<a class="cta" href="/#/local/{c}/{quote(d['id'], safe='')}/fiesta">Ver horario, cómo llegar y planes cerca</a> {f'<a class="cta sec" href="{mapa}" rel="nofollow noopener" target="_blank">Ver en el mapa</a>' if mapa else ''}
+<h2>Más para salir en {E(nom)}</h2>""" + lista([x for x in F if x is not d], 12, c)
+            open(os.path.join(OUT, 'ocio-nocturno', sl + '.html'), 'w', encoding='utf-8').write(
+                pagina(f"{d['n']} ({nom}): {de['m']} | MODO NOCHE", f"{d['n']}, {d['tipo'].lower()} en {nom}. {de['m']}. Horario, dirección y planes cerca en MODO NOCHE.", u, cu))
+            extra.append(u)
         # páginas de zona
         for nm, sl, cerca, la, lo in zonas.get(c, []):
             Fz = sorted([d for d in cerca if d['k'] == 'fiesta'], key=lambda d: (rank(d)[0], km(la, lo, d['lat'], d['lng'])))
@@ -253,7 +270,7 @@ def main():
             from urllib.parse import quote
             cu = f"""<p class="n"><a href="/ocio-nocturno/">Ciudades</a> › <a href="/ocio-nocturno/provincia-{slug(prov)}">{E(prov)}</a> › <a href="{rel(url[c])}">{E(nom)}</a></p>
 <h1>Ocio nocturno en {E(nm)} ({E(nom)})</h1><p class="lead">A menos de 1 km de {E(nm)} hay {len(Fz)} sitios para salir y {len(Cz)} restaurantes en MODO NOCHE. Planes con sitios reales y cerca a pie.</p>
-<a class="cta" href="/#/plan/{c}~{quote(nm)}">Organiza tu noche en {E(nm)}</a>""" + (f'<h2>Para salir en {E(nm)}</h2>' + lista(Fz, 30) if Fz else '') + (f'<h2>Para cenar en {E(nm)}</h2>' + lista(Cz, 18) if Cz else '') + \
+<a class="cta" href="/#/plan/{c}~{quote(nm)}">Organiza tu noche en {E(nm)}</a>""" + (f'<h2>Para salir en {E(nm)}</h2>' + lista(Fz, 30, c) if Fz else '') + (f'<h2>Para cenar en {E(nm)}</h2>' + lista(Cz, 18, c) if Cz else '') + \
                 f'<p><a href="{rel(url[c])}">Todo el ocio nocturno de {E(nom)}</a></p>'
             open(os.path.join(OUT, 'ocio-nocturno', sl + '.html'), 'w', encoding='utf-8').write(
                 pagina(f'Ocio nocturno en {nm} ({nom}): dónde salir, bares y discotecas | MODO NOCHE', f'Dónde salir de noche en {nm} ({nom}, {prov}): {len(Fz)} bares, pubs y discotecas y {len(Cz)} restaurantes cerca. Datos abiertos.', u, cu))
