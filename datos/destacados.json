@@ -675,7 +675,8 @@
     "electronica"
    ],
    "motivo": "Recomendada en guías de ocio de Valencia",
-   "fuente": "https://nox-agency.com/es/valencia/discotecas"
+   "fuente": "https://nox-agency.com/es/valencia/discotecas",
+   "solo_direccion": true
   },
   {
    "n": "Indiana",
