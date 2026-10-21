@@ -102,12 +102,12 @@ def main():
             informe['encontrados'].append([d['n'], c, f"{best[1]['type']}/{best[1]['id']}", best[1]['tags'].get('name')])
             continue
         m = munis.get(c); mlat, mlng = (m[2], m[3]) if m else (None, None)
-        clave = f"{d['n']}|{c}|{d.get('dir', '')}"
+        clave = f"{d['n']}|{c}|{d.get('dir', '')}" + ('|dir' if d.get('solo_direccion') else '')
         if clave not in geo:
             pos = None
             q = f"{d['n']}, {m[1].split('/')[0] if m else ''}, España"
-            r = get('https://nominatim.openstreetmap.org/search?' + urllib.parse.urlencode({'q': q, 'format': 'jsonv2', 'countrycodes': 'es', 'limit': 5, 'addressdetails': 1}))
-            time.sleep(1.1)
+            r = [] if d.get('solo_direccion') else get('https://nominatim.openstreetmap.org/search?' + urllib.parse.urlencode({'q': q, 'format': 'jsonv2', 'countrycodes': 'es', 'limit': 5, 'addressdetails': 1}))
+            if not d.get('solo_direccion'): time.sleep(1.1)
             fallo = r is None
             for x in r or []:
                 if x.get('category') in ('amenity', 'leisure', 'tourism') and nucleo(d['n']) and nucleo(x.get('name') or '') == nucleo(d['n']):
