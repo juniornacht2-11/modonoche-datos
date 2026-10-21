@@ -4,8 +4,8 @@ os.makedirs('salida', exist_ok=True)
 r = subprocess.run(['python3', 'herramientas/eventos.py'], capture_output=True, text=True, timeout=1500, env={**os.environ})
 open('salida/sondeo.txt', 'w').write(r.stdout[-6000:] + '\n---\n' + r.stderr[-4000:])
 ix = json.load(open('publico/eventos/indice.json'))
-json.dump({'fuentes': ix['fuentes'], 'n_municipios': len(ix['municipios']), 'algunos': {k: ix['municipios'].get(k) for k in ['29067', '50297', '28079', '08019', '48020']}}, open('salida/indice.json', 'w'), ensure_ascii=False, indent=1)
-for c in ['29067', '50297']:
+json.dump({'fuentes': ix['fuentes'], 'n_municipios': len(ix['municipios']), 'algunos': {k: ix['municipios'].get(k) for k in ['29067', '50297', '46250', '03014', '12040', '28079']}}, open('salida/indice.json', 'w'), ensure_ascii=False, indent=1)
+for c in ['46250', '03014']:
     if os.path.exists(f'publico/eventos/{c}.json'):
         e = json.load(open(f'publico/eventos/{c}.json'))['eventos']
         json.dump({'total': len(e), 'musica': sum(1 for x in e if x.get('mus')), 'con_coordenadas': sum(1 for x in e if 'lat' in x), 'ej': [x for x in e if x.get('mus')][:6] + e[:3]}, open(f'salida/ej_{c}.json', 'w'), ensure_ascii=False, indent=1)

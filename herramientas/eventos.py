@@ -293,6 +293,32 @@ def zaragoza():
     return out, len(res)
 
 
+# ---------------- Comunitat Valenciana (Institut Valencià de Cultura, datos abiertos GVA) ----------------
+def ivc(nombres_prov):
+    b = bajar('https://dadesobertes.gva.es/dataset/25cc4d21-e1dd-4d05-b057-dbcc44d4338c/resource/f76b5222-c09f-46cb-8bb0-4fbe377c611d/download/lista-de-actividades-culturales-programadas-por-el-ivc.csv', timeout=120)
+    try: txt = b.decode('utf-8-sig')
+    except UnicodeDecodeError: txt = b.decode('latin-1')
+    filas = list(csv.DictReader(io.StringIO(txt), delimiter=';'))
+    MUESTRAS['ivc'] = filas[:2]
+    PROV = {'valencia': '46', 'alicante': '03', 'alacant': '03', 'castellon': '12', 'castello': '12'}
+    out = []
+    for r in filas:
+        g = lambda k: str(r.get(k) or '').strip()
+        pv = PROV.get(norm(g('provincia')).split(' ')[0], '')
+        cod = None
+        for v in [g('municipio')] + re.split(r'[/]', g('municipio')):
+            cod = nombres_prov.get((pv, norm(v)))
+            if cod: break
+        if not cod: continue
+        mh = re.search(r'(\d{1,2})(?:[.:](\d{2}))?\s*h', g('hora'))
+        h = f'{int(mh[1]):02d}:{mh[2] or "00"}' if mh and int(mh[1]) < 24 else ''
+        precio = g('precio')
+        e = evento(re.sub(r'^\(CANCELADO\).*', '', g('titulo_evento')), g('fecha_inicio'), g('fecha_fin'), h, g('lugar_evento'), g('direccion'), g('latitud') or None, g('longitud') or None,
+                   g('web'), '' if re.search(r'gratu|lliure|libre', precio, re.I) else precio, bool(re.search(r'gratu|lliure|libre', precio, re.I)),
+                   'Institut Valencià de Cultura (datos abiertos GVA)', g('tipo_evento'))
+        if e: out.append((cod, e))
+    return out, len(filas)
+
 
 # ---------------- Euskadi (Kulturklik) ----------------
 def euskadi(nombres):
@@ -409,7 +435,7 @@ def main():
                 nombres_prov.setdefault((m[0][:2], norm(v)), m[0])
                 if m[0][:2] in ('08', '17', '25', '43'): nombres_cat.setdefault(norm(v), m[0])
     for nombre, fn in (('Madrid', madrid), ('Barcelona', barcelona), ('Cataluña', lambda: cataluna(nombres_cat)), ('Castilla y León', lambda: castilla_leon(nombres_prov)),
-                       ('Gijón', gijon), ('Málaga', malaga), ('Zaragoza', zaragoza), ('Euskadi', lambda: euskadi(nombres)), ('Ticketmaster', lambda: ticketmaster(nombres, munis))):
+                       ('Gijón', gijon), ('Málaga', malaga), ('Zaragoza', zaragoza), ('Comunitat Valenciana (IVC)', lambda: ivc(nombres_prov)), ('Euskadi', lambda: euskadi(nombres)), ('Ticketmaster', lambda: ticketmaster(nombres, munis))):
         try:
             lst, leidos = fn()
             for cod, e in lst: por_muni.setdefault(cod, []).append(e)
