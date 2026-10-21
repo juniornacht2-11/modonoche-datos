@@ -109,7 +109,7 @@ h2{font-size:20px;margin:30px 0 8px;color:#C7FF4A}.lead{color:#A5A2B5}.cta{displ
 ul.l li{background:#101019;border:1px solid #29283A;border-radius:12px;padding:10px 12px}ul.l b{display:block}ul.l b a{color:#F5F3FF;text-decoration:none}ul.l b a:hover{text-decoration:underline}ul.l span{font-size:13px;color:#A5A2B5}.n{color:#7C798E;font-size:14px}
 .chips a{display:inline-block;margin:4px 6px 0 0;padding:6px 12px;border:1px solid #3a3850;border-radius:999px;text-decoration:none;color:#F5F3FF;font-size:14px}
 ul.l em.dest{display:inline-block;font:700 10px/1 ui-monospace,monospace;letter-spacing:.1em;padding:4px 7px;border-radius:99px;margin-bottom:5px;background:rgba(168,85,247,.18);color:#d8b4fe;font-style:normal}
-ul.l em.dest.top{background:#C7FF4A;color:#0b0b10}ul.l span.mot{display:block;font-size:12px;color:#7C798E;margin-top:3px}
+ul.l em.dest.dtop{background:#C7FF4A;color:#0b0b10}ul.l span.mot{display:block;font-size:12px;color:#7C798E;margin-top:3px}
 footer{margin-top:40px;font-size:13px;color:#7C798E;border-top:1px solid #29283A;padding-top:14px}"""
 
 
@@ -129,7 +129,7 @@ def lista(items, n=24, c=None):
     for d in items[:n]:
         de = d.get('dest'); ins = mot = ''
         if de:
-            ins = '<em class="dest top">TOP MUNDIAL</em>' if de['top'] else '<em class="dest">DESTACADA</em>'
+            ins = '<em class="dest dtop">TOP MUNDIAL</em>' if de['top'] else '<em class="dest">DESTACADA</em>'
             fu = (' · <a href="' + E(de['f']) + '" rel="nofollow noopener" target="_blank">fuente</a>') if de.get('f') else ''
             mot = '<span class="mot">' + E(de['m']) + fu + '</span>'
         nom = f"<a href=\"/#/local/{c}/{quote(d['id'], safe='')}/{d['k']}\">{E(d['n'])}</a>" if c and d.get('id') else E(d['n'])
