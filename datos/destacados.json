@@ -305,11 +305,15 @@
   {
    "n": "Lapikkara",
    "muni": "08252",
-   "dir": "",
+   "dir": "Avinguda Salvatella, 90",
    "estilos": [],
    "motivo": "nº 96 del mundo · World's 100 Best Clubs 2025",
    "fuente": "https://www.nightlifeinternational.org/es/inlv-awards/los-100-mejores-clubs",
-   "top": true
+   "top": true,
+   "alias": [
+    "La Píkkara",
+    "La Pikkara"
+   ]
   },
   {
    "n": "Insomnia Benidorm",
@@ -517,7 +521,7 @@
   {
    "n": "Nox Club Madrid",
    "muni": "28079",
-   "dir": "",
+   "dir": "Ronda de Toledo, 11",
    "estilos": [],
    "motivo": "Nominada a los 100 mejores del mundo",
    "fuente": "https://www.timeout.es/madrid/es/noticias/diez-clubs-de-madrid-entre-los-nominados-a-los-100-mejores-del-mundo-041525",
@@ -572,7 +576,7 @@
   {
    "n": "Hyde Club",
    "muni": "08019",
-   "dir": "Passatge de Domingo, 3",
+   "dir": "Pasaje Domingo, 3",
    "estilos": [],
    "motivo": "Recomendada en guías de ocio de Barcelona",
    "fuente": "https://nox-agency.com/es/barcelona/discotecas"
@@ -813,7 +817,7 @@
   {
    "n": "Mosh",
    "muni": "29069",
-   "dir": "Avenida del Prado, 3, Nueva Andalucía",
+   "dir": "Avenida del Prado, 3",
    "estilos": [],
    "motivo": "Recomendada en guías de ocio de Marbella",
    "fuente": "https://nox-agency.com/es/marbella/discotecas"
@@ -863,13 +867,16 @@
   {
    "n": "Obbio",
    "muni": "41091",
-   "dir": "Calle Trastámara",
+   "dir": "Calle Trastámara, 29",
    "estilos": [
     "rock",
     "pop"
    ],
    "motivo": "Recomendada en guías de ocio de Sevilla",
-   "fuente": "https://www.salir.com/las-mejores-discotecas-de-sevilla-art-542.html"
+   "fuente": "https://www.salir.com/las-mejores-discotecas-de-sevilla-art-542.html",
+   "alias": [
+    "Obbio Club"
+   ]
   },
   {
    "n": "Uthopia",
@@ -952,21 +959,28 @@
   {
    "n": "Moma Bilbao",
    "muni": "48020",
-   "dir": "",
+   "dir": "Calle Rodríguez Arias, 66",
    "estilos": [],
    "motivo": "Recomendada en guías de ocio de Bilbao",
-   "fuente": "https://www.salir.com/las-mejores-discotecas-de-bilbao-art-159.html"
+   "fuente": "https://www.salir.com/las-mejores-discotecas-de-bilbao-art-159.html",
+   "alias": [
+    "Sala Moma",
+    "Moma"
+   ]
   },
   {
    "n": "Kremlin",
    "muni": "48020",
-   "dir": "",
+   "dir": "Calle Dos de Mayo, 18",
    "estilos": [
     "rock",
     "electronica"
    ],
    "motivo": "Recomendada en guías de ocio de Bilbao",
-   "fuente": "https://www.salir.com/las-mejores-discotecas-de-bilbao-art-159.html"
+   "fuente": "https://www.salir.com/las-mejores-discotecas-de-bilbao-art-159.html",
+   "alias": [
+    "Kremlin Aretoa"
+   ]
   },
   {
    "n": "Muelle Bilbao",
@@ -992,12 +1006,15 @@
   {
    "n": "Supernova",
    "muni": "50297",
-   "dir": "",
+   "dir": "Calle José Atarés, 7",
    "estilos": [
     "pop"
    ],
    "motivo": "Recomendada en guías de ocio de Zaragoza",
-   "fuente": "https://www.salir.com/mejores-discotecas-de-zaragoza-art-3810.html"
+   "fuente": "https://www.salir.com/mejores-discotecas-de-zaragoza-art-3810.html",
+   "alias": [
+    "Supernova Club"
+   ]
   },
   {
    "n": "Taboo",
@@ -1106,14 +1123,6 @@
    "fuente": "https://www.salir.com/las-mejores-discotecas-de-granada-art-23.html"
   },
   {
-   "n": "Social Club Mallorca",
-   "muni": "07011",
-   "dir": "Magaluf",
-   "estilos": [],
-   "motivo": "Recomendada en guías de ocio de Mallorca",
-   "fuente": "https://www.salir.com/las-mejores-discotecas-en-mallorca-art-1416.html"
-  },
-  {
    "n": "Tokio Joe's",
    "muni": "07011",
    "dir": "Carrer de Punta Ballena",
@@ -1144,12 +1153,15 @@
   {
    "n": "The Golden",
    "muni": "30030",
-   "dir": "",
+   "dir": "Calle Isla Cristina, 8",
    "estilos": [
     "latino"
    ],
    "motivo": "Recomendada en guías de ocio de Murcia",
-   "fuente": "https://www.salir.com/las-mejores-discotecas-de-murcia-art-3875.html"
+   "fuente": "https://www.salir.com/las-mejores-discotecas-de-murcia-art-3875.html",
+   "alias": [
+    "The Golden Discoteca"
+   ]
   },
   {
    "n": "Chica de Ayer",
@@ -1385,7 +1397,7 @@
   {
    "n": "Katamaran",
    "muni": "03014",
-   "dir": "",
+   "dir": "Muelle de Levante, 8",
    "estilos": [
     "electronica"
    ],
@@ -1466,13 +1478,16 @@
   {
    "n": "La Kama",
    "muni": "31201",
-   "dir": "",
+   "dir": "Calle Monasterio de Cilveti, 7",
    "estilos": [
     "latino",
     "pop"
    ],
    "motivo": "Recomendada en guías de ocio de Pamplona",
-   "fuente": "https://www.salir.com/mejores-discotecas-de-pamplona-art-4077.html"
+   "fuente": "https://www.salir.com/mejores-discotecas-de-pamplona-art-4077.html",
+   "alias": [
+    "La Kama Pamplona"
+   ]
   },
   {
    "n": "Subsuelo",
@@ -1509,18 +1524,24 @@
   {
    "n": "Alcatraz",
    "muni": "17095",
-   "dir": "",
+   "dir": "Carrer de Ponent, 21",
    "estilos": [],
    "motivo": "Recomendada en guías de ocio de Lloret de Mar",
-   "fuente": "https://www.salir.com/las-mejores-discotecas-en-lloret-de-mar-art-1031.html"
+   "fuente": "https://www.salir.com/las-mejores-discotecas-en-lloret-de-mar-art-1031.html",
+   "alias": [
+    "Alcatraz Disco"
+   ]
   },
   {
    "n": "Gotham",
    "muni": "17095",
-   "dir": "",
+   "dir": "Carrer de Santa Cristina, 16",
    "estilos": [],
    "motivo": "Recomendada en guías de ocio de Lloret de Mar",
-   "fuente": "https://www.salir.com/las-mejores-discotecas-en-lloret-de-mar-art-1031.html"
+   "fuente": "https://www.salir.com/las-mejores-discotecas-en-lloret-de-mar-art-1031.html",
+   "alias": [
+    "Gotham Disco"
+   ]
   },
   {
    "n": "Revolution",
@@ -1581,10 +1602,13 @@
   {
    "n": "Di Mare",
    "muni": "43905",
-   "dir": "Carrer de Carles Buïgas",
+   "dir": "Carrer de Carles Buïgas, 6",
    "estilos": [],
    "motivo": "Recomendada en guías de ocio de Salou",
-   "fuente": "https://www.salir.com/las-mejores-discotecas-de-salou-art-633.html"
+   "fuente": "https://www.salir.com/las-mejores-discotecas-de-salou-art-633.html",
+   "alias": [
+    "Di Mare Club Disco"
+   ]
   },
   {
    "n": "Deluxe Salou",
