@@ -2,7 +2,7 @@
  "meta": {
   "que": "Discotecas y clubes destacados por MODO NOCHE: los que aparecen en rankings internacionales (The World's 100 Best Clubs 2025, DJ Mag Top 100 Clubs 2026), en guías de ocio de cada ciudad o en prensa por su apertura. Cada uno lleva su fuente. No se añade ningún local sin fuente.",
   "actualizado": "2026-10-21",
-  "campos": "n nombre · muni código INE · dir dirección (si la fuente la da) · estilos · motivo · fuente · top (ranking internacional) · nueva (mes de apertura)"
+  "campos": "n nombre · muni código INE · dir dirección (si la fuente la da) · estilos · motivo · fuente · top (ranking internacional) · nueva (mes de apertura) · alias (otros nombres con los que aparece en OpenStreetMap)"
  },
  "locales": [
   {
@@ -144,13 +144,18 @@
   {
    "n": "BCM Planet Dance",
    "muni": "07011",
-   "dir": "Magaluf",
+   "dir": "Avinguda de s'Olivera, s/n",
    "estilos": [
     "electronica"
    ],
    "motivo": "nº 15 del mundo · World's 100 Best Clubs 2025",
    "fuente": "https://www.nightlifeinternational.org/es/inlv-awards/los-100-mejores-clubs",
-   "top": true
+   "top": true,
+   "alias": [
+    "BCM",
+    "BCM Mallorca",
+    "BCM Magaluf"
+   ]
   },
   {
    "n": "Shôko Madrid",
@@ -195,13 +200,16 @@
   {
    "n": "Disco Tropics",
    "muni": "17095",
-   "dir": "",
+   "dir": "Avinguda Just Marlès Vilarrodona, 49",
    "estilos": [
     "hiphop"
    ],
    "motivo": "nº 23 del mundo · World's 100 Best Clubs 2025",
    "fuente": "https://www.nightlifeinternational.org/es/inlv-awards/los-100-mejores-clubs",
-   "top": true
+   "top": true,
+   "alias": [
+    "Tropics"
+   ]
   },
   {
    "n": "St. Trop",
@@ -215,19 +223,24 @@
   {
    "n": "Disco Privé",
    "muni": "17095",
-   "dir": "",
+   "dir": "Avinguda Just Marlès Vilarrodona, 48",
    "estilos": [
     "hiphop",
     "latino"
    ],
    "motivo": "nº 98 del mundo · World's 100 Best Clubs 2025",
    "fuente": "https://www.nightlifeinternational.org/es/inlv-awards/los-100-mejores-clubs",
-   "top": true
+   "top": true,
+   "alias": [
+    "Privé",
+    "Prive",
+    "Disco Prive"
+   ]
   },
   {
    "n": "Marmarela",
    "muni": "03014",
-   "dir": "Puerto de Alicante",
+   "dir": "Dique de Levante, Puerto de Alicante",
    "estilos": [
     "electronica"
    ],
@@ -495,7 +508,10 @@
    "estilos": [],
    "motivo": "Nominada a los 100 mejores del mundo",
    "fuente": "https://www.timeout.es/madrid/es/noticias/diez-clubs-de-madrid-entre-los-nominados-a-los-100-mejores-del-mundo-041525",
-   "top": true
+   "top": true,
+   "alias": [
+    "Fortuny Home Club"
+   ]
   },
   {
    "n": "Nox Club Madrid",
@@ -515,7 +531,12 @@
    ],
    "motivo": "Reabierta en noviembre de 2025",
    "fuente": "https://www.elespanol.com/madrid/ocio/20251118/reabre-famosa-discoteca-madrid-anos-historia-inesperado-cierre-vamos-reinventar-noche/1003744017554_0.html",
-   "nueva": "2025-11"
+   "nueva": "2025-11",
+   "alias": [
+    "Sala El Barco",
+    "El Barco",
+    "Sala Barco"
+   ]
   },
   {
    "n": "Razzmatazz",
@@ -820,7 +841,11 @@
    "dir": "Calle Matemáticos Rey Pastor y Castro",
    "estilos": [],
    "motivo": "Recomendada en guías de ocio de Sevilla",
-   "fuente": "https://www.salir.com/las-mejores-discotecas-de-sevilla-art-542.html"
+   "fuente": "https://www.salir.com/las-mejores-discotecas-de-sevilla-art-542.html",
+   "alias": [
+    "Discoteca Antique",
+    "Antique"
+   ]
   },
   {
    "n": "Sala Cosmos",
@@ -1223,7 +1248,10 @@
    "dir": "Playa de Las Américas",
    "estilos": [],
    "motivo": "Recomendada en guías de ocio de Tenerife",
-   "fuente": "https://capturetheatlas.com/es/discotecas-en-tenerife/"
+   "fuente": "https://capturetheatlas.com/es/discotecas-en-tenerife/",
+   "alias": [
+    "Tramps, The King of Clubs"
+   ]
   },
   {
    "n": "Bongó Anaga",
@@ -1233,7 +1261,10 @@
     "latino"
    ],
    "motivo": "Recomendada en guías de ocio de Tenerife",
-   "fuente": "https://capturetheatlas.com/es/discotecas-en-tenerife/"
+   "fuente": "https://capturetheatlas.com/es/discotecas-en-tenerife/",
+   "alias": [
+    "Bongó"
+   ]
   },
   {
    "n": "Babylon",
@@ -1261,7 +1292,10 @@
    "dir": "Meloneras",
    "estilos": [],
    "motivo": "Recomendada en guías de ocio de Gran Canaria (2026)",
-   "fuente": "https://sandbeds.com/best-nightclubs-gran-canaria/"
+   "fuente": "https://sandbeds.com/best-nightclubs-gran-canaria/",
+   "alias": [
+    "Chester"
+   ]
   },
   {
    "n": "TAO Club & Garden",

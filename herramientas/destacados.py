@@ -95,7 +95,7 @@ def main():
         if d.get('estilos'): marcas['mn:estilos'] = ';'.join(d['estilos'])
         if d.get('top'): marcas['mn:top'] = 'yes'
         if d.get('nueva'): marcas['mn:nueva'] = d['nueva']
-        best = max(((coincide(d['n'], e, d.get('dir', '')) + (1 if (e.get('tags') or {}).get('amenity') == 'nightclub' else 0), e) for e in els
+        best = max(((max(coincide(nn, e, d.get('dir', '')) for nn in [d['n']] + d.get('alias', [])) + (1 if (e.get('tags') or {}).get('amenity') == 'nightclub' else 0), e) for e in els
                     if (e.get('tags') or {}).get('amenity') in FIESTA), default=(0, None), key=lambda x: x[0])
         if best[0] >= 3:
             best[1].setdefault('tags', {}).update(marcas)
