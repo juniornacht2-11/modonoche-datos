@@ -97,7 +97,7 @@ def main():
         if d.get('nueva'): marcas['mn:nueva'] = d['nueva']
         best = max(((max(coincide(nn, e, d.get('dir', '')) for nn in [d['n']] + d.get('alias', [])) + (1 if (e.get('tags') or {}).get('amenity') == 'nightclub' else 0), e) for e in els
                     if (e.get('tags') or {}).get('amenity') in FIESTA), default=(0, None), key=lambda x: x[0])
-        if best[0] >= 3:
+        if best[0] >= 3 and not d.get('solo_direccion'):   # solo_direccion: hay un local de nombre parecido que puede no ser el mismo
             best[1].setdefault('tags', {}).update(marcas)
             informe['encontrados'].append([d['n'], c, f"{best[1]['type']}/{best[1]['id']}", best[1]['tags'].get('name')])
             continue

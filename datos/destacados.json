@@ -395,7 +395,8 @@
     "pop"
    ],
    "motivo": "Recomendada en guías de ocio de Madrid",
-   "fuente": "https://nox-agency.com/es/madrid/discotecas"
+   "fuente": "https://nox-agency.com/es/madrid/discotecas",
+   "solo_direccion": true
   },
   {
    "n": "Panthera",
