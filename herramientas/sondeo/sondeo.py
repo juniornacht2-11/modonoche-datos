@@ -12,3 +12,4 @@ out = {'indice': {k: ix.get(k) for k in ('gen', 'datos', 'total', 'municipios_co
        'lugares': {'n': len(l.get('l') or []), 'ej': [x for x in (l.get('l') or []) if x[0] in ('Magaluf', 'Puerto Banús', "Platja d'en Bossa", 'Playa de las Américas', 'Malasaña', 'Chueca', 'Maspalomas', 'Playa del Inglés', 'Gràcia', 'Ruzafa', 'Russafa', 'Triana')], 'error': l.get('error')},
        'redes': {'n': len(r.get('piezas') or []), 'titulos': [p['titulo'] for p in r.get('piezas') or []], 'error': r.get('error')}}
 json.dump(out, open('salida/publicado.json', 'w'), ensure_ascii=False, indent=1)
+
