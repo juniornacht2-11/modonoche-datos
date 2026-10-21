@@ -1,32 +1,14 @@
-"""Sondeo: ejecutar la agenda completa y guardar el índice y muestras (para comprobar las fuentes nuevas)."""
-import os, subprocess, shutil, json, urllib.request
+"""Sondeo: comprobar lo publicado en GitHub Pages (destacadas, pueblos y barrios, redes)."""
+import os, json, urllib.request
 os.makedirs('salida', exist_ok=True)
-r = subprocess.run(['python3', 'herramientas/eventos.py'], capture_output=True, text=True, timeout=1500, env={**os.environ})
-open('salida/sondeo.txt', 'w').write(r.stdout[-6000:] + '\n---\n' + r.stderr[-4000:])
-ix = json.load(open('publico/eventos/indice.json'))
-json.dump({'fuentes': ix['fuentes'], 'n_municipios': len(ix['municipios']), 'algunos': {k: ix['municipios'].get(k) for k in ['29067', '50297', '46250', '03014', '12040', '28079']}}, open('salida/indice.json', 'w'), ensure_ascii=False, indent=1)
-for c in ['46250', '03014']:
-    if os.path.exists(f'publico/eventos/{c}.json'):
-        e = json.load(open(f'publico/eventos/{c}.json'))['eventos']
-        json.dump({'total': len(e), 'musica': sum(1 for x in e if x.get('mus')), 'con_coordenadas': sum(1 for x in e if 'lat' in x), 'ej': [x for x in e if x.get('mus')][:6] + e[:3]}, open(f'salida/ej_{c}.json', 'w'), ensure_ascii=False, indent=1)
-# agendas regionales candidatas: ficha en datos.gob.es (para ver los enlaces de descarga)
-UA = {'User-Agent': 'MODO-NOCHE-datos/1.0', 'Accept': 'application/json'}
-out = {}
-for k, u in {'ivc': 'https://datos.gob.es/apidata/catalog/dataset/a10002983-agenda-cultural-del-institut-valencia-de-cultura-ivc.json',
-             'clm': 'https://datos.gob.es/apidata/catalog/dataset/a08002880-agenda-cultural-de-castilla-la-mancha.json',
-             'clm_tur': 'https://datos.gob.es/apidata/catalog/dataset/a08002880-agenda-de-turismo-de-castilla-la-mancha.json'}.items():
-    try:
-        j = json.loads(urllib.request.urlopen(urllib.request.Request(u, headers=UA), timeout=60).read())
-        it = (j.get('result', {}).get('items') or [{}])[0]
-        dist = it.get('distribution') or []
-        if isinstance(dist, dict): dist = [dist]
-        out[k] = [{'url': d.get('accessURL'), 'fmt': (d.get('format') or {}).get('value') if isinstance(d.get('format'), dict) else d.get('format')} for d in dist]
-        for d in out[k][:3]:
-            try:
-                b = urllib.request.urlopen(urllib.request.Request(d['url'], headers={'User-Agent': 'MODO-NOCHE-datos/1.0'}), timeout=60).read()
-                d['inicio'] = b[:1500].decode('utf-8', 'replace'); d['bytes'] = len(b)
-            except Exception as e:
-                d['error'] = str(e)[:200]
-    except Exception as e:
-        out[k] = {'error': str(e)[:300]}
-json.dump(out, open('salida/regionales.json', 'w'), ensure_ascii=False, indent=1)
+B = 'https://juniornacht2-11.github.io/modonoche-datos'
+def get(p):
+    try: return json.loads(urllib.request.urlopen(urllib.request.Request(B + p, headers={'User-Agent': 'MODO-NOCHE-sondeo'}), timeout=60).read())
+    except Exception as e: return {'error': str(e)[:200]}
+ix = get('/indice.json'); d = get('/destacados.json'); l = get('/lugares.json'); r = get('/redes/piezas.json')
+out = {'indice': {k: ix.get(k) for k in ('gen', 'datos', 'total', 'municipios_con_datos', 'destacados', 'estadisticas')},
+       'destacados': {k: (len(v) if isinstance(v, list) else v) for k, v in d.items()}, 'sin_ubicar': d.get('sin_ubicar'), 'anadidos': d.get('anadidos'),
+       'encontrados': d.get('encontrados'),
+       'lugares': {'n': len(l.get('l') or []), 'ej': [x for x in (l.get('l') or []) if x[0] in ('Magaluf', 'Puerto Banús', "Platja d'en Bossa", 'Playa de las Américas', 'Malasaña', 'Chueca', 'Maspalomas', 'Playa del Inglés', 'Gràcia', 'Ruzafa', 'Russafa', 'Triana')], 'error': l.get('error')},
+       'redes': {'n': len(r.get('piezas') or []), 'titulos': [p['titulo'] for p in r.get('piezas') or []], 'error': r.get('error')}}
+json.dump(out, open('salida/publicado.json', 'w'), ensure_ascii=False, indent=1)
