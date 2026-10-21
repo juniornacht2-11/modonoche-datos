@@ -22,7 +22,7 @@ UA = 'MODO-NOCHE-agenda/1.0 (https://github.com/juniornacht2-11/modonoche-datos;
 HOY = dt.date.today()
 HASTA = HOY + dt.timedelta(days=60)
 GEN = dt.datetime.now(dt.timezone.utc).isoformat(timespec='seconds')
-MUSICA = re.compile(r'm[uú]sica|concierto|concert|fiesta|festa|festival|\bdj\b|dj set|jazz|flamenco|rock|\bpop\b|electr[oó]nic|techno|reggae|\brap\b|hip.?hop|indie|\bsoul\b|blues|salsa|verbena|discoteca|kontzertu|\bjai\b|jaialdi|cantante|banda|orquesta|coro\b|zarzuela|[oó]pera\b|cabaret|karaoke|baile', re.I)
+MUSICA = re.compile(r'm[uú]sica|concierto|concert|fiesta|festa|festival|\bdj\b|dj set|jazz|flamenco|\brock\b|\bpop\b|electr[oó]nic|techno|reggae|\brap\b|hip.?hop|indie|\bsoul\b|blues|salsa|verbena|discoteca|kontzertu|\bjai\b|jaialdi|cantante|banda|orquesta|coro\b|zarzuela|[oó]pera\b|cabaret|karaoke|baile', re.I)
 NO_MUSICA = re.compile(r'club de lectura|lectura|taller|curso|cuentacuentos|biblioteca|infantil|beb[eé]s|cine|film|zinema|pel[ií]cula|literari|literatura|exposici|erakusketa|conferencia|charla|hitzaldi|^programa\b|ciclo\b|teatro|antzerki', re.I)
 MUESTRAS = {}
 
@@ -242,7 +242,7 @@ def malaga():
     out = []
     for r in filas:
         g = lambda k: str(r.get(k) or '').strip()
-        precio = g('PRECIO')
+        precio = re.split(r'punto de venta|venta de entradas', limpio(g('PRECIO'), 400), flags=re.I)[0].strip(' .:;,')
         e = evento(g('NOMBRE') or g('EVENTO'), g('F_INICIO'), g('F_FIN'), hora(g('HORARIO')), g('EQP_DESCRIPCION'), g('EQP_NOMBRECALLE'), None, None,
                    g('DIRECCION_WEB'), '' if re.search(r'gratu|libre', precio, re.I) else precio[:80], bool(re.search(r'gratu|libre', precio, re.I)),
                    'Ayuntamiento de Málaga (datos abiertos)', ' '.join([g('CATEGORIA'), g('ESPECIALIDAD'), g('PALABRAS_CLAVE')]))
