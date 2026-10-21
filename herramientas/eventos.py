@@ -5,6 +5,7 @@ MODO NOCHE · agenda de eventos de fuentes oficiales y abiertas (sin claves)
   - Ayuntamiento de Madrid · «Agenda de actividades y eventos» (datos.madrid.es, CC BY 4.0)
   - Ajuntament de Barcelona · «Agenda diària» (Open Data BCN, CC BY 4.0)
   - Gobierno Vasco · agenda cultural Kulturklik (api.euskadi.eus, datos abiertos)
+  - Ayuntamiento de Málaga · agenda (datosabiertos.malaga.eu) y Ayuntamiento de Zaragoza · agenda (API zaragoza.es)
 Escribe:
   publico/eventos/MMMMM.json   {"m": INE, "gen": fecha, "eventos": [...]} (próximos 60 días)
   publico/eventos/indice.json  municipios con eventos y estado de cada fuente
@@ -231,6 +232,67 @@ def gijon():
         if e: out.append(('33024', e))
     return out, len(filas)
 
+# ---------------- Málaga (Ayuntamiento, datos abiertos, se actualiza cada día) ----------------
+def malaga():
+    b = bajar(f'https://datosabiertos.malaga.eu/recursos/cultura/agenda/{HOY.year}.csv', timeout=180)
+    try: txt = b.decode('utf-8-sig')
+    except UnicodeDecodeError: txt = b.decode('latin-1')
+    filas = list(csv.DictReader(io.StringIO(txt)))
+    MUESTRAS['malaga'] = filas[:2]
+    out = []
+    for r in filas:
+        g = lambda k: str(r.get(k) or '').strip()
+        precio = g('PRECIO')
+        e = evento(g('NOMBRE') or g('EVENTO'), g('F_INICIO'), g('F_FIN'), hora(g('HORARIO')), g('EQP_DESCRIPCION'), g('EQP_NOMBRECALLE'), None, None,
+                   g('DIRECCION_WEB'), '' if re.search(r'gratu|libre', precio, re.I) else precio[:80], bool(re.search(r'gratu|libre', precio, re.I)),
+                   'Ayuntamiento de Málaga (datos abiertos)', ' '.join([g('CATEGORIA'), g('ESPECIALIDAD'), g('PALABRAS_CLAVE')]))
+        if e: out.append(('29067', e))
+    return out, len(filas)
+
+
+def utm30_a_latlng(x, y):
+    """ETRS89 / UTM 30N (EPSG:25830) → latitud y longitud (fórmulas estándar de Transverse Mercator)."""
+    a, f = 6378137.0, 1 / 298.257222101; e2 = f * (2 - f); k0 = 0.9996; e1 = (1 - math.sqrt(1 - e2)) / (1 + math.sqrt(1 - e2))
+    x -= 500000.0; m = y / k0; mu = m / (a * (1 - e2 / 4 - 3 * e2 ** 2 / 64 - 5 * e2 ** 3 / 256))
+    p1 = mu + (3 * e1 / 2 - 27 * e1 ** 3 / 32) * math.sin(2 * mu) + (21 * e1 ** 2 / 16 - 55 * e1 ** 4 / 32) * math.sin(4 * mu) + (151 * e1 ** 3 / 96) * math.sin(6 * mu)
+    n1 = a / math.sqrt(1 - e2 * math.sin(p1) ** 2); t1 = math.tan(p1) ** 2; ep2 = e2 / (1 - e2); c1 = ep2 * math.cos(p1) ** 2
+    r1 = a * (1 - e2) / (1 - e2 * math.sin(p1) ** 2) ** 1.5; d = x / (n1 * k0)
+    lat = p1 - (n1 * math.tan(p1) / r1) * (d ** 2 / 2 - (5 + 3 * t1 + 10 * c1 - 4 * c1 ** 2 - 9 * ep2) * d ** 4 / 24 + (61 + 90 * t1 + 298 * c1 + 45 * t1 ** 2 - 252 * ep2 - 3 * c1 ** 2) * d ** 6 / 720)
+    lng = (d - (1 + 2 * t1 + c1) * d ** 3 / 6 + (5 - 2 * c1 + 28 * t1 - 3 * c1 ** 2 + 8 * ep2 + 24 * t1 ** 2) * d ** 5 / 120) / math.cos(p1)
+    return round(math.degrees(lat), 6), round(math.degrees(lng) - 3.0, 6)
+
+
+# ---------------- Zaragoza (Ayuntamiento, API de datos abiertos) ----------------
+def zaragoza():
+    res, start, total = [], 0, None
+    while total is None or start < min(total, 6000):
+        j = json.loads(bajar(f'https://www.zaragoza.es/sede/servicio/cultura/evento/list.json?rows=500&start={start}', timeout=120).decode('utf-8'))
+        total = j.get('totalCount') or 0; lote = j.get('result') or []
+        res += lote; start += 500
+        if not lote: break
+    MUESTRAS['zaragoza'] = res[:2]
+    out = []
+    for r in res:
+        cats = ' '.join(c.get('title', '') for c in (r.get('category') or []) if isinstance(c, dict))
+        precio = ' '.join(str(p.get('fareGroup') or '') + ' ' + str(p.get('hasCurrencyValue') or '') for p in (r.get('price') or []) if isinstance(p, dict)).strip()
+        for se in (r.get('subEvent') or [{}])[:20]:
+            loc = se.get('location') or {}
+            lat = lng = None
+            co = ((loc.get('geometry') or {}).get('coordinates') or [])
+            if len(co) == 2 and co[0] > 1000:
+                try: lat, lng = utm30_a_latlng(float(co[0]), float(co[1]))
+                except Exception: lat = lng = None
+            h = ''
+            for oh in se.get('openingHours') or []:
+                h = hora(oh.get('startTime'))
+                if h: break
+            e = evento(r.get('title'), se.get('startDate') or r.get('startDate'), se.get('endDate') or r.get('endDate'), h, loc.get('title'), loc.get('streetAddress'), lat, lng,
+                       r.get('url') if url_ok(r.get('url')) else f"https://www.zaragoza.es/sede/servicio/cultura/evento/{r.get('id')}", precio[:80], bool(re.search(r'gratu', precio + ' ' + str(r.get('description') or ''), re.I)),
+                       'Ayuntamiento de Zaragoza (datos abiertos)', cats)
+            if e: out.append(('50297', e))
+    return out, len(res)
+
+
 
 # ---------------- Euskadi (Kulturklik) ----------------
 def euskadi(nombres):
@@ -347,7 +409,7 @@ def main():
                 nombres_prov.setdefault((m[0][:2], norm(v)), m[0])
                 if m[0][:2] in ('08', '17', '25', '43'): nombres_cat.setdefault(norm(v), m[0])
     for nombre, fn in (('Madrid', madrid), ('Barcelona', barcelona), ('Cataluña', lambda: cataluna(nombres_cat)), ('Castilla y León', lambda: castilla_leon(nombres_prov)),
-                       ('Gijón', gijon), ('Euskadi', lambda: euskadi(nombres)), ('Ticketmaster', lambda: ticketmaster(nombres, munis))):
+                       ('Gijón', gijon), ('Málaga', malaga), ('Zaragoza', zaragoza), ('Euskadi', lambda: euskadi(nombres)), ('Ticketmaster', lambda: ticketmaster(nombres, munis))):
         try:
             lst, leidos = fn()
             for cod, e in lst: por_muni.setdefault(cod, []).append(e)
