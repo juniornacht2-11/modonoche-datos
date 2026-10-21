@@ -1,0 +1,1633 @@
+{
+ "meta": {
+  "que": "Discotecas y clubes destacados por MODO NOCHE: los que aparecen en rankings internacionales (The World's 100 Best Clubs 2025, DJ Mag Top 100 Clubs 2026), en guías de ocio de cada ciudad o en prensa por su apertura. Cada uno lleva su fuente. No se añade ningún local sin fuente.",
+  "actualizado": "2026-10-21",
+  "campos": "n nombre · muni código INE · dir dirección (si la fuente la da) · estilos · motivo · fuente · top (ranking internacional) · nueva (mes de apertura)"
+ },
+ "locales": [
+  {
+   "n": "UNVRS",
+   "muni": "07046",
+   "dir": "Urbanización San Rafael, s/n",
+   "estilos": [
+    "electronica"
+   ],
+   "motivo": "nº 1 del mundo · World's 100 Best Clubs 2025 y DJ Mag 2026",
+   "fuente": "https://www.nightlifeinternational.org/es/inlv-awards/los-100-mejores-clubs",
+   "top": true
+  },
+  {
+   "n": "Hï Ibiza",
+   "muni": "07048",
+   "dir": "Platja d'en Bossa",
+   "estilos": [
+    "electronica"
+   ],
+   "motivo": "nº 2 del mundo · World's 100 Best Clubs 2025",
+   "fuente": "https://www.nightlifeinternational.org/es/inlv-awards/los-100-mejores-clubs",
+   "top": true
+  },
+  {
+   "n": "Ushuaïa Ibiza",
+   "muni": "07048",
+   "dir": "Platja d'en Bossa",
+   "estilos": [
+    "electronica"
+   ],
+   "motivo": "nº 3 del mundo · World's 100 Best Clubs 2025",
+   "fuente": "https://www.nightlifeinternational.org/es/inlv-awards/los-100-mejores-clubs",
+   "top": true
+  },
+  {
+   "n": "DC10",
+   "muni": "07048",
+   "dir": "Carretera de las Salinas, km 1",
+   "estilos": [
+    "electronica"
+   ],
+   "motivo": "nº 8 del mundo · World's 100 Best Clubs 2025",
+   "fuente": "https://www.nightlifeinternational.org/es/inlv-awards/los-100-mejores-clubs",
+   "top": true
+  },
+  {
+   "n": "Pacha Ibiza",
+   "muni": "07026",
+   "dir": "Av. 8 d'Agost",
+   "estilos": [
+    "electronica"
+   ],
+   "motivo": "nº 17 del mundo · World's 100 Best Clubs 2025",
+   "fuente": "https://www.nightlifeinternational.org/es/inlv-awards/los-100-mejores-clubs",
+   "top": true
+  },
+  {
+   "n": "Amnesia",
+   "muni": "07046",
+   "dir": "Ctra. Ibiza a San Antonio, km 5",
+   "estilos": [
+    "electronica"
+   ],
+   "motivo": "nº 26 del mundo · World's 100 Best Clubs 2025",
+   "fuente": "https://www.nightlifeinternational.org/es/inlv-awards/los-100-mejores-clubs",
+   "top": true
+  },
+  {
+   "n": "Lío Ibiza",
+   "muni": "07026",
+   "dir": "Passeig Joan Carles I, 1",
+   "estilos": [],
+   "motivo": "nº 76 del mundo · World's 100 Best Clubs 2025",
+   "fuente": "https://www.nightlifeinternational.org/es/inlv-awards/los-100-mejores-clubs",
+   "top": true
+  },
+  {
+   "n": "Chinois Ibiza",
+   "muni": "07026",
+   "dir": "Passeig Joan Carles I, 17",
+   "estilos": [
+    "electronica"
+   ],
+   "motivo": "Top 100 DJ Mag 2026 (nº 74)",
+   "fuente": "https://lavozdeibiza.com/actualidad/ibiza-en-el-top-100-clubs-2026-de-dj-mag-las-posiciones-de-cada-club-en-el-ranking/",
+   "top": true
+  },
+  {
+   "n": "Eden Ibiza",
+   "muni": "07046",
+   "dir": "Carrer Salvador Espriu, s/n",
+   "estilos": [
+    "electronica"
+   ],
+   "motivo": "Top 100 DJ Mag 2026 (nº 99)",
+   "fuente": "https://lavozdeibiza.com/actualidad/ibiza-en-el-top-100-clubs-2026-de-dj-mag-las-posiciones-de-cada-club-en-el-ranking/",
+   "top": true
+  },
+  {
+   "n": "Shôko Barcelona",
+   "muni": "08019",
+   "dir": "Passeig Marítim de la Barceloneta, 36",
+   "estilos": [],
+   "motivo": "nº 7 del mundo · World's 100 Best Clubs 2025",
+   "fuente": "https://www.nightlifeinternational.org/es/inlv-awards/los-100-mejores-clubs",
+   "top": true
+  },
+  {
+   "n": "Opium Barcelona",
+   "muni": "08019",
+   "dir": "Passeig Marítim de la Barceloneta, 34",
+   "estilos": [],
+   "motivo": "nº 9 del mundo · World's 100 Best Clubs 2025",
+   "fuente": "https://www.nightlifeinternational.org/es/inlv-awards/los-100-mejores-clubs",
+   "top": true
+  },
+  {
+   "n": "Sutton Barcelona",
+   "muni": "08019",
+   "dir": "Carrer de Tuset, 13",
+   "estilos": [],
+   "motivo": "nº 12 del mundo · World's 100 Best Clubs 2025",
+   "fuente": "https://www.nightlifeinternational.org/es/inlv-awards/los-100-mejores-clubs",
+   "top": true
+  },
+  {
+   "n": "Sala Apolo",
+   "muni": "08019",
+   "dir": "Carrer Nou de la Rambla, 113",
+   "estilos": [
+    "electronica",
+    "directo"
+   ],
+   "motivo": "nº 34 del mundo · World's 100 Best Clubs 2025",
+   "fuente": "https://www.nightlifeinternational.org/es/inlv-awards/los-100-mejores-clubs",
+   "top": true
+  },
+  {
+   "n": "BCM Planet Dance",
+   "muni": "07011",
+   "dir": "Magaluf",
+   "estilos": [
+    "electronica"
+   ],
+   "motivo": "nº 15 del mundo · World's 100 Best Clubs 2025",
+   "fuente": "https://www.nightlifeinternational.org/es/inlv-awards/los-100-mejores-clubs",
+   "top": true
+  },
+  {
+   "n": "Shôko Madrid",
+   "muni": "28079",
+   "dir": "Calle de Toledo, 86",
+   "estilos": [],
+   "motivo": "nº 22 del mundo · World's 100 Best Clubs 2025",
+   "fuente": "https://www.nightlifeinternational.org/es/inlv-awards/los-100-mejores-clubs",
+   "top": true
+  },
+  {
+   "n": "Fitz Club",
+   "muni": "28079",
+   "dir": "Calle de la Princesa, 1",
+   "estilos": [],
+   "motivo": "nº 35 del mundo · World's 100 Best Clubs 2025",
+   "fuente": "https://www.nightlifeinternational.org/es/inlv-awards/los-100-mejores-clubs",
+   "top": true
+  },
+  {
+   "n": "Fabrik",
+   "muni": "28073",
+   "dir": "",
+   "estilos": [
+    "electronica"
+   ],
+   "motivo": "nº 8 del mundo · DJ Mag Top 100 Clubs 2026",
+   "fuente": "https://www.timeout.es/madrid/es/noticias/esta-macrodiscoteca-de-madrid-entre-las-10-mejores-del-mundo-en-2026-041626",
+   "top": true
+  },
+  {
+   "n": "LAB theClub",
+   "muni": "28079",
+   "dir": "",
+   "estilos": [
+    "electronica"
+   ],
+   "motivo": "nº 77 del mundo · World's 100 Best Clubs 2025",
+   "fuente": "https://www.nightlifeinternational.org/es/inlv-awards/los-100-mejores-clubs",
+   "top": true
+  },
+  {
+   "n": "Disco Tropics",
+   "muni": "17095",
+   "dir": "",
+   "estilos": [
+    "hiphop"
+   ],
+   "motivo": "nº 23 del mundo · World's 100 Best Clubs 2025",
+   "fuente": "https://www.nightlifeinternational.org/es/inlv-awards/los-100-mejores-clubs",
+   "top": true
+  },
+  {
+   "n": "St. Trop",
+   "muni": "17095",
+   "dir": "",
+   "estilos": [],
+   "motivo": "nº 74 del mundo · World's 100 Best Clubs 2025",
+   "fuente": "https://www.nightlifeinternational.org/es/inlv-awards/los-100-mejores-clubs",
+   "top": true
+  },
+  {
+   "n": "Disco Privé",
+   "muni": "17095",
+   "dir": "",
+   "estilos": [
+    "hiphop",
+    "latino"
+   ],
+   "motivo": "nº 98 del mundo · World's 100 Best Clubs 2025",
+   "fuente": "https://www.nightlifeinternational.org/es/inlv-awards/los-100-mejores-clubs",
+   "top": true
+  },
+  {
+   "n": "Marmarela",
+   "muni": "03014",
+   "dir": "Puerto de Alicante",
+   "estilos": [
+    "electronica"
+   ],
+   "motivo": "nº 50 del mundo · World's 100 Best Clubs 2025",
+   "fuente": "https://www.nightlifeinternational.org/es/inlv-awards/los-100-mejores-clubs",
+   "top": true
+  },
+  {
+   "n": "Velice",
+   "muni": "03133",
+   "dir": "",
+   "estilos": [],
+   "motivo": "nº 57 del mundo · World's 100 Best Clubs 2025",
+   "fuente": "https://www.nightlifeinternational.org/es/inlv-awards/los-100-mejores-clubs",
+   "top": true
+  },
+  {
+   "n": "Momento Marbella",
+   "muni": "29069",
+   "dir": "Urbanización Villa Parra Palomeras, 68",
+   "estilos": [],
+   "motivo": "nº 80 del mundo · World's 100 Best Clubs 2025",
+   "fuente": "https://www.nightlifeinternational.org/es/inlv-awards/los-100-mejores-clubs",
+   "top": true
+  },
+  {
+   "n": "Biloba",
+   "muni": "25120",
+   "dir": "",
+   "estilos": [],
+   "motivo": "nº 82 del mundo · World's 100 Best Clubs 2025",
+   "fuente": "https://www.nightlifeinternational.org/es/inlv-awards/los-100-mejores-clubs",
+   "top": true
+  },
+  {
+   "n": "Tropical Salou",
+   "muni": "43905",
+   "dir": "",
+   "estilos": [],
+   "motivo": "nº 85 del mundo · World's 100 Best Clubs 2025",
+   "fuente": "https://www.nightlifeinternational.org/es/inlv-awards/los-100-mejores-clubs",
+   "top": true
+  },
+  {
+   "n": "Cocoa Mataró",
+   "muni": "08121",
+   "dir": "",
+   "estilos": [],
+   "motivo": "nº 90 del mundo · World's 100 Best Clubs 2025",
+   "fuente": "https://www.nightlifeinternational.org/es/inlv-awards/los-100-mejores-clubs",
+   "top": true
+  },
+  {
+   "n": "Condado Club",
+   "muni": "03063",
+   "dir": "",
+   "estilos": [],
+   "motivo": "nº 94 del mundo · World's 100 Best Clubs 2025",
+   "fuente": "https://www.nightlifeinternational.org/es/inlv-awards/los-100-mejores-clubs",
+   "top": true
+  },
+  {
+   "n": "Lapikkara",
+   "muni": "08252",
+   "dir": "",
+   "estilos": [],
+   "motivo": "nº 96 del mundo · World's 100 Best Clubs 2025",
+   "fuente": "https://www.nightlifeinternational.org/es/inlv-awards/los-100-mejores-clubs",
+   "top": true
+  },
+  {
+   "n": "Insomnia Benidorm",
+   "muni": "03031",
+   "dir": "",
+   "estilos": [],
+   "motivo": "nº 99 del mundo · World's 100 Best Clubs 2025",
+   "fuente": "https://www.nightlifeinternational.org/es/inlv-awards/los-100-mejores-clubs",
+   "top": true
+  },
+  {
+   "n": "Papagayo Beach Club",
+   "muni": "38006",
+   "dir": "Playa de Las Américas",
+   "estilos": [],
+   "motivo": "Top 100 DJ Mag 2026",
+   "fuente": "https://djmag.com/features/dj-mag-top-100-clubs-2026-record-breaking-numbers-vote-our-annual-poll-of-worlds-best",
+   "top": true
+  },
+  {
+   "n": "San Pelicano",
+   "muni": "15030",
+   "dir": "Avenida do Porto",
+   "estilos": [],
+   "motivo": "Top 100 DJ Mag 2026",
+   "fuente": "https://djmag.com/features/dj-mag-top-100-clubs-2026-record-breaking-numbers-vote-our-annual-poll-of-worlds-best",
+   "top": true
+  },
+  {
+   "n": "Bisou",
+   "muni": "28079",
+   "dir": "Calle de José Abascal, 8",
+   "estilos": [],
+   "motivo": "Recomendada en guías de ocio de Madrid",
+   "fuente": "https://nox-agency.com/es/madrid/discotecas"
+  },
+  {
+   "n": "Teatro Kapital",
+   "muni": "28079",
+   "dir": "Calle de Atocha, 125",
+   "estilos": [
+    "pop"
+   ],
+   "motivo": "Recomendada en guías de ocio de Madrid",
+   "fuente": "https://nox-agency.com/es/madrid/discotecas"
+  },
+  {
+   "n": "Vandido",
+   "muni": "28079",
+   "dir": "Calle de Goya, 79",
+   "estilos": [
+    "pop"
+   ],
+   "motivo": "Recomendada en guías de ocio de Madrid",
+   "fuente": "https://nox-agency.com/es/madrid/discotecas"
+  },
+  {
+   "n": "Teatro Barceló",
+   "muni": "28079",
+   "dir": "Calle de Barceló, 11",
+   "estilos": [
+    "pop",
+    "rock"
+   ],
+   "motivo": "Recomendada en guías de ocio de Madrid",
+   "fuente": "https://nox-agency.com/es/madrid/discotecas"
+  },
+  {
+   "n": "ToyRoom",
+   "muni": "28079",
+   "dir": "Calle de Arlabán, 7",
+   "estilos": [
+    "electronica"
+   ],
+   "motivo": "Recomendada en guías de ocio de Madrid",
+   "fuente": "https://nox-agency.com/es/madrid/discotecas"
+  },
+  {
+   "n": "Icon Club",
+   "muni": "28079",
+   "dir": "Calle del Doctor Cortezo, 1",
+   "estilos": [
+    "pop"
+   ],
+   "motivo": "Recomendada en guías de ocio de Madrid",
+   "fuente": "https://nox-agency.com/es/madrid/discotecas"
+  },
+  {
+   "n": "Panthera",
+   "muni": "28079",
+   "dir": "Calle de Miguel Ángel, 21",
+   "estilos": [
+    "latino"
+   ],
+   "motivo": "Recomendada en guías de ocio de Madrid",
+   "fuente": "https://nox-agency.com/es/madrid/discotecas"
+  },
+  {
+   "n": "Teatro Magno",
+   "muni": "28079",
+   "dir": "Calle de Cedaceros, 7",
+   "estilos": [
+    "pop"
+   ],
+   "motivo": "Recomendada en guías de ocio de Madrid",
+   "fuente": "https://nox-agency.com/es/madrid/discotecas"
+  },
+  {
+   "n": "Joy Eslava",
+   "muni": "28079",
+   "dir": "Calle del Arenal, 11",
+   "estilos": [
+    "pop"
+   ],
+   "motivo": "Recomendada en guías de ocio de Madrid",
+   "fuente": "https://nox-agency.com/es/madrid/discotecas"
+  },
+  {
+   "n": "Opium Madrid",
+   "muni": "28079",
+   "dir": "Calle de José Abascal, 56",
+   "estilos": [],
+   "motivo": "Recomendada en guías de ocio de Madrid",
+   "fuente": "https://nox-agency.com/es/madrid/discotecas"
+  },
+  {
+   "n": "Serrano 41",
+   "muni": "28079",
+   "dir": "Calle de Serrano, 41",
+   "estilos": [
+    "electronica"
+   ],
+   "motivo": "Recomendada en guías de ocio de Madrid",
+   "fuente": "https://nox-agency.com/es/madrid/discotecas"
+  },
+  {
+   "n": "Medias Puri",
+   "muni": "28079",
+   "dir": "Plaza de Tirso de Molina, 1",
+   "estilos": [
+    "electronica"
+   ],
+   "motivo": "Recomendada en guías de ocio de Madrid",
+   "fuente": "https://nox-agency.com/es/madrid/discotecas"
+  },
+  {
+   "n": "Lula Club",
+   "muni": "28079",
+   "dir": "Gran Vía, 54",
+   "estilos": [
+    "hiphop"
+   ],
+   "motivo": "Recomendada en guías de ocio de Madrid",
+   "fuente": "https://nox-agency.com/es/madrid/discotecas"
+  },
+  {
+   "n": "Goya Social Club",
+   "muni": "28079",
+   "dir": "Calle de Goya, 43",
+   "estilos": [],
+   "motivo": "Recomendada en guías de ocio de Madrid",
+   "fuente": "https://nox-agency.com/es/madrid/discotecas"
+  },
+  {
+   "n": "Gabana",
+   "muni": "28079",
+   "dir": "Calle de María de Molina, 39",
+   "estilos": [
+    "hiphop"
+   ],
+   "motivo": "Recomendada en guías de ocio de Madrid",
+   "fuente": "https://nox-agency.com/es/madrid/discotecas"
+  },
+  {
+   "n": "Panda Club",
+   "muni": "28079",
+   "dir": "Calle de Hernani, 75",
+   "estilos": [
+    "electronica"
+   ],
+   "motivo": "Recomendada en guías de ocio de Madrid",
+   "fuente": "https://nox-agency.com/es/madrid/discotecas"
+  },
+  {
+   "n": "Oh My Club",
+   "muni": "28079",
+   "dir": "Calle de Rosario Pino, 14",
+   "estilos": [],
+   "motivo": "Recomendada en guías de ocio de Madrid",
+   "fuente": "https://nox-agency.com/es/madrid/discotecas"
+  },
+  {
+   "n": "Fortuny",
+   "muni": "28079",
+   "dir": "",
+   "estilos": [],
+   "motivo": "Nominada a los 100 mejores del mundo",
+   "fuente": "https://www.timeout.es/madrid/es/noticias/diez-clubs-de-madrid-entre-los-nominados-a-los-100-mejores-del-mundo-041525",
+   "top": true
+  },
+  {
+   "n": "Nox Club Madrid",
+   "muni": "28079",
+   "dir": "",
+   "estilos": [],
+   "motivo": "Nominada a los 100 mejores del mundo",
+   "fuente": "https://www.timeout.es/madrid/es/noticias/diez-clubs-de-madrid-entre-los-nominados-a-los-100-mejores-del-mundo-041525",
+   "top": true
+  },
+  {
+   "n": "Barco Sound House",
+   "muni": "28079",
+   "dir": "Calle del Barco, 34",
+   "estilos": [
+    "directo"
+   ],
+   "motivo": "Reabierta en noviembre de 2025",
+   "fuente": "https://www.elespanol.com/madrid/ocio/20251118/reabre-famosa-discoteca-madrid-anos-historia-inesperado-cierre-vamos-reinventar-noche/1003744017554_0.html",
+   "nueva": "2025-11"
+  },
+  {
+   "n": "Razzmatazz",
+   "muni": "08019",
+   "dir": "Carrer dels Almogàvers, 122",
+   "estilos": [
+    "electronica",
+    "rock"
+   ],
+   "motivo": "Recomendada en guías de ocio de Barcelona",
+   "fuente": "https://nox-agency.com/es/barcelona/discotecas"
+  },
+  {
+   "n": "Pacha Barcelona",
+   "muni": "08019",
+   "dir": "Carrer de Ramon Trias Fargas, 2",
+   "estilos": [
+    "electronica"
+   ],
+   "motivo": "Recomendada en guías de ocio de Barcelona",
+   "fuente": "https://nox-agency.com/es/barcelona/discotecas"
+  },
+  {
+   "n": "Bling Bling",
+   "muni": "08019",
+   "dir": "Carrer de Tuset, 8",
+   "estilos": [],
+   "motivo": "Recomendada en guías de ocio de Barcelona",
+   "fuente": "https://nox-agency.com/es/barcelona/discotecas"
+  },
+  {
+   "n": "Hyde Club",
+   "muni": "08019",
+   "dir": "Passatge de Domingo, 3",
+   "estilos": [],
+   "motivo": "Recomendada en guías de ocio de Barcelona",
+   "fuente": "https://nox-agency.com/es/barcelona/discotecas"
+  },
+  {
+   "n": "Jamboree",
+   "muni": "08019",
+   "dir": "Plaça Reial, 17",
+   "estilos": [
+    "hiphop",
+    "jazz"
+   ],
+   "motivo": "Recomendada en guías de ocio de Barcelona",
+   "fuente": "https://nox-agency.com/es/barcelona/discotecas"
+  },
+  {
+   "n": "Bikini",
+   "muni": "08019",
+   "dir": "Avinguda Diagonal, 547",
+   "estilos": [
+    "electronica"
+   ],
+   "motivo": "Recomendada en guías de ocio de Barcelona",
+   "fuente": "https://nox-agency.com/es/barcelona/discotecas"
+  },
+  {
+   "n": "Downtown",
+   "muni": "08019",
+   "dir": "Avinguda del Doctor Marañón, 17",
+   "estilos": [
+    "pop"
+   ],
+   "motivo": "Recomendada en guías de ocio de Barcelona",
+   "fuente": "https://nox-agency.com/es/barcelona/discotecas"
+  },
+  {
+   "n": "La Fira Casanova",
+   "muni": "08019",
+   "dir": "Carrer de Casanova, 171",
+   "estilos": [
+    "pop"
+   ],
+   "motivo": "Recomendada en guías de ocio de Barcelona",
+   "fuente": "https://nox-agency.com/es/barcelona/discotecas"
+  },
+  {
+   "n": "Duvet",
+   "muni": "08019",
+   "dir": "Carrer de Còrsega, 327",
+   "estilos": [
+    "pop"
+   ],
+   "motivo": "Recomendada en guías de ocio de Barcelona",
+   "fuente": "https://nox-agency.com/es/barcelona/discotecas"
+  },
+  {
+   "n": "Biblio",
+   "muni": "08019",
+   "dir": "Carrer de Moià, 1",
+   "estilos": [
+    "pop"
+   ],
+   "motivo": "Recomendada en guías de ocio de Barcelona",
+   "fuente": "https://nox-agency.com/es/barcelona/discotecas"
+  },
+  {
+   "n": "Otto Zutz",
+   "muni": "08019",
+   "dir": "Carrer de Lincoln, 15",
+   "estilos": [
+    "hiphop"
+   ],
+   "motivo": "Recomendada en guías de ocio de Barcelona",
+   "fuente": "https://nox-agency.com/es/barcelona/discotecas"
+  },
+  {
+   "n": "Mya Club",
+   "muni": "46250",
+   "dir": "Avinguda del Professor López Piñero, 5",
+   "estilos": [
+    "electronica"
+   ],
+   "motivo": "Recomendada en guías de ocio de Valencia",
+   "fuente": "https://nox-agency.com/es/valencia/discotecas"
+  },
+  {
+   "n": "Havana The Cánovas Club",
+   "muni": "46250",
+   "dir": "Plaça de Cánovas del Castillo, 6",
+   "estilos": [
+    "latino"
+   ],
+   "motivo": "Recomendada en guías de ocio de Valencia",
+   "fuente": "https://nox-agency.com/es/valencia/discotecas"
+  },
+  {
+   "n": "Barraca",
+   "muni": "46250",
+   "dir": "Carrer de Sinarques, 14",
+   "estilos": [
+    "electronica"
+   ],
+   "motivo": "Recomendada en guías de ocio de Valencia",
+   "fuente": "https://nox-agency.com/es/valencia/discotecas"
+  },
+  {
+   "n": "Indiana",
+   "muni": "46250",
+   "dir": "Carrer de Sant Vicent Màrtir, 95",
+   "estilos": [
+    "hiphop",
+    "latino"
+   ],
+   "motivo": "Recomendada en guías de ocio de Valencia",
+   "fuente": "https://nox-agency.com/es/valencia/discotecas"
+  },
+  {
+   "n": "Play Club",
+   "muni": "46250",
+   "dir": "Carrer de Cuba, 8",
+   "estilos": [
+    "electronica"
+   ],
+   "motivo": "Recomendada en guías de ocio de Valencia",
+   "fuente": "https://nox-agency.com/es/valencia/discotecas"
+  },
+  {
+   "n": "Swag",
+   "muni": "07048",
+   "dir": "Carrer de la Murtra, 5",
+   "estilos": [],
+   "motivo": "Recomendada en guías de ocio de Ibiza",
+   "fuente": "https://nox-agency.com/es/ibiza/discotecas"
+  },
+  {
+   "n": "Baloo",
+   "muni": "07048",
+   "dir": "Carrer de les Begònies, 23",
+   "estilos": [],
+   "motivo": "Recomendada en guías de ocio de Ibiza",
+   "fuente": "https://nox-agency.com/es/ibiza/discotecas"
+  },
+  {
+   "n": "528 Ibiza",
+   "muni": "07046",
+   "dir": "Carrer del Romaní, 18",
+   "estilos": [],
+   "motivo": "Recomendada en guías de ocio de Ibiza",
+   "fuente": "https://nox-agency.com/es/ibiza/discotecas"
+  },
+  {
+   "n": "Vybe",
+   "muni": "07026",
+   "dir": "Marina Botafoc",
+   "estilos": [],
+   "motivo": "Recomendada en guías de ocio de Ibiza",
+   "fuente": "https://nox-agency.com/es/ibiza/discotecas"
+  },
+  {
+   "n": "Es Paradís",
+   "muni": "07046",
+   "dir": "Carrer Salvador Espriu, 2",
+   "estilos": [],
+   "motivo": "Recomendada en guías de ocio de Ibiza",
+   "fuente": "https://nox-agency.com/es/ibiza/discotecas"
+  },
+  {
+   "n": "Akasha",
+   "muni": "07054",
+   "dir": "Carretera San Carlos, km 12",
+   "estilos": [],
+   "motivo": "Recomendada en guías de ocio de Ibiza",
+   "fuente": "https://nox-agency.com/es/ibiza/discotecas"
+  },
+  {
+   "n": "Octan",
+   "muni": "07026",
+   "dir": "Carrer de les Alzines",
+   "estilos": [],
+   "motivo": "Recomendada en guías de ocio de Ibiza",
+   "fuente": "https://nox-agency.com/es/ibiza/discotecas"
+  },
+  {
+   "n": "Dreamers",
+   "muni": "29069",
+   "dir": "Ctra. N-340 km 175, Río Verde",
+   "estilos": [],
+   "motivo": "Recomendada en guías de ocio de Marbella",
+   "fuente": "https://nox-agency.com/es/marbella/discotecas"
+  },
+  {
+   "n": "Pangea",
+   "muni": "29069",
+   "dir": "Pasaje Muelle de Honor, Puerto Banús",
+   "estilos": [
+    "electronica"
+   ],
+   "motivo": "Recomendada en guías de ocio de Marbella",
+   "fuente": "https://nox-agency.com/es/marbella/discotecas"
+  },
+  {
+   "n": "Fitz Marbella",
+   "muni": "29069",
+   "dir": "Ctra. N-340 km 175, Río Verde",
+   "estilos": [],
+   "motivo": "Recomendada en guías de ocio de Marbella",
+   "fuente": "https://nox-agency.com/es/marbella/discotecas"
+  },
+  {
+   "n": "Tibu Banús",
+   "muni": "29069",
+   "dir": "Plaza Antonio Banderas, Puerto Banús",
+   "estilos": [],
+   "motivo": "Recomendada en guías de ocio de Marbella",
+   "fuente": "https://nox-agency.com/es/marbella/discotecas"
+  },
+  {
+   "n": "Bless Marbella",
+   "muni": "29069",
+   "dir": "Urbanización Marbellamar, 1",
+   "estilos": [
+    "electronica"
+   ],
+   "motivo": "Recomendada en guías de ocio de Marbella",
+   "fuente": "https://nox-agency.com/es/marbella/discotecas"
+  },
+  {
+   "n": "NYX Marbella",
+   "muni": "29069",
+   "dir": "Bulevar Príncipe Alfonso de Hohenlohe",
+   "estilos": [
+    "electronica"
+   ],
+   "motivo": "Recomendada en guías de ocio de Marbella",
+   "fuente": "https://nox-agency.com/es/marbella/discotecas"
+  },
+  {
+   "n": "Mosh",
+   "muni": "29069",
+   "dir": "Avenida del Prado, 3, Nueva Andalucía",
+   "estilos": [],
+   "motivo": "Recomendada en guías de ocio de Marbella",
+   "fuente": "https://nox-agency.com/es/marbella/discotecas"
+  },
+  {
+   "n": "Linekers",
+   "muni": "29069",
+   "dir": "Muelle Ribera, Puerto Banús",
+   "estilos": [
+    "latino"
+   ],
+   "motivo": "Recomendada en guías de ocio de Marbella",
+   "fuente": "https://nox-agency.com/es/marbella/discotecas"
+  },
+  {
+   "n": "Koko",
+   "muni": "41091",
+   "dir": "Plaza de la Encarnación, 38",
+   "estilos": [
+    "electronica"
+   ],
+   "motivo": "Recomendada en guías de ocio de Sevilla",
+   "fuente": "https://www.salir.com/las-mejores-discotecas-de-sevilla-art-542.html"
+  },
+  {
+   "n": "Antique Theatro",
+   "muni": "41091",
+   "dir": "Calle Matemáticos Rey Pastor y Castro",
+   "estilos": [],
+   "motivo": "Recomendada en guías de ocio de Sevilla",
+   "fuente": "https://www.salir.com/las-mejores-discotecas-de-sevilla-art-542.html"
+  },
+  {
+   "n": "Sala Cosmos",
+   "muni": "41091",
+   "dir": "Calle Carlos de Cepeda, 2",
+   "estilos": [
+    "electronica"
+   ],
+   "motivo": "Recomendada en guías de ocio de Sevilla",
+   "fuente": "https://www.salir.com/las-mejores-discotecas-de-sevilla-art-542.html"
+  },
+  {
+   "n": "Obbio",
+   "muni": "41091",
+   "dir": "Calle Trastámara",
+   "estilos": [
+    "rock",
+    "pop"
+   ],
+   "motivo": "Recomendada en guías de ocio de Sevilla",
+   "fuente": "https://www.salir.com/las-mejores-discotecas-de-sevilla-art-542.html"
+  },
+  {
+   "n": "Uthopia",
+   "muni": "41091",
+   "dir": "Centro Comercial Plaza de Armas",
+   "estilos": [],
+   "motivo": "Recomendada en guías de ocio de Sevilla",
+   "fuente": "https://www.salir.com/las-mejores-discotecas-de-sevilla-art-542.html"
+  },
+  {
+   "n": "Abril",
+   "muni": "41091",
+   "dir": "Hotel Meliá Lebreros",
+   "estilos": [],
+   "motivo": "Recomendada en guías de ocio de Sevilla",
+   "fuente": "https://www.salir.com/las-mejores-discotecas-de-sevilla-art-542.html"
+  },
+  {
+   "n": "Liceo",
+   "muni": "29067",
+   "dir": "",
+   "estilos": [],
+   "motivo": "Recomendada en guías de ocio de Málaga",
+   "fuente": "https://www.salir.com/las-mejores-discotecas-de-malaga-art-96.html"
+  },
+  {
+   "n": "Andén",
+   "muni": "29067",
+   "dir": "",
+   "estilos": [
+    "pop"
+   ],
+   "motivo": "Recomendada en guías de ocio de Málaga",
+   "fuente": "https://www.salir.com/las-mejores-discotecas-de-malaga-art-96.html"
+  },
+  {
+   "n": "Mirror Málaga",
+   "muni": "29067",
+   "dir": "Calle José Denís Belgrano, 19",
+   "estilos": [
+    "electronica"
+   ],
+   "motivo": "Recomendada en guías de ocio de Málaga",
+   "fuente": "https://www.salir.com/las-mejores-discotecas-de-malaga-art-96.html"
+  },
+  {
+   "n": "Sala Gold",
+   "muni": "29067",
+   "dir": "",
+   "estilos": [],
+   "motivo": "Recomendada en guías de ocio de Málaga",
+   "fuente": "https://www.salir.com/las-mejores-discotecas-de-malaga-art-96.html"
+  },
+  {
+   "n": "Malafama",
+   "muni": "29067",
+   "dir": "",
+   "estilos": [],
+   "motivo": "Recomendada en guías de ocio de Málaga",
+   "fuente": "https://www.salir.com/las-mejores-discotecas-de-malaga-art-96.html"
+  },
+  {
+   "n": "Atrévete",
+   "muni": "29901",
+   "dir": "",
+   "estilos": [],
+   "motivo": "Recomendada en guías de ocio de Málaga",
+   "fuente": "https://www.salir.com/las-mejores-discotecas-de-malaga-art-96.html"
+  },
+  {
+   "n": "Santana 27",
+   "muni": "48020",
+   "dir": "",
+   "estilos": [
+    "electronica"
+   ],
+   "motivo": "Recomendada en guías de ocio de Bilbao",
+   "fuente": "https://www.salir.com/las-mejores-discotecas-de-bilbao-art-159.html"
+  },
+  {
+   "n": "Moma Bilbao",
+   "muni": "48020",
+   "dir": "",
+   "estilos": [],
+   "motivo": "Recomendada en guías de ocio de Bilbao",
+   "fuente": "https://www.salir.com/las-mejores-discotecas-de-bilbao-art-159.html"
+  },
+  {
+   "n": "Kremlin",
+   "muni": "48020",
+   "dir": "",
+   "estilos": [
+    "rock",
+    "electronica"
+   ],
+   "motivo": "Recomendada en guías de ocio de Bilbao",
+   "fuente": "https://www.salir.com/las-mejores-discotecas-de-bilbao-art-159.html"
+  },
+  {
+   "n": "Muelle Bilbao",
+   "muni": "48020",
+   "dir": "Calle Ripa",
+   "estilos": [
+    "rock",
+    "pop"
+   ],
+   "motivo": "Recomendada en guías de ocio de Bilbao",
+   "fuente": "https://www.salir.com/las-mejores-discotecas-de-bilbao-art-159.html"
+  },
+  {
+   "n": "Momba",
+   "muni": "48013",
+   "dir": "Calle Zaballa, 13",
+   "estilos": [
+    "latino"
+   ],
+   "motivo": "Recomendada en guías de ocio de Bilbao",
+   "fuente": "https://www.salir.com/las-mejores-discotecas-de-bilbao-art-159.html"
+  },
+  {
+   "n": "Supernova",
+   "muni": "50297",
+   "dir": "",
+   "estilos": [
+    "pop"
+   ],
+   "motivo": "Recomendada en guías de ocio de Zaragoza",
+   "fuente": "https://www.salir.com/mejores-discotecas-de-zaragoza-art-3810.html"
+  },
+  {
+   "n": "Taboo",
+   "muni": "50297",
+   "dir": "Calle San Vicente Mártir, 32",
+   "estilos": [],
+   "motivo": "Recomendada en guías de ocio de Zaragoza",
+   "fuente": "https://www.salir.com/mejores-discotecas-de-zaragoza-art-3810.html"
+  },
+  {
+   "n": "Oasis",
+   "muni": "50297",
+   "dir": "",
+   "estilos": [
+    "electronica",
+    "directo"
+   ],
+   "motivo": "Recomendada en guías de ocio de Zaragoza",
+   "fuente": "https://www.salir.com/mejores-discotecas-de-zaragoza-art-3810.html"
+  },
+  {
+   "n": "Reset Club",
+   "muni": "50297",
+   "dir": "Calle Luis Bermejo, 9",
+   "estilos": [
+    "electronica"
+   ],
+   "motivo": "Recomendada en guías de ocio de Zaragoza",
+   "fuente": "https://www.salir.com/mejores-discotecas-de-zaragoza-art-3810.html"
+  },
+  {
+   "n": "Kenbo",
+   "muni": "50297",
+   "dir": "Calle Estébanes, 8",
+   "estilos": [
+    "pop",
+    "electronica"
+   ],
+   "motivo": "Recomendada en guías de ocio de Zaragoza",
+   "fuente": "https://www.salir.com/mejores-discotecas-de-zaragoza-art-3810.html"
+  },
+  {
+   "n": "Florida 135",
+   "muni": "22112",
+   "dir": "",
+   "estilos": [
+    "electronica"
+   ],
+   "motivo": "Recomendada en guías de ocio de Zaragoza",
+   "fuente": "https://www.salir.com/mejores-discotecas-de-zaragoza-art-3810.html"
+  },
+  {
+   "n": "Forum Plaza",
+   "muni": "18087",
+   "dir": "",
+   "estilos": [],
+   "motivo": "Recomendada en guías de ocio de Granada",
+   "fuente": "https://www.salir.com/las-mejores-discotecas-de-granada-art-23.html"
+  },
+  {
+   "n": "Efecto Club",
+   "muni": "18087",
+   "dir": "Cuesta de Santa Inés, 4",
+   "estilos": [
+    "electronica"
+   ],
+   "motivo": "Recomendada en guías de ocio de Granada",
+   "fuente": "https://www.salir.com/las-mejores-discotecas-de-granada-art-23.html"
+  },
+  {
+   "n": "Mae West",
+   "muni": "18087",
+   "dir": "Centro Comercial Neptuno",
+   "estilos": [],
+   "motivo": "Recomendada en guías de ocio de Granada",
+   "fuente": "https://www.salir.com/las-mejores-discotecas-de-granada-art-23.html"
+  },
+  {
+   "n": "Aliatar",
+   "muni": "18087",
+   "dir": "Calle Recogidas, 2",
+   "estilos": [
+    "latino"
+   ],
+   "motivo": "Recomendada en guías de ocio de Granada",
+   "fuente": "https://www.salir.com/las-mejores-discotecas-de-granada-art-23.html"
+  },
+  {
+   "n": "Backstage",
+   "muni": "18087",
+   "dir": "Calle Moras, 2",
+   "estilos": [
+    "pop"
+   ],
+   "motivo": "Recomendada en guías de ocio de Granada",
+   "fuente": "https://www.salir.com/las-mejores-discotecas-de-granada-art-23.html"
+  },
+  {
+   "n": "Booga Club",
+   "muni": "18087",
+   "dir": "",
+   "estilos": [
+    "directo"
+   ],
+   "motivo": "Recomendada en guías de ocio de Granada",
+   "fuente": "https://www.salir.com/las-mejores-discotecas-de-granada-art-23.html"
+  },
+  {
+   "n": "Social Club Mallorca",
+   "muni": "07011",
+   "dir": "Magaluf",
+   "estilos": [],
+   "motivo": "Recomendada en guías de ocio de Mallorca",
+   "fuente": "https://www.salir.com/las-mejores-discotecas-en-mallorca-art-1416.html"
+  },
+  {
+   "n": "Tokio Joe's",
+   "muni": "07011",
+   "dir": "Carrer de Punta Ballena",
+   "estilos": [
+    "hiphop"
+   ],
+   "motivo": "Recomendada en guías de ocio de Mallorca",
+   "fuente": "https://www.salir.com/las-mejores-discotecas-en-mallorca-art-1416.html"
+  },
+  {
+   "n": "La Fonda Disco",
+   "muni": "07040",
+   "dir": "Avinguda de Joan Miró, 286",
+   "estilos": [
+    "pop"
+   ],
+   "motivo": "Recomendada en guías de ocio de Mallorca",
+   "fuente": "https://www.salir.com/las-mejores-discotecas-en-mallorca-art-1416.html"
+  },
+  {
+   "n": "Bolero",
+   "muni": "07014",
+   "dir": "Cala Ratjada",
+   "estilos": [],
+   "motivo": "Recomendada en guías de ocio de Mallorca",
+   "fuente": "https://www.salir.com/las-mejores-discotecas-en-mallorca-art-1416.html"
+  },
+  {
+   "n": "The Golden",
+   "muni": "30030",
+   "dir": "",
+   "estilos": [
+    "latino"
+   ],
+   "motivo": "Recomendada en guías de ocio de Murcia",
+   "fuente": "https://www.salir.com/las-mejores-discotecas-de-murcia-art-3875.html"
+  },
+  {
+   "n": "Chica de Ayer",
+   "muni": "30030",
+   "dir": "",
+   "estilos": [
+    "pop"
+   ],
+   "motivo": "Recomendada en guías de ocio de Murcia",
+   "fuente": "https://www.salir.com/las-mejores-discotecas-de-murcia-art-3875.html"
+  },
+  {
+   "n": "Luminata Disco",
+   "muni": "30030",
+   "dir": "",
+   "estilos": [
+    "pop"
+   ],
+   "motivo": "Recomendada en guías de ocio de Murcia",
+   "fuente": "https://www.salir.com/las-mejores-discotecas-de-murcia-art-3875.html"
+  },
+  {
+   "n": "Guru Dance Club",
+   "muni": "30030",
+   "dir": "",
+   "estilos": [
+    "electronica"
+   ],
+   "motivo": "Recomendada en guías de ocio de Murcia",
+   "fuente": "https://www.salir.com/las-mejores-discotecas-de-murcia-art-3875.html"
+  },
+  {
+   "n": "Kitsch",
+   "muni": "30030",
+   "dir": "",
+   "estilos": [
+    "pop"
+   ],
+   "motivo": "Recomendada en guías de ocio de Murcia",
+   "fuente": "https://www.salir.com/las-mejores-discotecas-de-murcia-art-3875.html"
+  },
+  {
+   "n": "Playa Club",
+   "muni": "15030",
+   "dir": "Andén de Riazor",
+   "estilos": [
+    "directo"
+   ],
+   "motivo": "Recomendada en guías de ocio de A Coruña",
+   "fuente": "https://www.salir.com/las-mejores-discotecas-de-coruna-art-758.html"
+  },
+  {
+   "n": "Garufa Club",
+   "muni": "15030",
+   "dir": "",
+   "estilos": [
+    "directo"
+   ],
+   "motivo": "Recomendada en guías de ocio de A Coruña",
+   "fuente": "https://www.salir.com/las-mejores-discotecas-de-coruna-art-758.html"
+  },
+  {
+   "n": "Mackinlay's",
+   "muni": "15058",
+   "dir": "",
+   "estilos": [
+    "latino"
+   ],
+   "motivo": "Recomendada en guías de ocio de A Coruña",
+   "fuente": "https://www.salir.com/las-mejores-discotecas-de-coruna-art-758.html"
+  },
+  {
+   "n": "Achamán",
+   "muni": "38001",
+   "dir": "Costa Adeje",
+   "estilos": [],
+   "motivo": "Recomendada en guías de ocio de Tenerife",
+   "fuente": "https://capturetheatlas.com/es/discotecas-en-tenerife/"
+  },
+  {
+   "n": "Monkey Beach Club",
+   "muni": "38001",
+   "dir": "Playa de Troya",
+   "estilos": [],
+   "motivo": "Recomendada en guías de ocio de Tenerife",
+   "fuente": "https://capturetheatlas.com/es/discotecas-en-tenerife/"
+  },
+  {
+   "n": "Magic",
+   "muni": "38006",
+   "dir": "Playa de Las Américas",
+   "estilos": [],
+   "motivo": "Recomendada en guías de ocio de Tenerife",
+   "fuente": "https://capturetheatlas.com/es/discotecas-en-tenerife/"
+  },
+  {
+   "n": "Tramps",
+   "muni": "38006",
+   "dir": "Playa de Las Américas",
+   "estilos": [],
+   "motivo": "Recomendada en guías de ocio de Tenerife",
+   "fuente": "https://capturetheatlas.com/es/discotecas-en-tenerife/"
+  },
+  {
+   "n": "Bongó Anaga",
+   "muni": "38038",
+   "dir": "",
+   "estilos": [
+    "latino"
+   ],
+   "motivo": "Recomendada en guías de ocio de Tenerife",
+   "fuente": "https://capturetheatlas.com/es/discotecas-en-tenerife/"
+  },
+  {
+   "n": "Babylon",
+   "muni": "38006",
+   "dir": "Playa de Las Américas",
+   "estilos": [
+    "lgtb"
+   ],
+   "motivo": "Recomendada en guías de ocio de Tenerife",
+   "fuente": "https://capturetheatlas.com/es/discotecas-en-tenerife/"
+  },
+  {
+   "n": "China White",
+   "muni": "35019",
+   "dir": "Centro Comercial Kasbah, Playa del Inglés",
+   "estilos": [
+    "hiphop"
+   ],
+   "motivo": "Recomendada en guías de ocio de Gran Canaria (2026)",
+   "fuente": "https://sandbeds.com/best-nightclubs-gran-canaria/"
+  },
+  {
+   "n": "Chester Meloneras",
+   "muni": "35019",
+   "dir": "Meloneras",
+   "estilos": [],
+   "motivo": "Recomendada en guías de ocio de Gran Canaria (2026)",
+   "fuente": "https://sandbeds.com/best-nightclubs-gran-canaria/"
+  },
+  {
+   "n": "TAO Club & Garden",
+   "muni": "35016",
+   "dir": "",
+   "estilos": [
+    "electronica"
+   ],
+   "motivo": "Recomendada en guías de ocio de Gran Canaria (2026)",
+   "fuente": "https://sandbeds.com/best-nightclubs-gran-canaria/"
+  },
+  {
+   "n": "Aqua Ocean Club",
+   "muni": "35019",
+   "dir": "Centro Comercial Meloneras Playa",
+   "estilos": [
+    "latino",
+    "electronica"
+   ],
+   "motivo": "Recomendada en guías de ocio de Gran Canaria (2026)",
+   "fuente": "https://sandbeds.com/best-nightclubs-gran-canaria/"
+  },
+  {
+   "n": "Mantrix",
+   "muni": "35019",
+   "dir": "Yumbo Centrum, Playa del Inglés",
+   "estilos": [
+    "electronica",
+    "lgtb"
+   ],
+   "motivo": "Recomendada en guías de ocio de Gran Canaria (2026)",
+   "fuente": "https://sandbeds.com/best-nightclubs-gran-canaria/"
+  },
+  {
+   "n": "Mama Juana",
+   "muni": "35019",
+   "dir": "Meloneras",
+   "estilos": [
+    "latino"
+   ],
+   "motivo": "Recomendada en guías de ocio de Gran Canaria (2026)",
+   "fuente": "https://sandbeds.com/best-nightclubs-gran-canaria/"
+  },
+  {
+   "n": "Dubai Club",
+   "muni": "35019",
+   "dir": "Avenida de Tenerife, Playa del Inglés",
+   "estilos": [
+    "latino"
+   ],
+   "motivo": "Recomendada en guías de ocio de Gran Canaria (2026)",
+   "fuente": "https://sandbeds.com/best-nightclubs-gran-canaria/"
+  },
+  {
+   "n": "El Caserío",
+   "muni": "35019",
+   "dir": "Centro Plaza, Playa del Inglés",
+   "estilos": [
+    "latino"
+   ],
+   "motivo": "Recomendada en guías de ocio de Gran Canaria (2026)",
+   "fuente": "https://sandbeds.com/best-nightclubs-gran-canaria/"
+  },
+  {
+   "n": "Isla Marina",
+   "muni": "03014",
+   "dir": "",
+   "estilos": [
+    "electronica"
+   ],
+   "motivo": "Recomendada en guías de ocio de Alicante",
+   "fuente": "https://www.salir.com/las-mejores-discotecas-de-electronica-en-alicante-art-1050.html"
+  },
+  {
+   "n": "Code Social Club",
+   "muni": "03014",
+   "dir": "",
+   "estilos": [
+    "electronica"
+   ],
+   "motivo": "Recomendada en guías de ocio de Alicante",
+   "fuente": "https://www.salir.com/las-mejores-discotecas-de-electronica-en-alicante-art-1050.html"
+  },
+  {
+   "n": "Katamaran",
+   "muni": "03014",
+   "dir": "",
+   "estilos": [
+    "electronica"
+   ],
+   "motivo": "Recomendada en guías de ocio de Alicante",
+   "fuente": "https://www.salir.com/las-mejores-discotecas-de-electronica-en-alicante-art-1050.html"
+  },
+  {
+   "n": "Metro Dance Club",
+   "muni": "03014",
+   "dir": "",
+   "estilos": [
+    "electronica"
+   ],
+   "motivo": "Recomendada en guías de ocio de Alicante",
+   "fuente": "https://www.salir.com/las-mejores-discotecas-de-electronica-en-alicante-art-1050.html"
+  },
+  {
+   "n": "Bataplán",
+   "muni": "20069",
+   "dir": "",
+   "estilos": [
+    "electronica"
+   ],
+   "motivo": "Recomendada en guías de ocio de San Sebastián",
+   "fuente": "https://www.salir.com/las-mejores-discotecas-de-san-sebastian-art-335.html"
+  },
+  {
+   "n": "GU San Sebastián",
+   "muni": "20069",
+   "dir": "",
+   "estilos": [],
+   "motivo": "Recomendada en guías de ocio de San Sebastián",
+   "fuente": "https://www.salir.com/las-mejores-discotecas-de-san-sebastian-art-335.html"
+  },
+  {
+   "n": "Komplot",
+   "muni": "20069",
+   "dir": "",
+   "estilos": [
+    "directo",
+    "latino"
+   ],
+   "motivo": "Recomendada en guías de ocio de San Sebastián",
+   "fuente": "https://www.salir.com/las-mejores-discotecas-de-san-sebastian-art-335.html"
+  },
+  {
+   "n": "Dabadaba",
+   "muni": "20069",
+   "dir": "",
+   "estilos": [
+    "directo",
+    "electronica"
+   ],
+   "motivo": "Recomendada en guías de ocio de San Sebastián",
+   "fuente": "https://www.salir.com/las-mejores-discotecas-de-san-sebastian-art-335.html"
+  },
+  {
+   "n": "Le Bukowski",
+   "muni": "20069",
+   "dir": "",
+   "estilos": [
+    "electronica",
+    "rock"
+   ],
+   "motivo": "Recomendada en guías de ocio de San Sebastián",
+   "fuente": "https://www.salir.com/las-mejores-discotecas-de-san-sebastian-art-335.html"
+  },
+  {
+   "n": "Sala Enter",
+   "muni": "31201",
+   "dir": "",
+   "estilos": [
+    "pop"
+   ],
+   "motivo": "Recomendada en guías de ocio de Pamplona",
+   "fuente": "https://www.salir.com/mejores-discotecas-de-pamplona-art-4077.html"
+  },
+  {
+   "n": "La Kama",
+   "muni": "31201",
+   "dir": "",
+   "estilos": [
+    "latino",
+    "pop"
+   ],
+   "motivo": "Recomendada en guías de ocio de Pamplona",
+   "fuente": "https://www.salir.com/mejores-discotecas-de-pamplona-art-4077.html"
+  },
+  {
+   "n": "Subsuelo",
+   "muni": "31201",
+   "dir": "",
+   "estilos": [
+    "directo",
+    "rock"
+   ],
+   "motivo": "Recomendada en guías de ocio de Pamplona",
+   "fuente": "https://www.salir.com/mejores-discotecas-de-pamplona-art-4077.html"
+  },
+  {
+   "n": "Canalla",
+   "muni": "31201",
+   "dir": "",
+   "estilos": [
+    "latino",
+    "pop"
+   ],
+   "motivo": "Recomendada en guías de ocio de Pamplona",
+   "fuente": "https://www.salir.com/mejores-discotecas-de-pamplona-art-4077.html"
+  },
+  {
+   "n": "Ozone",
+   "muni": "31201",
+   "dir": "",
+   "estilos": [
+    "pop"
+   ],
+   "motivo": "Recomendada en guías de ocio de Pamplona",
+   "fuente": "https://www.salir.com/mejores-discotecas-de-pamplona-art-4077.html"
+  },
+  {
+   "n": "Alcatraz",
+   "muni": "17095",
+   "dir": "",
+   "estilos": [],
+   "motivo": "Recomendada en guías de ocio de Lloret de Mar",
+   "fuente": "https://www.salir.com/las-mejores-discotecas-en-lloret-de-mar-art-1031.html"
+  },
+  {
+   "n": "Gotham",
+   "muni": "17095",
+   "dir": "",
+   "estilos": [],
+   "motivo": "Recomendada en guías de ocio de Lloret de Mar",
+   "fuente": "https://www.salir.com/las-mejores-discotecas-en-lloret-de-mar-art-1031.html"
+  },
+  {
+   "n": "Revolution",
+   "muni": "17095",
+   "dir": "",
+   "estilos": [],
+   "motivo": "Recomendada en guías de ocio de Lloret de Mar",
+   "fuente": "https://www.salir.com/las-mejores-discotecas-en-lloret-de-mar-art-1031.html"
+  },
+  {
+   "n": "Moëf Gaga",
+   "muni": "17095",
+   "dir": "",
+   "estilos": [],
+   "motivo": "Recomendada en guías de ocio de Lloret de Mar",
+   "fuente": "https://www.salir.com/las-mejores-discotecas-en-lloret-de-mar-art-1031.html"
+  },
+  {
+   "n": "Enjoy Salou",
+   "muni": "43905",
+   "dir": "",
+   "estilos": [],
+   "motivo": "Recomendada en guías de ocio de Salou",
+   "fuente": "https://www.salir.com/las-mejores-discotecas-de-salou-art-633.html"
+  },
+  {
+   "n": "Flash Back",
+   "muni": "43905",
+   "dir": "",
+   "estilos": [],
+   "motivo": "Recomendada en guías de ocio de Salou",
+   "fuente": "https://www.salir.com/las-mejores-discotecas-de-salou-art-633.html"
+  },
+  {
+   "n": "La Cage",
+   "muni": "43905",
+   "dir": "",
+   "estilos": [],
+   "motivo": "Recomendada en guías de ocio de Salou",
+   "fuente": "https://www.salir.com/las-mejores-discotecas-de-salou-art-633.html"
+  },
+  {
+   "n": "City Hall",
+   "muni": "43905",
+   "dir": "",
+   "estilos": [],
+   "motivo": "Recomendada en guías de ocio de Salou",
+   "fuente": "https://www.salir.com/las-mejores-discotecas-de-salou-art-633.html"
+  },
+  {
+   "n": "Kiss",
+   "muni": "43905",
+   "dir": "",
+   "estilos": [],
+   "motivo": "Recomendada en guías de ocio de Salou",
+   "fuente": "https://www.salir.com/las-mejores-discotecas-de-salou-art-633.html"
+  },
+  {
+   "n": "Di Mare",
+   "muni": "43905",
+   "dir": "Carrer de Carles Buïgas",
+   "estilos": [],
+   "motivo": "Recomendada en guías de ocio de Salou",
+   "fuente": "https://www.salir.com/las-mejores-discotecas-de-salou-art-633.html"
+  },
+  {
+   "n": "Deluxe Salou",
+   "muni": "43905",
+   "dir": "Avinguda de Carles Buïgas",
+   "estilos": [],
+   "motivo": "Nueva: abrió el 30 de abril de 2026",
+   "fuente": "https://cronicaglobal.elespanol.com/viajes/20260503/oficial-nueva-discoteca-salou-fecha-apertura-trt/1003742750152_0.html",
+   "nueva": "2026-04"
+  },
+  {
+   "n": "Sala M100",
+   "muni": "14021",
+   "dir": "Avenida de Chinales",
+   "estilos": [
+    "directo",
+    "rock"
+   ],
+   "motivo": "Recomendada en guías de ocio de Córdoba",
+   "fuente": "https://www.salir.com/las-mejores-discotecas-de-cordoba-art-558.html"
+  },
+  {
+   "n": "Bambú Club",
+   "muni": "14021",
+   "dir": "",
+   "estilos": [],
+   "motivo": "Recomendada en guías de ocio de Córdoba",
+   "fuente": "https://www.salir.com/las-mejores-discotecas-de-cordoba-art-558.html"
+  },
+  {
+   "n": "Hangar",
+   "muni": "14021",
+   "dir": "",
+   "estilos": [
+    "directo"
+   ],
+   "motivo": "Recomendada en guías de ocio de Córdoba",
+   "fuente": "https://www.salir.com/las-mejores-discotecas-de-cordoba-art-558.html"
+  },
+  {
+   "n": "Bianco Lounge Club",
+   "muni": "14021",
+   "dir": "Calle Historiador Díaz del Moral, 3",
+   "estilos": [],
+   "motivo": "Recomendada en guías de ocio de Córdoba",
+   "fuente": "https://www.salir.com/las-mejores-discotecas-de-cordoba-art-558.html"
+  },
+  {
+   "n": "Galería Sala Club",
+   "muni": "11020",
+   "dir": "Avenida de Europa",
+   "estilos": [],
+   "motivo": "Recomendada en guías de ocio de Jerez",
+   "fuente": "https://www.salir.com/discotecas-en-jerez-de-la-frontera-art-593.html"
+  },
+  {
+   "n": "Bereber",
+   "muni": "11020",
+   "dir": "Calle Cabezas",
+   "estilos": [
+    "flamenco"
+   ],
+   "motivo": "Recomendada en guías de ocio de Jerez",
+   "fuente": "https://www.salir.com/discotecas-en-jerez-de-la-frontera-art-593.html"
+  },
+  {
+   "n": "Kapote",
+   "muni": "11020",
+   "dir": "",
+   "estilos": [],
+   "motivo": "Recomendada en guías de ocio de Jerez",
+   "fuente": "https://www.salir.com/discotecas-en-jerez-de-la-frontera-art-593.html"
+  },
+  {
+   "n": "La Julieta",
+   "muni": "11020",
+   "dir": "Avenida Alcalde Álvaro Domecq, 13",
+   "estilos": [],
+   "motivo": "Recomendada en guías de ocio de Jerez",
+   "fuente": "https://www.salir.com/discotecas-en-jerez-de-la-frontera-art-593.html"
+  }
+ ]
+}

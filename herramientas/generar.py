@@ -26,7 +26,10 @@ UA = 'MODO-NOCHE-datos/1.0 (https://github.com/juniornacht2-11/modonoche-datos; 
 EXTRACTOS = ['https://download.geofabrik.de/europe/spain-latest.osm.pbf',
              'https://download.geofabrik.de/africa/canary-islands-latest.osm.pbf']
 FILTRO = ['nwr/amenity=nightclub,music_venue,concert_hall,bar,pub,events_venue,restaurant,theatre',
-          'nwr/tourism=hotel,hostel,guest_house,apartment,motel', 'r/admin_level=8']
+          'nwr/tourism=hotel,hostel,guest_house,apartment,motel', 'r/admin_level=8',
+          'n/place=city,town,village,suburb,quarter,neighbourhood']
+# Pueblos, pedanías, barrios y zonas (Magaluf, Puerto Banús, Malasaña…) para el buscador de la web: publico/lugares.json
+LUGARES = {'city': 'c', 'town': 't', 'village': 'v', 'suburb': 's', 'quarter': 'q', 'neighbourhood': 'n'}
 # Etiquetas que usa la web (app.js · osmRecord). Nada más se publica.
 ETIQUETAS = ['name', 'amenity', 'tourism', 'leisure', 'theatre:type', 'cuisine', 'stars', 'rooms',
              'addr:street', 'addr:place', 'addr:housenumber', 'addr:postcode', 'addr:city',
@@ -161,7 +164,7 @@ def tipo_id(fid: str):
 
 def procesar(ruta: str, munis: list) -> dict:
     codigos = {m[0]: m for m in munis}
-    idx, crudos = Indice(), []
+    idx, crudos, lugares = Indice(), [], []
     st = {'lineas': 0, 'limites': 0, 'limites_validos': 0, 'locales_leidos': 0, 'sin_municipio': 0, 'por_cercania': 0, 'duplicados': 0}
     with open(ruta, encoding='utf-8') as f:
         for linea in f:
@@ -180,6 +183,11 @@ def procesar(ruta: str, munis: list) -> dict:
                 cod = cod[:5] if len(cod) in (5, 6, 11) else ''
                 if cod in codigos:
                     idx.anadir(cod, [[simplificar(r) for r in pl] for pl in anillos(g)]); st['limites_validos'] += 1
+                continue
+            if p.get('place') in LUGARES and p.get('name') and g.get('type') == 'Point':
+                lo, la = g['coordinates'][:2]
+                for nm in {str(p['name'])[:80], str(p.get('name:es') or p['name'])[:80]}:
+                    lugares.append([nm, round(la, 5), round(lo, 5), LUGARES[p['place']]])
                 continue
             k = interesa(p)
             if not k:
@@ -218,7 +226,20 @@ def procesar(ruta: str, munis: list) -> dict:
     for lst in por_muni.values():
         for el in lst: el.pop('_k', None)
         lst.sort(key=lambda e: (e['tags'].get('amenity') or e['tags'].get('tourism') or '', norm(e['tags'].get('name', ''))))
-    return {'por_muni': por_muni, 'st': st}
+    # lugares: municipio al que pertenecen (por límite municipal); se omiten los que se llaman igual que su municipio
+    nombres = {m[0]: {norm(x) for x in re.split(r'/', m[1])} for m in munis}
+    out, vist = [], set()
+    for nm, la, lo, tp in lugares:
+        cod = idx.buscar(lo, la)
+        if not cod or norm(nm) in nombres.get(cod, set()):
+            continue
+        clave = (norm(nm), cod)
+        if clave in vist:
+            continue
+        vist.add(clave); out.append([nm, cod, la, lo, tp])
+    out.sort(key=lambda x: (norm(x[0]), x[1]))
+    st['lugares'] = len(out)
+    return {'por_muni': por_muni, 'st': st, 'lugares': out}
 
 
 def escribir(res: dict, fecha_osm: str | None):
@@ -239,6 +260,9 @@ def escribir(res: dict, fecha_osm: str | None):
             'licencia': 'ODbL 1.0 · © colaboradores de OpenStreetMap', 'total': sum(indice.values()),
             'municipios_con_datos': len(indice), 'por_tipo': dict(sorted(por_tipo.items(), key=lambda x: -x[1])),
             'estadisticas': res['st'], 'municipios': indice}
+    with open(os.path.join(PUBLICO, 'lugares.json'), 'w', encoding='utf-8') as f:
+        json.dump({'gen': gen, 'datos': fecha_osm, 'fuente': 'OpenStreetMap (place=city/town/village/suburb/quarter/neighbourhood) · ODbL',
+                   'formato': ['nombre', 'codigo_ine_municipio', 'lat', 'lng', 'tipo c/t/v/s/q/n'], 'l': res.get('lugares', [])}, f, ensure_ascii=False, separators=(',', ':'))
     with open(os.path.join(PUBLICO, 'indice.json'), 'w', encoding='utf-8') as f:
         json.dump(meta, f, ensure_ascii=False, separators=(',', ':'))
     with open(os.path.join(PUBLICO, '.nojekyll'), 'w') as f:

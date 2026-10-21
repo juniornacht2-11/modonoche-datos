@@ -60,6 +60,10 @@ jobs:
           path: cache
           key: ubicaciones-${{ github.run_id }}
           restore-keys: ubicaciones-
+      - name: Discotecas destacadas (rankings y guías, cada una con su fuente)
+        continue-on-error: true
+        timeout-minutes: 20
+        run: python3 herramientas/destacados.py
       - name: Alojamientos de los registros oficiales de turismo (cada día; lo ya situado se guarda)
         continue-on-error: true
         timeout-minutes: 120
