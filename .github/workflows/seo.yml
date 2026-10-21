@@ -1,6 +1,9 @@
 name: Páginas por ciudad (buscadores)
 on:
   workflow_dispatch:
+  workflow_run:
+    workflows: ['Datos semanales de MODO NOCHE']
+    types: [completed]
   push:
     branches: [main]
     paths: ['herramientas/seo.py', '.github/workflows/seo.yml']
