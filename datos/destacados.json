@@ -537,7 +537,8 @@
     "Sala El Barco",
     "El Barco",
     "Sala Barco"
-   ]
+   ],
+   "solo_direccion": true
   },
   {
    "n": "Razzmatazz",
