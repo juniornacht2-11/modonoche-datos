@@ -64,6 +64,12 @@ jobs:
         continue-on-error: true
         timeout-minutes: 20
         run: python3 herramientas/destacados.py
+      - name: Imágenes para redes (agenda del finde y discotecas top)
+        continue-on-error: true
+        timeout-minutes: 10
+        run: |
+          pip install -q pillow
+          python3 herramientas/redes.py
       - name: Alojamientos de los registros oficiales de turismo (cada día; lo ya situado se guarda)
         continue-on-error: true
         timeout-minutes: 120
