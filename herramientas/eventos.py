@@ -153,13 +153,23 @@ def barcelona():
         except Exception as ex:
             err = f'{u}: {ex}'; raw = None
     if raw is None:
-        raise RuntimeError(err)
-    for enc in ('utf-8-sig', 'utf-16', 'latin-1'):
-        try: txt = raw.decode(enc); break
-        except UnicodeDecodeError: pass
-    head = txt[:4000]
-    delim = max([',', ';', '\t'], key=head.count)
-    filas = list(csv.DictReader(io.StringIO(txt), delimiter=delim))
+        # Las descargas tienen control antirobots; la API de datos (datastore_search) de la misma fuente devuelve los mismos campos en JSON
+        filas, off = [], 0
+        while off < 40000:
+            j = json.loads(bajar('https://opendata-ajuntament.barcelona.cat/data/api/action/datastore_search?resource_id=877ccf66-9106-4ae2-be51-95a9f6469e4c&limit=5000&offset=' + str(off), timeout=180))
+            lote = (j.get('result') or {}).get('records') or []
+            filas += [{k: ('' if v is None else str(v)) for k, v in r.items()} for r in lote]
+            off += 5000
+            if len(lote) < 5000: break
+        if not filas:
+            raise RuntimeError(err + ' · y la API de datos no devolvió registros')
+    else:
+        for enc in ('utf-8-sig', 'utf-16', 'latin-1'):
+            try: txt = raw.decode(enc); break
+            except UnicodeDecodeError: pass
+        head = txt[:4000]
+        delim = max([',', ';', '\t'], key=head.count)
+        filas = list(csv.DictReader(io.StringIO(txt), delimiter=delim))
     MUESTRAS['barcelona'] = filas[:2]
     out = []
     for r in filas:
