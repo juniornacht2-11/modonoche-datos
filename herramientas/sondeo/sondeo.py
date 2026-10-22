@@ -1,20 +1,11 @@
-"""Sondeo: registros completos de las agendas de Andalucía y Vigo (solo lectura)."""
-import os, json, urllib.request, collections
+"""Sondeo: comprobar lo publicado en GitHub Pages (destacadas y agenda)."""
+import os, json, urllib.request
 os.makedirs('salida', exist_ok=True)
-UA = {'User-Agent': 'MODO-NOCHE-sondeo (modonochesoporte@gmail.com)'}
-def j(u): return json.loads(urllib.request.urlopen(urllib.request.Request(u, headers=UA), timeout=120).read())
-out = {}
-try:
-    a = j('https://datos.juntadeandalucia.es/api/v0/schedule/all?format=json')
-    fut = [r for r in a if any((d.get('end_date_registration') or '') >= '2026-10-22' for d in (r.get('date_registration') or []))]
-    out['andalucia_n'] = len(a); out['andalucia_futuros'] = len(fut)
-    out['andalucia_ej'] = fut[:4]
-    out['andalucia_prov'] = collections.Counter(str(r.get('province')) for r in fut).most_common(12)
-    out['andalucia_temas'] = collections.Counter(str(r.get('themes')) for r in fut).most_common(15)
-    out['andalucia_loc'] = collections.Counter(str(r.get('location')) for r in fut).most_common(15)
-except Exception as e: out['andalucia_err'] = str(e)[:300]
-try:
-    v = j('https://datos.vigo.org/data/axenda/agenda-hoy.json')
-    out['vigo_n'] = len(v); out['vigo_ej'] = [r for r in v if r.get('fecha_inicio')][:5]
-except Exception as e: out['vigo_err'] = str(e)[:300]
+B = 'https://juniornacht2-11.github.io/modonoche-datos'
+def get(p):
+    try: return json.loads(urllib.request.urlopen(urllib.request.Request(B + p + '?x=' + str(os.getpid()), headers={'User-Agent': 'MODO-NOCHE-sondeo'}), timeout=60).read())
+    except Exception as e: return {'error': str(e)[:200]}
+ix = get('/indice.json'); d = get('/destacados.json'); ev = get('/eventos/indice.json')
+out = {'indice': {k: ix.get(k) for k in ('gen', 'destacados')}, 'sin_ubicar': d.get('sin_ubicar'), 'anadidos': d.get('anadidos'),
+       'agenda': {'gen': ev.get('gen'), 'fuentes': ev.get('fuentes'), 'vigo': (ev.get('municipios') or {}).get('36057'), 'n_munis': len(ev.get('municipios') or {})}}
 json.dump(out, open('salida/publicado.json', 'w'), ensure_ascii=False, indent=1)
