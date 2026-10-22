@@ -5,17 +5,10 @@ UA = {'User-Agent': 'MODO-NOCHE-sondeo (modonochesoporte@gmail.com)'}
 def get(u):
     try: return json.loads(urllib.request.urlopen(urllib.request.Request(u, headers=UA), timeout=60).read())
     except Exception as e: return {'error': str(e)[:200]}
-NOM = [  # nombre / lugar a buscar en Nominatim
- 'Hyde Club, Barcelona', 'Marmarela, Alicante', 'Vybe, Eivissa', 'Octan Ibiza', 'Octan, Sant Josep de sa Talaia',
- 'Dreamers, Marbella', 'Pangea, Marbella', 'Fitz, Marbella', 'NYX, Marbella', 'Magic, Arona', 'Babylon, Arona',
- 'China White, San Bartolomé de Tirajana', 'Centro Comercial Kasbah, San Bartolomé de Tirajana', 'Aqua Ocean Club, San Bartolomé de Tirajana',
- 'Centro Comercial Meloneras Playa', 'Mama Juana, Meloneras', 'Dubai, Playa del Inglés', 'El Caserío, Playa del Inglés', 'Centro Comercial Yumbo',
- 'Metro Dance Club, Bigastro', 'Metro, Bigastro', 'TAO, Las Palmas de Gran Canaria', 'Forum Plaza, Granada', 'Kitsch, Murcia',
- 'Marina Botafoc, Eivissa', 'Puerto Banús', 'Hotel Meliá Lebreros, Sevilla', 'Edificio Forum, Granada']
-CC = ['Passatge Domingo 3, Barcelona', 'Pasaje Domingo 3, Barcelona', 'Carrer de Carles Buïgas 6, Salou', 'Carrer de Carles Buïgas 60, Salou',
- 'Carrer de Murillo 3, Salou', 'Carrer de Murillo 4, Salou', 'Calle San Carlos 13, Murcia', 'Calle Santa Bárbara 3, Granada',
- 'Calle Rosalía de Castro 243, Oleiros', 'Rambla Méndez Núñez 19, Alicante', 'Avenida de Villajoyosa 4, Alicante', 'Carrer de Santa Cristina 14, Lloret de Mar',
- 'Avenida de Europa 9, Jerez de la Frontera', 'Calle Luis Montoto 118, Sevilla', 'Avenida de Tenerife, San Bartolomé de Tirajana', 'Carrer Port d\'Eivissa 107, Eivissa']
+NOM = ['Mare Nostrum Resort, Adeje', 'Marmarela', 'Dique de Levante, Alicante', 'Muelle de Honor, Marbella', 'Club de Mar, Marbella',
+ 'Pueblo Canario, Las Palmas de Gran Canaria', 'Paseo Alonso Quesada, Las Palmas de Gran Canaria', 'Carrer de Carles Buïgas 6, Salou', 'Carrer de Carles Buïgas 60, Salou',
+ 'Passatge de Domingo 3, Barcelona', 'Calle José Luis Pérez Pujadas, Granada', 'Centro Comercial Cita, Playa del Inglés', 'Centro Comercial Kasbah', 'Veronicas, Arona', 'Centro Comercial Starco, Arona']
+CC = ['Carles Buigas 6, 43840 Salou', 'Carles Buigas 60, 43840 Salou', 'Passatge de Domingo 3, 08007 Barcelona', 'Domingo 3, Barcelona', 'Passatge Domingo 3, 08007 Barcelona']
 out = {'nominatim': {}, 'cartociudad': {}}
 for q in NOM:
     r = get('https://nominatim.openstreetmap.org/search?' + urllib.parse.urlencode({'q': q, 'format': 'jsonv2', 'countrycodes': 'es', 'limit': 5}))
