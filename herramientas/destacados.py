@@ -105,7 +105,7 @@ def main():
         clave = f"{d['n']}|{c}|{d.get('dir', '')}|{d.get('dir_geo', '')}" + ('|dir' if d.get('solo_direccion') else '')
         if d.get('pos'):   # punto fijado a mano (coordenadas de OSM del edificio, centro comercial o puerto donde está; ver pos_fuente)
             geo[clave] = {'lat': d['pos'][0], 'lng': d['pos'][1], 'via': 'punto-osm'}
-        if clave not in geo:
+        if geo.get(clave) is None:   # los que no se pudieron ubicar se reintentan cada día (son pocos)
             pos = None
             q = f"{d['n']}, {m[1].split('/')[0] if m else ''}, España"
             r = [] if d.get('solo_direccion') else get('https://nominatim.openstreetmap.org/search?' + urllib.parse.urlencode({'q': q, 'format': 'jsonv2', 'countrycodes': 'es', 'limit': 5, 'addressdetails': 1}))
@@ -119,6 +119,7 @@ def main():
             dg = d.get('dir_geo') or d.get('dir') or ''   # dir_geo: la misma dirección escrita como la entiende CartoCiudad
             if not pos and re.search(r'\d', dg):
                 r = get('https://www.cartociudad.es/geocoder/api/geocoder/find?q=' + urllib.parse.quote(f"{dg}, {m[1].split('/')[0] if m else ''}"))
+                if r is None: fallo = True   # CartoCiudad no respondió: se reintenta otro día (no se guarda «sin posición»)
                 g = re.search(r'POINT\(([-\d.]+) ([-\d.]+)\)', (r or {}).get('geom') or '')
                 if g and (r or {}).get('type') == 'portal' and str(r.get('muniCode') or c) == c:
                     la, lo = float(g.group(2)), float(g.group(1))
