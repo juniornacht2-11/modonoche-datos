@@ -155,13 +155,15 @@ def barcelona():
     if raw is None:
         # Las descargas tienen control antirobots; la API de datos (datastore_search) de la misma fuente devuelve los mismos campos en JSON
         # Se pide por páginas pequeñas, de la fecha de fin más lejana a la más cercana, y se para al llegar a eventos ya terminados
-        filas, off = [], 0
-        while off < 40000:
+        import time as _t
+        filas, off, t0 = [], 0, _t.time()
+        while off < 12000 and _t.time() - t0 < 420:   # el servidor de la API a veces va lento: como mucho 7 minutos
             j = json.loads(bajar('https://opendata-ajuntament.barcelona.cat/data/api/action/datastore_search?resource_id=877ccf66-9106-4ae2-be51-95a9f6469e4c&limit=1000&sort=end_date%20desc&offset=' + str(off), timeout=120))
             lote = (j.get('result') or {}).get('records') or []
             filas += [{k: ('' if v is None else str(v)) for k, v in r.items()} for r in lote]
             off += 1000
-            if len(lote) < 1000 or str(lote[-1].get('end_date') or '')[:10] < HOY.isoformat(): break
+            fin_ult = str(lote[-1].get('end_date') or '')[:10] if lote else ''
+            if len(lote) < 1000 or (fin_ult and fin_ult != 'None' and fin_ult < HOY.isoformat()): break
         if not filas:
             raise RuntimeError(err + ' · y la API de datos no devolvió registros')
     else:
