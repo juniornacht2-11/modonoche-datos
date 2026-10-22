@@ -104,13 +104,13 @@ def ficha(el):
 CSS = """:root{color-scheme:dark}*{box-sizing:border-box}body{margin:0;background:#07070B;color:#F5F3FF;font:16px/1.6 system-ui,-apple-system,"Segoe UI",sans-serif}
 a{color:#22D3EE}main{max-width:900px;margin:auto;padding:20px 16px 48px}.top{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:16px max(16px,calc((100% - 868px)/2));border-bottom:1px solid #29283A}
 .logo{font-family:"Unbounded",system-ui,sans-serif;font-weight:800;font-size:19px;letter-spacing:-.015em;color:#F5F3FF;text-decoration:none;display:inline-flex;align-items:baseline;line-height:1}.logo em{font-style:normal;color:transparent;background:linear-gradient(90deg,#C084FC,#A855F7 45%,#22D3EE);-webkit-background-clip:text;background-clip:text}.logo img{height:1.22em;width:auto;margin-left:.28em;filter:drop-shadow(0 0 .3em rgba(168,85,247,.5))}h1{font-size:clamp(26px,5vw,40px);line-height:1.15;margin:18px 0 10px}
-h2{font-size:20px;margin:30px 0 8px;color:#C7FF4A}.lead{color:#A5A2B5}.cta{display:inline-block;margin:14px 0;padding:12px 20px;border-radius:12px;background:#A855F7;color:#fff;font-weight:700;text-decoration:none}
+h2{font-size:20px;margin:30px 0 8px;color:#C7FF4A}.lead{color:#A5A2B5}.cta{display:inline-block;margin:14px 0;padding:12px 20px;border-radius:12px;background:#9333EA;color:#fff;font-weight:700;text-decoration:none}
 .cta.sec{background:transparent;border:1px solid #3a3850;color:#F5F3FF}ul.l{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:8px}
-ul.l li{background:#101019;border:1px solid #29283A;border-radius:12px;padding:10px 12px}ul.l b{display:block}ul.l b a{color:#F5F3FF;text-decoration:none}ul.l b a:hover{text-decoration:underline}ul.l span{font-size:13px;color:#A5A2B5}.n{color:#7C798E;font-size:14px}
+ul.l li{background:#101019;border:1px solid #29283A;border-radius:12px;padding:10px 12px}ul.l b{display:block}ul.l b a{color:#F5F3FF;text-decoration:none}ul.l b a:hover{text-decoration:underline}ul.l span{font-size:13px;color:#A5A2B5}.n{color:#8A879E;font-size:14px}
 .chips a{display:inline-block;margin:4px 6px 0 0;padding:6px 12px;border:1px solid #3a3850;border-radius:999px;text-decoration:none;color:#F5F3FF;font-size:14px}
 ul.l em.dest{display:inline-block;font:700 10px/1 ui-monospace,monospace;letter-spacing:.1em;padding:4px 7px;border-radius:99px;margin-bottom:5px;background:rgba(168,85,247,.18);color:#d8b4fe;font-style:normal}
-ul.l em.dest.dtop{background:#C7FF4A;color:#0b0b10}ul.l span.mot{display:block;font-size:12px;color:#7C798E;margin-top:3px}
-footer{margin-top:40px;font-size:13px;color:#7C798E;border-top:1px solid #29283A;padding-top:14px}"""
+ul.l em.dest.dtop{background:#C7FF4A;color:#0b0b10}ul.l span.mot{display:block;font-size:12px;color:#8A879E;margin-top:3px}
+footer{margin-top:40px;font-size:13px;color:#8A879E;border-top:1px solid #29283A;padding-top:14px}"""
 
 
 def pagina(titulo, desc, canon, cuerpo, og_img='og.png', ld=None):
