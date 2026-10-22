@@ -1,39 +1,20 @@
-"""Sondeo: probar agendas candidatas (solo lectura): tamaño, columnas, ejemplo y fechas."""
-import os, json, re, csv, io, urllib.request
+"""Sondeo: registros completos de las agendas de Andalucía y Vigo (solo lectura)."""
+import os, json, urllib.request, collections
 os.makedirs('salida', exist_ok=True)
 UA = {'User-Agent': 'MODO-NOCHE-sondeo (modonochesoporte@gmail.com)'}
-def raw(u, n=30_000_000):
-    try:
-        r = urllib.request.urlopen(urllib.request.Request(u, headers=UA), timeout=120)
-        return r.read(n), r.headers.get('Content-Type')
-    except Exception as e: return ('ERROR ' + str(e)[:200]).encode(), None
-U = {
- 'andalucia_json': 'https://datos.juntadeandalucia.es/api/v0/schedule/all?format=json',
- 'andalucia_csv': 'https://datos.juntadeandalucia.es/api/v0/schedule/all?format=csv',
- 'canarias_proxima': 'https://datos.canarias.es/catalogos/general/dataset/11dc9d88-b456-4ae2-bcf9-07ad624fd025/resource/d179079c-a2ed-40dc-a748-7b64d093c342/download/agendaproxima.csv',
- 'vigo': 'https://datos.vigo.org/data/axenda/agenda-hoy.json',
- 'santacruz': 'https://www.santacruzdetenerife.es/opendata/dataset/f38a3086-8d4c-4c6a-943e-629056b66f01/resource/95a65af3-5f11-4041-a418-45afcc5e7686/download/agendacultural.json',
- 'diba_general': 'http://do.diba.cat/api/dataset/agendageneral_ca/format/json',
- 'diba_escenari': 'http://do.diba.cat/api/dataset/escenari/pag-ini/1/pag-fi/100/format/json',
- 'bizkaikoa_2025': 'https://www.opendatabizkaia.eus/es/datastore/dump/6b76cd72-63b9-4125-93fe-4037921a91c5/agenda-cultural-bizkaikoa-2025?format=json',
- 'coruna_ics': 'https://datos.coruna.gal/en/dataset/agenda-de-eventos/resource/234cdaac-0d9b-46b1-9b1c-b853dd3b486e',
-}
+def j(u): return json.loads(urllib.request.urlopen(urllib.request.Request(u, headers=UA), timeout=120).read())
 out = {}
-for k, u in U.items():
-    b, ct = raw(u)
-    info = {'bytes': len(b), 'ct': ct, 'inicio': b[:700].decode('utf-8', 'replace')}
-    fechas = re.findall(rb'20\d\d-\d\d-\d\d', b)
-    if fechas: f = sorted(set(x.decode() for x in fechas)); info['fechas'] = [f[0], f[-1], len(f), sum(1 for x in f if x >= '2026-10-22')]
-    else:
-        f2 = re.findall(rb'\b\d\d/\d\d/20\d\d\b', b); info['fechas_dmy'] = sorted(set(x.decode()[-4:] + x.decode()[3:5] + x.decode()[:2] for x in f2))[-3:] if f2 else None
-    try:
-        j = json.loads(b)
-        def forma(o, d=0):
-            if d > 3: return '…'
-            if isinstance(o, dict): return {kk: forma(v, d + 1) for kk, v in list(o.items())[:25]}
-            if isinstance(o, list): return [len(o), forma(o[0], d + 1) if o else None]
-            return str(o)[:80]
-        info['forma'] = forma(j)
-    except Exception: pass
-    out[k] = info
+try:
+    a = j('https://datos.juntadeandalucia.es/api/v0/schedule/all?format=json')
+    fut = [r for r in a if any((d.get('end_date_registration') or '') >= '2026-10-22' for d in (r.get('date_registration') or []))]
+    out['andalucia_n'] = len(a); out['andalucia_futuros'] = len(fut)
+    out['andalucia_ej'] = fut[:4]
+    out['andalucia_prov'] = collections.Counter(str(r.get('province')) for r in fut).most_common(12)
+    out['andalucia_temas'] = collections.Counter(str(r.get('themes')) for r in fut).most_common(15)
+    out['andalucia_loc'] = collections.Counter(str(r.get('location')) for r in fut).most_common(15)
+except Exception as e: out['andalucia_err'] = str(e)[:300]
+try:
+    v = j('https://datos.vigo.org/data/axenda/agenda-hoy.json')
+    out['vigo_n'] = len(v); out['vigo_ej'] = [r for r in v if r.get('fecha_inicio')][:5]
+except Exception as e: out['vigo_err'] = str(e)[:300]
 json.dump(out, open('salida/publicado.json', 'w'), ensure_ascii=False, indent=1)
