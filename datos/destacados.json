@@ -761,12 +761,18 @@
    "fuente": "https://nox-agency.com/es/ibiza/discotecas"
   },
   {
-   "n": "Octan",
-   "muni": "07026",
-   "dir": "Carrer de les Alzines",
+   "n": "Avyca Ibiza",
+   "muni": "07048",
+   "dir": "Carrer de les Alzines, 5",
    "estilos": [],
    "motivo": "Recomendada en guías de ocio de Ibiza",
-   "fuente": "https://nox-agency.com/es/ibiza/discotecas"
+   "fuente": "https://nox-agency.com/es/ibiza/discotecas",
+   "alias": [
+    "Octan",
+    "Octan Ibiza"
+   ],
+   "fuente_dir": "https://www.ibiza-spotlight.com/magazine/2020/02/ibiza-virgins-guide-octan",
+   "antes": "Octan"
   },
   {
    "n": "Dreamers",
@@ -1306,14 +1312,22 @@
    ]
   },
   {
-   "n": "Babylon",
-   "muni": "38006",
-   "dir": "Playa de Las Américas",
+   "n": "Exito Gay Club",
+   "muni": "38001",
+   "dir": "Avenida Rafael Puig Lluvina, 5 (CC Verónicas 2)",
    "estilos": [
     "lgtb"
    ],
    "motivo": "Recomendada en guías de ocio de Tenerife",
-   "fuente": "https://capturetheatlas.com/es/discotecas-en-tenerife/"
+   "fuente": "https://capturetheatlas.com/es/discotecas-en-tenerife/",
+   "dir_geo": "Avenida Rafael Puig Lluvina 5",
+   "alias": [
+    "Babylon",
+    "Babylon Disco Pub",
+    "Exito"
+   ],
+   "fuente_dir": "https://www.travelgay.com/venue/exito-gay-club",
+   "antes": "Babylon"
   },
   {
    "n": "China White",
