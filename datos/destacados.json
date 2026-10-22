@@ -576,10 +576,12 @@
   {
    "n": "Hyde Club",
    "muni": "08019",
-   "dir": "Pasaje Domingo, 3",
+   "dir": "Passatge de Domingo, 3",
    "estilos": [],
    "motivo": "Recomendada en guías de ocio de Barcelona",
-   "fuente": "https://nox-agency.com/es/barcelona/discotecas"
+   "fuente": "https://nox-agency.com/es/barcelona/discotecas",
+   "dir_geo": "Domingo 3",
+   "solo_direccion": true
   },
   {
    "n": "Jamboree",
@@ -731,10 +733,16 @@
   {
    "n": "Vybe",
    "muni": "07026",
-   "dir": "Marina Botafoc",
+   "dir": "Marina Botafoc, Eivissa",
    "estilos": [],
    "motivo": "Recomendada en guías de ocio de Ibiza",
-   "fuente": "https://nox-agency.com/es/ibiza/discotecas"
+   "fuente": "https://nox-agency.com/es/ibiza/discotecas",
+   "fuente_dir": "https://alotea.com/ibiza/nightclubs/vybe",
+   "pos": [
+    38.9114036,
+    1.4495558
+   ],
+   "pos_fuente": "OpenStreetMap node/3815794313 (Marina Botafoc)"
   },
   {
    "n": "Es Paradís",
@@ -771,12 +779,18 @@
   {
    "n": "Pangea",
    "muni": "29069",
-   "dir": "Pasaje Muelle de Honor, Puerto Banús",
+   "dir": "Edificio Club de Mar, Pasaje Muelle de Honor, Puerto Banús",
    "estilos": [
     "electronica"
    ],
    "motivo": "Recomendada en guías de ocio de Marbella",
-   "fuente": "https://nox-agency.com/es/marbella/discotecas"
+   "fuente": "https://nox-agency.com/es/marbella/discotecas",
+   "fuente_dir": "https://alotea.com/marbella/nightclubs/pangea",
+   "pos": [
+    36.4842328,
+    -4.9533796
+   ],
+   "pos_fuente": "OpenStreetMap node/4679402750 (Muelle de Honor, Puerto Banús)"
   },
   {
    "n": "Fitz Marbella",
@@ -889,10 +903,11 @@
   {
    "n": "Abril",
    "muni": "41091",
-   "dir": "Hotel Meliá Lebreros",
+   "dir": "Calle Luis Montoto, 118",
    "estilos": [],
    "motivo": "Recomendada en guías de ocio de Sevilla",
-   "fuente": "https://www.salir.com/las-mejores-discotecas-de-sevilla-art-542.html"
+   "fuente": "https://www.salir.com/las-mejores-discotecas-de-sevilla-art-542.html",
+   "fuente_dir": "https://www.timeout.com/es/sevilla/clubs/abril"
   },
   {
    "n": "Liceo",
@@ -1069,10 +1084,11 @@
   {
    "n": "Forum Plaza",
    "muni": "18087",
-   "dir": "",
+   "dir": "Edificio Forum, Calle José Luis Pérez Pujadas",
    "estilos": [],
    "motivo": "Recomendada en guías de ocio de Granada",
-   "fuente": "https://www.salir.com/las-mejores-discotecas-de-granada-art-23.html"
+   "fuente": "https://www.salir.com/las-mejores-discotecas-de-granada-art-23.html",
+   "fuente_dir": "https://www.salir.com/forum-plaza-granada-neg-125591.html"
   },
   {
    "n": "Efecto Club",
@@ -1115,12 +1131,17 @@
   {
    "n": "Booga Club",
    "muni": "18087",
-   "dir": "",
+   "dir": "Calle Santa Bárbara, 3",
    "estilos": [
     "directo"
    ],
    "motivo": "Recomendada en guías de ocio de Granada",
-   "fuente": "https://www.salir.com/las-mejores-discotecas-de-granada-art-23.html"
+   "fuente": "https://www.salir.com/las-mejores-discotecas-de-granada-art-23.html",
+   "alias": [
+    "Booga",
+    "Boogaclub"
+   ],
+   "fuente_dir": "https://www.nomas900.org/booga-club-787326"
   },
   {
    "n": "Tokio Joe's",
@@ -1166,12 +1187,13 @@
   {
    "n": "Chica de Ayer",
    "muni": "30030",
-   "dir": "",
+   "dir": "Calle San Carlos, 13",
    "estilos": [
     "pop"
    ],
    "motivo": "Recomendada en guías de ocio de Murcia",
-   "fuente": "https://www.salir.com/las-mejores-discotecas-de-murcia-art-3875.html"
+   "fuente": "https://www.salir.com/las-mejores-discotecas-de-murcia-art-3875.html",
+   "fuente_dir": "https://www.salir.com/chica-de-ayer-murcia-neg-139238.html"
   },
   {
    "n": "Luminata Disco",
@@ -1226,12 +1248,13 @@
   {
    "n": "Mackinlay's",
    "muni": "15058",
-   "dir": "",
+   "dir": "Calle Rosalía de Castro, 243",
    "estilos": [
     "latino"
    ],
    "motivo": "Recomendada en guías de ocio de A Coruña",
-   "fuente": "https://www.salir.com/las-mejores-discotecas-de-coruna-art-758.html"
+   "fuente": "https://www.salir.com/las-mejores-discotecas-de-coruna-art-758.html",
+   "fuente_dir": "https://www.salir.com/discoteca-mackinlay-s-oleiros-neg-128186.html"
   },
   {
    "n": "Achamán",
@@ -1251,11 +1274,12 @@
   },
   {
    "n": "Magic",
-   "muni": "38006",
-   "dir": "Playa de Las Américas",
+   "muni": "38001",
+   "dir": "Mare Nostrum Resort, Avenida de las Américas, Adeje",
    "estilos": [],
    "motivo": "Recomendada en guías de ocio de Tenerife",
-   "fuente": "https://capturetheatlas.com/es/discotecas-en-tenerife/"
+   "fuente": "https://capturetheatlas.com/es/discotecas-en-tenerife/",
+   "fuente_dir": "https://www.salir.com/magic-lounge-club-nightclub-playa-de-las-americas-adeje-neg-140552.html"
   },
   {
    "n": "Tramps",
@@ -1299,7 +1323,12 @@
     "hiphop"
    ],
    "motivo": "Recomendada en guías de ocio de Gran Canaria (2026)",
-   "fuente": "https://sandbeds.com/best-nightclubs-gran-canaria/"
+   "fuente": "https://sandbeds.com/best-nightclubs-gran-canaria/",
+   "pos": [
+    27.7598546,
+    -15.569648
+   ],
+   "pos_fuente": "OpenStreetMap way/27504807 (Centro Comercial Kasbah)"
   },
   {
    "n": "Chester Meloneras",
@@ -1315,12 +1344,13 @@
   {
    "n": "TAO Club & Garden",
    "muni": "35016",
-   "dir": "",
+   "dir": "Paseo Alonso Quesada",
    "estilos": [
     "electronica"
    ],
    "motivo": "Recomendada en guías de ocio de Gran Canaria (2026)",
-   "fuente": "https://sandbeds.com/best-nightclubs-gran-canaria/"
+   "fuente": "https://sandbeds.com/best-nightclubs-gran-canaria/",
+   "fuente_dir": "https://www.salir.com/tao-club-garden-las-palmas-de-gran-canaria-neg-136267.html"
   },
   {
    "n": "Aqua Ocean Club",
@@ -1331,7 +1361,12 @@
     "electronica"
    ],
    "motivo": "Recomendada en guías de ocio de Gran Canaria (2026)",
-   "fuente": "https://sandbeds.com/best-nightclubs-gran-canaria/"
+   "fuente": "https://sandbeds.com/best-nightclubs-gran-canaria/",
+   "pos": [
+    27.7458802,
+    -15.6118987
+   ],
+   "pos_fuente": "OpenStreetMap way/27510124 (Centro Comercial Meloneras Playa)"
   },
   {
    "n": "Mantrix",
@@ -1377,22 +1412,24 @@
   {
    "n": "Isla Marina",
    "muni": "03014",
-   "dir": "",
+   "dir": "Avenida de Villajoyosa, 4",
    "estilos": [
     "electronica"
    ],
    "motivo": "Recomendada en guías de ocio de Alicante",
-   "fuente": "https://www.salir.com/las-mejores-discotecas-de-electronica-en-alicante-art-1050.html"
+   "fuente": "https://www.salir.com/las-mejores-discotecas-de-electronica-en-alicante-art-1050.html",
+   "fuente_dir": "https://www.salir.com/isla-marina-alicante-neg-128792.html"
   },
   {
    "n": "Code Social Club",
    "muni": "03014",
-   "dir": "",
+   "dir": "Rambla Méndez Núñez, 19",
    "estilos": [
     "electronica"
    ],
    "motivo": "Recomendada en guías de ocio de Alicante",
-   "fuente": "https://www.salir.com/las-mejores-discotecas-de-electronica-en-alicante-art-1050.html"
+   "fuente": "https://www.salir.com/las-mejores-discotecas-de-electronica-en-alicante-art-1050.html",
+   "fuente_dir": "https://www.salir.com/code-social-club-alicante-neg-128793.html"
   },
   {
    "n": "Katamaran",
@@ -1406,13 +1443,19 @@
   },
   {
    "n": "Metro Dance Club",
-   "muni": "03014",
-   "dir": "",
+   "muni": "03099",
+   "dir": "Carretera de Bigastro a Jacarilla, km 0,6",
    "estilos": [
     "electronica"
    ],
    "motivo": "Recomendada en guías de ocio de Alicante",
-   "fuente": "https://www.salir.com/las-mejores-discotecas-de-electronica-en-alicante-art-1050.html"
+   "fuente": "https://www.salir.com/las-mejores-discotecas-de-electronica-en-alicante-art-1050.html",
+   "fuente_dir": "https://www.taquilla.com/entradas/metro-dance-club",
+   "pos": [
+    38.0621003,
+    -0.8825129
+   ],
+   "pos_fuente": "OpenStreetMap way/683530501 (Metro Dance Club)"
   },
   {
    "n": "Bataplán",
@@ -1554,18 +1597,20 @@
   {
    "n": "Moëf Gaga",
    "muni": "17095",
-   "dir": "",
+   "dir": "Carrer de Santa Cristina, 14",
    "estilos": [],
    "motivo": "Recomendada en guías de ocio de Lloret de Mar",
-   "fuente": "https://www.salir.com/las-mejores-discotecas-en-lloret-de-mar-art-1031.html"
+   "fuente": "https://www.salir.com/las-mejores-discotecas-en-lloret-de-mar-art-1031.html",
+   "fuente_dir": "https://www.salir.com/moef-gaga-lloret-de-mar-neg-128948.html"
   },
   {
    "n": "Enjoy Salou",
    "muni": "43905",
-   "dir": "",
+   "dir": "Carrer de Murillo, 4",
    "estilos": [],
    "motivo": "Recomendada en guías de ocio de Salou",
-   "fuente": "https://www.salir.com/las-mejores-discotecas-de-salou-art-633.html"
+   "fuente": "https://www.salir.com/las-mejores-discotecas-de-salou-art-633.html",
+   "fuente_dir": "https://www.salir.com/enjoy-salou-salou-neg-128221.html"
   },
   {
    "n": "Flash Back",
@@ -1586,10 +1631,11 @@
   {
    "n": "City Hall",
    "muni": "43905",
-   "dir": "",
+   "dir": "Carrer de Murillo, 3",
    "estilos": [],
    "motivo": "Recomendada en guías de ocio de Salou",
-   "fuente": "https://www.salir.com/las-mejores-discotecas-de-salou-art-633.html"
+   "fuente": "https://www.salir.com/las-mejores-discotecas-de-salou-art-633.html",
+   "fuente_dir": "https://www.salir.com/city-hall-salou-salou-neg-136665.html"
   },
   {
    "n": "Kiss",
@@ -1613,11 +1659,12 @@
   {
    "n": "Deluxe Salou",
    "muni": "43905",
-   "dir": "Avinguda de Carles Buïgas",
+   "dir": "Carrer de Carles Buïgas, 60",
    "estilos": [],
    "motivo": "Nueva: abrió el 30 de abril de 2026",
    "fuente": "https://cronicaglobal.elespanol.com/viajes/20260503/oficial-nueva-discoteca-salou-fecha-apertura-trt/1003742750152_0.html",
-   "nueva": "2026-04"
+   "nueva": "2026-04",
+   "fuente_dir": "https://www.gayout.com/europe/spain/salou/bars/deluxe-salou"
   },
   {
    "n": "Sala M100",
@@ -1659,10 +1706,11 @@
   {
    "n": "Galería Sala Club",
    "muni": "11020",
-   "dir": "Avenida de Europa",
+   "dir": "Avenida de Europa, 9",
    "estilos": [],
    "motivo": "Recomendada en guías de ocio de Jerez",
-   "fuente": "https://www.salir.com/discotecas-en-jerez-de-la-frontera-art-593.html"
+   "fuente": "https://www.salir.com/discotecas-en-jerez-de-la-frontera-art-593.html",
+   "fuente_dir": "https://www.salir.com/galeria-sala-club-jerez-de-la-frontera-neg-127701.html"
   },
   {
    "n": "Bereber",

@@ -102,7 +102,9 @@ def main():
             informe['encontrados'].append([d['n'], c, f"{best[1]['type']}/{best[1]['id']}", best[1]['tags'].get('name')])
             continue
         m = munis.get(c); mlat, mlng = (m[2], m[3]) if m else (None, None)
-        clave = f"{d['n']}|{c}|{d.get('dir', '')}" + ('|dir' if d.get('solo_direccion') else '')
+        clave = f"{d['n']}|{c}|{d.get('dir', '')}|{d.get('dir_geo', '')}" + ('|dir' if d.get('solo_direccion') else '')
+        if d.get('pos'):   # punto fijado a mano (coordenadas de OSM del edificio, centro comercial o puerto donde está; ver pos_fuente)
+            geo[clave] = {'lat': d['pos'][0], 'lng': d['pos'][1], 'via': 'punto-osm'}
         if clave not in geo:
             pos = None
             q = f"{d['n']}, {m[1].split('/')[0] if m else ''}, España"
@@ -114,8 +116,9 @@ def main():
                     la, lo = float(x['lat']), float(x['lon'])
                     if mlat is None or km(la, lo, mlat, mlng) < 25:
                         pos = {'lat': la, 'lng': lo, 'via': 'nominatim', 'osm': f"{x.get('osm_type')}/{x.get('osm_id')}"}; break
-            if not pos and re.search(r'\d', d.get('dir') or ''):
-                r = get('https://www.cartociudad.es/geocoder/api/geocoder/find?q=' + urllib.parse.quote(f"{d['dir']}, {m[1].split('/')[0] if m else ''}"))
+            dg = d.get('dir_geo') or d.get('dir') or ''   # dir_geo: la misma dirección escrita como la entiende CartoCiudad
+            if not pos and re.search(r'\d', dg):
+                r = get('https://www.cartociudad.es/geocoder/api/geocoder/find?q=' + urllib.parse.quote(f"{dg}, {m[1].split('/')[0] if m else ''}"))
                 g = re.search(r'POINT\(([-\d.]+) ([-\d.]+)\)', (r or {}).get('geom') or '')
                 if g and (r or {}).get('type') == 'portal' and str(r.get('muniCode') or c) == c:
                     la, lo = float(g.group(2)), float(g.group(1))
