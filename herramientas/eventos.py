@@ -6,6 +6,7 @@ MODO NOCHE · agenda de eventos de fuentes oficiales y abiertas (sin claves)
   - Ajuntament de Barcelona · «Agenda diària» (Open Data BCN, CC BY 4.0)
   - Gobierno Vasco · agenda cultural Kulturklik (api.euskadi.eus, datos abiertos)
   - Ayuntamiento de Málaga · agenda (datosabiertos.malaga.eu) y Ayuntamiento de Zaragoza · agenda (API zaragoza.es)
+  - Junta de Andalucía · «Agenda de eventos» (datos.juntadeandalucia.es) y Concello de Vigo · axenda (datos.vigo.org)
 Escribe:
   publico/eventos/MMMMM.json   {"m": INE, "gen": fecha, "eventos": [...]} (próximos 60 días)
   publico/eventos/indice.json  municipios con eventos y estado de cada fuente
@@ -416,6 +417,46 @@ def ticketmaster(nombres, munis):
     return out, total
 
 
+
+# ---------------- Andalucía (Junta de Andalucía, «Agenda de eventos», datos abiertos) ----------------
+PROV_AND = {'almeria': '04', 'cadiz': '11', 'cordoba': '14', 'granada': '18', 'huelva': '21', 'jaen': '23', 'malaga': '29', 'sevilla': '41'}
+NO_PLAN = re.compile(r'\b(taller|curso|cursos|jornadas?|seminario|congreso|webinar|formaci[oó]n|formativ|convocatoria|inscripci[oó]n|plazo)\b', re.I)
+def _sin_html(t): return re.sub(r'\s+', ' ', re.sub(r'<[^>]+>', ' ', str(t or '')).replace('&nbsp.', ' ').replace('&nbsp;', ' ')).strip()
+def andalucia(nombres_prov):
+    filas = json.loads(bajar('https://datos.juntadeandalucia.es/api/v0/schedule/all?format=json', timeout=180))
+    MUESTRAS['andalucia'] = filas[:2]
+    out = []
+    for r in filas:
+        titulo = _sin_html(r.get('title'))
+        if not titulo or NO_PLAN.search(titulo): continue
+        prov = norm(((r.get('province') or [{}])[0] or {}).get('province') or '')
+        cod = nombres_prov.get((PROV_AND.get(prov, ''), norm(r.get('location') or '')))
+        if not cod: continue
+        url = ''
+        for mi in r.get('more_info') or []:
+            for x in (mi or {}).get('field_url_mas_informacion') or []:
+                url = url or (x or {}).get('more_info_url') or ''
+        coste = _sin_html(r.get('cost'))
+        gratis = bool(re.search(r'gratu|libre', coste, re.I))
+        for d in r.get('date_registration') or []:
+            e = evento(titulo, d.get('start_date_registration'), d.get('end_date_registration'), hora(r.get('schedule') or ''), _sin_html(r.get('address'))[:120], '',
+                       None, None, url, '' if gratis else coste[:80], gratis, 'Junta de Andalucía (datos abiertos)', ' '.join([titulo, str(r.get('themes') or '')]))
+            if e: out.append((cod, e))
+    return out, len(filas)
+
+
+# ---------------- Vigo (Concello de Vigo, axenda cultural, datos abiertos) ----------------
+def vigo():
+    filas = json.loads(bajar('https://datos.vigo.org/data/axenda/agenda-hoy.json', timeout=120))
+    MUESTRAS['vigo'] = filas[:2]
+    out = []
+    for r in filas:
+        if r.get('permanente') in (True, 'True', 'true'): continue
+        e = evento(r.get('titulo'), r.get('fecha_inicio'), r.get('fecha_fin'), '', '', r.get('direccion') or '', None, None, '', '', False,
+                   'Concello de Vigo (datos abertos)', r.get('titulo') or '')
+        if e: out.append(('36057', e))
+    return out, len(filas)
+
 def main():
     munis = json.load(open(os.path.join(RAIZ, 'datos', 'municipios.json'), encoding='utf-8'))['municipios']
     nombres = {}
@@ -435,7 +476,7 @@ def main():
                 nombres_prov.setdefault((m[0][:2], norm(v)), m[0])
                 if m[0][:2] in ('08', '17', '25', '43'): nombres_cat.setdefault(norm(v), m[0])
     for nombre, fn in (('Madrid', madrid), ('Barcelona', barcelona), ('Cataluña', lambda: cataluna(nombres_cat)), ('Castilla y León', lambda: castilla_leon(nombres_prov)),
-                       ('Gijón', gijon), ('Málaga', malaga), ('Zaragoza', zaragoza), ('Comunitat Valenciana (IVC)', lambda: ivc(nombres_prov)), ('Euskadi', lambda: euskadi(nombres)), ('Ticketmaster', lambda: ticketmaster(nombres, munis))):
+                       ('Gijón', gijon), ('Málaga', malaga), ('Zaragoza', zaragoza), ('Comunitat Valenciana (IVC)', lambda: ivc(nombres_prov)), ('Euskadi', lambda: euskadi(nombres)), ('Andalucía (Junta)', lambda: andalucia(nombres_prov)), ('Vigo', vigo), ('Ticketmaster', lambda: ticketmaster(nombres, munis))):
         try:
             lst, leidos = fn()
             for cod, e in lst: por_muni.setdefault(cod, []).append(e)
