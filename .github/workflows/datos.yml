@@ -48,18 +48,18 @@ jobs:
       - name: Generar los locales (una vez por semana)
         if: steps.cache.outputs.cache-hit != 'true'
         run: python3 herramientas/generar.py
+      - name: Recuperar ubicaciones ya calculadas (Catastro y CartoCiudad) y última agenda correcta de cada fuente
+        uses: actions/cache@v4
+        with:
+          path: cache
+          key: ubicaciones-${{ github.run_id }}
+          restore-keys: ubicaciones-
       - name: Agenda de eventos oficiales (cada día)
         env:
           TICKETMASTER_KEY: ${{ secrets.TICKETMASTER_KEY }}
         run: |
           rm -rf publico/eventos
           python3 herramientas/eventos.py
-      - name: Recuperar ubicaciones ya calculadas (Catastro y CartoCiudad)
-        uses: actions/cache@v4
-        with:
-          path: cache
-          key: ubicaciones-${{ github.run_id }}
-          restore-keys: ubicaciones-
       - name: Discotecas destacadas (rankings y guías, cada una con su fuente)
         continue-on-error: true
         timeout-minutes: 20

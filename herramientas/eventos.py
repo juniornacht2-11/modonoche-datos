@@ -490,14 +490,25 @@ def main():
                 if m[0][:2] in ('08', '17', '25', '43'): nombres_cat.setdefault(norm(v), m[0])
     for nombre, fn in (('Madrid', madrid), ('Barcelona', barcelona), ('Cataluña', lambda: cataluna(nombres_cat)), ('Castilla y León', lambda: castilla_leon(nombres_prov)),
                        ('Gijón', gijon), ('Málaga', malaga), ('Zaragoza', zaragoza), ('Comunitat Valenciana (IVC)', lambda: ivc(nombres_prov)), ('Euskadi', lambda: euskadi(nombres)), ('Andalucía (Junta)', lambda: andalucia(nombres_prov)), ('Vigo', vigo), ('Ticketmaster', lambda: ticketmaster(nombres, munis))):
+        copia = os.path.join(RAIZ, 'cache', 'agenda-' + norm(nombre).replace(' ', '-') + '.json')
         try:
             lst, leidos = fn()
             for cod, e in lst: por_muni.setdefault(cod, []).append(e)
             fuentes.append({'fuente': nombre, 'ok': True, 'leidos': leidos, 'publicados': len(lst)})
             log(f'{nombre}: {leidos} leídos, {len(lst)} próximos publicados')
+            if lst:
+                os.makedirs(os.path.dirname(copia), exist_ok=True)
+                with open(copia, 'w', encoding='utf-8') as f: json.dump(lst, f, ensure_ascii=False)
         except Exception as ex:
-            fuentes.append({'fuente': nombre, 'ok': False, 'error': str(ex)[:300]})
-            log(f'{nombre}: ERROR {ex}')
+            # Si la fuente falla hoy, se publican los eventos que dio la última vez (solo los que aún no han terminado)
+            viejos = []
+            try:
+                viejos = [(c, e) for c, e in json.load(open(copia, encoding='utf-8')) if e.get('fin', '') >= HOY.isoformat()]
+            except Exception:
+                pass
+            for cod, e in viejos: por_muni.setdefault(cod, []).append(e)
+            fuentes.append({'fuente': nombre, 'ok': False, 'error': str(ex)[:300], 'reutilizados': len(viejos)})
+            log(f'{nombre}: ERROR {ex} · se reutilizan {len(viejos)} eventos de la última lectura correcta')
     indice = {}
     for cod, lst in por_muni.items():
         vistos, unicos = set(), []
