@@ -423,7 +423,8 @@ def cataluna():
     ruta = os.path.join(TMP, 'cat.csv'); bajar('https://analisi.transparenciacatalunya.cat/resource/t2h3-cgys.csv?$limit=1000000', ruta, t=600)
     h, filas = tabla(texto(open(ruta, 'rb').read()), ',')
     i = {c: k for k, c in enumerate(h)}
-    TIPO = {"habitatges d us turistic": 'vut', 'turisme rural': 'rural', 'campings': 'camping', 'apartaments turistics': 'apartamento'}
+    TIPO = {"habitatges d us turistic": 'vut', 'turisme rural': 'rural', 'campings': 'camping', 'apartaments turistics': 'apartamento',
+            'llars compartides': 'habitacion'}   # habitaciones en la casa del titular (registro oficial): sin nombre ni número de portal
     regs = []
     for r in filas:
         g = lambda c, r=r: r[i[c]] if c in i and i[c] < len(r) else ''
@@ -432,7 +433,7 @@ def cataluna():
         if te == 'hotels':
             tipo = 'hostal' if 'hostal' in norm(g('grup')) else 'hotel'
         if not tipo:
-            continue     # «llars compartides» (habitaciones en casa del titular) y áreas de autocaravanas no se publican
+            continue     # áreas de autocaravanas y otros tipos no se publican
         muni = (g('codi_municipi_idescat') or '')[:5]
         ref = re.sub(r'\s', '', g('referencia_cadastral'))[:14]
         regs.append((g, tipo, muni, ref))
@@ -443,15 +444,16 @@ def cataluna():
     catastro(refs)
     q = lambda g: f"{con_numero(g('tipus_de_via'), g('nom_de_la_via'), g('numero'))}, {g('codi_postal')} {g('municipi')}"
     pend = [(g, tipo) for g, tipo, muni, ref in regs if len(CAT.get(ref) or []) != 2]
-    pend.sort(key=lambda x: x[1] == 'vut')      # primero hoteles, casas rurales, campings…
+    pend.sort(key=lambda x: x[1] in ('vut', 'habitacion'))      # primero hoteles, casas rurales, campings…
     geocodificar_lote([q(g) for g, tipo in pend])
     for g, tipo, muni, ref in regs:
         pt = CAT.get(ref) or []
         lat, lng = (pt[0], pt[1]) if len(pt) == 2 else (None, None)
         if lat is None:
             res = geocodificar(q(g)); lat, lng = (res[0], res[1]) if res else (None, None)
-        dir_ = solo_calle(con_numero(g('tipus_de_via'), g('nom_de_la_via'), '')) if tipo == 'vut' else con_numero(g('tipus_de_via'), g('nom_de_la_via'), g('numero'))
-        anadir('ct', (g('n_mero_inscripci') or ref or str(len(SALIDA))).replace('/', '-'), tipo, muni, lat, lng, g('r_tol'), dir_, g('total_places'), g('n_mero_inscripci'))
+        privada = tipo in ('vut', 'habitacion')     # casas particulares: solo la calle, sin número
+        dir_ = solo_calle(con_numero(g('tipus_de_via'), g('nom_de_la_via'), '')) if privada else con_numero(g('tipus_de_via'), g('nom_de_la_via'), g('numero'))
+        anadir('ct', (g('n_mero_inscripci') or ref or str(len(SALIDA))).replace('/', '-'), tipo, muni, lat, lng, '' if tipo == 'habitacion' else g('r_tol'), dir_, g('total_places'), g('n_mero_inscripci'))
 
 
 def valencia():
