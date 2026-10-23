@@ -1,11 +1,11 @@
-"""Sondeo: tipos de establecimiento del registro de turismo de Cataluña (solo lectura)."""
-import os, json, urllib.request, urllib.parse
+"""Sondeo: comprobar lo publicado en GitHub Pages (destacadas y agenda)."""
+import os, json, urllib.request
 os.makedirs('salida', exist_ok=True)
-UA = {'User-Agent': 'MODO-NOCHE-sondeo (modonochesoporte@gmail.com)'}
-def get(u):
-    try: return json.loads(urllib.request.urlopen(urllib.request.Request(u, headers=UA), timeout=120).read())
+B = 'https://juniornacht2-11.github.io/modonoche-datos'
+def get(p):
+    try: return json.loads(urllib.request.urlopen(urllib.request.Request(B + p + '?x=' + str(os.getpid()), headers={'User-Agent': 'MODO-NOCHE-sondeo'}), timeout=60).read())
     except Exception as e: return {'error': str(e)[:200]}
-B = 'https://analisi.transparenciacatalunya.cat/resource/t2h3-cgys.json?'
-out = {'tipos': get(B + urllib.parse.urlencode({'$select': 'tipus_establiment, grup, count(*)', '$group': 'tipus_establiment, grup', '$limit': 100})),
-       'ej_llar': get(B + urllib.parse.urlencode({'$where': "lower(tipus_establiment) like '%llar%'", '$limit': 2}))}
+ix = get('/indice.json'); d = get('/destacados.json'); ev = get('/eventos/indice.json')
+out = {'indice': {k: ix.get(k) for k in ('gen', 'destacados')}, 'sin_ubicar': d.get('sin_ubicar'), 'anadidos': d.get('anadidos'),
+       'agenda': {'gen': ev.get('gen'), 'fuentes': ev.get('fuentes'), 'vigo': (ev.get('municipios') or {}).get('36057'), 'n_munis': len(ev.get('municipios') or {})}}
 json.dump(out, open('salida/publicado.json', 'w'), ensure_ascii=False, indent=1)
