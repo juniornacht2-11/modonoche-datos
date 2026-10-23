@@ -1,15 +1,8 @@
-"""Sondeo: buscar una foto libre de una habitación (Wikimedia Commons) para el plan «Habitaciones». Solo lectura."""
-import os, json, urllib.request, urllib.parse
+"""Sondeo: descargar miniaturas candidatas (Wikimedia Commons) para revisarlas."""
+import os, json, urllib.request
 os.makedirs('salida', exist_ok=True)
 UA = {'User-Agent': 'MODO-NOCHE-sondeo (modonochesoporte@gmail.com)'}
-def get(u): return json.loads(urllib.request.urlopen(urllib.request.Request(u, headers=UA), timeout=60).read())
-out = []
-for q in ['hostel private room bed', 'guest house bedroom Spain', 'pension room bed Spain', 'hotel room cozy bed lamp']:
-    j = get('https://commons.wikimedia.org/w/api.php?' + urllib.parse.urlencode({'action': 'query', 'format': 'json', 'generator': 'search', 'gsrsearch': 'filetype:bitmap ' + q, 'gsrnamespace': 6, 'gsrlimit': 12,
-        'prop': 'imageinfo', 'iiprop': 'url|extmetadata|size', 'iiurlwidth': 800}))
-    for p in (j.get('query') or {}).get('pages', {}).values():
-        ii = (p.get('imageinfo') or [{}])[0]; m = ii.get('extmetadata') or {}
-        lic = (m.get('LicenseShortName') or {}).get('value', '')
-        if not any(x in lic for x in ('CC0', 'Public domain', 'CC BY 4.0', 'CC BY-SA 4.0', 'CC BY 3.0', 'CC BY-SA 3.0')): continue
-        out.append({'t': p.get('title'), 'lic': lic, 'autor': (m.get('Artist') or {}).get('value', '')[:120], 'thumb': ii.get('thumburl'), 'w': ii.get('width'), 'h': ii.get('height'), 'q': q})
-json.dump(out, open('salida/publicado.json', 'w'), ensure_ascii=False, indent=1)
+U = ["https://thumb.wikimedia.org/wikipedia/commons/thumb/8/88/Cleveland_Hostel_room.jpg/960px-Cleveland_Hostel_room.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail", "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/90/DSC_8570_A_cozy_elegantly_decorated_bedroom_with_a_tufted_headboard_soft_blue_linens_ornate_gold-framed_artwork_and_a_draped_ceiling_chandelier_creating_a_romantic_boutique-hotel_atmosphere.jpg/960px-thumbnail.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail", "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3e/DZ6_0461_Cozy_neatly_made_hotel_room_with_a_king_bed_soft_pillows_bedside_lamps_and_calming_neutral_decor.jpg/960px-DZ6_0461_Cozy_neatly_made_hotel_room_with_a_king_bed_soft_pillows_bedside_lamps_and_calming_neutral_decor.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"]
+for i, u in enumerate(U):
+    open(f'salida/foto{i}.jpg', 'wb').write(urllib.request.urlopen(urllib.request.Request(u, headers=UA), timeout=60).read())
+json.dump({'ok': len(U)}, open('salida/publicado.json', 'w'))
