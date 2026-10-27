@@ -44,3 +44,56 @@ s_concierto 18100820 brazos arriba concierto
 s_barra 3769144 barman coctel
 s_barra 15750727 copas en la barra
 s_barra 7270929 hombre barra
+# --- iconos de categorías (fila tipo Glovo) y fotos orientativas de tarjetas ---
+k_pizza 19102880 pizza margherita cortada
+k_pizza 31708263 pizza margherita cerca
+k_pizza 13814644 pizza italiana
+k_sushi 2098134 sushi plato
+k_sushi 248444 sushi mesa
+k_sushi 246747 sushi
+k_burger 1639562 hamburguesa cerca
+k_burger 1893557 hamburguesa
+k_burger 2874989 hamburguesa
+k_tacos 17429158 tacos plato
+k_tacos 8448174 tacos plato
+k_tacos 15434312 mesa de tacos
+k_paella 24906297 paella desde arriba
+k_paella 32629172 paella marisco limones
+k_paella 8969237 paella sarten
+k_pasta 1527603 pasta plato blanco
+k_pasta 6287525 pasta boloñesa
+k_pasta 750071 pasta plato
+k_china 8278165 dim sum cerca
+k_china 32860322 dim sum vaporeras
+k_china 8093504 palillos dimsum
+k_india 7353487 curry pollo bol
+k_india 12737917 bol comida india
+k_india 19781599 curry restaurante
+k_carne 1639558 carne a la parrilla plato
+k_carne 769289 filete
+k_carne 31917730 asado argentino
+k_marisco 4869334 marisco plato
+k_marisco 17198860 gambas
+k_marisco 8694616 marisco y cerveza
+k_veg 6544384 bol vegano
+k_veg 10696501 bol
+k_veg 6823336 bol arroz verduras
+k_kebab 18330009 doner carne verduras
+k_kebab 29306499 doner patatas
+k_ramen 12984979 ramen
+k_ramen 20802552 ramen desde arriba
+k_medit 8743813 ensalada aceitunas
+k_medit 1059905 ensalada
+k_tapas 33389174 tapas marmol
+k_coctel 17010905 bebidas en barra
+k_coctel 3021394 licores
+k_coctel 110472 copas
+k_cerveza 1267151 dos cervezas
+k_cerveza 14356408 vasos de cerveza
+k_directo 2675648 banda tocando
+k_rural 34574357 casa de piedra campo
+k_rural 567186 casa entre arboles
+k_camping 2526025 tiendas iluminadas noche
+k_camping 112378 tienda noche
+k_apart 6588599 salon apartamento moderno
+k_apart 6312353 salon acogedor
