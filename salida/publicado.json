@@ -1,0 +1,496 @@
+{
+ "indice": {
+  "gen": "2026-10-26T04:52:36+00:00",
+  "destacados": {
+   "total": 170,
+   "encontrados": 104,
+   "anadidos": 53,
+   "sin_ubicar": 13
+  }
+ },
+ "sin_ubicar": [
+  [
+   "Marmarela",
+   "03014",
+   "Dique de Levante, Puerto de Alicante"
+  ],
+  [
+   "Dreamers",
+   "29069",
+   "Ctra. N-340 km 175, Río Verde"
+  ],
+  [
+   "Fitz Marbella",
+   "29069",
+   "Ctra. N-340 km 175, Río Verde"
+  ],
+  [
+   "NYX Marbella",
+   "29069",
+   "Bulevar Príncipe Alfonso de Hohenlohe"
+  ],
+  [
+   "Forum Plaza",
+   "18087",
+   "Edificio Forum, Calle José Luis Pérez Pujadas"
+  ],
+  [
+   "Kitsch",
+   "30030",
+   ""
+  ],
+  [
+   "Magic",
+   "38001",
+   "Mare Nostrum Resort, Avenida de las Américas, Adeje"
+  ],
+  [
+   "TAO Club & Garden",
+   "35016",
+   "Paseo Alonso Quesada"
+  ],
+  [
+   "Mama Juana",
+   "35019",
+   "Meloneras"
+  ],
+  [
+   "Dubai Club",
+   "35019",
+   "Avenida de Tenerife, Playa del Inglés"
+  ],
+  [
+   "El Caserío",
+   "35019",
+   "Centro Plaza, Playa del Inglés"
+  ],
+  [
+   "Di Mare",
+   "43905",
+   "Carrer de Carles Buïgas, 6"
+  ],
+  [
+   "Deluxe Salou",
+   "43905",
+   "Carrer de Carles Buïgas, 60"
+  ]
+ ],
+ "anadidos": [
+  [
+   "Ushuaïa Ibiza",
+   "07048",
+   "nominatim"
+  ],
+  [
+   "Disco Tropics",
+   "17095",
+   "cartociudad"
+  ],
+  [
+   "Disco Privé",
+   "17095",
+   "cartociudad"
+  ],
+  [
+   "Lapikkara",
+   "08252",
+   "cartociudad"
+  ],
+  [
+   "Bisou",
+   "28079",
+   "cartociudad"
+  ],
+  [
+   "Vandido",
+   "28079",
+   "cartociudad"
+  ],
+  [
+   "Teatro Barceló",
+   "28079",
+   "nominatim"
+  ],
+  [
+   "ToyRoom",
+   "28079",
+   "cartociudad"
+  ],
+  [
+   "Icon Club",
+   "28079",
+   "cartociudad"
+  ],
+  [
+   "Panthera",
+   "28079",
+   "cartociudad"
+  ],
+  [
+   "Teatro Magno",
+   "28079",
+   "nominatim"
+  ],
+  [
+   "Oh My Club",
+   "28079",
+   "cartociudad"
+  ],
+  [
+   "Nox Club Madrid",
+   "28079",
+   "cartociudad"
+  ],
+  [
+   "Barco Sound House",
+   "28079",
+   "cartociudad"
+  ],
+  [
+   "Bling Bling",
+   "08019",
+   "cartociudad"
+  ],
+  [
+   "Hyde Club",
+   "08019",
+   "cartociudad"
+  ],
+  [
+   "Duvet",
+   "08019",
+   "cartociudad"
+  ],
+  [
+   "Havana The Cánovas Club",
+   "46250",
+   "cartociudad"
+  ],
+  [
+   "Barraca",
+   "46250",
+   "cartociudad"
+  ],
+  [
+   "Indiana",
+   "46250",
+   "cartociudad"
+  ],
+  [
+   "Vybe",
+   "07026",
+   "punto-osm"
+  ],
+  [
+   "Akasha",
+   "07054",
+   "cartociudad"
+  ],
+  [
+   "Pangea",
+   "29069",
+   "punto-osm"
+  ],
+  [
+   "Mosh",
+   "29069",
+   "cartociudad"
+  ],
+  [
+   "Obbio",
+   "41091",
+   "cartociudad"
+  ],
+  [
+   "Abril",
+   "41091",
+   "cartociudad"
+  ],
+  [
+   "Moma Bilbao",
+   "48020",
+   "cartociudad"
+  ],
+  [
+   "Kremlin",
+   "48020",
+   "cartociudad"
+  ],
+  [
+   "Momba",
+   "48013",
+   "cartociudad"
+  ],
+  [
+   "Supernova",
+   "50297",
+   "cartociudad"
+  ],
+  [
+   "Reset Club",
+   "50297",
+   "cartociudad"
+  ],
+  [
+   "Kenbo",
+   "50297",
+   "nominatim"
+  ],
+  [
+   "Aliatar",
+   "18087",
+   "nominatim"
+  ],
+  [
+   "Booga Club",
+   "18087",
+   "cartociudad"
+  ],
+  [
+   "The Golden",
+   "30030",
+   "cartociudad"
+  ],
+  [
+   "Chica de Ayer",
+   "30030",
+   "cartociudad"
+  ],
+  [
+   "Mackinlay's",
+   "15058",
+   "cartociudad"
+  ],
+  [
+   "Monkey Beach Club",
+   "38001",
+   "nominatim"
+  ],
+  [
+   "Exito Gay Club",
+   "38001",
+   "cartociudad"
+  ],
+  [
+   "China White",
+   "35019",
+   "punto-osm"
+  ],
+  [
+   "Aqua Ocean Club",
+   "35019",
+   "punto-osm"
+  ],
+  [
+   "Isla Marina",
+   "03014",
+   "cartociudad"
+  ],
+  [
+   "Code Social Club",
+   "03014",
+   "cartociudad"
+  ],
+  [
+   "Katamaran",
+   "03014",
+   "cartociudad"
+  ],
+  [
+   "La Kama",
+   "31201",
+   "cartociudad"
+  ],
+  [
+   "Alcatraz",
+   "17095",
+   "cartociudad"
+  ],
+  [
+   "Gotham",
+   "17095",
+   "cartociudad"
+  ],
+  [
+   "Moëf Gaga",
+   "17095",
+   "cartociudad"
+  ],
+  [
+   "Enjoy Salou",
+   "43905",
+   "cartociudad"
+  ],
+  [
+   "City Hall",
+   "43905",
+   "cartociudad"
+  ],
+  [
+   "Bianco Lounge Club",
+   "14021",
+   "cartociudad"
+  ],
+  [
+   "Galería Sala Club",
+   "11020",
+   "cartociudad"
+  ],
+  [
+   "La Julieta",
+   "11020",
+   "cartociudad"
+  ]
+ ],
+ "agenda": {
+  "gen": "2026-10-30T16:27:20+00:00",
+  "fuentes": [
+   {
+    "fuente": "Madrid",
+    "ok": true,
+    "leidos": 1624,
+    "publicados": 1116
+   },
+   {
+    "fuente": "Barcelona",
+    "ok": false,
+    "error": "The read operation timed out",
+    "reutilizados": 2826
+   },
+   {
+    "fuente": "Cataluña",
+    "ok": true,
+    "leidos": 1228,
+    "publicados": 833
+   },
+   {
+    "fuente": "Castilla y León",
+    "ok": true,
+    "leidos": 625,
+    "publicados": 456
+   },
+   {
+    "fuente": "Gijón",
+    "ok": true,
+    "leidos": 209,
+    "publicados": 0
+   },
+   {
+    "fuente": "Málaga",
+    "ok": true,
+    "leidos": 1221,
+    "publicados": 67
+   },
+   {
+    "fuente": "Zaragoza",
+    "ok": true,
+    "leidos": 2824,
+    "publicados": 654
+   },
+   {
+    "fuente": "Comunitat Valenciana (IVC)",
+    "ok": true,
+    "leidos": 1024,
+    "publicados": 119
+   },
+   {
+    "fuente": "Euskadi",
+    "ok": true,
+    "leidos": 4727,
+    "publicados": 3158
+   },
+   {
+    "fuente": "Andalucía (Junta)",
+    "ok": true,
+    "leidos": 892,
+    "publicados": 25
+   },
+   {
+    "fuente": "Vigo",
+    "ok": true,
+    "leidos": 45,
+    "publicados": 5
+   },
+   {
+    "fuente": "Ticketmaster",
+    "ok": true,
+    "leidos": 4327,
+    "publicados": 4270
+   },
+   {
+    "fuente": "Ticketmaster Portugal",
+    "ok": true,
+    "leidos": 0,
+    "publicados": 0
+   },
+   {
+    "fuente": "Ticketmaster Italia",
+    "ok": true,
+    "leidos": 265,
+    "publicados": 262
+   },
+   {
+    "fuente": "Ticketmaster Francia",
+    "ok": true,
+    "leidos": 12217,
+    "publicados": 11550
+   },
+   {
+    "fuente": "Ticketmaster Alemania",
+    "ok": true,
+    "leidos": 833,
+    "publicados": 809
+   },
+   {
+    "fuente": "Ticketmaster Países Bajos",
+    "ok": true,
+    "leidos": 445,
+    "publicados": 437
+   },
+   {
+    "fuente": "Ticketmaster Bélgica",
+    "ok": true,
+    "leidos": 181,
+    "publicados": 179
+   },
+   {
+    "fuente": "Ticketmaster Reino Unido",
+    "ok": true,
+    "leidos": 6746,
+    "publicados": 6704
+   },
+   {
+    "fuente": "Ticketmaster Irlanda",
+    "ok": true,
+    "leidos": 445,
+    "publicados": 425
+   },
+   {
+    "fuente": "Ticketmaster Grecia",
+    "ok": true,
+    "leidos": 71,
+    "publicados": 71
+   },
+   {
+    "fuente": "Ticketmaster Croacia",
+    "ok": true,
+    "leidos": 0,
+    "publicados": 0
+   },
+   {
+    "fuente": "Ticketmaster Austria",
+    "ok": true,
+    "leidos": 44,
+    "publicados": 44
+   },
+   {
+    "fuente": "Ticketmaster Suiza",
+    "ok": true,
+    "leidos": 67,
+    "publicados": 67
+   }
+  ],
+  "vigo": 7,
+  "n_munis": 1308
+ }
+}
