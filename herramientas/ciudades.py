@@ -45,7 +45,19 @@ for gid, c in sorted(ciudades.items(), key=lambda kv: -kv[1]['pop']):
     for v in [c['name']] + [a[l] for l in ('en', 'pt', 'it', 'fr', 'de', 'nl', 'ca') if l in a]:
         if v and v != nombre and v not in vars_ and len(v) <= 40 and not re.search(r'[Ͱ-ϿЀ-ӿ]', v): vars_.append(v)
     salida.append([c['cc'] + gid, nombre, c['lat'], c['lng'], c['pop'], c['cc'], regiones.get(f"{c['cc']}.{c['a1']}", ''), vars_[:6]])
-meta = {'fuente': 'GeoNames (www.geonames.org), licencia CC BY 4.0', 'poblacion_minima': MIN_POB, 'paises': len(PAISES), 'ciudades': len(salida)}
-json.dump({'meta': meta, 'paises': PAISES, 'ciudades': salida}, open(f'{OUT}/ciudades.json', 'w', encoding='utf-8'), ensure_ascii=False, separators=(',', ':'))
+# Barrios que GeoNames da como «ciudad» (freguesias de Lisboa, distritos de grandes ciudades…): pasan a ser barrios de su ciudad
+import math
+def kmd(a, b): return math.hypot((a[2] - b[2]) * 111, (a[3] - b[3]) * 111 * math.cos(math.radians(a[2])))
+def radio(pop): return 12.0 if pop >= 1_000_000 else 8.0 if pop >= 300_000 else 5.0 if pop >= 100_000 else 3.5 if pop >= 30_000 else 2.5
+grandes = [x for x in salida if x[4] >= 300_000]
+finales, barrios = [], []
+for x in salida:
+    madre = next((g for g in grandes if g is not x and g[5] == x[5] and g[4] >= 3 * x[4] and kmd(g, x) < 0.55 * radio(g[4])), None)
+    if madre: barrios.append([x[1], madre[0], x[2], x[3], 's'])
+    else: finales.append(x)
+print('pasan a barrio', len(barrios), barrios[:8])
+salida = finales
+meta = {'fuente': 'GeoNames (www.geonames.org), licencia CC BY 4.0', 'poblacion_minima': MIN_POB, 'paises': len(PAISES), 'ciudades': len(finales), 'barrios': len(barrios)}
+json.dump({'meta': meta, 'paises': PAISES, 'ciudades': salida, 'barrios': barrios}, open(f'{OUT}/ciudades.json', 'w', encoding='utf-8'), ensure_ascii=False, separators=(',', ':'))
 print('escritas', len(salida), 'tamaño', os.path.getsize(f'{OUT}/ciudades.json'))
 por_pais = collections.Counter(x[5] for x in salida); print(dict(por_pais))
