@@ -1,13 +1,11 @@
-import json, os, urllib.request
-B = 'https://juniornacht2-11.github.io/modonoche-datos/'
-def j(p):
-    try: return json.loads(urllib.request.urlopen(urllib.request.Request(B + p, headers={'User-Agent': 'mn-sondeo'}), timeout=60).read())
-    except Exception as e: return {'error': str(e)}
-out = {}
-ii = j('indice-int.json'); out['indice_int'] = {'error': ii.get('error'), 'ciudades': len(ii.get('municipios', {})), 'paises': list((ii.get('paises') or {}).keys())}
-l = j('locales/GB2643743.json'); out['londres'] = {'n': len(l.get('elements', [])), 'error': l.get('error')}
-lg = j('lugares-int.json'); out['barrios_int'] = len(lg.get('l', [])) if isinstance(lg, dict) else lg
-ev = j('eventos/indice.json'); out['fuentes'] = ev.get('fuentes'); m = ev.get('municipios', {})
-out['eventos_int'] = {k: v for k, v in sorted(m.items(), key=lambda x: -x[1]) if k[:2].isalpha()}
-out['eventos_int'] = dict(list(out['eventos_int'].items())[:15]); out['n_ciudades_int_con_eventos'] = sum(1 for k in m if k[:2].isalpha())
-os.makedirs('salida', exist_ok=True); json.dump(out, open('salida/publicado.json', 'w'), ensure_ascii=False, indent=1)
+"""Sondeo: comprobar lo publicado en GitHub Pages (destacadas y agenda)."""
+import os, json, urllib.request
+os.makedirs('salida', exist_ok=True)
+B = 'https://juniornacht2-11.github.io/modonoche-datos'
+def get(p):
+    try: return json.loads(urllib.request.urlopen(urllib.request.Request(B + p + '?x=' + str(os.getpid()), headers={'User-Agent': 'MODO-NOCHE-sondeo'}), timeout=60).read())
+    except Exception as e: return {'error': str(e)[:200]}
+ix = get('/indice.json'); d = get('/destacados.json'); ev = get('/eventos/indice.json')
+out = {'indice': {k: ix.get(k) for k in ('gen', 'destacados')}, 'sin_ubicar': d.get('sin_ubicar'), 'anadidos': d.get('anadidos'),
+       'agenda': {'gen': ev.get('gen'), 'fuentes': ev.get('fuentes'), 'vigo': (ev.get('municipios') or {}).get('36057'), 'n_munis': len(ev.get('municipios') or {})}}
+json.dump(out, open('salida/publicado.json', 'w'), ensure_ascii=False, indent=1)
