@@ -74,7 +74,7 @@ def limpio(t, n=300):
     return re.sub(r'\s+', ' ', t).strip()[:n]
 
 
-def evento(titulo, ini, fin, h, lugar, direccion, lat, lng, url, precio, gratis, fuente, cat=''):
+def evento(titulo, ini, fin, h, lugar, direccion, lat, lng, url, precio, gratis, fuente, cat='', europa=False):
     ini = fecha(ini); fin = fecha(fin) or ini
     if not titulo or not ini or fin < HOY or ini > HASTA:
         return None
@@ -86,7 +86,7 @@ def evento(titulo, ini, fin, h, lugar, direccion, lat, lng, url, precio, gratis,
         lat = float(lat) if lat not in (None, '') else None; lng = float(lng) if lng not in (None, '') else None
     except ValueError:
         lat = lng = None
-    if lat is not None and not (27 < lat < 44.5 and -18.5 < lng < 4.6):
+    if lat is not None and not ((34 < lat < 72 and -25 < lng < 45) if europa else (27 < lat < 44.5 and -18.5 < lng < 4.6)):
         lat = lng = None
     e = {'t': limpio(titulo, 160), 'ini': ini.isoformat(), 'fin': fin.isoformat(), 'f': fuente}
     if h: e['h'] = h
@@ -363,7 +363,7 @@ def euskadi(nombres):
 
 
 # ---------------- Ticketmaster (clave en el secreto TICKETMASTER_KEY de GitHub) ----------------
-def ticketmaster(nombres, munis):
+def ticketmaster(nombres, munis, pais='ES', maxkm=15.0):
     import time
     clave = os.environ.get('TICKETMASTER_KEY', '').strip()
     if not clave:
@@ -373,14 +373,14 @@ def ticketmaster(nombres, munis):
         cod = nombres.get(norm(ciudad))
         if cod: return cod
         if lat is None: return None
-        best, bd = None, 15.0
+        best, bd = None, maxkm
         for c, la, lo in centros:
             if abs(la - lat) > 0.2 or abs(lo - lng) > 0.25: continue
             d = math.hypot((la - lat) * 111, (lo - lng) * 111 * math.cos(math.radians(lat)))
             if d < bd: best, bd = c, d
         return best
     def pedir(desde, hasta, pagina):
-        q = urllib.parse.urlencode({'apikey': clave, 'countryCode': 'ES', 'size': 200, 'page': pagina, 'sort': 'date,asc', 'locale': '*',
+        q = urllib.parse.urlencode({'apikey': clave, 'countryCode': pais, 'size': 200, 'page': pagina, 'sort': 'date,asc', 'locale': '*',
                                     'startDateTime': desde.strftime('%Y-%m-%dT00:00:00Z'), 'endDateTime': hasta.strftime('%Y-%m-%dT23:59:59Z')})
         for intento in range(4):
             try:
@@ -391,9 +391,9 @@ def ticketmaster(nombres, munis):
                 if ex.code == 429 and intento < 3: time.sleep(5); continue
                 raise
     out, total, ventanas = [], 0, []
-    d = HOY
-    while d <= HASTA:
-        ventanas.append((d, min(d + dt.timedelta(days=6), HASTA))); d += dt.timedelta(days=7)
+    d, fin_tm = HOY, (HASTA if pais == 'ES' else HOY + dt.timedelta(days=21))   # fuera de España, 3 semanas (menos consultas)
+    while d <= fin_tm:
+        ventanas.append((d, min(d + dt.timedelta(days=6), fin_tm))); d += dt.timedelta(days=7)
     while ventanas:
         a, b = ventanas.pop(0)
         res = pedir(a, b, 0)
@@ -423,7 +423,7 @@ def ticketmaster(nombres, munis):
                 cat = ' '.join(x.get('name', '') for x in (cls.get('segment') or {}, cls.get('genre') or {}) if isinstance(x, dict))
                 e = evento(ev.get('name'), st.get('localDate'), st.get('localDate'), hora(st.get('localTime')), ven.get('name'),
                            ', '.join(x for x in ((ven.get('address') or {}).get('line1'), ven.get('postalCode')) if x), lat, lng,
-                           ev.get('url'), precio, False, 'Ticketmaster', cat)
+                           ev.get('url'), precio, False, 'Ticketmaster', cat, europa=pais != 'ES')
                 if e:
                     if (cls.get('segment') or {}).get('name') == 'Music': e['mus'] = 1
                     out.append((cod, e))
@@ -470,6 +470,21 @@ def vigo():
         if e: out.append(('36057', e))
     return out, len(filas)
 
+def fuentes_int():
+    """Ticketmaster en las ciudades de otros países (datos/ciudades.json): un origen por país."""
+    try: d = json.load(open(os.path.join(RAIZ, 'datos', 'ciudades.json'), encoding='utf-8'))
+    except Exception: return []
+    out = []
+    for cc, nombre_pais in d.get('paises', {}).items():
+        lista = [x for x in d['ciudades'] if x[5] == cc]
+        nom = {}
+        for x in lista:
+            for v in [x[1]] + list(x[7] or []): nom.setdefault(norm(v), x[0])
+        munis_cc = [[x[0], x[1], x[2], x[3]] for x in lista]
+        out.append((f'Ticketmaster {nombre_pais}', (lambda n=nom, m=munis_cc, c=cc: ticketmaster(n, m, c, 10.0))))
+    return out
+
+
 def main():
     munis = json.load(open(os.path.join(RAIZ, 'datos', 'municipios.json'), encoding='utf-8'))['municipios']
     nombres = {}
@@ -489,7 +504,7 @@ def main():
                 nombres_prov.setdefault((m[0][:2], norm(v)), m[0])
                 if m[0][:2] in ('08', '17', '25', '43'): nombres_cat.setdefault(norm(v), m[0])
     for nombre, fn in (('Madrid', madrid), ('Barcelona', barcelona), ('Cataluña', lambda: cataluna(nombres_cat)), ('Castilla y León', lambda: castilla_leon(nombres_prov)),
-                       ('Gijón', gijon), ('Málaga', malaga), ('Zaragoza', zaragoza), ('Comunitat Valenciana (IVC)', lambda: ivc(nombres_prov)), ('Euskadi', lambda: euskadi(nombres)), ('Andalucía (Junta)', lambda: andalucia(nombres_prov)), ('Vigo', vigo), ('Ticketmaster', lambda: ticketmaster(nombres, munis))):
+                       ('Gijón', gijon), ('Málaga', malaga), ('Zaragoza', zaragoza), ('Comunitat Valenciana (IVC)', lambda: ivc(nombres_prov)), ('Euskadi', lambda: euskadi(nombres)), ('Andalucía (Junta)', lambda: andalucia(nombres_prov)), ('Vigo', vigo), ('Ticketmaster', lambda: ticketmaster(nombres, munis))) + tuple(fuentes_int()):
         copia = os.path.join(RAIZ, 'cache', 'agenda-' + norm(nombre).replace(' ', '-') + '.json')
         try:
             lst, leidos = fn()

@@ -1,0 +1,74 @@
+name: Locales de otros países (semanal)
+
+# Igual que España, pero para las ciudades de datos/ciudades.json: un extracto de OpenStreetMap por país (Geofabrik),
+# cada país en su propio servidor de GitHub (los extractos pesan varios GB). El resultado se guarda en la rama «datos-int»
+# y el proceso diario (datos.yml) lo publica junto con los datos de España.
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '23 1 * * 1'
+  push:
+    branches: [main]
+    paths: ['herramientas/generar_int.py', 'herramientas/unir_int.py', '.github/workflows/datos-int.yml']
+
+permissions:
+  contents: write
+
+concurrency:
+  group: datos-int
+  cancel-in-progress: false
+
+jobs:
+  pais:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    strategy:
+      fail-fast: false
+      max-parallel: 6
+      matrix:
+        pais: [PT, IT, FR, DE, NL, BE, GB, IE, GR, HR, AT, CH]
+    steps:
+      - uses: actions/checkout@v4
+      - name: Liberar espacio (los extractos de Alemania y Francia pesan más de 4 GB)
+        run: |
+          sudo rm -rf /usr/share/dotnet /usr/local/lib/android /opt/ghc /opt/hostedtoolcache/CodeQL || true
+          df -h / | tail -1
+      - name: Instalar osmium
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq osmium-tool
+      - name: Generar ${{ matrix.pais }}
+        env:
+          PAIS: ${{ matrix.pais }}
+        run: python3 herramientas/generar_int.py
+      - uses: actions/upload-artifact@v4
+        with:
+          name: pais-${{ matrix.pais }}
+          path: salida_int/${{ matrix.pais }}
+          retention-days: 3
+  unir:
+    needs: pais
+    if: always()
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        with:
+          path: descargas
+      - name: Unir los países que han salido bien
+        run: |
+          git fetch -q --depth 1 origin datos-int && git worktree add -q previo FETCH_HEAD || echo 'sin semana anterior'
+          mkdir -p salida_int
+          for d in descargas/pais-*; do [ -f "$d/indice.json" ] && cp -r "$d" "salida_int/${d#descargas/pais-}"; done
+          ls salida_int
+          python3 herramientas/unir_int.py
+          du -sh publico_int
+      - name: Guardar en la rama «datos-int» (solo la última versión)
+        run: |
+          cd publico_int
+          git init -q -b datos-int
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -qm "Locales de otros países $(date -u +%F)"
+          git push -f "https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git" datos-int

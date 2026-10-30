@@ -1,0 +1,31 @@
+name: Contactos de locales (privado, a mano)
+# Emails de empresa que los propios negocios publican en OpenStreetMap. NO se publican en la web:
+# el resultado sale como archivo del proceso (se borra a los 2 días).
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths: ['herramientas/contactos.py', '.github/workflows/contactos.yml']
+permissions:
+  contents: read
+jobs:
+  pais:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    strategy:
+      fail-fast: false
+      max-parallel: 7
+      matrix:
+        pais: [ES, PT, IT, FR, DE, NL, BE, GB, IE, GR, HR, AT, CH]
+    steps:
+      - uses: actions/checkout@v4
+      - run: sudo rm -rf /usr/share/dotnet /usr/local/lib/android /opt/ghc || true
+      - run: sudo apt-get update -qq && sudo apt-get install -y -qq osmium-tool
+      - env:
+          PAIS: ${{ matrix.pais }}
+        run: python3 herramientas/contactos.py
+      - uses: actions/upload-artifact@v4
+        with:
+          name: contactos-${{ matrix.pais }}
+          path: contactos/${{ matrix.pais }}.csv
+          retention-days: 2

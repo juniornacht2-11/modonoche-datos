@@ -11,7 +11,7 @@ on:
     - cron: '17 4 * * *'
   push:
     branches: [main]
-    paths: ['herramientas/**', '!herramientas/sondeo/**', '!herramientas/ciudades.py', '.github/workflows/datos.yml', 'datos/**']
+    paths: ['herramientas/**', '!herramientas/sondeo/**', '!herramientas/ciudades.py', '!herramientas/generar_int.py', '!herramientas/unir_int.py', '!herramientas/contactos.py', '.github/workflows/datos.yml', 'datos/**']
 
 permissions:
   contents: read
@@ -81,6 +81,12 @@ jobs:
         run: |
           rm -rf publico/registros
           if [ -d registros_pub ]; then cp -r registros_pub publico/registros; fi
+      - name: Locales de otros países (rama datos-int, se generan cada semana con datos-int.yml)
+        continue-on-error: true
+        run: |
+          git fetch -q --depth 1 origin datos-int && git worktree add -q int FETCH_HEAD
+          cp -r int/locales/. publico/locales/ && cp int/indice-int.json int/lugares-int.json publico/
+          ls publico/locales | wc -l
       - name: Comprobar servicios de fotos (Mapillary y Wikidata)
         continue-on-error: true
         run: python3 herramientas/diagnostico.py
