@@ -1,0 +1,55 @@
+name: Contactos · entrega cifrada (a mano)
+# Coge los archivos de una ejecución de «Contactos de locales» y los guarda CIFRADOS en la rama contactos-cifrado.
+# Solo se pueden abrir con la clave privada, que NO está en el repositorio: aunque el repo sea público, nadie puede leerlos.
+on:
+  workflow_dispatch:
+    inputs:
+      run_id:
+        description: 'Número de la ejecución de «Contactos de locales»'
+        required: true
+permissions:
+  contents: write
+  actions: read
+jobs:
+  cifrar:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        with:
+          run-id: ${{ inputs.run_id }}
+          github-token: ${{ github.token }}
+          pattern: contactos-*
+          path: d
+      - name: Unir y cifrar
+        run: |
+          pip install -q openpyxl
+          python3 - <<'PY'
+          import csv, glob, collections
+          from openpyxl import Workbook
+          from openpyxl.styles import Font
+          filas, cab = [], None
+          for f in sorted(glob.glob('d/contactos-[A-Z][A-Z]/*.csv')):
+              r = list(csv.reader(open(f, encoding='utf-8')))
+              cab = r[0]; filas += r[1:]
+          with open('contactos-todos.csv', 'w', newline='', encoding='utf-8-sig') as fh:
+              w = csv.writer(fh); w.writerow(cab); w.writerows(filas)
+          wb = Workbook(); ws = wb.active; ws.title = 'Contactos'; ws.append(cab)
+          for c in ws[1]: c.font = Font(bold=True)
+          for r in filas: ws.append(r)
+          ws.freeze_panes = 'A2'; ws.auto_filter.ref = ws.dimensions
+          wb.save('contactos-todos.xlsx')
+          print('filas', len(filas), collections.Counter(r[0] for r in filas))
+          PY
+          mkdir out
+          openssl rand -out k.bin 32
+          openssl pkeyutl -encrypt -pubin -inkey herramientas/contactos-clave-publica.pem -pkeyopt rsa_padding_mode:oaep -in k.bin -out out/clave.enc
+          tar czf - contactos-todos.csv contactos-todos.xlsx | openssl enc -aes-256-cbc -pbkdf2 -salt -pass file:k.bin -out out/contactos.tgz.enc
+          rm -f k.bin contactos-todos.*
+          ls -la out
+      - name: Guardar en la rama contactos-cifrado
+        run: |
+          cd out && git init -q && git checkout -q -b contactos-cifrado
+          git config user.name 'github-actions' && git config user.email 'github-actions@users.noreply.github.com'
+          git add . && git commit -qm "contactos cifrados (run ${{ inputs.run_id }})"
+          git push -fq "https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}" contactos-cifrado
