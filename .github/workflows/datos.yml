@@ -11,7 +11,7 @@ on:
     - cron: '17 4 * * *'
   push:
     branches: [main]
-    paths: ['herramientas/**', '!herramientas/sondeo/**', '.github/workflows/datos.yml', 'datos/**']
+    paths: ['herramientas/**', '!herramientas/sondeo/**', '!herramientas/ciudades.py', '.github/workflows/datos.yml', 'datos/**']
 
 permissions:
   contents: read
