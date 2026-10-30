@@ -1,0 +1,24 @@
+name: Ciudades de otros países
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths: ['herramientas/ciudades.py']
+permissions:
+  contents: write
+jobs:
+  ciudades:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+      - name: Generar la lista (GeoNames)
+        run: python3 herramientas/ciudades.py
+      - name: Guardar en la rama «ciudades»
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git checkout -B ciudades
+          git add -f salida_ciudades
+          git commit -m "Ciudades de otros países (GeoNames)" || true
+          git push -f origin ciudades
