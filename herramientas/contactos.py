@@ -35,7 +35,7 @@ def main():
         pbf = os.path.join(trab, f'{i}.osm.pbf'); url = f'https://download.geofabrik.de/{ruta}-latest.osm.pbf'
         log('Descargando', url); subprocess.run(['curl', '-fsSL', '--retry', '4', '--retry-delay', '20', '-A', UA, '-o', pbf, url], check=True)
         f = os.path.join(trab, f'{i}.f.osm.pbf')
-        subprocess.run(['osmium', 'tags-filter', '--overwrite', '-o', f, pbf, 'nwr/email', 'nwr/contact:email'], check=True); os.remove(pbf); filtrados.append(f)
+        subprocess.run(['osmium', 'tags-filter', '--overwrite', '-o', f, pbf, 'nwr/email', 'nwr/contact:email', 'nwr/website', 'nwr/contact:website', 'nwr/url'], check=True); os.remove(pbf); filtrados.append(f)
     unido = os.path.join(trab, 'unido.osm.pbf'); subprocess.run(['osmium', 'merge', '--overwrite', '-o', unido, *filtrados], check=True)
     geo = os.path.join(trab, 'c.geojsonseq'); subprocess.run(['osmium', 'export', '--overwrite', '-f', 'geojsonseq', '-o', geo, unido], check=True)
     cs = ciudades(pais); rej = {}
@@ -53,6 +53,7 @@ def main():
             if d < bd + 50: best, bd = c, d
         return best[1] if best else ''
     filas, vistos, desc = [], set(), 0
+    webs = []   # locales con web y sin email: se buscará el email de empresa en su propia web (contactos_web.py)
     for linea in open(geo, encoding='utf-8'):
         linea = linea.strip().lstrip('\x1e')
         if not linea: continue
@@ -63,6 +64,11 @@ def main():
         if not k: continue
         ce = centro(g)
         if not ce: continue
+        web = p.get('website') or p.get('contact:website') or p.get('url') or ''
+        validos = [e for e in re.split(r'[;,\s]+', ' '.join(str(p.get(x) or '') for x in ('email', 'contact:email'))) if EMAIL.match(e.strip().strip('.').lower().replace('mailto:', ''))]
+        if not validos and web.startswith('http'):
+            webs.append([PAISES[pais], ciudad(ce[1], ce[0]), TIPOS.get(p.get('amenity') or p.get('tourism'), k), p.get('name', ''), web,
+                         p.get('phone') or p.get('contact:phone') or '', p.get('instagram') or p.get('contact:instagram') or '']); continue
         for em in re.split(r'[;,\s]+', ' '.join(str(p.get(x) or '') for x in ('email', 'contact:email'))):
             em = em.strip().strip('.').lower().replace('mailto:', '')
             if not EMAIL.match(em): continue
@@ -76,6 +82,9 @@ def main():
     filas.sort(key=lambda r: (r[1], r[2], r[3]))
     with open(os.path.join(RAIZ, 'contactos', f'{pais}.csv'), 'w', newline='', encoding='utf-8') as f:
         w = csv.writer(f); w.writerow(['país', 'ciudad', 'tipo', 'nombre', 'email', 'web', 'teléfono', 'instagram']); w.writerows(filas)
+    with open(os.path.join(RAIZ, 'contactos', f'{pais}-webs.csv'), 'w', newline='', encoding='utf-8') as f:
+        w = csv.writer(f); w.writerow(['país', 'ciudad', 'tipo', 'nombre', 'web', 'teléfono', 'instagram']); w.writerows(webs)
+    log(pais, 'locales con web y sin email:', len(webs))
     log(pais, 'emails de empresa:', len(filas), '| descartados (soporte, incidencias…):', desc)
     return 0
 

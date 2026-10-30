@@ -1,31 +1,77 @@
 name: Contactos de locales (privado, a mano)
-# Emails de empresa que los propios negocios publican en OpenStreetMap. NO se publican en la web:
-# el resultado sale como archivo del proceso (se borra a los 2 días).
+# Emails de empresa que publican los propios negocios: en OpenStreetMap y, si no, en su propia web oficial (portada,
+# página de contacto o aviso legal). NO se publican en la web: el resultado sale como archivo del proceso (se borra a los 3 días).
 on:
   workflow_dispatch:
   push:
     branches: [main]
-    paths: ['herramientas/contactos.py', '.github/workflows/contactos.yml']
+    paths: ['herramientas/contactos.py', 'herramientas/contactos_web.py', '.github/workflows/contactos.yml']
 permissions:
   contents: read
+concurrency:
+  group: contactos
+  cancel-in-progress: true
 jobs:
   pais:
     runs-on: ubuntu-latest
-    timeout-minutes: 90
+    timeout-minutes: 350
     strategy:
       fail-fast: false
-      max-parallel: 7
+      max-parallel: 13
       matrix:
         pais: [ES, PT, IT, FR, DE, NL, BE, GB, IE, GR, HR, AT, CH]
     steps:
       - uses: actions/checkout@v4
       - run: sudo rm -rf /usr/share/dotnet /usr/local/lib/android /opt/ghc || true
       - run: sudo apt-get update -qq && sudo apt-get install -y -qq osmium-tool
-      - env:
+      - name: Emails publicados en OpenStreetMap
+        env:
           PAIS: ${{ matrix.pais }}
         run: python3 herramientas/contactos.py
+      - name: Emails de empresa en la web oficial de cada local
+        continue-on-error: true
+        timeout-minutes: 300
+        env:
+          PAIS: ${{ matrix.pais }}
+          MINUTOS: '285'
+        run: python3 herramientas/contactos_web.py
       - uses: actions/upload-artifact@v4
         with:
           name: contactos-${{ matrix.pais }}
           path: contactos/${{ matrix.pais }}.csv
-          retention-days: 2
+          retention-days: 3
+  unir:
+    needs: pais
+    if: always()
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          path: d
+      - name: Un archivo con todos los países (CSV y Excel)
+        run: |
+          pip install -q openpyxl
+          python3 - <<'PY'
+          import csv, glob
+          from openpyxl import Workbook
+          from openpyxl.styles import Font
+          filas, cab = [], None
+          for f in sorted(glob.glob('d/*/*.csv')):
+              r = list(csv.reader(open(f, encoding='utf-8')))
+              cab = r[0]; filas += r[1:]
+          with open('contactos-todos.csv', 'w', newline='', encoding='utf-8-sig') as fh:
+              w = csv.writer(fh); w.writerow(cab); w.writerows(filas)
+          wb = Workbook(); ws = wb.active; ws.title = 'Contactos'; ws.append(cab)
+          for c in ws[1]: c.font = Font(bold=True)
+          for r in filas: ws.append(r)
+          ws.freeze_panes = 'A2'; ws.auto_filter.ref = ws.dimensions
+          for col, ancho in zip('ABCDEFGH', (14, 22, 18, 34, 34, 34, 18, 22)): ws.column_dimensions[col].width = ancho
+          wb.save('contactos-todos.xlsx'); print('filas', len(filas))
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: contactos-todos
+          path: |
+            contactos-todos.csv
+            contactos-todos.xlsx
+          retention-days: 3
