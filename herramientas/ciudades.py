@@ -26,7 +26,7 @@ regiones = {}
 for line in bajar('https://download.geonames.org/export/dump/admin1CodesASCII.txt').decode('utf-8').splitlines():
     k, nombre, *_ = line.split('\t'); regiones[k] = nombre
 # nombres en otros idiomas (el archivo es grande: se lee en streaming)
-LANGS = {'es', 'en', 'pt', 'it', 'fr', 'de', 'nl', 'ca'}
+LANGS = {'es', 'en', 'pt', 'it', 'fr', 'de', 'nl', 'ca', 'ru', 'zh'}
 alt = collections.defaultdict(dict)
 z2 = zipfile.ZipFile(io.BytesIO(bajar('https://download.geonames.org/export/dump/alternateNamesV2.zip')))
 with z2.open('alternateNamesV2.txt') as fh:
@@ -59,5 +59,16 @@ print('pasan a barrio', len(barrios), barrios[:8])
 salida = finales
 meta = {'fuente': 'GeoNames (www.geonames.org), licencia CC BY 4.0', 'poblacion_minima': MIN_POB, 'paises': len(PAISES), 'ciudades': len(finales), 'barrios': len(barrios)}
 json.dump({'meta': meta, 'paises': PAISES, 'ciudades': salida, 'barrios': barrios}, open(f'{OUT}/ciudades.json', 'w', encoding='utf-8'), ensure_ascii=False, separators=(',', ':'))
+# Nombre de cada ciudad en el idioma de la web (London, Lisbon, München…) para quien no la usa en español
+NOMBRES_MIN = int(os.environ.get('NOMBRES_MIN', '20000'))
+nombres = {l: {} for l in ('en', 'fr', 'de', 'it', 'pt', 'nl', 'ca', 'ru', 'zh')}
+for x in finales:
+    if x[4] < NOMBRES_MIN: continue
+    a = alt.get(x[0][2:], {})
+    for l in nombres:
+        v = a.get(l)
+        if v and v != x[1] and len(v) <= 40: nombres[l][x[0]] = v
+json.dump(nombres, open(f'{OUT}/nombres.json', 'w', encoding='utf-8'), ensure_ascii=False, separators=(',', ':'))
+print('nombres por idioma', {l: len(v) for l, v in nombres.items()}, 'tamaño', os.path.getsize(f'{OUT}/nombres.json'))
 print('escritas', len(salida), 'tamaño', os.path.getsize(f'{OUT}/ciudades.json'))
 por_pais = collections.Counter(x[5] for x in salida); print(dict(por_pais))
