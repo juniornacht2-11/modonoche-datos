@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://modonoche.juniornacht2.workers.dev/sitemap.xml
