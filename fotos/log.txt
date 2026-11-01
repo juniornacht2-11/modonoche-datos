@@ -1,0 +1,39 @@
+locales con foto de Commons: 49
+fallo File:215 Bar Borrell, av. Paral·lel 84 (Barcelona).jpg <HTTPError 429: 'Too Many Requests'>
+fallo File:007 Porxos d'en Xifré, 7 Portes.JPG <HTTPError 429: 'Too Many Requests'>
+fallo File:ABaC Restaurant and Hotel - Av Tibidabo 1 Barcelona.jpg <HTTPError 429: 'Too Many Requests'>
+fallo File:Alkimia.jpg <HTTPError 429: 'Too Many Requests'>
+fallo File:Frare Blanc.jpg <HTTPError 429: 'Too Many Requests'>
+fallo File:Bar del Pi (Plaça de Sant Josep Oriol).JPG <HTTPError 429: 'Too Many Requests'>
+fallo File:Escudellers 8.jpg <HTTPError 429: 'Too Many Requests'>
+fallo File:CanCortadaFaçanaPrincipal.jpg <HTTPError 429: 'Too Many Requests'>
+fallo File:Can Culleretes, detall.jpg <HTTPError 429: 'Too Many Requests'>
+fallo File:Barceloneta 4 (by Awersowy).jpg <HTTPError 429: 'Too Many Requests'>
+fallo File:62 Can Travi Nou, façana principal.jpg <HTTPError 429: 'Too Many Requests'>
+fallo File:2018-02-21-Casa-Leopoldo-Raval.JPG <HTTPError 429: 'Too Many Requests'>
+fallo File:177 Edifici a la Gran Via de les Corts Catalanes, 654.jpg <HTTPError 429: 'Too Many Requests'>
+fallo File:Disfrutar.jpg <HTTPError 429: 'Too Many Requests'>
+fallo File:El Resolís 2023 (cropped).jpg <HTTPError 429: 'Too Many Requests'>
+fallo File:Casa-fàbrica Moritz.jpg <HTTPError 429: 'Too Many Requests'>
+fallo File:Restaurant Flash Flash, façana.jpg <HTTPError 429: 'Too Many Requests'>
+fallo File:Glaciar, plaça Reial 3.jpg <HTTPError 429: 'Too Many Requests'>
+fallo File:Restaurant Gresca.jpg <HTTPError 429: 'Too Many Requests'>
+fallo File:Kasbah- Restaurant.jpg <HTTPError 429: 'Too Many Requests'>
+fallo File:BSW2010- 148bis.jpg <HTTPError 429: 'Too Many Requests'>
+fallo File:Baixada de Viladecols, 3.jpg <HTTPError 429: 'Too Many Requests'>
+fallo File:La Cova Fumada.jpg <HTTPError 429: 'Too Many Requests'>
+fallo File:Font del Gat - Montjuïc 03.jpg <HTTPError 429: 'Too Many Requests'>
+fallo File:Los Caracoles.jpg <HTTPError 429: 'Too Many Requests'>
+fallo File:447 Restaurant Madrid-Barcelona, c. Aragó 282 (Barcelona).jpg <HTTPError 429: 'Too Many Requests'>
+fallo File:448 Hotel Mandarin Oriental, pg. de Gràcia 38-40 (Barcelona).jpg <HTTPError 429: 'Too Many Requests'>
+fallo File:138 Casa dels Quatre Rius, c. Avinyó 30 (Barcelona).jpg <HTTPError 429: 'Too Many Requests'>
+fallo File:L'Hortet (restaurant vegetarià).jpg <HTTPError 429: 'Too Many Requests'>
+fallo File:Hofmann (1).jpg <HTTPError 429: 'Too Many Requests'>
+fallo File:Via Veneto (1).jpg <HTTPError 429: 'Too Many Requests'>
+fallo File:BcnStop Parc Güell.jpg <HTTPError 429: 'Too Many Requests'>
+fallo File:Alternative Creative Youth Hostel, Barcelona.jpg <HTTPError 429: 'Too Many Requests'>
+fallo File:Ant Hostel Barcelona.jpg <HTTPError 429: 'Too Many Requests'>
+fallo File:Bcnsporthostels.jpg <HTTPError 429: 'Too Many Requests'>
+fallo File:Black Swan Hostel.jpg <HTTPError 429: 'Too Many Requests'>
+fallo File:Casa Gracia Barcelona Hostel.jpg <HTTPError 429: 'Too Many Requests'>
+fallo File:Fabrizzio's Petit.jpg <HTTPError 429: 'Too Many Requests'>

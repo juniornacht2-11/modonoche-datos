@@ -1,0 +1,112 @@
+[
+ {
+  "id": "node/14210128956",
+  "nombre": "Hotel Ronda Lesseps",
+  "amenity": "hotel",
+  "archivo": "File:Hotel Ronda Lesseps (62698).jpg",
+  "pagina": "https://commons.wikimedia.org/wiki/File:Hotel_Ronda_Lesseps_(62698).jpg",
+  "autor": "Brunnaiz",
+  "licencia": "CC BY-SA 4.0",
+  "foto": "fotos/node_14210128956.jpg"
+ },
+ {
+  "id": "node/6204095919",
+  "nombre": "The Corner",
+  "amenity": "hotel",
+  "archivo": "File:The Corner Hotel.jpg",
+  "pagina": "https://commons.wikimedia.org/wiki/File:The_Corner_Hotel.jpg",
+  "autor": "Pere prlpz",
+  "licencia": "CC BY-SA 3.0",
+  "foto": "fotos/node_6204095919.jpg"
+ },
+ {
+  "id": "node/7563964446",
+  "nombre": "Monopol",
+  "amenity": "restaurant",
+  "archivo": "File:Bar Monopol, Rambla del Poblenou (Barcelona) October 2023.JPG",
+  "pagina": "https://commons.wikimedia.org/wiki/File:Bar_Monopol,_Rambla_del_Poblenou_(Barcelona)_October_2023.JPG",
+  "autor": "Benoît Prieur",
+  "licencia": "CC0",
+  "foto": "fotos/node_7563964446.jpg"
+ },
+ {
+  "id": "node/1497595784",
+  "nombre": "4Gats",
+  "amenity": "bar",
+  "archivo": "File:15-10-27-Els Quatre Gats-RalfR-WMA 2729.jpg",
+  "pagina": "https://commons.wikimedia.org/wiki/File:15-10-27-Els_Quatre_Gats-RalfR-WMA_2729.jpg",
+  "autor": "Ralf Roletschek",
+  "licencia": "GFDL 1.2",
+  "foto": "fotos/node_1497595784.jpg"
+ },
+ {
+  "id": "node/3074796331",
+  "nombre": "Barcelona Pipa Club",
+  "amenity": "bar",
+  "archivo": "File:Placa Reial (7856281876).jpg",
+  "pagina": "https://commons.wikimedia.org/wiki/File:Placa_Reial_(7856281876).jpg",
+  "autor": "Craig Sunter from Manchester, UK",
+  "licencia": "CC BY 2.0",
+  "foto": "fotos/node_3074796331.jpg"
+ },
+ {
+  "id": "node/672763035",
+  "nombre": "Boadas",
+  "amenity": "bar",
+  "archivo": "File:Cockteleria boadas barcelona.jpg",
+  "pagina": "https://commons.wikimedia.org/wiki/File:Cockteleria_boadas_barcelona.jpg",
+  "autor": "Pitxiquin",
+  "licencia": "CC BY-SA 4.0",
+  "foto": "fotos/node_672763035.jpg"
+ },
+ {
+  "id": "node/824465388",
+  "nombre": "La Confiteria",
+  "amenity": "bar",
+  "archivo": "File:473 La Confiteria, c. Sant Pau 128 (Barcelona).jpg",
+  "pagina": "https://commons.wikimedia.org/wiki/File:473_La_Confiteria,_c._Sant_Pau_128_(Barcelona).jpg",
+  "autor": "Enric",
+  "licencia": "CC BY-SA 4.0",
+  "foto": "fotos/node_824465388.jpg"
+ },
+ {
+  "id": "way/35793637",
+  "nombre": "Palau Sant Jordi",
+  "amenity": "music_venue",
+  "archivo": "File:Palau Sant Jordi Barcelona Catalonia.jpg",
+  "pagina": "https://commons.wikimedia.org/wiki/File:Palau_Sant_Jordi_Barcelona_Catalonia.jpg",
+  "autor": "Hosiawak",
+  "licencia": "CC BY 2.0",
+  "foto": "fotos/way_35793637.jpg"
+ },
+ {
+  "id": "node/6387346287",
+  "nombre": "Luz de Gas",
+  "amenity": "nightclub",
+  "archivo": "File:Luz de Gas.jpg",
+  "pagina": "https://commons.wikimedia.org/wiki/File:Luz_de_Gas.jpg",
+  "autor": "Cataleirxs",
+  "licencia": "CC BY-SA 3.0",
+  "foto": "fotos/node_6387346287.jpg"
+ },
+ {
+  "id": "way/426162558",
+  "nombre": "Razzmatazz",
+  "amenity": "nightclub",
+  "archivo": "File:Barcelona - Sala Razzmatazz.jpg",
+  "pagina": "https://commons.wikimedia.org/wiki/File:Barcelona_-_Sala_Razzmatazz.jpg",
+  "autor": "Zarateman",
+  "licencia": "CC0",
+  "foto": "fotos/way_426162558.jpg"
+ },
+ {
+  "id": "node/3072968504",
+  "nombre": "Sala Apolo",
+  "amenity": "nightclub",
+  "archivo": "File:083 Sala Apolo, c. Nou de la Rambla 113 (Barcelona).jpg",
+  "pagina": "https://commons.wikimedia.org/wiki/File:083_Sala_Apolo,_c._Nou_de_la_Rambla_113_(Barcelona).jpg",
+  "autor": "Enric",
+  "licencia": "CC BY-SA 4.0",
+  "foto": "fotos/node_3072968504.jpg"
+ }
+]
