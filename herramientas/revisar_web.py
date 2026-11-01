@@ -56,6 +56,14 @@ async def main():
             async def legal():
                 await pg.locator('footer').get_by_text('Aviso legal y fuentes', exact=True).click(); await pg.wait_for_timeout(1500)
 
+            if movil:
+                # métricas de la lista en móvil: altura de tarjetas, cuántas caben en pantalla, peso y peticiones
+                pesos = []
+                pg.on('response', lambda r: pesos.append(r.url))
+                await pg.goto(WEB + '/#x'); await pg.goto(f'{WEB}/#/resultados/08019/{SAB}/2/fiesta'); await pg.reload(); await pg.wait_for_timeout(9000)
+                INFO['metricas_lista_bcn'] = await pg.evaluate("""(() => { const c=[...document.querySelectorAll('.card')].slice(0,20).map(e=>e.getBoundingClientRect().height); const first=document.querySelector('.card'); return {tarjetas:document.querySelectorAll('.card').length, alto_medio:Math.round(c.reduce((a,b)=>a+b,0)/Math.max(1,c.length)), primera_tarjeta_y: first?Math.round(first.getBoundingClientRect().top+scrollY):null, con_reserva_aqui: document.querySelectorAll('[data-action=reservar]').length, con_foto_propia: [...document.querySelectorAll('.card-img img')].filter(i=>!i.classList.contains('cat-foto')).length, orientativas: document.querySelectorAll('.cat-nota').length, texto_count: (document.querySelector('.count-line')||{}).innerText||''}; })()""")
+                await pg.goto(WEB + '/#x'); await pg.goto(WEB + '/'); await pg.reload(); await pg.wait_for_timeout(6000)
+                INFO['metricas_portada'] = await pg.evaluate("""(() => { const vh=innerHeight; const vis=[...document.querySelectorAll('h1,h2,button,a,.chip,input')].filter(e=>{const r=e.getBoundingClientRect(); return r.top>=0 && r.bottom<=vh && r.width>0}).map(e=>(e.innerText||e.placeholder||'').trim().slice(0,40)).filter(Boolean); const res=performance.getEntriesByType('resource'); return {en_primera_pantalla: vis, peticiones: res.length, kb_transferidos: Math.round(res.reduce((a,r)=>a+(r.transferSize||0),0)/1024), dominios: [...new Set(res.map(r=>new URL(r.name).host))], alto_total: document.body.scrollHeight, imgs_hero: [...document.querySelectorAll('img')].filter(i=>i.getBoundingClientRect().top<vh).length}; })()""")
             await captura('1-portada', WEB + '/')
             await captura('2-plan-madrid', f'{WEB}/#/plan/28079/{SAB}/2')
             await captura('3-fiesta-madrid', f'{WEB}/#/resultados/28079/{SAB}/2/fiesta', 9000)
