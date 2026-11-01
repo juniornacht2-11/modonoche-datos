@@ -9,11 +9,12 @@ UA = {'User-Agent': 'MODO-NOCHE/1.0 (diseño; github.com/juniornacht2-11/modonoc
 os.makedirs('copia/fotos', exist_ok=True)
 def get(u, t=60):
     with urllib.request.urlopen(urllib.request.Request(u, headers=UA), timeout=t) as r: return r.read()
-for f in ['locales/08019.json', 'eventos/08019.json', 'eventos/indice.json']:
+for f in ['locales/08019.json', 'eventos/08019.json', 'eventos/indice.json', 'lugares.json']:
     try:
         b = get(f'{B}/{f}'); open('copia/' + f.replace('/', '_'), 'wb').write(b); print(f, len(b))
     except Exception as e: print(f, 'ERROR', e)
 els = json.load(open('copia/locales_08019.json'))['elements']
+if os.environ.get('SOLO_DATOS'): sys.exit(0)
 con = []
 for e in els:
     t = e.get('tags', {}); c = t.get('wikimedia_commons') or ''
