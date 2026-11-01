@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
   push:
     branches: [main]
-    paths: ['.github/workflows/copiar-datos.yml', 'herramientas/copiar_datos.py']
+    paths: ['.github/workflows/copiar-datos.yml', 'herramientas/copiar_datos.py', 'herramientas/diseno/**']
 permissions:
   contents: write
 jobs:
@@ -15,6 +15,11 @@ jobs:
       - run: python3 herramientas/copiar_datos.py
         env:
           SOLO_DATOS: '1'
+      - name: Mapas para el diseño (OpenFreeMap, datos © OpenStreetMap)
+        continue-on-error: true
+        run: |
+          pip install -q playwright==1.48.0 && python -m playwright install --with-deps chromium >/dev/null
+          python3 herramientas/diseno/capturar.py
       - name: Guardar
         run: |
           cd copia && git init -q && git checkout -q -b copia-datos

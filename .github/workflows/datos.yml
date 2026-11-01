@@ -11,7 +11,7 @@ on:
     - cron: '17 4 * * *'
   push:
     branches: [main]
-    paths: ['herramientas/**', '!herramientas/sondeo/**', '!herramientas/ciudades.py', '!herramientas/generar_int.py', '!herramientas/unir_int.py', '!herramientas/contactos.py', '!herramientas/contactos_web.py', '!herramientas/contactos-clave-publica.pem', '!herramientas/revisar_web.py', '!herramientas/copiar_datos.py', '.github/workflows/datos.yml', 'datos/**']
+    paths: ['herramientas/**', '!herramientas/sondeo/**', '!herramientas/ciudades.py', '!herramientas/generar_int.py', '!herramientas/unir_int.py', '!herramientas/contactos.py', '!herramientas/contactos_web.py', '!herramientas/contactos-clave-publica.pem', '!herramientas/revisar_web.py', '!herramientas/copiar_datos.py', '!herramientas/diseno/**', '.github/workflows/datos.yml', 'datos/**']
 
 permissions:
   contents: read

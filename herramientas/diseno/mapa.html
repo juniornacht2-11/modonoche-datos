@@ -1,0 +1,18 @@
+<!doctype html><html><head><meta charset="utf-8">
+<link href="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.css" rel="stylesheet">
+<script src="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.js"></script>
+<style>html,body,#m{margin:0;height:100%;background:#0b0b0d}</style></head><body><div id="m"></div><script>
+// Ruta real de una noche en el Born: El Xampanyet (cena) → Bar Sauvage (copa) → Arena Xperience (club). Tramos en línea recta, a pie.
+const P = [[2.181675, 41.384509], [2.182484, 41.384541], [2.173943, 41.389569]];
+const q = new URLSearchParams(location.search), z = +(q.get('z') || 15.2);
+const map = new maplibregl.Map({ container: 'm', style: 'https://tiles.openfreemap.org/styles/dark', center: [+(q.get('lng') || 2.1785), +(q.get('lat') || 41.3871)], zoom: z, interactive: false, attributionControl: false, preserveDrawingBuffer: true });
+map.on('load', () => {
+  map.addSource('r', { type: 'geojson', data: { type: 'Feature', geometry: { type: 'LineString', coordinates: P } } });
+  map.addLayer({ id: 'glow', type: 'line', source: 'r', paint: { 'line-color': '#d9c08f', 'line-width': 10, 'line-opacity': .18, 'line-blur': 6 } });
+  map.addLayer({ id: 'r', type: 'line', source: 'r', paint: { 'line-color': '#e6cf9f', 'line-width': 2.5, 'line-dasharray': [1.5, 1.6] } });
+  map.addSource('p', { type: 'geojson', data: { type: 'FeatureCollection', features: P.map(c => ({ type: 'Feature', geometry: { type: 'Point', coordinates: c } })) } });
+  map.addLayer({ id: 'halo', type: 'circle', source: 'p', paint: { 'circle-radius': 14, 'circle-color': '#e6cf9f', 'circle-opacity': .16 } });
+  map.addLayer({ id: 'p', type: 'circle', source: 'p', paint: { 'circle-radius': 5.5, 'circle-color': '#e6cf9f', 'circle-stroke-color': '#0b0b0d', 'circle-stroke-width': 2 } });
+  map.once('idle', () => { document.title = 'listo'; });
+});
+</script></body></html>
