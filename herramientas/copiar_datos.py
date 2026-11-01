@@ -1,0 +1,34 @@
+#!/usr/bin/env python3
+"""Copia los datos públicos de Barcelona (locales y agenda) y descarga miniaturas de las fotos de Wikimedia Commons que
+OpenStreetMap enlaza a esos locales, con autor y licencia, para preparar el diseño con contenido real."""
+import json, os, re, urllib.parse, urllib.request
+B = 'https://juniornacht2-11.github.io/modonoche-datos'
+UA = {'User-Agent': 'MODO-NOCHE/1.0 (diseño; github.com/juniornacht2-11/modonoche-datos)'}
+os.makedirs('copia/fotos', exist_ok=True)
+def get(u, t=60):
+    with urllib.request.urlopen(urllib.request.Request(u, headers=UA), timeout=t) as r: return r.read()
+for f in ['locales/08019.json', 'eventos/08019.json', 'eventos/indice.json']:
+    try:
+        b = get(f'{B}/{f}'); open('copia/' + f.replace('/', '_'), 'wb').write(b); print(f, len(b))
+    except Exception as e: print(f, 'ERROR', e)
+els = json.load(open('copia/locales_08019.json'))['elements']
+con = []
+for e in els:
+    t = e.get('tags', {}); c = t.get('wikimedia_commons') or ''
+    img = t.get('image') or ''
+    m = re.match(r'^(File:.+\.(?:jpe?g|png|webp))$', c, re.I) or re.search(r'commons\.wikimedia\.org/wiki/(File:[^?#]+\.(?:jpe?g|png|webp))', img, re.I)
+    if m: con.append((e, urllib.parse.unquote(m.group(1)).replace('_', ' ')))
+print('locales con foto de Commons:', len(con))
+info = []
+for e, fname in con[:80]:
+    t = e['tags']
+    try:
+        api = 'https://commons.wikimedia.org/w/api.php?action=query&format=json&prop=imageinfo&iiprop=url|extmetadata&iiurlwidth=800&titles=' + urllib.parse.quote(fname)
+        j = json.loads(get(api)); p = next(iter(j['query']['pages'].values())); ii = p['imageinfo'][0]; md = ii.get('extmetadata', {})
+        th = ii.get('thumburl'); out = f"copia/fotos/{e['type']}_{e['id']}.jpg"
+        open(out, 'wb').write(get(th))
+        info.append({'id': f"{e['type']}/{e['id']}", 'nombre': t.get('name'), 'amenity': t.get('amenity') or t.get('tourism'), 'archivo': fname, 'pagina': ii.get('descriptionurl'),
+                     'autor': re.sub('<[^>]+>', '', (md.get('Artist') or {}).get('value', ''))[:120], 'licencia': (md.get('LicenseShortName') or {}).get('value', ''), 'foto': out[6:]})
+    except Exception as ex: print('fallo', fname, ex)
+json.dump(info, open('copia/fotos/creditos.json', 'w'), ensure_ascii=False, indent=1)
+print('fotos descargadas', len(info))
