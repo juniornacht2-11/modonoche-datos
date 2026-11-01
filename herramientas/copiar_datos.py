@@ -18,6 +18,19 @@ for e in els:
     img = t.get('image') or ''
     m = re.match(r'^(File:.+\.(?:jpe?g|png|webp))$', c, re.I) or re.search(r'commons\.wikimedia\.org/wiki/(File:[^?#]+\.(?:jpe?g|png|webp))', img, re.I)
     if m: con.append((e, urllib.parse.unquote(m.group(1)).replace('_', ' ')))
+# Locales con Wikidata: su imagen principal (P18) también es de Commons
+prio = lambda e: 0 if (e['tags'].get('amenity') in ('nightclub', 'music_venue', 'events_venue', 'bar', 'pub')) else 1 if e['tags'].get('amenity') == 'restaurant' else 2
+wd = sorted([e for e in els if e['tags'].get('wikidata') and not any(x[0] is e for x in con)], key=prio)
+hoteles = 0
+for e in wd:
+    if prio(e) == 2:
+        hoteles += 1
+        if hoteles > 12: continue
+    try:
+        j = json.loads(get('https://www.wikidata.org/w/api.php?action=wbgetclaims&format=json&property=P18&entity=' + e['tags']['wikidata'], 30))
+        v = j.get('claims', {}).get('P18', [])
+        if v: con.append((e, 'File:' + v[0]['mainsnak']['datavalue']['value']))
+    except Exception as ex: print('wikidata', e['tags'].get('name'), ex)
 print('locales con foto de Commons:', len(con))
 info = []
 for e, fname in con[:80]:
