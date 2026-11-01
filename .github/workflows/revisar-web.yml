@@ -1,0 +1,30 @@
+name: Revisar la web publicada
+# Abre la web real con un navegador (Chromium), hace capturas de las pantallas principales y las guarda en la rama «revision-web».
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths: ['herramientas/revisar_web.py', '.github/workflows/revisar-web.yml']
+permissions:
+  contents: write
+jobs:
+  revisar:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Navegador
+        run: |
+          pip install -q playwright==1.48.0
+          python -m playwright install --with-deps chromium
+      - name: Revisar
+        continue-on-error: true
+        run: python3 herramientas/revisar_web.py
+      - name: Guardar en la rama «revision-web»
+        run: |
+          mkdir -p revision && cd revision && git init -q && git checkout -q -b revision-web
+          git config user.name "github-actions[bot]" && git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A && git commit -qm "Revisión de la web publicada" && git push -fq "https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}" revision-web
