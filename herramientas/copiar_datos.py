@@ -20,19 +20,19 @@ for e in els:
     img = t.get('image') or ''
     m = re.match(r'^(File:.+\.(?:jpe?g|png|webp))$', c, re.I) or re.search(r'commons\.wikimedia\.org/wiki/(File:[^?#]+\.(?:jpe?g|png|webp))', img, re.I)
     if m: con.append((e, urllib.parse.unquote(m.group(1)).replace('_', ' ')))
-# Locales con Wikidata: su imagen principal (P18) también es de Commons
+# Locales con Wikidata: su imagen principal (P18) también es de Commons. Peticiones agrupadas (50 por llamada) y despacio, para no saturar Wikidata.
 prio = lambda e: 0 if (e['tags'].get('amenity') in ('nightclub', 'music_venue', 'events_venue', 'bar', 'pub')) else 1 if e['tags'].get('amenity') == 'restaurant' else 2
 wd = sorted([e for e in els if e['tags'].get('wikidata') and not any(x[0] is e for x in con)], key=prio)
-hoteles = 0
-for e in wd:
-    if prio(e) == 2:
-        hoteles += 1
-        if hoteles > 12: continue
+wd = [e for e in wd if prio(e) < 2] + [e for e in wd if prio(e) == 2][:12]
+for k in range(0, len(wd), 50):
+    grupo = wd[k:k + 50]
     try:
-        j = json.loads(get('https://www.wikidata.org/w/api.php?action=wbgetclaims&format=json&property=P18&entity=' + e['tags']['wikidata'], 30))
-        v = j.get('claims', {}).get('P18', [])
-        if v: con.append((e, 'File:' + v[0]['mainsnak']['datavalue']['value']))
-    except Exception as ex: log('wikidata', e['tags'].get('name'), ex)
+        j = json.loads(get('https://www.wikidata.org/w/api.php?action=wbgetentities&format=json&props=claims&ids=' + '|'.join(e['tags']['wikidata'] for e in grupo), 60))
+        for e in grupo:
+            v = ((j.get('entities', {}).get(e['tags']['wikidata']) or {}).get('claims') or {}).get('P18') or []
+            if v: con.append((e, 'File:' + v[0]['mainsnak']['datavalue']['value']))
+    except Exception as ex: log('wikidata grupo', k, repr(ex)[:200])
+    time.sleep(2)
 log('locales con foto de Commons:', len(con))
 info = []
 for e, fname in con[:80]:
