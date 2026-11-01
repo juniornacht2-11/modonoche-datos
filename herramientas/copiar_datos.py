@@ -1,7 +1,9 @@
 #!/usr/bin/env python3
 """Copia los datos públicos de Barcelona (locales y agenda) y descarga miniaturas de las fotos de Wikimedia Commons que
 OpenStreetMap enlaza a esos locales, con autor y licencia, para preparar el diseño con contenido real."""
-import json, os, re, urllib.parse, urllib.request
+import json, os, re, sys, time, urllib.parse, urllib.request
+LOG = []
+def log(*a): LOG.append(' '.join(map(str, a))); print(*a)
 B = 'https://juniornacht2-11.github.io/modonoche-datos'
 UA = {'User-Agent': 'MODO-NOCHE/1.0 (diseño; github.com/juniornacht2-11/modonoche-datos)'}
 os.makedirs('copia/fotos', exist_ok=True)
@@ -30,8 +32,8 @@ for e in wd:
         j = json.loads(get('https://www.wikidata.org/w/api.php?action=wbgetclaims&format=json&property=P18&entity=' + e['tags']['wikidata'], 30))
         v = j.get('claims', {}).get('P18', [])
         if v: con.append((e, 'File:' + v[0]['mainsnak']['datavalue']['value']))
-    except Exception as ex: print('wikidata', e['tags'].get('name'), ex)
-print('locales con foto de Commons:', len(con))
+    except Exception as ex: log('wikidata', e['tags'].get('name'), ex)
+log('locales con foto de Commons:', len(con))
 info = []
 for e, fname in con[:80]:
     t = e['tags']
@@ -42,6 +44,9 @@ for e, fname in con[:80]:
         open(out, 'wb').write(get(th))
         info.append({'id': f"{e['type']}/{e['id']}", 'nombre': t.get('name'), 'amenity': t.get('amenity') or t.get('tourism'), 'archivo': fname, 'pagina': ii.get('descriptionurl'),
                      'autor': re.sub('<[^>]+>', '', (md.get('Artist') or {}).get('value', ''))[:120], 'licencia': (md.get('LicenseShortName') or {}).get('value', ''), 'foto': out[6:]})
-    except Exception as ex: print('fallo', fname, ex)
+    except Exception as ex: log('fallo', fname, repr(ex)[:200])
+    time.sleep(0.5)
 json.dump(info, open('copia/fotos/creditos.json', 'w'), ensure_ascii=False, indent=1)
 print('fotos descargadas', len(info))
+
+open('copia/fotos/log.txt', 'w').write('\n'.join(LOG))
