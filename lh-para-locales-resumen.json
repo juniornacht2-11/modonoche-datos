@@ -1,0 +1,33 @@
+{
+ "cat": {
+  "performance": 0.97,
+  "accessibility": 1,
+  "best-practices": 1,
+  "seo": 1
+ },
+ "m": {
+  "first-contentful-paint": "2.1 s",
+  "largest-contentful-paint": "2.2 s",
+  "total-blocking-time": "0 ms",
+  "cumulative-layout-shift": "0.023",
+  "total-byte-weight": "Total size was 112 KiB",
+  "speed-index": "2.1 s"
+ },
+ "fallos": [
+  [
+   "first-contentful-paint",
+   "First Contentful Paint",
+   "2.1 s"
+  ],
+  [
+   "redirects",
+   "Avoid multiple page redirects",
+   "Potential savings of 920 ms"
+  ],
+  [
+   "uses-long-cache-ttl",
+   "Serve static assets with an efficient cache policy",
+   "2 resources found"
+  ]
+ ]
+}

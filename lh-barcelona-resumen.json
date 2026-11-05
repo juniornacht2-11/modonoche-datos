@@ -1,0 +1,28 @@
+{
+ "cat": {
+  "performance": 1,
+  "accessibility": 1,
+  "best-practices": 1,
+  "seo": 1
+ },
+ "m": {
+  "first-contentful-paint": "1.1 s",
+  "largest-contentful-paint": "1.3 s",
+  "total-blocking-time": "0 ms",
+  "cumulative-layout-shift": "0",
+  "total-byte-weight": "Total size was 67 KiB",
+  "speed-index": "1.1 s"
+ },
+ "fallos": [
+  [
+   "redirects",
+   "Avoid multiple page redirects",
+   "Potential savings of 860 ms"
+  ],
+  [
+   "uses-long-cache-ttl",
+   "Serve static assets with an efficient cache policy",
+   "1 resource found"
+  ]
+ ]
+}

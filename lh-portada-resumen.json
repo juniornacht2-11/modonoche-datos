@@ -1,0 +1,68 @@
+{
+ "cat": {
+  "performance": 0.83,
+  "accessibility": 1,
+  "best-practices": 1,
+  "seo": 1
+ },
+ "m": {
+  "first-contentful-paint": "1.8 s",
+  "largest-contentful-paint": "4.6 s",
+  "total-blocking-time": "0 ms",
+  "cumulative-layout-shift": "0.001",
+  "total-byte-weight": "Total size was 812 KiB",
+  "speed-index": "1.9 s"
+ },
+ "fallos": [
+  [
+   "first-contentful-paint",
+   "First Contentful Paint",
+   "1.8 s"
+  ],
+  [
+   "largest-contentful-paint",
+   "Largest Contentful Paint",
+   "4.6 s"
+  ],
+  [
+   "interactive",
+   "Time to Interactive",
+   "4.6 s"
+  ],
+  [
+   "largest-contentful-paint-element",
+   "Largest Contentful Paint element",
+   "4,600 ms"
+  ],
+  [
+   "uses-long-cache-ttl",
+   "Serve static assets with an efficient cache policy",
+   "3 resources found"
+  ],
+  [
+   "render-blocking-resources",
+   "Eliminate render-blocking resources",
+   "Potential savings of 0 ms"
+  ],
+  [
+   "unminified-javascript",
+   "Minify JavaScript",
+   "Potential savings of 13 KiB"
+  ],
+  [
+   "unused-css-rules",
+   "Reduce unused CSS",
+   "Potential savings of 14 KiB"
+  ],
+  [
+   "unused-javascript",
+   "Reduce unused JavaScript",
+   "Potential savings of 57 KiB"
+  ],
+  [
+   "uses-responsive-images",
+   "Properly size images",
+   "Potential savings of 10 KiB"
+  ]
+ ]
+}
