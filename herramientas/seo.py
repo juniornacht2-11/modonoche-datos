@@ -1,4 +1,4 @@
-"""MODO NOCHE · páginas por ciudad para buscadores (Google, Bing) + sitemap.xml + robots.txt.
+"""MIKENIGHTS · páginas por ciudad para buscadores (Google, Bing) + sitemap.xml + robots.txt.
 
 Lee los datos ya publicados (locales semanales de OpenStreetMap y alojamientos de los registros oficiales)
 y escribe en seo_out/ unas páginas HTML ligeras, una por municipio con locales, que enlazan a la web.
@@ -10,13 +10,13 @@ import concurrent.futures as cf
 
 RAIZ = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DATOS = os.environ.get('DATOS', 'https://juniornacht2-11.github.io/modonoche-datos')
-BASE = os.environ.get('BASE', 'https://modonoche.juniornacht2.workers.dev').rstrip('/')
+BASE = os.environ.get('BASE', 'https://mikenights.com').rstrip('/')
 OUT = os.path.join(RAIZ, 'seo_out')
 MIN_LOCALES = int(os.environ.get('MIN_LOCALES', '1'))
 MAX_MUNI = int(os.environ.get('MAX_MUNI', '5000'))      # páginas de municipio (los de más locales primero)
 MAX_ESTILO = int(os.environ.get('MAX_ESTILO', '1800'))  # páginas «Discotecas en X», «Música en directo en X»…
 MAX_ZONA = int(os.environ.get('MAX_ZONA', '1500'))      # páginas de pueblos y barrios (Magaluf, Malasaña…)
-UA = {'User-Agent': 'MODO-NOCHE-datos/1.0 (+https://github.com/juniornacht2-11/modonoche-datos)'}
+UA = {'User-Agent': 'MIKENIGHTS-datos/1.0 (+https://github.com/juniornacht2-11/modonoche-datos)'}
 HOY = time.strftime('%Y-%m-%d')
 E = html.escape
 
@@ -101,14 +101,14 @@ def ficha(el):
     return d
 
 
-CSS = """:root{color-scheme:dark}*{box-sizing:border-box}body{margin:0;background:#07070B;color:#F5F3FF;font:16px/1.6 system-ui,-apple-system,"Segoe UI",sans-serif}
-a{color:#22D3EE}main{max-width:900px;margin:auto;padding:20px 16px 48px}.top{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:16px max(16px,calc((100% - 868px)/2));border-bottom:1px solid #29283A}
-.logo{font-family:"Unbounded",system-ui,sans-serif;font-weight:800;font-size:19px;letter-spacing:-.015em;color:#F5F3FF;text-decoration:none;display:inline-flex;align-items:baseline;line-height:1}.logo em{font-style:normal;color:transparent;background:linear-gradient(90deg,#C084FC,#A855F7 45%,#22D3EE);-webkit-background-clip:text;background-clip:text}.logo img{height:1.22em;width:auto;margin-left:.28em;filter:drop-shadow(0 0 .3em rgba(168,85,247,.5))}h1{font-size:clamp(26px,5vw,40px);line-height:1.15;margin:18px 0 10px}
+CSS = """:root{color-scheme:dark}*{box-sizing:border-box}body{margin:0;background:#09090B;color:#F5F3FF;font:16px/1.6 system-ui,-apple-system,"Segoe UI",sans-serif}
+a{color:#B89B62}main{max-width:900px;margin:auto;padding:20px 16px 48px}.top{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:16px max(16px,calc((100% - 868px)/2));border-bottom:1px solid #29283A}
+.logo{font-family:"Bodoni Moda",Didot,serif;font-weight:500;font-size:18px;letter-spacing:.2em;color:#F3EFE7;text-decoration:none;display:inline-flex;align-items:center;line-height:1}.logo em{font-style:normal;color:transparent;background:linear-gradient(90deg,#F0E1BC,#D9C291 45%,#B89B62);-webkit-background-clip:text;background-clip:text}.logo img{order:-1;height:1.4em;width:auto;margin-right:.55em}h1{font-size:clamp(26px,5vw,40px);line-height:1.15;margin:18px 0 10px}
 h2{font-size:20px;margin:30px 0 8px;color:#C7FF4A}.lead{color:#A5A2B5}.cta{display:inline-block;margin:14px 0;padding:12px 20px;border-radius:12px;background:#9333EA;color:#fff;font-weight:700;text-decoration:none}
 .cta.sec{background:transparent;border:1px solid #3a3850;color:#F5F3FF}ul.l{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:8px}
 ul.l li{background:#101019;border:1px solid #29283A;border-radius:12px;padding:10px 12px}ul.l b{display:block}ul.l b a{color:#F5F3FF;text-decoration:none}ul.l b a:hover{text-decoration:underline}ul.l span{font-size:13px;color:#A5A2B5}.n{color:#8A879E;font-size:14px}
 .chips a{display:inline-block;margin:4px 6px 0 0;padding:6px 12px;border:1px solid #3a3850;border-radius:999px;text-decoration:none;color:#F5F3FF;font-size:14px}
-ul.l em.dest{display:inline-block;font:700 10px/1 ui-monospace,monospace;letter-spacing:.1em;padding:4px 7px;border-radius:99px;margin-bottom:5px;background:rgba(168,85,247,.18);color:#d8b4fe;font-style:normal}
+ul.l em.dest{display:inline-block;font:700 10px/1 ui-monospace,monospace;letter-spacing:.1em;padding:4px 7px;border-radius:99px;margin-bottom:5px;background:rgba(217,194,145,.18);color:#F0E1BC;font-style:normal}
 ul.l em.dest.dtop{background:#C7FF4A;color:#0b0b10}ul.l span.mot{display:block;font-size:12px;color:#8A879E;margin-top:3px}
 footer{margin-top:40px;font-size:13px;color:#8A879E;border-top:1px solid #29283A;padding-top:14px}"""
 
@@ -116,10 +116,10 @@ footer{margin-top:40px;font-size:13px;color:#8A879E;border-top:1px solid #29283A
 def pagina(titulo, desc, canon, cuerpo, og_img='og.png', ld=None):
     return f"""<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>{E(titulo)}</title><meta name="description" content="{E(desc)}"><link rel="canonical" href="{E(canon)}">
-<meta property="og:type" content="website"><meta property="og:site_name" content="MODO NOCHE"><meta property="og:title" content="{E(titulo)}"><meta property="og:description" content="{E(desc)}">
-<meta property="og:url" content="{E(canon)}"><meta property="og:image" content="{BASE}/{og_img}"><meta name="twitter:card" content="summary_large_image"><meta name="theme-color" content="#07070B">
+<meta property="og:type" content="website"><meta property="og:site_name" content="MIKENIGHTS"><meta property="og:title" content="{E(titulo)}"><meta property="og:description" content="{E(desc)}">
+<meta property="og:url" content="{E(canon)}"><meta property="og:image" content="{BASE}/{og_img}"><meta name="twitter:card" content="summary_large_image"><meta name="theme-color" content="#09090B">
 <link rel="icon" href="/icono-192.png"><link rel="apple-touch-icon" href="/icono-180.png">{f'<script type="application/ld+json">{json.dumps(ld, ensure_ascii=False)}</script>' if ld else ''}
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@800&amp;text=MODNCHE%20&amp;display=swap"><style>{CSS}</style></head><body><header class="top"><a class="logo" href="/"><span>MODO <em>NOCHE</em></span><img src="/logo-pin.svg" alt="" width="17" height="23"></a><a href="/ocio-nocturno/">Ciudades</a></header><main>{cuerpo}
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:wght@500&amp;text=MIKENGHTS&amp;display=swap"><style>{CSS}</style></head><body><header class="top"><a class="logo" href="/"><span>MIKENIGHTS</span><img src="/logo-sello.svg" alt="" width="24" height="24"></a><a href="/ocio-nocturno/">Ciudades</a></header><main>{cuerpo}
 <footer>Datos de locales: © colaboradores de <a href="https://www.openstreetmap.org/copyright" rel="nofollow">OpenStreetMap</a> (ODbL). Alojamientos: registros oficiales de turismo de las comunidades autónomas (datos abiertos). Municipios: INE. Sin precios inventados: la información de cada local la publica el propio local.</footer></main><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{{"token": "d02821044ffa46f7bf2218026c796131"}}'></script></body></html>"""
 
 
@@ -197,7 +197,7 @@ def main():
                   f'{len(H) + vut} alojamientos' if (H or vut) else '']
         partes = [re.sub(r'^(\d+)', lambda m: f'{int(m.group(1)):,}'.replace(',', '.'), x) for x in partes if x]
         resumen = (', '.join(partes[:-1]) + ' y ' + partes[-1]) if len(partes) > 1 else (partes[0] if partes else 'locales')
-        titulo = f'Ocio nocturno en {nom}: discotecas, bares, cenas y dónde dormir | MODO NOCHE'
+        titulo = f'Ocio nocturno en {nom}: discotecas, bares, cenas y dónde dormir | MIKENIGHTS'
         desc = f'Planes para salir de noche en {nom} ({prov}): {resumen}. Horarios, webs y combinaciones cerca a pie, con datos abiertos y sin precios inventados.'
         vecinos = sorted((x for x in datos if x != c and INFO[x]['lat'] is not None and i['lat'] is not None), key=lambda x: (INFO[x]['lat'] - i['lat']) ** 2 + ((INFO[x]['lng'] - i['lng']) * math.cos(math.radians(i['lat']))) ** 2)[:10] if i['lat'] is not None else []
         app = f'/#/plan/{c}'
@@ -218,13 +218,13 @@ def main():
                 cu = f"""<p class="n"><a href="/ocio-nocturno/">Ciudades</a> › <a href="/ocio-nocturno/provincia-{slug(prov)}">{E(prov)}</a> › <a href="{rel(url[c])}">{E(nom)}</a></p>
 <h1>{E(tit)} en {E(nom)}</h1><p class="lead">{len(g)} sitios en {E(nom)} según los datos abiertos de OpenStreetMap{', con los destacados por rankings y guías primero' if any(d.get('dest') for d in g) else ''}. Toca para ver horarios, cómo llegar y planes cerca.</p>
 <a class="cta" href="/#/resultados/{c}/hoy/2/fiesta">Ver en el mapa y con horarios</a>""" + lista(g, 60, c)
-                tt = f'{tit} en {nom} | MODO NOCHE'
+                tt = f'{tit} en {nom} | MIKENIGHTS'
                 open(os.path.join(OUT, 'ocio-nocturno', u.rsplit('/', 1)[1] + '.html'), 'w', encoding='utf-8').write(
                     pagina(tt, f'{tit} en {nom} ({prov}): {len(g)} sitios con dirección, horario y web. Datos abiertos, sin precios inventados.', u, cu))
                 estilos.append((tit, u)); extra.append(u); n_estilo += 1
         cuerpo = f"""<p class="n"><a href="/ocio-nocturno/">Ciudades</a> › <a href="/ocio-nocturno/provincia-{slug(prov)}">{E(prov)}</a></p>
 <h1>Ocio nocturno en {E(nom)}</h1>
-<p class="lead">En {E(nom)} hay {E(resumen)} en MODO NOCHE. Elige con quién sales y te proponemos planes con sitios reales y cercanos entre sí: cena y copa, ruta de bares, discoteca o la noche completa con hotel.</p>
+<p class="lead">En {E(nom)} hay {E(resumen)} en MIKENIGHTS. Elige con quién sales y te proponemos planes con sitios reales y cercanos entre sí: cena y copa, ruta de bares, discoteca o la noche completa con hotel.</p>
 <a class="cta" href="{app}">Organiza tu noche en {E(nom)}</a> <a class="cta sec" href="/#/resultados/{c}/hoy/2/fiesta">Ver locales para salir</a>"""
         if dest:
             cuerpo += f'<h2>Las discotecas más destacadas de {E(nom)}</h2><p class="n">Por rankings internacionales (The World\'s 100 Best Clubs, DJ Mag Top 100 Clubs), guías de ocio y prensa. Cada una con su fuente.</p>' + lista(dest, 30, c)
@@ -255,12 +255,12 @@ def main():
             mapa = f'https://www.google.com/maps/search/?api=1&query={d["lat"]},{d["lng"]}' if d.get('lat') is not None else ''
             cu = f"""<p class="n"><a href="/ocio-nocturno/">Ciudades</a> › <a href="/ocio-nocturno/provincia-{slug(prov)}">{E(prov)}</a> › <a href="{rel(url[c])}">{E(nom)}</a></p>
 <h1>{E(d['n'])}</h1><p class="lead">{E(d['tipo'])} en {E(nom)}{(' · ' + E(d['dir'])) if d.get('dir') else ''}.</p>
-<p>{'<b style="color:#C7FF4A">TOP MUNDIAL</b> · ' if de['top'] else '<b style="color:#d8b4fe">DESTACADA</b> · '}{E(de['m'])}{fu}.</p>
+<p>{'<b style="color:#C7FF4A">TOP MUNDIAL</b> · ' if de['top'] else '<b style="color:#F0E1BC">DESTACADA</b> · '}{E(de['m'])}{fu}.</p>
 {('<p>Estilo: ' + E(', '.join(AMB[k][0] for k in d['amb'])) + '.</p>') if d.get('amb') else ''}
 <a class="cta" href="/#/local/{c}/{quote(d['id'], safe='')}/fiesta">Ver horario, cómo llegar y planes cerca</a> {f'<a class="cta sec" href="{mapa}" rel="nofollow noopener" target="_blank">Ver en el mapa</a>' if mapa else ''}
 <h2>Más para salir en {E(nom)}</h2>""" + lista([x for x in F if x is not d], 12, c)
             open(os.path.join(OUT, 'ocio-nocturno', sl + '.html'), 'w', encoding='utf-8').write(
-                pagina(f"{d['n']} ({nom}): {de['m']} | MODO NOCHE", f"{d['n']}, {d['tipo'].lower()} en {nom}. {de['m']}. Horario, dirección y planes cerca en MODO NOCHE.", u, cu))
+                pagina(f"{d['n']} ({nom}): {de['m']} | MIKENIGHTS", f"{d['n']}, {d['tipo'].lower()} en {nom}. {de['m']}. Horario, dirección y planes cerca en MIKENIGHTS.", u, cu))
             extra.append(u)
         # páginas de zona
         for nm, sl, cerca, la, lo in zonas.get(c, []):
@@ -269,11 +269,11 @@ def main():
             u = f'{BASE}/ocio-nocturno/{sl}'
             from urllib.parse import quote
             cu = f"""<p class="n"><a href="/ocio-nocturno/">Ciudades</a> › <a href="/ocio-nocturno/provincia-{slug(prov)}">{E(prov)}</a> › <a href="{rel(url[c])}">{E(nom)}</a></p>
-<h1>Ocio nocturno en {E(nm)} ({E(nom)})</h1><p class="lead">A menos de 1 km de {E(nm)} hay {len(Fz)} sitios para salir y {len(Cz)} restaurantes en MODO NOCHE. Planes con sitios reales y cerca a pie.</p>
+<h1>Ocio nocturno en {E(nm)} ({E(nom)})</h1><p class="lead">A menos de 1 km de {E(nm)} hay {len(Fz)} sitios para salir y {len(Cz)} restaurantes en MIKENIGHTS. Planes con sitios reales y cerca a pie.</p>
 <a class="cta" href="/#/plan/{c}~{quote(nm)}">Organiza tu noche en {E(nm)}</a>""" + (f'<h2>Para salir en {E(nm)}</h2>' + lista(Fz, 30, c) if Fz else '') + (f'<h2>Para cenar en {E(nm)}</h2>' + lista(Cz, 18, c) if Cz else '') + \
                 f'<p><a href="{rel(url[c])}">Todo el ocio nocturno de {E(nom)}</a></p>'
             open(os.path.join(OUT, 'ocio-nocturno', sl + '.html'), 'w', encoding='utf-8').write(
-                pagina(f'Ocio nocturno en {nm} ({nom}): dónde salir, bares y discotecas | MODO NOCHE', f'Dónde salir de noche en {nm} ({nom}, {prov}): {len(Fz)} bares, pubs y discotecas y {len(Cz)} restaurantes cerca. Datos abiertos.', u, cu))
+                pagina(f'Ocio nocturno en {nm} ({nom}): dónde salir, bares y discotecas | MIKENIGHTS', f'Dónde salir de noche en {nm} ({nom}, {prov}): {len(Fz)} bares, pubs y discotecas y {len(Cz)} restaurantes cerca. Datos abiertos.', u, cu))
             extra.append(u)
     # provincias
     for p, cs in por_prov.items():
@@ -282,13 +282,13 @@ def main():
         cuerpo = f'<p class="n"><a href="/ocio-nocturno/">Ciudades</a></p><h1>Ocio nocturno en la provincia de {E(prov)}</h1><p class="lead">Elige municipio para ver discotecas, bares, restaurantes y alojamientos.</p><p class="chips">' + \
             ''.join(f'<a href="{rel(url[x])}">{E(INFO[x]["nombre"])}</a>' for x in cs) + '</p>'
         open(os.path.join(OUT, 'ocio-nocturno', f'provincia-{slug(prov)}.html'), 'w', encoding='utf-8').write(
-            pagina(f'Ocio nocturno en {prov}: dónde salir por municipios | MODO NOCHE', f'Discotecas, bares, restaurantes y alojamientos en los municipios de {prov}.', f'{BASE}/ocio-nocturno/provincia-{slug(prov)}', cuerpo))
+            pagina(f'Ocio nocturno en {prov}: dónde salir por municipios | MIKENIGHTS', f'Discotecas, bares, restaurantes y alojamientos en los municipios de {prov}.', f'{BASE}/ocio-nocturno/provincia-{slug(prov)}', cuerpo))
     # índice
     top = sorted(datos, key=lambda x: -INFO[x]['pob'])[:40]
     cuerpo = '<h1>Ocio nocturno en España, ciudad por ciudad</h1><p class="lead">Discotecas, bares, restaurantes y alojamientos de toda España con datos abiertos.</p><a class="cta" href="/">Organiza tu noche</a><h2>Ciudades más buscadas</h2><p class="chips">' + \
         ''.join(f'<a href="{rel(url[x])}">{E(INFO[x]["nombre"])}</a>' for x in top) + '</p><h2>Por provincias</h2><p class="chips">' + \
         ''.join(f'<a href="/ocio-nocturno/provincia-{slug(PROV.get(p, p))}">{E(PROV.get(p, p))}</a>' for p in sorted(por_prov, key=lambda p: slug(PROV.get(p, p)))) + '</p>'
-    open(os.path.join(OUT, 'ocio-nocturno', 'index.html'), 'w', encoding='utf-8').write(pagina('Ocio nocturno en España por ciudades | MODO NOCHE', 'Dónde salir de noche en cada ciudad de España: discotecas, bares, cenas y alojamientos.', f'{BASE}/ocio-nocturno/', cuerpo))
+    open(os.path.join(OUT, 'ocio-nocturno', 'index.html'), 'w', encoding='utf-8').write(pagina('Ocio nocturno en España por ciudades | MIKENIGHTS', 'Dónde salir de noche en cada ciudad de España: discotecas, bares, cenas y alojamientos.', f'{BASE}/ocio-nocturno/', cuerpo))
     # sitemap y robots
     urls = [f'{BASE}/', f'{BASE}/para-locales', f'{BASE}/ocio-nocturno/'] + [f'{BASE}/ocio-nocturno/provincia-{slug(PROV.get(p, p))}' for p in por_prov] + [url[c] for c in datos] + extra
     open(os.path.join(OUT, 'sitemap.xml'), 'w', encoding='utf-8').write('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' +

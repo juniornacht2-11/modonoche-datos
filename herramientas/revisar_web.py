@@ -4,7 +4,7 @@ Solo lee páginas públicas: no reserva, no envía formularios ni crea cuentas."
 import asyncio, datetime as dt, json, os, urllib.request
 from playwright.async_api import async_playwright
 
-WEB = os.environ.get('WEB', 'https://modonoche.juniornacht2.workers.dev').rstrip('/')
+WEB = os.environ.get('WEB', 'https://mikenights.com').rstrip('/')
 API = 'https://frosty-bird-92d2.juniornacht2.workers.dev'
 OUT = 'revision'; os.makedirs(OUT, exist_ok=True)
 hoy = dt.date.today(); SAB = (hoy + dt.timedelta(days=(5 - hoy.weekday()) % 7)).isoformat()
