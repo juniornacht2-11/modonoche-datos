@@ -78,8 +78,18 @@ async def main():
                 await captura('9-legal', WEB + '/', 5000, legal)
                 await captura('10-panel', WEB + '/#panel', 5000)
                 await captura('11-para-locales', WEB + '/para-locales.html', 4000)
+            INFO['cookies_' + nombre] = [{'nombre': c['name'], 'dominio': c['domain'], 'caduca': c.get('expires')} for c in await ctx.cookies()]
             await ctx.close()
         await b.close()
+    # Cabeceras y redirecciones: canonical sin .html, www, dirección antigua
+    import http.client, urllib.parse
+    def cab(url):
+        u = urllib.parse.urlparse(url); c = http.client.HTTPSConnection(u.netloc, timeout=30)
+        try:
+            c.request('GET', u.path or '/', headers={'User-Agent': 'MIKENIGHTS-revision'}); r = c.getresponse()
+            return [r.status, r.getheader('location'), {k: r.getheader(k) for k in ['content-security-policy', 'x-frame-options', 'strict-transport-security', 'x-content-type-options', 'referrer-policy', 'cache-control', 'set-cookie']}]
+        except Exception as e: return [0, str(e)[:120], {}]
+    INFO['cabeceras'] = {u: cab(u) for u in [WEB + '/', WEB + '/ocio-nocturno/barcelona-08019', WEB + '/ocio-nocturno/barcelona-08019.html', 'https://www.mikenights.com/', WEB + '/fuentes/hanken-1.woff2', WEB + '/para-locales']}
     json.dump(INFO, open(f'{OUT}/informe.json', 'w', encoding='utf-8'), ensure_ascii=False, indent=1)
     print(json.dumps({k: v for k, v in INFO.items() if k != 'paginas'}, ensure_ascii=False))
     for k, v in INFO['paginas'].items(): print(k, v.get('h1'), v.get('tarjetas'), v.get('fallo', ''), v.get('errores'))
