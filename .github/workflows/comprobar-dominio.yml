@@ -17,6 +17,8 @@ jobs:
           curl -s -X POST 'https://www.tmdn.org/tmview/api/search/results' -H 'Content-Type: application/json' -d '{"page":"1","pageSize":"50","criteria":"C","basicSearch":"mikenights","fOffices":[],"fields":[]}' -o tm1.json || true
           curl -s -X POST 'https://www.tmdn.org/tmview/api/search/results' -H 'Content-Type: application/json' -d '{"page":"1","pageSize":"50","criteria":"C","basicSearch":"mike nights","fOffices":[],"fields":[]}' -o tm2.json || true
           curl -s 'https://www.tmdn.org/tmview/api/search/results?basicSearch=mikenights' -o tm3.json || true
+          for u in modonoche.es modonoche.com mikenight.com; do echo "== $u" >> webs.txt; curl -sL -m 20 -A 'Mozilla/5.0' "https://$u" | tr '\n' ' ' | grep -oiE '<title>[^<]*</title>|<meta[^>]+(description|og:site_name)[^>]+>' | head -4 >> webs.txt; done
+          curl -s -m 20 -A 'Mozilla/5.0' 'https://www.dominios.es/es/dominios/buscador?dominio=mikenights' | tr '\n' ' ' | grep -oiE 'mikenights[^<]{0,120}' | head -10 > dominios_es.txt || true
           ls -la
       - run: |
           cd out
