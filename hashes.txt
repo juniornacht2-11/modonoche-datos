@@ -1,0 +1,8 @@
+e3b0c44298fc1c14 index.html
+bd4a73d6400b0d7a app.js
+04ab989b9a8337dd estilos.css
+a66bcb8a55965f0f sw.js
+e3b0c44298fc1c14 _headers
+e5c34af8ad15e0e6 i18n/en.json
+e3b0c44298fc1c14 para-locales.html
+{"version":"mikenights-2","db":true,"antispam":true,"admin":true,"avisos":true}
