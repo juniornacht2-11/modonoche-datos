@@ -21,6 +21,8 @@ def leer(url):
 
 async def main():
     s, t = leer(WEB + '/sw.js'); INFO['sw'] = next((l.strip() for l in t.splitlines() if 'CACHE =' in l), t[:120])
+    for k, u in [('www', 'https://www.mikenights.com/sw.js'), ('antigua', 'https://modonoche.juniornacht2.workers.dev/sw.js'), ('robots', WEB + '/robots.txt'), ('logo', WEB + '/logo-sello.svg')]:
+        s2, t2 = leer(u); INFO['extra_' + k] = [s2, t2[:160]]
     s, t = leer(API + '/api/comunidad/estado?t=rev'); INFO['servicio'] = t[:300]
     s, t = leer(WEB + '/ajustes.json'); INFO['ajustes_aviso_legal'] = (json.loads(t).get('aviso_legal') if s == 200 else t[:200])
     s, t = leer(WEB + '/datos/nombres-ciudades.json'); INFO['nombres_ciudades'] = s
