@@ -1,0 +1,26 @@
+name: comprobar-dominio
+on: workflow_dispatch
+permissions:
+  contents: write
+jobs:
+  c:
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          sudo apt-get -qq install -y whois dnsutils >/dev/null
+          mkdir out; cd out
+          for d in mikenights.com mikenights.es mikenights.app mikenights.club mikenight.com mike-nights.com mikenights.net mikenights.io modonoche.es modonoche.com; do
+            echo "== $d" >> dns.txt; dig +short NS $d >> dns.txt; dig +short A $d >> dns.txt
+            whois $d > "whois_$d.txt" 2>&1 || true
+          done
+          curl -s https://rdap.verisign.com/com/v1/domain/mikenights.com -o rdap_com.json -w '%{http_code}\n' > rdap_code.txt || true
+          curl -s -X POST 'https://www.tmdn.org/tmview/api/search/results' -H 'Content-Type: application/json' -d '{"page":"1","pageSize":"50","criteria":"C","basicSearch":"mikenights","fOffices":[],"fields":[]}' -o tm1.json || true
+          curl -s -X POST 'https://www.tmdn.org/tmview/api/search/results' -H 'Content-Type: application/json' -d '{"page":"1","pageSize":"50","criteria":"C","basicSearch":"mike nights","fOffices":[],"fields":[]}' -o tm2.json || true
+          curl -s 'https://www.tmdn.org/tmview/api/search/results?basicSearch=mikenights' -o tm3.json || true
+          ls -la
+      - run: |
+          cd out
+          git init -q; git checkout -q -b dominio-check
+          git config user.name bot; git config user.email bot@x
+          git add -A; git commit -qm r
+          git push -f https://x-access-token:${{ github.token }}@github.com/${{ github.repository }} dominio-check
