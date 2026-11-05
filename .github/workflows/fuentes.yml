@@ -1,0 +1,33 @@
+name: Fuentes de la web (woff2)
+# Genera las fuentes Bodoni Moda y Hanken Grotesk (OFL) recortadas a latín para alojarlas en la propia web. Resultado en la rama «fuentes».
+on: workflow_dispatch
+permissions:
+  contents: write
+jobs:
+  f:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: |
+          pip install -q fonttools brotli
+          git clone -q --depth 1 --filter=blob:none --sparse https://github.com/google/fonts gf
+          cd gf && git sparse-checkout set ofl/bodonimoda ofl/hankengrotesk && cd ..
+          mkdir out
+          U="U+0000-00FF,U+0100-017F,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+20AC,U+2122,U+2190-2193,U+2212,U+2215,U+FEFF,U+FFFD"
+          F="kern,liga,calt,lnum,tnum,pnum"
+          pyftsubset "gf/ofl/hankengrotesk/HankenGrotesk[wght].ttf" --unicodes="$U" --layout-features="$F" --flavor=woff2 --output-file=out/hanken.woff2
+          python - <<'PY'
+          from fontTools.ttLib import TTFont
+          from fontTools.varLib import instancer
+          for src, dst in [('gf/ofl/bodonimoda/BodoniModa[opsz,wght].ttf','tmp-bodoni.ttf'),('gf/ofl/bodonimoda/BodoniModa-Italic[opsz,wght].ttf','tmp-bodoni-it.ttf')]:
+              f = TTFont(src)
+              f = instancer.instantiateVariableFont(f, {'wght': (500, 600), 'opsz': (11, 96)})
+              f.save(dst)
+          PY
+          pyftsubset tmp-bodoni.ttf --unicodes="$U" --layout-features="$F" --flavor=woff2 --output-file=out/bodoni.woff2
+          pyftsubset tmp-bodoni-it.ttf --unicodes="$U" --layout-features="$F" --flavor=woff2 --output-file=out/bodoni-it.woff2
+          cp gf/ofl/bodonimoda/OFL.txt out/OFL-BodoniModa.txt; cp gf/ofl/hankengrotesk/OFL.txt out/OFL-HankenGrotesk.txt
+          ls -la out
+          cd out && git init -q && git checkout -q -b fuentes && git config user.name bot && git config user.email bot@x && git add -A && git commit -qm f && git push -fq https://x-access-token:${{ github.token }}@github.com/${{ github.repository }} fuentes
