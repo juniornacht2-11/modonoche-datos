@@ -19,6 +19,8 @@ jobs:
           curl -s 'https://www.tmdn.org/tmview/api/search/results?basicSearch=mikenights' -o tm3.json || true
           for u in modonoche.es modonoche.com mikenight.com; do echo "== $u" >> webs.txt; curl -sL -m 20 -A 'Mozilla/5.0' "https://$u" | tr '\n' ' ' | grep -oiE '<title>[^<]*</title>|<meta[^>]+(description|og:site_name)[^>]+>' | head -4 >> webs.txt; done
           curl -s -m 20 -A 'Mozilla/5.0' 'https://www.dominios.es/es/dominios/buscador?dominio=mikenights' | tr '\n' ' ' | grep -oiE 'mikenights[^<]{0,120}' | head -10 > dominios_es.txt || true
+          for f in index.html app.js estilos.css sw.js _headers i18n/en.json para-locales.html; do curl -s "https://mikenights.com/$f?v=$RANDOM" -o tmpf; echo "$(sha256sum tmpf | cut -c1-16) $f" >> hashes.txt; done; rm -f tmpf
+          curl -s https://frosty-bird-92d2.juniornacht2.workers.dev/api/comunidad/estado >> hashes.txt
           ls -la
       - run: |
           cd out
