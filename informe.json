@@ -1,0 +1,1692 @@
+{
+ "web": "https://mikenights.com",
+ "fecha": "2026-11-06T02:57:26.942089Z",
+ "pantallas": [
+  {
+   "id": "01-portada",
+   "disp": "movil",
+   "ruta": "/",
+   "estado": 200,
+   "url_final": "https://mikenights.com/",
+   "segundos": 5.1,
+   "titulo": "MIKENIGHTS · Tu noche empieza aquí",
+   "texto": "MIKENIGHTS\nES\nEspañol\nEnglish\nFrançais\nDeutsch\nItaliano\nPortuguês\nNederlands\nCatalà\nРусский\n中文\n¿Dónde sales?\nFecha\nPersonas\n2\nVer planes\n3 · Club\n1 · Cena · 2 · Copa\n© OpenStreetMap · OpenFreeMap\nTu noche empieza\naquí.\n\nCena, copa y club a pocos minutos a pie. Sitios reales, con su horario y cómo llegar.\n\nUna noche en el Born\nBarcelona · a pie\n1\nEl Xampanyet · cena\nTapas · cierra a las 23:00\n70 m · 1 min a pie\n2\nBar Sauvage · copa\nBar · hasta las 03:30\n910 m · 11 min a pie\n3\nArena Xperience · club\nDiscoteca · de 23:59 a 06:00\nOrganizar mi noche\nOtro plan\n\nEjemplo real en Barcelona con horarios de OpenStreetMap. Confírmalos con cada local.\n\nCenar\nCopas\nClubs\nDirecto\nDormir\nEste finde en Madrid\nPlanes de fiesta del finde\n\nViernes, 6 de noviembre\n\n17:30\nDanza entre mujeres\nEspacio de Igualdad María de Maeztu. Latina\n18:00\nTablao Flamenco 1911: El Tablao Más Antiguo del Mundo\nTablao Flamenco 1911\n19:00\nActuación musical e improvisación sobre proyecciones: `Atmósferas Sonoras y Visuales´\nEdificio Sociocultural Marta Escudero Díaz-Tejeiro (Villaverde)\n\nSábado, 7 de noviembre\n\n11:00\nForró en la Biblio\nBiblioteca Pública Municipal Eugenio Trías. Casa de Fieras de El Retiro (Retiro)\n12:00\nXXVIII Festival Internacional COMA'26\nCentro Cultural Casa de Vacas (Retiro)\n18:00\nDúo de jazz y bolero. Natalia Baeza y Jesús Parra\nCentro Sociocultural San Fermín (Usera)\n\nDomingo, 8 de noviembre\n\n12:00\nEl cuerpo del flamenco\nCentro Danza Matadero - CDM\n12:00\nPoética Ópera\nCentro Cultural Casa del Reloj (Arganzuela)\n12:00\nSwing y letras en San Fermin\nBiblioteca Pública Municipal San Fermín (Usera)\n\nConciertos y fiestas de la agenda oficial para el viernes, sábado y domingo.\n\n¿Tienes un local?\n\nCompleta tu ficha y recibe reservas, sin comisiones.\n\nRecibir reservas\nPara locales\nMIKENIGHTS en tu móvil\nEn iPhone: pulsa el botón Compartir de Safari y luego «Añadir a pantalla de inicio».",
+   "h1": [
+    "Tu noche empieza\naquí."
+   ],
+   "nodos": 370,
+   "alto": 3482,
+   "ancho_desborda": false,
+   "fuentes": [
+    "\"Hanken Grotesk\"",
+    "\"Bodoni Moda\""
+   ],
+   "botones_pequenos": 0,
+   "imagenes_rotas": [],
+   "axe": [],
+   "errores_consola": [],
+   "peticiones_fallidas": [],
+   "peticiones_error": [],
+   "hosts": [
+    "cloudflareinsights.com",
+    "juniornacht2-11.github.io",
+    "mikenights.com",
+    "static.cloudflareinsights.com"
+   ]
+  },
+  {
+   "id": "02-buscar",
+   "disp": "movil",
+   "ruta": "/",
+   "estado": 200,
+   "url_final": "https://mikenights.com/",
+   "segundos": 7.0,
+   "titulo": "MIKENIGHTS · Tu noche empieza aquí",
+   "texto": "MIKENIGHTS\nES\nEspañol\nEnglish\nFrançais\nDeutsch\nItaliano\nPortuguês\nNederlands\nCatalà\nРусский\n中文\n¿Dónde sales?\nBarcelona\nBarcelona\nBarcellona Pozzo di Gotto\nItalia\nBarcelos\nPortugal\nBarcarena\nPortugal\nBárcena de Cicero\nCantabria\nBarcarrota\nBadajoz\nBarca\nTurín · Italia\nBarca\nBolonia · Italia\nBarcola / Barkovlje\nTrieste · Italia\nFecha\nPersonas\n2\nVer planes\n3 · Club\n1 · Cena · 2 · Copa\n© OpenStreetMap · OpenFreeMap\nTu noche empieza\naquí.\n\nCena, copa y club a pocos minutos a pie. Sitios reales, con su horario y cómo llegar.\n\nUna noche en el Born\nBarcelona · a pie\n1\nEl Xampanyet · cena\nTapas · cierra a las 23:00\n70 m · 1 min a pie\n2\nBar Sauvage · copa\nBar · hasta las 03:30\n910 m · 11 min a pie\n3\nArena Xperience · club\nDiscoteca · de 23:59 a 06:00\nOrganizar mi noche\nOtro plan\n\nEjemplo real en Barcelona con horarios de OpenStreetMap. Confírmalos con cada local.\n\nCenar\nCopas\nClubs\nDirecto\nDormir\nEste finde en Madrid\nPlanes de fiesta del finde\n\nViernes, 6 de noviembre\n\n17:30\nDanza entre mujeres\nEspacio de Igualdad María de Maeztu. Latina\n18:00\nTablao Flamenco 1911: El Tablao Más Antiguo del Mundo\nTablao Flamenco 1911\n19:00\nActuación musical e improvisación sobre proyecciones: `Atmósferas Sonoras y Visuales´\nEdificio Sociocultural Marta Escudero Díaz-Tejeiro (Villaverde)\n\nSábado, 7 de noviembre\n\n11:00\nForró en la Biblio\nBiblioteca Pública Municipal Eugenio Trías. Casa de Fieras de El Retiro (Retiro)\n12:00\nXXVIII Festival Internacional COMA'26\nCentro Cultural Casa de Vacas (Retiro)\n18:00\nDúo de jazz y bolero. Natalia Baeza y Jesús Parra\nCentro Sociocultural San Fermín (Usera)\n\nDomingo, 8 de noviembre\n\n12:00\nEl cuerpo del flamenco\nCentro Danza Matadero - CDM\n12:00\nPoética Ópera\nCentro Cultural Casa del Reloj (Arganzuela)\n12:00\nSwing y letras en San Fermin\nBiblioteca Pública Municipal San Fermín (Usera)\n\nConciertos y fiestas de la agenda oficial para el viernes, sábado y domingo.\n\n¿Tienes un local?\n\nCompleta tu ficha y recibe reservas, sin comisiones.\n\nRecibir reservas\nPara locales\nMIKENIGHTS en tu móvil\nEn iPhone: pulsa el botón Compartir de Safari y luego «Añadir a pantalla de inicio».",
+   "h1": [
+    "Tu noche empieza\naquí."
+   ],
+   "nodos": 388,
+   "alto": 3482,
+   "ancho_desborda": false,
+   "fuentes": [
+    "\"Hanken Grotesk\"",
+    "\"Bodoni Moda\""
+   ],
+   "botones_pequenos": 0,
+   "imagenes_rotas": [],
+   "axe": [],
+   "errores_consola": [],
+   "peticiones_fallidas": [],
+   "peticiones_error": [],
+   "hosts": [
+    "cloudflareinsights.com",
+    "juniornacht2-11.github.io",
+    "mikenights.com",
+    "static.cloudflareinsights.com"
+   ]
+  },
+  {
+   "id": "03-plan-bcn",
+   "disp": "movil",
+   "ruta": "/#/plan/08019",
+   "estado": 200,
+   "url_final": "https://mikenights.com/#/plan/08019",
+   "segundos": 7.2,
+   "titulo": "Elige tu plan · Barcelona · MIKENIGHTS",
+   "texto": "Barcelona · Vie, 6 nov · 2 personas\nCambiar\n¿Qué te apetece en Barcelona?\nUn tipo de sitio\n\nSi ya sabes qué buscas: todos los sitios de ese tipo, con horario y cómo llegar.\n\nCenar\n3699 restaurantes\nSalir\n1437 locales de fiesta\nDormir\n5651 alojamientos\n\nPara dormir también:\nApartamentos\nHabitaciones\n\nLa noche completa\n\nIdeas con varios sitios reales a pocos minutos a pie, en el orden de la noche. Elige con quién sales para ver las que encajan.\n\nTodas\nEn pareja\nCon amigos\nSolo\nEn pareja\nCena para dos\nRestaurantes con reserva, terraza o carta publicada, primero.\nCena\n3699 restaurantes\nEn pareja\nCena y copa\nUn restaurante y un bar tranquilo a pocos minutos a pie.\nCena\n+\nCopa\n80 propuestas\nEn pareja\nEscapada nocturna\nCena, copa y hotel cerca, para no coger el coche.\nCena\n+\nCopa\n+\nHotel\n80 propuestas\nCon amigos\nTapeo y fiesta\nTapas para empezar y una discoteca o pub cerca para seguir.\nTapas\n+\nFiesta\n80 propuestas\nCon amigos\nRuta de bares\nTres bares o pubs a pocos minutos uno de otro.\nBar\n+\nBar\n+\nBar\n40 propuestas\nCon amigos\nHasta el amanecer\nCena, discoteca y un sitio para dormir cerca.\nCena\n+\nDiscoteca\n+\nDormir\n62 propuestas\nSolo\nMúsica en directo\nSalas y bares con conciertos o música en directo.\nMúsica\n15 propuestas\nSolo\nConciertos ese día\nConciertos y fiestas de la agenda para la fecha elegida.\nAgenda\n60 conciertos ese día\nSolo\nBarra y copa\nBares y pubs para tomar algo con calma.\nCopa\n1355 propuestas\n\nSon sugerencias con establecimientos independientes y cercanos: no son paquetes y cada parte se reserva por separado.\n\nAgenda · Viernes, 6 de noviembre\nMúsica y fiestas (60)\nToda la agenda (346)\nMúsica\n\"Concerts al Soterrani\"\n03:00 h · Sarrià\nDel 23/10/2026 al 20/11/2026\nFuente: Ajuntament de Barcelona (Open Data BCN, CC BY 4.0)\nMúsica\nTeatre Musical \" De 9 a 5\"\n03:00 h · el Congrés i els Indians\nDel 24/10/2026 al 14/11/2026\nFuente: Ajuntament de Barcelona (Open Data BCN, CC BY 4.0)\nMúsica\nConcert \"John Pollón\"\n03:00 h · el Poble-sec\nFuente: Ajuntament de Barcelona (Open Data BCN, CC BY 4.0)\nMúsica\nConcert \"La Oreja de Van Gogh\"\n03:00 h · el Poble-sec\nDel 06/11/2026 al 27/11/2026\nFuente: Ajuntament de Barcelona (Open Data BCN, CC BY 4.0)\nMúsica\nConcert \"Little Big\"\n03:00 h · les Corts\nFuente: Ajuntament de Barcelona (Open Data BCN, CC BY 4.0)\nMúsica\nConcert \"L’Atlàntida de Falla\", amb Kent Nagano i OCNE\n03:00 h · el Fort Pienc\nDel 06/11/2026 al 08/11/2026\nFuente: Ajuntament de Barcelona (Open Data BCN, CC BY 4.0)\nVer los 60 eventos\n\nEventos de agendas públicas o",
+   "h1": [
+    "¿Qué te apetece en Barcelona?"
+   ],
+   "nodos": 421,
+   "alto": 4208,
+   "ancho_desborda": false,
+   "fuentes": [
+    "\"Hanken Grotesk\"",
+    "\"Bodoni Moda\""
+   ],
+   "botones_pequenos": 1,
+   "imagenes_rotas": [],
+   "axe": [
+    {
+     "id": "button-name",
+     "impacto": "critical",
+     "n": 1,
+     "ayuda": "Buttons must have discernible text"
+    }
+   ],
+   "errores_consola": [],
+   "peticiones_fallidas": [],
+   "peticiones_error": [],
+   "hosts": [
+    "cloudflareinsights.com",
+    "frosty-bird-92d2.juniornacht2.workers.dev",
+    "juniornacht2-11.github.io",
+    "mikenights.com",
+    "static.cloudflareinsights.com"
+   ]
+  },
+  {
+   "id": "04-idea-noche",
+   "disp": "movil",
+   "ruta": "/#/plan/08019",
+   "estado": 200,
+   "url_final": "https://mikenights.com/#/plan/08019",
+   "segundos": 9.2,
+   "titulo": "Cena para dos · Barcelona · MIKENIGHTS",
+   "texto": "Barcelona · Vie, 6 nov · 2 personas\nCambiar\nCena para dos en Barcelona\n\nRestaurantes con reserva, terraza o carta publicada, primero.\n\nLista\nMapa\nCompartir\nOrdenar\nRecomendados\nDistancia al centro\nNombre\nPrecio (solo con precio publicado)\nFiltrar\nTodo\nTapas\n286\nJaponesa\n228\nEspañola\n192\nItaliana\n143\nAsiática\n118\nMediterránea\n111\nPizza\n107\nMexicana\n99\nHamburguesas\n87\nChina\n75\nIndia\n49\nMarisco y pescado\n47\nCarnes y brasa\n47\nKebab\n36\nCocina del país\n19\n\n3699 opciones · Viernes, 6 de noviembre · 2 personas\n\nBI\nBiocenter\n\nRestaurante · 610 m\n\nViernes: 10:00–23:30\n\nGU\nGuzzo\n\nRestaurante · 620 m\n\nViernes: 18:00–02:00\n\nCL\nCa La Nuri\n\nRestaurante · Mediterránea · 1,2 km\n\nViernes: 13:00–23:00\n\nRA\nRainbow\n\nRestaurante · Japonesa, Sushi · 1,3 km\n\nViernes: 13:00–16:00 y 20:30–23:30\n\nCA\nCasa Amalia\n\nRestaurante · Catalana · 1,5 km\n\nViernes: 13:00–17:30 y 19:30–00:00\n\nPÖ\nPötstot\n\nRestaurante · 1,6 km\n\nViernes: 13:00–17:00 y 19:00–23:55\n\nNO\nNogal\n\nRestaurante · Española, Cafe · 1,6 km\n\nViernes: 05:00–03:00\n\nBD\nBrisa do sil\n\nRestaurante · Española · 1,8 km\n\nViernes: 10:00–23:59\n\nPB\nPaisano Bistró\n\nRestaurante · Italiana · 2,3 km\n\nViernes: 11:00–23:00\n\nLS\nLa Sanguchería\n\nRestaurante · Peruana · 2,6 km\n\nViernes: 19:00–23:30\n\nRT\nRamen tan tan\n\nRestaurante · Ramen · 2,7 km\n\nViernes: 11:30–16:30 y 19:30–23:30\n\nMR\nMagna Roma\n\nRestaurante · Pizza · 2,8 km\n\nViernes: 18:00–23:30\n\nQT\nQing Tian Ramen\n\nRestaurante · Ramen · 2,9 km\n\nViernes: 10:00–23:00\n\nCB\nCan brasa\n\nRestaurante · Española · 2,9 km\n\nViernes: 07:00–23:59\n\nMM\nMetric Market\n\nRestaurante · 3,0 km\n\nViernes: 08:00–03:00\n\nVI\nVermut i força al canut\n\nRestaurante · Española · 3,3 km\n\nViernes: 18:00–23:30\n\nSA\nSaona\n\nRestaurante · Mediterránea · 3,7 km\n\nViernes: 20:00–23:59\n\nRE\nRevoltosa\n\nRestaurante · Mexicana · 3,8 km\n\nViernes: 17:00–23:59\n\nCA\nCadaqués\n\nRestaurante · Marisco, Regional · 660 m\n\nViernes: 03:00–01:00\n\nSU\nSabes una Cosa\n\nRestaurante · Mexicana · 2,3 km\n\nViernes: 20:00–23:30\n\nRK\nRestaurante Kinza\n\nRestaurante · Georgian · 2,3 km\n\nViernes: 13:00–00:00\n\nER\nEl Rincón de la Abuela Venezolana\n\nRestaurante · American · 2,4 km\n\nViernes: 12:00–23:00\n\nBB\nBilbao Berria\n\nRestaurante · Española · 120 m\n\nViernes: 10:00–00:00\n\nRC\nRestaurante Can Bo\n\nRestaurante · Tapas · 130 m\n\nViernes: 12:00–00:00\n\nMostrar más (24 de 3699)\nSobre estos datos\n\n¿Tienes un local en Barcelona? Recibe reservas en MIKENIGHTS gratis y sin comisiones.\nRecibir reservas\nAñadir mi negocio",
+   "h1": [
+    "Cena para dos en Barcelona"
+   ],
+   "nodos": 671,
+   "alto": 4081,
+   "ancho_desborda": false,
+   "fuentes": [
+    "\"Hanken Grotesk\"",
+    "\"Bodoni Moda\""
+   ],
+   "botones_pequenos": 24,
+   "imagenes_rotas": [],
+   "axe": [
+    {
+     "id": "button-name",
+     "impacto": "critical",
+     "n": 1,
+     "ayuda": "Buttons must have discernible text"
+    },
+    {
+     "id": "heading-order",
+     "impacto": "moderate",
+     "n": 1,
+     "ayuda": "Heading levels should only increase by one"
+    }
+   ],
+   "errores_consola": [],
+   "peticiones_fallidas": [],
+   "peticiones_error": [],
+   "hosts": [
+    "cloudflareinsights.com",
+    "frosty-bird-92d2.juniornacht2.workers.dev",
+    "juniornacht2-11.github.io",
+    "mikenights.com",
+    "static.cloudflareinsights.com"
+   ]
+  },
+  {
+   "id": "05-resultados-fiesta",
+   "disp": "movil",
+   "ruta": "/#/resultados/08019/2026-11-06/2/fiesta",
+   "estado": 200,
+   "url_final": "https://mikenights.com/#/resultados/08019/2026-11-06/2/fiesta",
+   "segundos": 6.1,
+   "titulo": "Fiesta · Barcelona · MIKENIGHTS",
+   "texto": "Barcelona · Vie, 6 nov · 2 personas\nCambiar\nFiesta en Barcelona\nLista\nMapa\nCompartir\nOrdenar\nRecomendados\nDistancia al centro\nNombre\nPrecio (solo con precio publicado)\nFiltrar\nTodo\nDiscotecas\n64\nBares de copas\n1023\nPubs\n332\nMúsica en directo\n2\nSalas y eventos\n16\n\n1339 opciones · Viernes, 6 de noviembre · 2 personas\n\nSH\nShôko\n\nBar · 1,7 km\n\nViernes: 12:00–03:00\n\nTOP MUNDIAL\nnº 7 del mundo · World's 100 Best Clubs 2025\n\nWikimedia Commons\nSA\nSala Apolo\n\nDiscoteca o club · 1,2 km\n\nConcert \"Camellos\"\n\nTOP MUNDIAL\nnº 34 del mundo · World's 100 Best Clubs 2025\n\nOP\nOpium\n\nBar · 1,7 km\n\nHorario no publicado\n\nTOP MUNDIAL\nnº 9 del mundo · World's 100 Best Clubs 2025\n\nSC\nSutton Club\n\nDiscoteca o club · 2,4 km\n\nHorario no publicado\n\nTOP MUNDIAL\nnº 12 del mundo · World's 100 Best Clubs 2025\n\nDB\nDowntown Barcelona\n\nDiscoteca o club · 5,2 km\n\nMadrugada del sábado: 00:00–06:00\n\nDESTACADA\nRecomendada en guías de ocio de Barcelona\n\nJA\nJamboree\n\nDiscoteca o club · 510 m\n\nFesta \"Disco Saturday Night: Dj Eley\"\n\nDESTACADA\nRecomendada en guías de ocio de Barcelona\n\nHC\nHyde Club\n\nDiscoteca o club · 1,5 km\n\nHorario no publicado\n\nDESTACADA\nRecomendada en guías de ocio de Barcelona\n\nRA\nRazzmatazz\n\nDiscoteca o club · 1,9 km\n\nConcert \"Festival Partiendo La Pana - Tributos a Estopa y Melendi\"\n\nDESTACADA\nRecomendada en guías de ocio de Barcelona\n\nDU\nDuvet\n\nDiscoteca o club · 2,0 km\n\nHorario no publicado\n\nDESTACADA\nRecomendada en guías de ocio de Barcelona\n\nBB\nBling Bling\n\nDiscoteca o club · 2,3 km\n\nHorario no publicado\n\nDESTACADA\nRecomendada en guías de ocio de Barcelona\n\nLF\nLa Fira Casanova\n\nDiscoteca o club · 2,4 km\n\nHorario no publicado\n\nDESTACADA\nRecomendada en guías de ocio de Barcelona\n\nLB\nLa Biblio\n\nDiscoteca o club · 2,4 km\n\nHorario no publicado\n\nDESTACADA\nRecomendada en guías de ocio de Barcelona\n\nOZ\nOtto Zutz\n\nDiscoteca o club · 2,8 km\n\nHorario no publicado\n\nDESTACADA\nRecomendada en guías de ocio de Barcelona\n\nSB\nSala Bikini\n\nDiscoteca o club · 3,3 km\n\nHorario no publicado\n\nDESTACADA\nRecomendada en guías de ocio de Barcelona\n\nCB\nCraft Barcelona\n\nPub · 130 m\n\nViernes: 18:00–03:00\n\nMB\nMagma Bar\n\nBar · 240 m\n\nViernes: 18:00–02:30\n\nGI\nGinger\n\nBar · 250 m\n\nViernes: 19:30–02:30\n\nDG\nDux Gin & Cocktail Bar Barcelona\n\nBar · 310 m\n\nViernes: 18:30–02:30\n\nBB\nBar Brutal\n\nBar · 370 m\n\nViernes: 13:00–00:30\n\nKÆ\nKælderkold\n\nPub · 390 m\n\nViernes: 12:30–03:00\n\nOV\nOviso\n\nPub · 400 m\n\nViernes: 10:00–01:30\n\nMB\nManchester Bar\n\nBar · 460 m\n\nViernes: 18:30–00:00\n\n#B\n#Bubita\n\nBar · 470 m\n\nViernes: 09:30",
+   "h1": [
+    "Fiesta en Barcelona"
+   ],
+   "nodos": 699,
+   "alto": 4978,
+   "ancho_desborda": false,
+   "fuentes": [
+    "\"Hanken Grotesk\"",
+    "\"Bodoni Moda\""
+   ],
+   "botones_pequenos": 24,
+   "imagenes_rotas": [],
+   "axe": [
+    {
+     "id": "button-name",
+     "impacto": "critical",
+     "n": 1,
+     "ayuda": "Buttons must have discernible text"
+    },
+    {
+     "id": "heading-order",
+     "impacto": "moderate",
+     "n": 1,
+     "ayuda": "Heading levels should only increase by one"
+    }
+   ],
+   "errores_consola": [],
+   "peticiones_fallidas": [],
+   "peticiones_error": [],
+   "hosts": [
+    "cloudflareinsights.com",
+    "commons.wikimedia.org",
+    "frosty-bird-92d2.juniornacht2.workers.dev",
+    "juniornacht2-11.github.io",
+    "mikenights.com",
+    "static.cloudflareinsights.com",
+    "thumb.wikimedia.org",
+    "www.wikidata.org"
+   ]
+  },
+  {
+   "id": "06-resultados-cenas",
+   "disp": "movil",
+   "ruta": "/#/resultados/08019/2026-11-06/2/cenas",
+   "estado": 200,
+   "url_final": "https://mikenights.com/#/resultados/08019/2026-11-06/2/cenas",
+   "segundos": 7.8,
+   "titulo": "Cenas · Barcelona · MIKENIGHTS",
+   "texto": "Barcelona · Vie, 6 nov · 2 personas\nCambiar\nCenas en Barcelona\nLista\nMapa\nCompartir\nOrdenar\nRecomendados\nDistancia al centro\nNombre\nPrecio (solo con precio publicado)\nFiltrar\nTodo\nTapas\n286\nJaponesa\n228\nEspañola\n192\nItaliana\n143\nAsiática\n118\nMediterránea\n111\nPizza\n107\nMexicana\n99\nHamburguesas\n87\nChina\n75\nIndia\n49\nMarisco y pescado\n47\nCarnes y brasa\n47\nKebab\n36\nCocina del país\n19\n\n3699 opciones · Viernes, 6 de noviembre · 2 personas\n\nBB\nBilbao Berria\n\nRestaurante · Española · 120 m\n\nViernes: 10:00–00:00\n\nRC\nRestaurante Can Bo\n\nRestaurante · Tapas · 130 m\n\nViernes: 12:00–00:00\n\nBB\nBun Bo Gótico\n\nRestaurante · Vietnamese · 150 m\n\nViernes: 12:00–01:00\n\nPD\nPizzería Da Nanni\n\nRestaurante · Italian pizza · 150 m\n\nViernes: 12:00–22:30\n\nRL\nRestaurante Loto\n\nRestaurante · 210 m\n\nViernes: 13:00–16:00 y 20:00–23:00\n\nLU\nLuigi\n\nRestaurante · Italiana · 240 m\n\nViernes: 12:00–00:00\n\nGR\nGrasshopper\n\nRestaurante · Japonesa · 270 m\n\nViernes: 13:00–23:30\n\nSD\nSet de Gòtic\n\nRestaurante · 270 m\n\nViernes: 09:00–00:00\n\nBD\nBar del Pi\n\nRestaurante · Española, Tapas · 280 m\n\nViernes: 09:00–23:00\n\nTD\nTaller de Tapas\n\nRestaurante · 280 m\n\nViernes: 12:00–00:00\n\nRL\nRestaurant La Taverneta Barcelona\n\nRestaurante · Francesa · 290 m\n\nViernes: 13:00–00:00\n\nLC\nLa Central\n\nRestaurante · Hamburguesas · 290 m\n\nViernes: 12:30–01:00\n\nBL\nBodega la Palma\n\nRestaurante · 300 m\n\nViernes: 12:00–17:00 y 19:00–00:00\n\nLC\nLa Cereria\n\nRestaurante · Regional · 300 m\n\nViernes: 13:00–00:00\n\nLC\nLe Cucine Mandarosso\n\nRestaurante · Italiana · 300 m\n\nEspectacle \"Palles gratis!\", a càrrec de Roger Pelàez & Vidal Soler\n\nAV\nAvinyo10\n\nRestaurante · Mediterránea, Española · 320 m\n\nViernes: 12:00–23:30\n\nZF\nZiryab Fusion Tapas Bar\n\nRestaurante · Arab · 330 m\n\nViernes: 13:00–00:00\n\nNC\nNou Celler\n\nRestaurante · 330 m\n\nViernes: 08:00–23:30\n\nGO\nGovinda\n\nRestaurante · India · 330 m\n\nViernes: 13:00–16:00 y 20:00–23:30\n\nAN\nAnduriña\n\nRestaurante · 330 m\n\nViernes: 08:00–01:00\n\nVE\nVelada\n\nRestaurante · Española, Hamburguesas · 340 m\n\nViernes: 13:00–23:00\n\nIR\nIrati\n\nRestaurante · Tapas · 340 m\n\nViernes: 11:00–00:30\n\nRL\nRestaurant La Plassohla\n\nRestaurante · 350 m\n\nViernes: 07:00–16:00 y 19:30–00:00\n\nVJ\nVegan Junk Food Bar\n\nRestaurante · 350 m\n\nViernes: 12:00–01:00\n\nMostrar más (24 de 3699)\nSobre estos datos\n\n¿Tienes un local en Barcelona? Recibe reservas en MIKENIGHTS gratis y sin comisiones.\nRecibir reservas\nAñadir mi negocio",
+   "h1": [
+    "Cenas en Barcelona"
+   ],
+   "nodos": 673,
+   "alto": 4059,
+   "ancho_desborda": false,
+   "fuentes": [
+    "\"Hanken Grotesk\"",
+    "\"Bodoni Moda\""
+   ],
+   "botones_pequenos": 24,
+   "imagenes_rotas": [],
+   "axe": [
+    {
+     "id": "button-name",
+     "impacto": "critical",
+     "n": 1,
+     "ayuda": "Buttons must have discernible text"
+    },
+    {
+     "id": "heading-order",
+     "impacto": "moderate",
+     "n": 1,
+     "ayuda": "Heading levels should only increase by one"
+    }
+   ],
+   "errores_consola": [],
+   "peticiones_fallidas": [],
+   "peticiones_error": [],
+   "hosts": [
+    "cloudflareinsights.com",
+    "frosty-bird-92d2.juniornacht2.workers.dev",
+    "juniornacht2-11.github.io",
+    "mikenights.com",
+    "static.cloudflareinsights.com"
+   ]
+  },
+  {
+   "id": "07-resultados-mapa",
+   "disp": "movil",
+   "ruta": "/#/resultados/08019/2026-11-06/2/fiesta",
+   "estado": 200,
+   "url_final": "https://mikenights.com/#/resultados/08019/2026-11-06/2/fiesta",
+   "segundos": 8.0,
+   "titulo": "Fiesta · Barcelona · MIKENIGHTS",
+   "texto": "Barcelona · Vie, 6 nov · 2 personas\nCambiar\nFiesta en Barcelona\nLista\nMapa\nCompartir\nOrdenar\nRecomendados\nDistancia al centro\nNombre\nPrecio (solo con precio publicado)\nFiltrar\nOpenFreeMap © OpenMapTiles Data from OpenStreetMap\nBuscar en esta zona",
+   "h1": [
+    "Fiesta en Barcelona"
+   ],
+   "nodos": 1169,
+   "alto": 1410,
+   "ancho_desborda": false,
+   "fuentes": [
+    "\"Hanken Grotesk\"",
+    "\"Bodoni Moda\"",
+    "\"Helvetica Neue\""
+   ],
+   "botones_pequenos": 3,
+   "imagenes_rotas": [],
+   "axe": [
+    {
+     "id": "button-name",
+     "impacto": "critical",
+     "n": 1,
+     "ayuda": "Buttons must have discernible text"
+    }
+   ],
+   "errores_consola": [],
+   "peticiones_fallidas": [],
+   "peticiones_error": [],
+   "hosts": [
+    "cdn.jsdelivr.net",
+    "cloudflareinsights.com",
+    "commons.wikimedia.org",
+    "frosty-bird-92d2.juniornacht2.workers.dev",
+    "juniornacht2-11.github.io",
+    "mikenights.com",
+    "static.cloudflareinsights.com",
+    "thumb.wikimedia.org",
+    "tiles.openfreemap.org",
+    "www.wikidata.org"
+   ]
+  },
+  {
+   "id": "08-ficha",
+   "disp": "movil",
+   "ruta": "/#/resultados/08019/2026-11-06/2/fiesta",
+   "estado": 200,
+   "url_final": "https://mikenights.com/#/resultados/08019/2026-11-06/2/fiesta",
+   "segundos": 7.7,
+   "titulo": "Fiesta · Barcelona · MIKENIGHTS",
+   "texto": "Volver\nShôko\nShôko\nSH\n\nBar\n\nTOP MUNDIAL\nnº 7 del mundo · World's 100 Best Clubs 2025 · ver fuente\n\nBar en Passeig Marítim del Port Olímpic 36, 08005, Barcelona. Tiene terraza. Horario publicado: lun a dom 12:00–03:00.\n\nWeb oficial\nGuardar\nCompartir\nHorario y datos\nDirección\nPasseig Marítim del Port Olímpic 36, 08005, Barcelona\nEse día\nViernes: 12:00–03:00 (según OpenStreetMap)\nHorario completo\nlun a dom 12:00–03:00\nDónde está\nOpenFreeMap © OpenMapTiles Data from OpenStreetMap\nPróximos eventos aquí\n\nNo hay eventos de este local en la agenda.\n\nOpiniones\nEscribir una opinión\n\nTodavía no hay opiniones. ¡Sé el primero en contar cómo es!\n\n¿Es tu local?\nCompleta la ficha con fotos, carta y ofertas, o recibe reservas desde MIKENIGHTS. Es gratis.\nCompletar la ficha\nActivar reservas\nCómo llegar\n\nDatos del local: © colaboradores de OpenStreetMap (ODbL). Opiniones y fotos aportadas por usuarios y propietarios, revisadas antes de publicarse. Ver en Google Maps · Corregir en OpenStreetMap",
+   "h1": [
+    "Fiesta en Barcelona"
+   ],
+   "nodos": 796,
+   "alto": 4978,
+   "ancho_desborda": false,
+   "fuentes": [
+    "\"Hanken Grotesk\"",
+    "\"Bodoni Moda\"",
+    "\"Helvetica Neue\""
+   ],
+   "botones_pequenos": 29,
+   "imagenes_rotas": [],
+   "axe": [
+    {
+     "id": "aria-prohibited-attr",
+     "impacto": "serious",
+     "n": 1,
+     "ayuda": "Elements must only use permitted ARIA attributes"
+    },
+    {
+     "id": "button-name",
+     "impacto": "critical",
+     "n": 1,
+     "ayuda": "Buttons must have discernible text"
+    },
+    {
+     "id": "heading-order",
+     "impacto": "moderate",
+     "n": 1,
+     "ayuda": "Heading levels should only increase by one"
+    },
+    {
+     "id": "nested-interactive",
+     "impacto": "serious",
+     "n": 1,
+     "ayuda": "Interactive controls must not be nested"
+    }
+   ],
+   "errores_consola": [],
+   "peticiones_fallidas": [],
+   "peticiones_error": [],
+   "hosts": [
+    "cdn.jsdelivr.net",
+    "cloudflareinsights.com",
+    "commons.wikimedia.org",
+    "frosty-bird-92d2.juniornacht2.workers.dev",
+    "juniornacht2-11.github.io",
+    "mikenights.com",
+    "static.cloudflareinsights.com",
+    "thumb.wikimedia.org",
+    "tiles.openfreemap.org",
+    "www.wikidata.org"
+   ]
+  },
+  {
+   "id": "09-favoritos-vacio",
+   "disp": "movil",
+   "ruta": "/",
+   "estado": 200,
+   "url_final": "https://mikenights.com/",
+   "segundos": 6.8,
+   "titulo": "MIKENIGHTS · Tu noche empieza aquí",
+   "texto": " Tus favoritos\n\nTodavía no has guardado ningún sitio. Pulsa el  de un local para tenerlo aquí.\n\nLos favoritos se guardan solo en este navegador y en este dispositivo.",
+   "h1": [
+    "Tu noche empieza\naquí."
+   ],
+   "nodos": 383,
+   "alto": 3482,
+   "ancho_desborda": false,
+   "fuentes": [
+    "\"Hanken Grotesk\"",
+    "\"Bodoni Moda\""
+   ],
+   "botones_pequenos": 0,
+   "imagenes_rotas": [],
+   "axe": [],
+   "errores_consola": [],
+   "peticiones_fallidas": [],
+   "peticiones_error": [],
+   "hosts": [
+    "cloudflareinsights.com",
+    "juniornacht2-11.github.io",
+    "mikenights.com",
+    "static.cloudflareinsights.com"
+   ]
+  },
+  {
+   "id": "10-favoritos-con-uno",
+   "disp": "movil",
+   "ruta": "/#/resultados/08019/2026-11-06/2/fiesta",
+   "estado": 200,
+   "url_final": "https://mikenights.com/#/resultados/08019/2026-11-06/2/fiesta",
+   "segundos": 11.3,
+   "titulo": "Fiesta · Barcelona · MIKENIGHTS",
+   "texto": " Tus favoritos\nBarcelona\nShôko\nBar · Passeig Marítim del Port Olímpic 36, 08005, Barcelona\nCómo llegar\nVer en Barcelona\nQuitar\n\nLos favoritos se guardan solo en este navegador y en este dispositivo.",
+   "h1": [
+    "Fiesta en Barcelona"
+   ],
+   "nodos": 721,
+   "alto": 4978,
+   "ancho_desborda": false,
+   "fuentes": [
+    "\"Hanken Grotesk\"",
+    "\"Bodoni Moda\""
+   ],
+   "botones_pequenos": 24,
+   "imagenes_rotas": [],
+   "axe": [
+    {
+     "id": "button-name",
+     "impacto": "critical",
+     "n": 1,
+     "ayuda": "Buttons must have discernible text"
+    },
+    {
+     "id": "heading-order",
+     "impacto": "moderate",
+     "n": 1,
+     "ayuda": "Heading levels should only increase by one"
+    }
+   ],
+   "errores_consola": [],
+   "peticiones_fallidas": [],
+   "peticiones_error": [],
+   "hosts": [
+    "cloudflareinsights.com",
+    "commons.wikimedia.org",
+    "frosty-bird-92d2.juniornacht2.workers.dev",
+    "juniornacht2-11.github.io",
+    "mikenights.com",
+    "static.cloudflareinsights.com",
+    "thumb.wikimedia.org",
+    "www.wikidata.org"
+   ]
+  },
+  {
+   "id": "11-mis-reservas",
+   "disp": "movil",
+   "ruta": "/",
+   "estado": 200,
+   "url_final": "https://mikenights.com/",
+   "segundos": 6.8,
+   "titulo": "MIKENIGHTS · Tu noche empieza aquí",
+   "texto": "Mis reservas\n\nTodavía no has hecho ninguna reserva desde este móvil.\n\nSe guardan solo en este navegador.",
+   "h1": [
+    "Tu noche empieza\naquí."
+   ],
+   "nodos": 379,
+   "alto": 3482,
+   "ancho_desborda": false,
+   "fuentes": [
+    "\"Hanken Grotesk\"",
+    "\"Bodoni Moda\""
+   ],
+   "botones_pequenos": 0,
+   "imagenes_rotas": [],
+   "axe": [],
+   "errores_consola": [],
+   "peticiones_fallidas": [],
+   "peticiones_error": [],
+   "hosts": [
+    "cloudflareinsights.com",
+    "juniornacht2-11.github.io",
+    "mikenights.com",
+    "static.cloudflareinsights.com"
+   ]
+  },
+  {
+   "id": "12-panel-acceso",
+   "disp": "movil",
+   "ruta": "/#panel",
+   "estado": 200,
+   "url_final": "https://mikenights.com/#panel",
+   "segundos": 5.7,
+   "titulo": "MIKENIGHTS · Tu noche empieza aquí",
+   "texto": "Volver\nPanel de reservas\n\nPara restaurantes, bares, discotecas, hoteles, hostales y quien alquila habitaciones o pisos: recibe reservas en MIKENIGHTS gratis y sin comisiones.\n\nCrear cuenta\nYa tengo cuenta\nCrear cuenta\nTu nombre\nEmail\nTeléfono (no se publica)\nContraseña (mínimo 10 caracteres)\nCondiciones para dueños (resumen)\nAcepto las condiciones para dueños\nCrear mi cuenta",
+   "h1": [
+    "Tu noche empieza\naquí."
+   ],
+   "nodos": 416,
+   "alto": 3482,
+   "ancho_desborda": false,
+   "fuentes": [
+    "\"Hanken Grotesk\"",
+    "\"Bodoni Moda\""
+   ],
+   "botones_pequenos": 1,
+   "imagenes_rotas": [],
+   "axe": [],
+   "errores_consola": [
+    "Refused to connect to 'data:,' because it violates the following Content Security Policy directive: \"connect-src 'self' https://hagen.challenges.cloudflare.com https://brunhild.challenges.cloudflare.com https://*.alg13.dnstest.challenges.cloudflare.com https://*.mldsa44.dnstest.challenges.cloudflare",
+    "Refused to connect to 'data:,' because it violates the following Content Security Policy directive: \"connect-src 'self' https://hagen.challenges.cloudflare.com https://brunhild.challenges.cloudflare.com https://*.alg13.dnstest.challenges.cloudflare.com https://*.mldsa44.dnstest.challenges.cloudflare",
+    "Refused to connect to 'data:,' because it violates the document's Content Security Policy.",
+    "%c%d font-size:0;color:transparent NaN",
+    "%c%d font-size:0;color:transparent NaN",
+    "%c%o font-size:0;color:transparent {}",
+    "%c%o font-size:0;color:transparent {}"
+   ],
+   "peticiones_fallidas": [
+    "https://brunhild.challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/i/a560d712babf989d/CqWqKe_Udo_ED9LcypPS4clfv7PDc7IpfdjEo2zU0gG4w4VXi3-1ru1AJDqLY7MU0dR · net::ERR_NAME_NOT_RESOLVED"
+   ],
+   "peticiones_error": [
+    "https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/pat/a560d712babf989d/1793933945025/508f48221ff7cc7ab0ca3d7ecc563dda89b7076586ba9a03a38b7bf19afc · 401"
+   ],
+   "hosts": [
+    "challenges.cloudflare.com",
+    "cloudflareinsights.com",
+    "juniornacht2-11.github.io",
+    "mikenights.com",
+    "static.cloudflareinsights.com"
+   ]
+  },
+  {
+   "id": "13-alta-local",
+   "disp": "movil",
+   "ruta": "/#alta",
+   "estado": 200,
+   "url_final": "https://mikenights.com/#alta",
+   "segundos": 6.1,
+   "titulo": "MIKENIGHTS · Tu noche empieza aquí",
+   "texto": "Añadir un negocio a MIKENIGHTS\n\nSi tu restaurante, bar, discoteca, hotel o apartamento no aparece en MIKENIGHTS, envíanos sus datos. Revisamos cada solicitud antes de publicarla y podemos llamarte para comprobar que representas al negocio. Tus datos de contacto no se publican.\n\nDe momento, solo negocios en España. Si tu local está en otro país y ya aparece en la web, ábrelo y pulsa «Completar la ficha» o «Activar reservas».\n\nTipo de negocio\nElige…\nRestaurante\nBar\nPub\nCoctelería\nKaraoke\nDiscoteca o club\nSala de conciertos o música en directo\nEspacio de eventos\nHotel\nHostal o pensión\nCasa rural\nApartamento turístico\nAlbergue\nMotel\nTipo de cocina (solo restaurantes)\n—\nEspañola\nRegional\nTapas\nItaliana\nPizza\nJaponesa\nSushi\nChina\nMexicana\nIndia\nMediterránea\nMarisco\nHamburguesas\nAsiática\nInternacional\nVegetariana\nVegana\nAsador\nArgentina\nVasca\nCatalana\nGallega\nFrancesa\nTailandesa\nPeruana\nGriega\nLibanesa\nKebab\nPescado\nParrilla\nPortuguesa\nAlemana\nBritánica\nIrlandesa\nAustriaca\nSuiza\nBelga\nNeerlandesa\nCroata\nFish and chips\nNombre del negocio (se publica)\nMunicipio\nDirección (se publica)\nMarca en el mapa dónde está (toca o haz clic en el sitio exacto)\nOpenFreeMap © OpenMapTiles Data from OpenStreetMap\n\nTodavía no has marcado el sitio.\n\nTeléfono del negocio (se publica)\nHorario (se publica)\nWeb\nEnlace para reservar\nDescripción (se publica)\nMúsica y ambiente (se publica, marca hasta 8)\nMúsica en directo\nTerraza\nLGTBI+\nCócteles\nKaraoke\nEntrada libre\nLatino y reguetón\nElectrónica\nRock e indie\nJazz y blues\nFlamenco y rumba\nHip hop y R&B\nPop y comercial\nTus datos de contacto (no se publican)\nTu nombre\nEmail\nTeléfono\nFotos (opcional, hasta 6)\nCondiciones de uso (resumen)\nConfirmo que represento a este negocio, que las fotos son nuestras y acepto las condiciones\nEnviar solicitud",
+   "h1": [
+    "Tu noche empieza\naquí."
+   ],
+   "nodos": 542,
+   "alto": 3482,
+   "ancho_desborda": false,
+   "fuentes": [
+    "\"Hanken Grotesk\"",
+    "\"Bodoni Moda\"",
+    "\"Helvetica Neue\""
+   ],
+   "botones_pequenos": 17,
+   "imagenes_rotas": [],
+   "axe": [],
+   "errores_consola": [
+    "Refused to connect to 'data:,' because it violates the following Content Security Policy directive: \"connect-src 'self' https://hagen.challenges.cloudflare.com https://brunhild.challenges.cloudflare.com https://*.alg13.dnstest.challenges.cloudflare.com https://*.mldsa44.dnstest.challenges.cloudflare",
+    "Refused to connect to 'data:,' because it violates the following Content Security Policy directive: \"connect-src 'self' https://hagen.challenges.cloudflare.com https://brunhild.challenges.cloudflare.com https://*.alg13.dnstest.challenges.cloudflare.com https://*.mldsa44.dnstest.challenges.cloudflare",
+    "Refused to connect to 'data:,' because it violates the document's Content Security Policy.",
+    "%c%d font-size:0;color:transparent NaN",
+    "%c%d font-size:0;color:transparent NaN",
+    "%c%o font-size:0;color:transparent {}",
+    "%c%o font-size:0;color:transparent {}"
+   ],
+   "peticiones_fallidas": [
+    "https://brunhild.challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/i/a560d73d3d6ad6ab/CpuBrRZahgaxUC8iZGAJ7Q0uZtgTjwiR70Z1-fkrfiR7TWQgBwyGbMuYZyIg8y3tBjn · net::ERR_NAME_NOT_RESOLVED"
+   ],
+   "peticiones_error": [
+    "https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/pat/a560d73d3d6ad6ab/1793933951882/7a9a51b189196c376b21b15dfd6a7fc1f6c17d301117c9f4ad83f5fac0b5 · 401"
+   ],
+   "hosts": [
+    "cdn.jsdelivr.net",
+    "challenges.cloudflare.com",
+    "cloudflareinsights.com",
+    "juniornacht2-11.github.io",
+    "mikenights.com",
+    "static.cloudflareinsights.com",
+    "tiles.openfreemap.org"
+   ]
+  },
+  {
+   "id": "14-habitacion",
+   "disp": "movil",
+   "ruta": "/#habitacion",
+   "estado": 200,
+   "url_final": "https://mikenights.com/#habitacion",
+   "segundos": 6.6,
+   "titulo": "MIKENIGHTS · Tu noche empieza aquí",
+   "texto": "Publicar una habitación\n\n¿Alquilas una habitación de tu casa o piso para dormir una noche? Publícala gratis en MIKENIGHTS. La revisamos antes de publicarla. Se publica solo la calle (sin número) y un punto aproximado; tu nombre, email y teléfono no se publican.\n\nPara alquilar habitaciones a turistas por noches hace falta estar inscrito en el registro de turismo de tu comunidad autónoma. Solo publicamos habitaciones con número de registro.\n\nTítulo (se publica)\nMunicipio\nCalle, sin número (se publica)\nMarca en el mapa la zona (se mostrará un punto aproximado, no tu portal)\nOpenFreeMap © OpenMapTiles Data from OpenStreetMap\n\nTodavía no has marcado la zona.\n\nNº de registro turístico\nPrecio por noche (opcional, se publica)\nEnlace para reservar o contactar (se publica)\nDescripción (se publica)\nTus datos de contacto (no se publican)\nTu nombre\nEmail\nTeléfono\nFotos (opcional, hasta 6)\nCondiciones de uso (resumen)\nConfirmo que la habitación es mía o que la gestiono, que tiene número de registro turístico, que las fotos son mías y acepto las condiciones\nPublicar mi habitación",
+   "h1": [
+    "Tu noche empieza\naquí."
+   ],
+   "nodos": 451,
+   "alto": 3482,
+   "ancho_desborda": false,
+   "fuentes": [
+    "\"Hanken Grotesk\"",
+    "\"Bodoni Moda\"",
+    "\"Helvetica Neue\""
+   ],
+   "botones_pequenos": 4,
+   "imagenes_rotas": [],
+   "axe": [],
+   "errores_consola": [
+    "%c%d font-size:0;color:transparent NaN",
+    "%c%d font-size:0;color:transparent NaN",
+    "%c%o font-size:0;color:transparent {}",
+    "%c%o font-size:0;color:transparent {}",
+    "Refused to connect to 'data:,' because it violates the following Content Security Policy directive: \"connect-src 'self' https://hagen.challenges.cloudflare.com https://brunhild.challenges.cloudflare.com https://*.alg13.dnstest.challenges.cloudflare.com https://*.mldsa44.dnstest.challenges.cloudflare",
+    "Refused to connect to 'data:,' because it violates the following Content Security Policy directive: \"connect-src 'self' https://hagen.challenges.cloudflare.com https://brunhild.challenges.cloudflare.com https://*.alg13.dnstest.challenges.cloudflare.com https://*.mldsa44.dnstest.challenges.cloudflare",
+    "Refused to connect to 'data:,' because it violates the following Content Security Policy directive: \"connect-src 'self' https://hagen.challenges.cloudflare.com https://brunhild.challenges.cloudflare.com https://*.alg13.dnstest.challenges.cloudflare.com https://*.mldsa44.dnstest.challenges.cloudflare",
+    "Refused to connect to 'data:,' because it violates the document's Content Security Policy."
+   ],
+   "peticiones_fallidas": [
+    "https://brunhild.challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/i/a560d76bd923841f/Cs7RLNMYOB2It3XhRrBnONL31ZEYPjGuBYO_e6s1BeAweV9arf3qD8c_ZnJhKK_d9-M · net::ERR_NAME_NOT_RESOLVED"
+   ],
+   "peticiones_error": [
+    "https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/pat/a560d76bd923841f/1793933959483/f6b1b0f0a29f0befea3fbd3e6419101d7d4d18e46bce548ce621d517ec38 · 401"
+   ],
+   "hosts": [
+    "cdn.jsdelivr.net",
+    "challenges.cloudflare.com",
+    "cloudflareinsights.com",
+    "juniornacht2-11.github.io",
+    "mikenights.com",
+    "static.cloudflareinsights.com",
+    "tiles.openfreemap.org"
+   ]
+  },
+  {
+   "id": "15-legal",
+   "disp": "movil",
+   "ruta": "/",
+   "estado": 200,
+   "url_final": "https://mikenights.com/",
+   "segundos": 6.8,
+   "titulo": "MIKENIGHTS · Tu noche empieza aquí",
+   "texto": "Aviso legal y fuentes\nTitular de la web\nContacto\nmodonochesoporte@gmail.com\nQué es y qué no es MIKENIGHTS\n\nMIKENIGHTS muestra establecimientos registrados en OpenStreetMap. No vende entradas ni cobra pagos, y no publica precios que no estén verificados. Solo en los locales marcados «Reserva aquí» puedes pedir una reserva desde la web: la disponibilidad y los precios los pone el propio local, que acepta o rechaza cada solicitud, y se paga en el local. Los combos son sugerencias con establecimientos independientes, no paquetes. Comprueba siempre la información con cada local.\n\nFuentes y licencias\nLocales, restaurantes y alojamientos: © colaboradores de OpenStreetMap, licencia ODbL, consultados mediante el servicio de locales de MIKENIGHTS en Cloudflare (Overpass API) y, como respaldo, mediante las teselas de OpenFreeMap (versión básica: nombre, tipo y ubicación).\nFotos: aportadas por clientes y propietarios (revisadas antes de publicarse) y Wikimedia Commons para lugares conocidos (cada una con su licencia y autor en el enlace).\nMapa: OpenFreeMap con datos © OpenMapTiles y OpenStreetMap; librería MapLibre GL JS (BSD-3).\nMunicipios: INE (relación de municipios 2026). Centros y población: CNIG/IGN (CC BY 4.0) e INE, vía Softline GeoDB.\nDiscotecas destacadas: las que aparecen en rankings internacionales (The World's 100 Best Clubs 2025, DJ Mag Top 100 Clubs 2026), en guías de ocio de cada ciudad o en prensa por su apertura. Cada una lleva su fuente en la ficha.\nPueblos, pedanías y barrios del buscador: OpenStreetMap (ODbL).\nCiudades de otros países: GeoNames (geonames.org, CC BY 4.0). Sus locales y alojamientos vienen de OpenStreetMap (actualizados cada semana) y sus conciertos, de Ticketmaster; fuera de España no hay registros oficiales de turismo conectados.\nAgenda: Ayuntamiento de Madrid (datos.madrid.es, CC BY 4.0), Generalitat de Catalunya (Agenda cultural, dades obertes), Junta de Castilla y León (agenda cultural, datos abiertos), Ayuntamiento de Gijón, Ayuntamiento de Málaga (datos abiertos), Ayuntamiento de Zaragoza (datos abiertos), Institut Valencià de Cultura (dades obertes GVA), Gobierno Vasco · Kulturklik (Open Data Euskadi), Junta de Andalucía (agenda, datos abiertos), Concello de Vigo (axenda, datos abertos) y Ticketmaster (Discovery API), actualizada cada día; las entradas se compran en la web de cada fuente. No se muestran eventos de otras fuentes ni inventados.\nOpiniones y fotos de usuarios\n\nCualquier persona puede enviar su opinión y fotos de",
+   "h1": [
+    "Tu noche empieza\naquí."
+   ],
+   "nodos": 405,
+   "alto": 3482,
+   "ancho_desborda": false,
+   "fuentes": [
+    "\"Hanken Grotesk\"",
+    "\"Bodoni Moda\""
+   ],
+   "botones_pequenos": 3,
+   "imagenes_rotas": [],
+   "axe": [],
+   "errores_consola": [],
+   "peticiones_fallidas": [],
+   "peticiones_error": [],
+   "hosts": [
+    "cloudflareinsights.com",
+    "juniornacht2-11.github.io",
+    "mikenights.com",
+    "static.cloudflareinsights.com"
+   ]
+  },
+  {
+   "id": "16-para-locales",
+   "disp": "movil",
+   "ruta": "/para-locales.html",
+   "estado": 200,
+   "url_final": "https://mikenights.com/para-locales",
+   "segundos": 4.7,
+   "titulo": "MIKENIGHTS para locales · Tu local en el plan de la noche",
+   "texto": "MIKENIGHTS\nEspañol\nEnglish\nFrançais\nDeutsch\nItaliano\nPortuguês\nNederlands\nCatalà\nРусский\n中文\nPara restaurantes, bares, discotecas y alojamientos\nTu local, dentro del plan de la noche\n\nEn MIKENIGHTS la gente elige ciudad, fecha y con quién sale, y le proponemos planes con sitios reales y cercanos: cena y copa, ruta de bares, discoteca o la noche completa con hotel. Tu local ya puede estar ahí. Haz que se vea como tú quieres.\n\nBuscar mi local y completar la ficha\nMi local no aparece\n126.000+\nrestaurantes, bares y discotecas en España\n340.000+\nalojamientos de registros oficiales\n8.132\nmunicipios de España\n420.000+\nlocales y alojamientos en 12 países de Europa\nRecibe reservas en tu local, gratis\n\nMesas para restaurantes, lista y reservados para discotecas, y habitaciones por noches para hoteles, hostales y quien alquila habitaciones. Tú pones los días, las plazas y los precios, y aceptas o rechazas cada solicitud desde tu panel. Sin comisiones: por ahora el cliente paga en el local.\n\nAbrir el panel de dueños\n¿Alquilas una habitación en tu casa o piso?\n\nPublícala gratis en el plan «Habitaciones», para quien sale y busca dónde dormir esa noche. De momento, solo en España: necesitas el número de registro turístico de tu comunidad. Publicamos la calle sin número y un punto aproximado, nunca tu portal.\n\nPublicar mi habitación\nQué ganas completando tu ficha\n01\nTus fotos, primero y en grande\n\nLas fotos del local salen arriba de la ficha, antes que las de los clientes.\n\n02\nOfertas dentro de los planes\n\nHasta 3 ofertas con su precio («menú para dos + copa, 45 €», «entrada + 2 copas»). Aparecen en las experiencias para parejas, amigos o ir solo.\n\n03\nReservas en tu web, sin comisiones\n\nPonemos tu enlace de reservas o de entradas. El cliente reserva contigo y tú no pagas nada por reserva.\n\n04\nCarta y precio de entrada\n\nLa gente decide antes de salir: precios de la carta, de las copas o de la entrada, tal como los publicas tú.\n\n05\nEn Google, ciudad por ciudad\n\nCada ciudad de España tiene su página «Ocio nocturno en…» con sus locales, pensada para aparecer en las búsquedas.\n\n06\nOpiniones reales y moderadas\n\nLas opiniones se revisan antes de publicarse: nada de insultos ni spam. Puedes avisar de cualquier problema.\n\nCómo funciona\nBusca tu ciudad y abre la ficha de tu local\n\nEn la web, elige tu ciudad y un plan. Toca tu local (en cualquier parte de su tarjeta) para abrir su ficha. Si no aparece y está en España, usa «Añadir mi negocio».\n\nPulsa «Completar la ficha»\n\nRellena des",
+   "h1": [
+    "Tu local, dentro del plan de la noche"
+   ],
+   "nodos": 164,
+   "alto": 5260,
+   "ancho_desborda": false,
+   "fuentes": [
+    "\"Bodoni Moda\"",
+    "\"Hanken Grotesk\""
+   ],
+   "botones_pequenos": 3,
+   "imagenes_rotas": [],
+   "axe": [
+    {
+     "id": "landmark-one-main",
+     "impacto": "moderate",
+     "n": 1,
+     "ayuda": "Document should have one main landmark"
+    },
+    {
+     "id": "region",
+     "impacto": "moderate",
+     "n": 8,
+     "ayuda": "All page content should be contained by landmarks"
+    }
+   ],
+   "errores_consola": [],
+   "peticiones_fallidas": [],
+   "peticiones_error": [],
+   "hosts": [
+    "cloudflareinsights.com",
+    "mikenights.com",
+    "static.cloudflareinsights.com"
+   ]
+  },
+  {
+   "id": "17-ciudades",
+   "disp": "movil",
+   "ruta": "/ocio-nocturno/",
+   "estado": 200,
+   "url_final": "https://mikenights.com/ocio-nocturno/",
+   "segundos": 4.8,
+   "titulo": "Ocio nocturno en España por ciudades | MIKENIGHTS",
+   "texto": "MIKENIGHTS\nCiudades\nOcio nocturno en España, ciudad por ciudad\n\nDiscotecas, bares, restaurantes y alojamientos de toda España con datos abiertos.\n\nOrganiza tu noche\nCiudades más buscadas\n\nMadridBarcelonaValènciaSevillaZaragozaMálagaMurciaPalmaLas Palmas de Gran CanariaBilbaoAlacantCórdobaValladolidVigoGijónL'Hospitalet de LlobregatVitoria-GasteizA CoruñaElxGranadaTerrassaBadalonaOviedoCartagenaSabadellJerez de la FronteraMóstolesSanta Cruz de TenerifePamplonaAlmeríaAlcalá de HenaresFuenlabradaDonostiaLeganésGetafeBurgosAlbaceteCastelló de la PlanaSantanderAlcorcón\n\nPor provincias\n\nAlbaceteAlicante/AlacantAlmeríaAraba/ÁlavaAsturiasÁvilaBadajozBalears, IllesBarcelonaBizkaiaBurgosCáceresCádizCantabriaCastellón/CastellóCeutaCiudad RealCórdobaCoruña, ACuencaGipuzkoaGironaGranadaGuadalajaraHuelvaHuescaJaénLeónLleidaLugoMadridMálagaMelillaMurciaNavarraOurensePalenciaPalmas, LasPontevedraRioja, LaSalamancaSanta Cruz de TenerifeSegoviaSevillaSoriaTarragonaTeruelToledoValencia/ValènciaValladolidZamoraZaragoza\n\nDatos de locales: © colaboradores de OpenStreetMap (ODbL). Alojamientos: registros oficiales de turismo de las comunidades autónomas (datos abiertos). Municipios: INE. Sin precios inventados: la información de cada local la publica el propio local.",
+   "h1": [
+    "Ocio nocturno en España, ciudad por ciudad"
+   ],
+   "nodos": 128,
+   "alto": 1988,
+   "ancho_desborda": false,
+   "fuentes": [
+    "\"Bodoni Moda\"",
+    "system-ui"
+   ],
+   "botones_pequenos": 1,
+   "imagenes_rotas": [],
+   "axe": [],
+   "errores_consola": [],
+   "peticiones_fallidas": [],
+   "peticiones_error": [],
+   "hosts": [
+    "mikenights.com",
+    "static.cloudflareinsights.com"
+   ]
+  },
+  {
+   "id": "18-seo-ciudad",
+   "disp": "movil",
+   "ruta": "/ocio-nocturno/barcelona-08019",
+   "estado": 200,
+   "url_final": "https://mikenights.com/ocio-nocturno/barcelona-08019",
+   "segundos": 4.7,
+   "titulo": "Ocio nocturno en Barcelona: discotecas, bares, cenas y dónde dormir | MIKENIGHTS",
+   "texto": "MIKENIGHTS\nCiudades\n\nCiudades › Barcelona\n\nOcio nocturno en Barcelona\n\nEn Barcelona hay 66 discotecas y salas, 1.352 bares y pubs, 3.693 restaurantes y 5.744 alojamientos en MIKENIGHTS. Elige con quién sales y te proponemos planes con sitios reales y cercanos entre sí: cena y copa, ruta de bares, discoteca o la noche completa con hotel.\n\nOrganiza tu noche en Barcelona Ver locales para salir\nLas discotecas más destacadas de Barcelona\n\nPor rankings internacionales (The World's 100 Best Clubs, DJ Mag Top 100 Clubs), guías de ocio y prensa. Cada una con su fuente.\n\nTOP MUNDIAL\nShôko\nBar · Passeig Marítim del Port Olímpic 36\nnº 7 del mundo · World's 100 Best Clubs 2025 · fuente\nTOP MUNDIAL\nSala Apolo\nDiscoteca o club\nnº 34 del mundo · World's 100 Best Clubs 2025 · fuente\nTOP MUNDIAL\nSutton Club\nDiscoteca o club · Carrer Tuset 13\nnº 12 del mundo · World's 100 Best Clubs 2025 · fuente\nTOP MUNDIAL\nOpium\nBar · Passeig Marítim de la Barceloneta 34\nnº 9 del mundo · World's 100 Best Clubs 2025 · fuente\nDESTACADA\nDowntown Barcelona\nDiscoteca o club · Avinguda del Doctor Marañón 17\nRecomendada en guías de ocio de Barcelona · fuente\nDESTACADA\nRazzmatazz\nDiscoteca o club · Carrer dels Almogàvers 122\nRecomendada en guías de ocio de Barcelona · fuente\nDESTACADA\nLa Fira Casanova\nDiscoteca o club · Carrer de Casanova 171\nRecomendada en guías de ocio de Barcelona · fuente\nDESTACADA\nBling Bling\nDiscoteca o club · Carrer de Tuset, 8\nRecomendada en guías de ocio de Barcelona · fuente\nDESTACADA\nDuvet\nDiscoteca o club · Carrer de Còrsega, 327\nRecomendada en guías de ocio de Barcelona · fuente\nDESTACADA\nHyde Club\nDiscoteca o club · Passatge de Domingo, 3\nRecomendada en guías de ocio de Barcelona · fuente\nDESTACADA\nJamboree\nDiscoteca o club · Plaça Reial 18\nRecomendada en guías de ocio de Barcelona · fuente\nDESTACADA\nLa Biblio\nDiscoteca o club · Carrer de Moià 1\nRecomendada en guías de ocio de Barcelona · fuente\nDESTACADA\nOtto Zutz\nDiscoteca o club · Carrer de Lincoln 15\nRecomendada en guías de ocio de Barcelona · fuente\nDESTACADA\nSala Bikini\nDiscoteca o club · Avinguda Diagonal 547\nRecomendada en guías de ocio de Barcelona · fuente\nPor estilo en Barcelona\n\nDiscotecas y clubesMúsica en directoCoctelerías y cóctelesAmbiente LGTBI+Terrazas para tomar algoMúsica latina y reguetónMúsica electrónica y technoRock e indieJazz y bluesFlamenco y rumbaPop y música comercial\n\nZonas para salir en Barcelona\n\nSanta Annal'EixampleSanta Maria del Piel Gòticel Ravalel Callla Catedralel PalauSant Pere",
+   "h1": [
+    "Ocio nocturno en Barcelona"
+   ],
+   "nodos": 658,
+   "alto": 14141,
+   "ancho_desborda": false,
+   "fuentes": [
+    "\"Bodoni Moda\"",
+    "system-ui"
+   ],
+   "botones_pequenos": 136,
+   "imagenes_rotas": [],
+   "axe": [],
+   "errores_consola": [],
+   "peticiones_fallidas": [],
+   "peticiones_error": [],
+   "hosts": [
+    "mikenights.com",
+    "static.cloudflareinsights.com"
+   ]
+  },
+  {
+   "id": "19-seo-tema",
+   "disp": "movil",
+   "ruta": "/ocio-nocturno/discotecas-en-barcelona-08019",
+   "estado": 200,
+   "url_final": "https://mikenights.com/ocio-nocturno/discotecas-en-barcelona-08019",
+   "segundos": 4.8,
+   "titulo": "Discotecas y clubes en Barcelona | MIKENIGHTS",
+   "texto": "MIKENIGHTS\nCiudades\n\nCiudades › Barcelona › Barcelona\n\nDiscotecas y clubes en Barcelona\n\n66 sitios en Barcelona según los datos abiertos de OpenStreetMap, con los destacados por rankings y guías primero. Toca para ver horarios, cómo llegar y planes cerca.\n\nVer en el mapa y con horarios\nTOP MUNDIAL\nSala Apolo\nDiscoteca o club\nnº 34 del mundo · World's 100 Best Clubs 2025 · fuente\nTOP MUNDIAL\nSutton Club\nDiscoteca o club · Carrer Tuset 13\nnº 12 del mundo · World's 100 Best Clubs 2025 · fuente\nDESTACADA\nDowntown Barcelona\nDiscoteca o club · Avinguda del Doctor Marañón 17\nRecomendada en guías de ocio de Barcelona · fuente\nDESTACADA\nRazzmatazz\nDiscoteca o club · Carrer dels Almogàvers 122\nRecomendada en guías de ocio de Barcelona · fuente\nDESTACADA\nLa Fira Casanova\nDiscoteca o club · Carrer de Casanova 171\nRecomendada en guías de ocio de Barcelona · fuente\nDESTACADA\nBling Bling\nDiscoteca o club · Carrer de Tuset, 8\nRecomendada en guías de ocio de Barcelona · fuente\nDESTACADA\nDuvet\nDiscoteca o club · Carrer de Còrsega, 327\nRecomendada en guías de ocio de Barcelona · fuente\nDESTACADA\nHyde Club\nDiscoteca o club · Passatge de Domingo, 3\nRecomendada en guías de ocio de Barcelona · fuente\nDESTACADA\nJamboree\nDiscoteca o club · Plaça Reial 18\nRecomendada en guías de ocio de Barcelona · fuente\nDESTACADA\nLa Biblio\nDiscoteca o club · Carrer de Moià 1\nRecomendada en guías de ocio de Barcelona · fuente\nDESTACADA\nOtto Zutz\nDiscoteca o club · Carrer de Lincoln 15\nRecomendada en guías de ocio de Barcelona · fuente\nDESTACADA\nSala Bikini\nDiscoteca o club · Avinguda Diagonal 547\nRecomendada en guías de ocio de Barcelona · fuente\nAlmo2bar\nDiscoteca o club · Carrer de Bruniquer 59,61\nAntilla Latin Club\nDiscoteca o club · Carrer d'Aragó 141\nArena Xperience\nDiscoteca o club · Ronda de Sant Pere 19-21\nBelieve Club\nDiscoteca o club · Carrer de Balmes 56\nBerlin Dark\nDiscoteca o club · Passatge de Prunera 18\nCosta Breve\nDiscoteca o club · Carrer d'Aribau 230\nMaricon Ghetto LGBT+ bar\nDiscoteca o club · Carrer d'Aribau 55\nNight Barcelona\nDiscoteca o club · Carrer de la Diputació 161\nNitsa Club\nDiscoteca o club\nOpen Mind\nDiscoteca o club\nSafari Disco Club\nDiscoteca o club · Carrer de Tarragona 141-157\nAlmodobar\nDiscoteca o club · Carrer d'en Grassot 36\nBarroko's\nDiscoteca o club · Carrer d'Aribau 242\nChica Club\nDiscoteca o club · Carrer del Rosselló 217\nClub Astoria\nDiscoteca o club · Carrer de París 193\nHarlem Jazz Club\nDiscoteca o club · Carrer de la Comtessa de Sobradiel 8\nLa Paloma\nDisc",
+   "h1": [
+    "Discotecas y clubes en Barcelona"
+   ],
+   "nodos": 313,
+   "alto": 6306,
+   "ancho_desborda": false,
+   "fuentes": [
+    "\"Bodoni Moda\"",
+    "system-ui"
+   ],
+   "botones_pequenos": 76,
+   "imagenes_rotas": [],
+   "axe": [],
+   "errores_consola": [],
+   "peticiones_fallidas": [],
+   "peticiones_error": [],
+   "hosts": [
+    "mikenights.com",
+    "static.cloudflareinsights.com"
+   ]
+  },
+  {
+   "id": "20-seo-local",
+   "disp": "movil",
+   "ruta": "/ocio-nocturno/local-sala-apolo-08019",
+   "estado": 200,
+   "url_final": "https://mikenights.com/ocio-nocturno/local-sala-apolo-08019",
+   "segundos": 4.9,
+   "titulo": "Sala Apolo (Barcelona): nº 34 del mundo · World's 100 Best Clubs 2025 | MIKENIGHTS",
+   "texto": "MIKENIGHTS\nCiudades\n\nCiudades › Barcelona › Barcelona\n\nSala Apolo\n\nDiscoteca o club en Barcelona.\n\nTOP MUNDIAL · nº 34 del mundo · World's 100 Best Clubs 2025 (ver fuente).\n\nEstilo: Música en directo, Música electrónica y techno.\n\nVer horario, cómo llegar y planes cerca Ver en el mapa\nMás para salir en Barcelona\nTOP MUNDIAL\nShôko\nBar · Passeig Marítim del Port Olímpic 36\nnº 7 del mundo · World's 100 Best Clubs 2025 · fuente\nTOP MUNDIAL\nSutton Club\nDiscoteca o club · Carrer Tuset 13\nnº 12 del mundo · World's 100 Best Clubs 2025 · fuente\nTOP MUNDIAL\nOpium\nBar · Passeig Marítim de la Barceloneta 34\nnº 9 del mundo · World's 100 Best Clubs 2025 · fuente\nDESTACADA\nDowntown Barcelona\nDiscoteca o club · Avinguda del Doctor Marañón 17\nRecomendada en guías de ocio de Barcelona · fuente\nDESTACADA\nRazzmatazz\nDiscoteca o club · Carrer dels Almogàvers 122\nRecomendada en guías de ocio de Barcelona · fuente\nDESTACADA\nLa Fira Casanova\nDiscoteca o club · Carrer de Casanova 171\nRecomendada en guías de ocio de Barcelona · fuente\nDESTACADA\nBling Bling\nDiscoteca o club · Carrer de Tuset, 8\nRecomendada en guías de ocio de Barcelona · fuente\nDESTACADA\nDuvet\nDiscoteca o club · Carrer de Còrsega, 327\nRecomendada en guías de ocio de Barcelona · fuente\nDESTACADA\nHyde Club\nDiscoteca o club · Passatge de Domingo, 3\nRecomendada en guías de ocio de Barcelona · fuente\nDESTACADA\nJamboree\nDiscoteca o club · Plaça Reial 18\nRecomendada en guías de ocio de Barcelona · fuente\nDESTACADA\nLa Biblio\nDiscoteca o club · Carrer de Moià 1\nRecomendada en guías de ocio de Barcelona · fuente\nDESTACADA\nOtto Zutz\nDiscoteca o club · Carrer de Lincoln 15\nRecomendada en guías de ocio de Barcelona · fuente\nDatos de locales: © colaboradores de OpenStreetMap (ODbL). Alojamientos: registros oficiales de turismo de las comunidades autónomas (datos abiertos). Municipios: INE. Sin precios inventados: la información de cada local la publica el propio local.",
+   "h1": [
+    "Sala Apolo"
+   ],
+   "nodos": 127,
+   "alto": 2455,
+   "ancho_desborda": false,
+   "fuentes": [
+    "\"Bodoni Moda\"",
+    "system-ui"
+   ],
+   "botones_pequenos": 29,
+   "imagenes_rotas": [],
+   "axe": [],
+   "errores_consola": [],
+   "peticiones_fallidas": [],
+   "peticiones_error": [],
+   "hosts": [
+    "mikenights.com",
+    "static.cloudflareinsights.com"
+   ]
+  },
+  {
+   "id": "21-ingles",
+   "disp": "movil",
+   "ruta": "/",
+   "estado": 200,
+   "url_final": "https://mikenights.com/",
+   "segundos": 4.9,
+   "titulo": "MIKENIGHTS · Tu noche empieza aquí",
+   "texto": "MIKENIGHTS\nEN\nEspañol\nEnglish\nFrançais\nDeutsch\nItaliano\nPortuguês\nNederlands\nCatalà\nРусский\n中文\nWhere are you going out?\nDate\nPeople\n2\nSee plans\n3 · Club\n1 · Dinner · 2 · Drinks\n© OpenStreetMap · OpenFreeMap\nYour night starts\nhere.\n\nDinner, drinks and a club, a few minutes' walk apart. Real places, with opening hours and directions.\n\nA night in El Born\nBarcelona · on foot\n1\nEl Xampanyet · dinner\nTapas · closes at 23:00\n70 m · 1 min walk\n2\nBar Sauvage · drinks\nBar · until 03:30\n910 m · 11 min walk\n3\nArena Xperience · club\nClub · 23:59 to 06:00\nPlan my night\nAnother plan\n\nA real example in Barcelona with opening hours from OpenStreetMap. Check them with each venue.\n\nDinner\nDrinks\nClubs\nLive\nSleep\nThis weekend in Madrid\nWeekend nightlife plans\n\nFriday 6 November\n\n17:30\nDanza entre mujeres\nEspacio de Igualdad María de Maeztu. Latina\n18:00\nTablao Flamenco 1911: El Tablao Más Antiguo del Mundo\nTablao Flamenco 1911\n19:00\nActuación musical e improvisación sobre proyecciones: `Atmósferas Sonoras y Visuales´\nEdificio Sociocultural Marta Escudero Díaz-Tejeiro (Villaverde)\n\nSaturday 7 November\n\n11:00\nForró en la Biblio\nBiblioteca Pública Municipal Eugenio Trías. Casa de Fieras de El Retiro (Retiro)\n12:00\nXXVIII Festival Internacional COMA'26\nCentro Cultural Casa de Vacas (Retiro)\n18:00\nDúo de jazz y bolero. Natalia Baeza y Jesús Parra\nCentro Sociocultural San Fermín (Usera)\n\nSunday 8 November\n\n12:00\nEl cuerpo del flamenco\nCentro Danza Matadero - CDM\n12:00\nPoética Ópera\nCentro Cultural Casa del Reloj (Arganzuela)\n12:00\nSwing y letras en San Fermin\nBiblioteca Pública Municipal San Fermín (Usera)\n\nConcerts and parties from the official listings for Friday, Saturday and Sunday.\n\nDo you run a venue?\n\nComplete your listing and get bookings, with no commission.\n\nGet bookings\nFor venues\nMIKENIGHTS on your phone\nOn iPhone: tap Safari's Share button and then «Add to Home Screen».",
+   "h1": [
+    "Your night starts\nhere."
+   ],
+   "nodos": 370,
+   "alto": 3435,
+   "ancho_desborda": false,
+   "fuentes": [
+    "\"Hanken Grotesk\"",
+    "\"Bodoni Moda\""
+   ],
+   "botones_pequenos": 0,
+   "imagenes_rotas": [],
+   "axe": [],
+   "errores_consola": [],
+   "peticiones_fallidas": [],
+   "peticiones_error": [],
+   "hosts": [
+    "cloudflareinsights.com",
+    "juniornacht2-11.github.io",
+    "mikenights.com",
+    "static.cloudflareinsights.com"
+   ]
+  },
+  {
+   "id": "22-no-existe",
+   "disp": "movil",
+   "ruta": "/esta-pagina-no-existe",
+   "estado": 404,
+   "url_final": "https://mikenights.com/esta-pagina-no-existe",
+   "segundos": 4.6,
+   "titulo": "",
+   "texto": "",
+   "h1": [],
+   "nodos": 3,
+   "alto": 2121,
+   "ancho_desborda": false,
+   "fuentes": [],
+   "botones_pequenos": 0,
+   "imagenes_rotas": [],
+   "axe": [
+    {
+     "id": "document-title",
+     "impacto": "serious",
+     "n": 1,
+     "ayuda": "Documents must have <title> element to aid in navigation"
+    },
+    {
+     "id": "html-has-lang",
+     "impacto": "serious",
+     "n": 1,
+     "ayuda": "<html> element must have a lang attribute"
+    },
+    {
+     "id": "landmark-one-main",
+     "impacto": "moderate",
+     "n": 1,
+     "ayuda": "Document should have one main landmark"
+    },
+    {
+     "id": "page-has-heading-one",
+     "impacto": "moderate",
+     "n": 1,
+     "ayuda": "Page should contain a level-one heading"
+    }
+   ],
+   "errores_consola": [
+    "Failed to load resource: the server responded with a status of 404 ()"
+   ],
+   "peticiones_fallidas": [],
+   "peticiones_error": [
+    "https://mikenights.com/esta-pagina-no-existe · 404"
+   ],
+   "hosts": [
+    "mikenights.com"
+   ]
+  },
+  {
+   "id": "23-enlace-local",
+   "disp": "movil",
+   "ruta": "/#/local/08019/node%2F0",
+   "estado": 200,
+   "url_final": "https://mikenights.com/#/local/08019/node%2F0",
+   "segundos": 5.8,
+   "titulo": "Fiesta · Barcelona · MIKENIGHTS",
+   "texto": "Barcelona · Vie, 6 nov · 2 personas\nCambiar\nFiesta en Barcelona\nLista\nMapa\nCompartir\nOrdenar\nRecomendados\nDistancia al centro\nNombre\nPrecio (solo con precio publicado)\nFiltrar\nTodo\nDiscotecas\n64\nBares de copas\n1023\nPubs\n332\nMúsica en directo\n2\nSalas y eventos\n16\n\n1339 opciones · Viernes, 6 de noviembre · 2 personas\n\nSH\nShôko\n\nBar · 1,7 km\n\nViernes: 12:00–03:00\n\nTOP MUNDIAL\nnº 7 del mundo · World's 100 Best Clubs 2025\n\nWikimedia Commons\nSA\nSala Apolo\n\nDiscoteca o club · 1,2 km\n\nConcert \"Camellos\"\n\nTOP MUNDIAL\nnº 34 del mundo · World's 100 Best Clubs 2025\n\nOP\nOpium\n\nBar · 1,7 km\n\nHorario no publicado\n\nTOP MUNDIAL\nnº 9 del mundo · World's 100 Best Clubs 2025\n\nSC\nSutton Club\n\nDiscoteca o club · 2,4 km\n\nHorario no publicado\n\nTOP MUNDIAL\nnº 12 del mundo · World's 100 Best Clubs 2025\n\nDB\nDowntown Barcelona\n\nDiscoteca o club · 5,2 km\n\nMadrugada del sábado: 00:00–06:00\n\nDESTACADA\nRecomendada en guías de ocio de Barcelona\n\nJA\nJamboree\n\nDiscoteca o club · 510 m\n\nFesta \"Disco Saturday Night: Dj Eley\"\n\nDESTACADA\nRecomendada en guías de ocio de Barcelona\n\nHC\nHyde Club\n\nDiscoteca o club · 1,5 km\n\nHorario no publicado\n\nDESTACADA\nRecomendada en guías de ocio de Barcelona\n\nRA\nRazzmatazz\n\nDiscoteca o club · 1,9 km\n\nConcert \"Festival Partiendo La Pana - Tributos a Estopa y Melendi\"\n\nDESTACADA\nRecomendada en guías de ocio de Barcelona\n\nDU\nDuvet\n\nDiscoteca o club · 2,0 km\n\nHorario no publicado\n\nDESTACADA\nRecomendada en guías de ocio de Barcelona\n\nBB\nBling Bling\n\nDiscoteca o club · 2,3 km\n\nHorario no publicado\n\nDESTACADA\nRecomendada en guías de ocio de Barcelona\n\nLF\nLa Fira Casanova\n\nDiscoteca o club · 2,4 km\n\nHorario no publicado\n\nDESTACADA\nRecomendada en guías de ocio de Barcelona\n\nLB\nLa Biblio\n\nDiscoteca o club · 2,4 km\n\nHorario no publicado\n\nDESTACADA\nRecomendada en guías de ocio de Barcelona\n\nOZ\nOtto Zutz\n\nDiscoteca o club · 2,8 km\n\nHorario no publicado\n\nDESTACADA\nRecomendada en guías de ocio de Barcelona\n\nSB\nSala Bikini\n\nDiscoteca o club · 3,3 km\n\nHorario no publicado\n\nDESTACADA\nRecomendada en guías de ocio de Barcelona\n\nCB\nCraft Barcelona\n\nPub · 130 m\n\nViernes: 18:00–03:00\n\nMB\nMagma Bar\n\nBar · 240 m\n\nViernes: 18:00–02:30\n\nGI\nGinger\n\nBar · 250 m\n\nViernes: 19:30–02:30\n\nDG\nDux Gin & Cocktail Bar Barcelona\n\nBar · 310 m\n\nViernes: 18:30–02:30\n\nBB\nBar Brutal\n\nBar · 370 m\n\nViernes: 13:00–00:30\n\nKÆ\nKælderkold\n\nPub · 390 m\n\nViernes: 12:30–03:00\n\nOV\nOviso\n\nPub · 400 m\n\nViernes: 10:00–01:30\n\nMB\nManchester Bar\n\nBar · 460 m\n\nViernes: 18:30–00:00\n\n#B\n#Bubita\n\nBar · 470 m\n\nViernes: 09:30",
+   "h1": [
+    "Fiesta en Barcelona"
+   ],
+   "nodos": 699,
+   "alto": 4978,
+   "ancho_desborda": false,
+   "fuentes": [
+    "\"Hanken Grotesk\"",
+    "\"Bodoni Moda\""
+   ],
+   "botones_pequenos": 24,
+   "imagenes_rotas": [],
+   "axe": [
+    {
+     "id": "button-name",
+     "impacto": "critical",
+     "n": 1,
+     "ayuda": "Buttons must have discernible text"
+    },
+    {
+     "id": "heading-order",
+     "impacto": "moderate",
+     "n": 1,
+     "ayuda": "Heading levels should only increase by one"
+    }
+   ],
+   "errores_consola": [],
+   "peticiones_fallidas": [],
+   "peticiones_error": [],
+   "hosts": [
+    "cloudflareinsights.com",
+    "commons.wikimedia.org",
+    "frosty-bird-92d2.juniornacht2.workers.dev",
+    "juniornacht2-11.github.io",
+    "mikenights.com",
+    "static.cloudflareinsights.com",
+    "thumb.wikimedia.org",
+    "www.wikidata.org"
+   ]
+  },
+  {
+   "id": "01-portada",
+   "disp": "pc",
+   "ruta": "/",
+   "estado": 200,
+   "url_final": "https://mikenights.com/",
+   "segundos": 4.8,
+   "titulo": "MIKENIGHTS · Tu noche empieza aquí",
+   "texto": "MIKENIGHTS\nFavoritos\nES\nEspañol\nEnglish\nFrançais\nDeutsch\nItaliano\nPortuguês\nNederlands\nCatalà\nРусский\n中文\n¿Dónde sales?\nFecha\nPersonas\n2\nVer planes\n3 · Club\n1 · Cena · 2 · Copa\n© OpenStreetMap · OpenFreeMap\nTu noche empieza\naquí.\n\nCena, copa y club a pocos minutos a pie. Sitios reales, con su horario y cómo llegar.\n\nUna noche en el Born\nBarcelona · a pie\n1\nEl Xampanyet · cena\nTapas · cierra a las 23:00\n70 m · 1 min a pie\n2\nBar Sauvage · copa\nBar · hasta las 03:30\n910 m · 11 min a pie\n3\nArena Xperience · club\nDiscoteca · de 23:59 a 06:00\nOrganizar mi noche\nOtro plan\n\nEjemplo real en Barcelona con horarios de OpenStreetMap. Confírmalos con cada local.\n\nCenar\nCopas\nClubs\nDirecto\nDormir\nEste finde en Madrid\nPlanes de fiesta del finde\n\nViernes, 6 de noviembre\n\n17:30\nDanza entre mujeres\nEspacio de Igualdad María de Maeztu. Latina\n18:00\nTablao Flamenco 1911: El Tablao Más Antiguo del Mundo\nTablao Flamenco 1911\n19:00\nActuación musical e improvisación sobre proyecciones: `Atmósferas Sonoras y Visuales´\nEdificio Sociocultural Marta Escudero Díaz-Tejeiro (Villaverde)\n\nSábado, 7 de noviembre\n\n11:00\nForró en la Biblio\nBiblioteca Pública Municipal Eugenio Trías. Casa de Fieras de El Retiro (Retiro)\n12:00\nXXVIII Festival Internacional COMA'26\nCentro Cultural Casa de Vacas (Retiro)\n18:00\nDúo de jazz y bolero. Natalia Baeza y Jesús Parra\nCentro Sociocultural San Fermín (Usera)\n\nDomingo, 8 de noviembre\n\n12:00\nEl cuerpo del flamenco\nCentro Danza Matadero - CDM\n12:00\nPoética Ópera\nCentro Cultural Casa del Reloj (Arganzuela)\n12:00\nSwing y letras en San Fermin\nBiblioteca Pública Municipal San Fermín (Usera)\n\nConciertos y fiestas de la agenda oficial para el viernes, sábado y domingo.\n\n¿Tienes un local?\n\nCompleta tu ficha y recibe reservas, sin comisiones.\n\nRecibir reservas\nPara locales",
+   "h1": [
+    "Tu noche empieza\naquí."
+   ],
+   "nodos": 362,
+   "alto": 1968,
+   "ancho_desborda": false,
+   "fuentes": [
+    "\"Hanken Grotesk\"",
+    "\"Bodoni Moda\""
+   ],
+   "botones_pequenos": 1,
+   "imagenes_rotas": [],
+   "errores_consola": [],
+   "peticiones_fallidas": [],
+   "peticiones_error": [],
+   "hosts": [
+    "cloudflareinsights.com",
+    "juniornacht2-11.github.io",
+    "mikenights.com",
+    "static.cloudflareinsights.com"
+   ]
+  },
+  {
+   "id": "02-buscar",
+   "disp": "pc",
+   "ruta": "/",
+   "estado": 200,
+   "url_final": "https://mikenights.com/",
+   "segundos": 7.1,
+   "titulo": "MIKENIGHTS · Tu noche empieza aquí",
+   "texto": "MIKENIGHTS\nFavoritos\nES\nEspañol\nEnglish\nFrançais\nDeutsch\nItaliano\nPortuguês\nNederlands\nCatalà\nРусский\n中文\n¿Dónde sales?\nBarcelona\nBarcelona\nBarcellona Pozzo di Gotto\nItalia\nBarcelos\nPortugal\nBarcarena\nPortugal\nBárcena de Cicero\nCantabria\nBarcarrota\nBadajoz\nBarca\nTurín · Italia\nBarca\nBolonia · Italia\nBarcola / Barkovlje\nTrieste · Italia\nFecha\nPersonas\n2\nVer planes\n3 · Club\n1 · Cena · 2 · Copa\n© OpenStreetMap · OpenFreeMap\nTu noche empieza\naquí.\n\nCena, copa y club a pocos minutos a pie. Sitios reales, con su horario y cómo llegar.\n\nUna noche en el Born\nBarcelona · a pie\n1\nEl Xampanyet · cena\nTapas · cierra a las 23:00\n70 m · 1 min a pie\n2\nBar Sauvage · copa\nBar · hasta las 03:30\n910 m · 11 min a pie\n3\nArena Xperience · club\nDiscoteca · de 23:59 a 06:00\nOrganizar mi noche\nOtro plan\n\nEjemplo real en Barcelona con horarios de OpenStreetMap. Confírmalos con cada local.\n\nCenar\nCopas\nClubs\nDirecto\nDormir\nEste finde en Madrid\nPlanes de fiesta del finde\n\nViernes, 6 de noviembre\n\n17:30\nDanza entre mujeres\nEspacio de Igualdad María de Maeztu. Latina\n18:00\nTablao Flamenco 1911: El Tablao Más Antiguo del Mundo\nTablao Flamenco 1911\n19:00\nActuación musical e improvisación sobre proyecciones: `Atmósferas Sonoras y Visuales´\nEdificio Sociocultural Marta Escudero Díaz-Tejeiro (Villaverde)\n\nSábado, 7 de noviembre\n\n11:00\nForró en la Biblio\nBiblioteca Pública Municipal Eugenio Trías. Casa de Fieras de El Retiro (Retiro)\n12:00\nXXVIII Festival Internacional COMA'26\nCentro Cultural Casa de Vacas (Retiro)\n18:00\nDúo de jazz y bolero. Natalia Baeza y Jesús Parra\nCentro Sociocultural San Fermín (Usera)\n\nDomingo, 8 de noviembre\n\n12:00\nEl cuerpo del flamenco\nCentro Danza Matadero - CDM\n12:00\nPoética Ópera\nCentro Cultural Casa del Reloj (Arganzuela)\n12:00\nSwing y letras en San Fermin\nBiblioteca Pública Municipal San Fermín (Usera)\n\nConciertos y fiestas de la agenda oficial para el viernes, sábado y domingo.\n\n¿Tienes un local?\n\nCompleta tu ficha y recibe reservas, sin comisiones.\n\nRecibir reservas\nPara locales",
+   "h1": [
+    "Tu noche empieza\naquí."
+   ],
+   "nodos": 380,
+   "alto": 1968,
+   "ancho_desborda": false,
+   "fuentes": [
+    "\"Hanken Grotesk\"",
+    "\"Bodoni Moda\""
+   ],
+   "botones_pequenos": 1,
+   "imagenes_rotas": [],
+   "errores_consola": [],
+   "peticiones_fallidas": [],
+   "peticiones_error": [],
+   "hosts": [
+    "cloudflareinsights.com",
+    "juniornacht2-11.github.io",
+    "mikenights.com",
+    "static.cloudflareinsights.com"
+   ]
+  },
+  {
+   "id": "03-plan-bcn",
+   "disp": "pc",
+   "ruta": "/#/plan/08019",
+   "estado": 200,
+   "url_final": "https://mikenights.com/#/plan/08019",
+   "segundos": 6.2,
+   "titulo": "Elige tu plan · Barcelona · MIKENIGHTS",
+   "texto": "Inicio\nBarcelona · Vie, 6 nov · 2 personas\nCambiar\nMIKENIGHTS\n¿Qué te apetece en Barcelona?\nUn tipo de sitio\n\nSi ya sabes qué buscas: todos los sitios de ese tipo, con horario y cómo llegar.\n\nCenar\nRestaurantes\n3699 restaurantes\nSalir\nDiscotecas, bares y pubs\n1437 locales de fiesta\nDormir\nHoteles y hostales\n5651 alojamientos\n\nPara dormir también:\nApartamentos\nHabitaciones\n\nLa noche completa\n\nIdeas con varios sitios reales a pocos minutos a pie, en el orden de la noche. Elige con quién sales para ver las que encajan.\n\nTodas\nEn pareja\nCon amigos\nSolo\nEn pareja\nCena para dos\nRestaurantes con reserva, terraza o carta publicada, primero.\nCena\n3699 restaurantes\nEn pareja\nCena y copa\nUn restaurante y un bar tranquilo a pocos minutos a pie.\nCena\n+\nCopa\n80 propuestas\nEn pareja\nEscapada nocturna\nCena, copa y hotel cerca, para no coger el coche.\nCena\n+\nCopa\n+\nHotel\n80 propuestas\nCon amigos\nTapeo y fiesta\nTapas para empezar y una discoteca o pub cerca para seguir.\nTapas\n+\nFiesta\n80 propuestas\nCon amigos\nRuta de bares\nTres bares o pubs a pocos minutos uno de otro.\nBar\n+\nBar\n+\nBar\n40 propuestas\nCon amigos\nHasta el amanecer\nCena, discoteca y un sitio para dormir cerca.\nCena\n+\nDiscoteca\n+\nDormir\n62 propuestas\nSolo\nMúsica en directo\nSalas y bares con conciertos o música en directo.\nMúsica\n15 propuestas\nSolo\nConciertos ese día\nConciertos y fiestas de la agenda para la fecha elegida.\nAgenda\n60 conciertos ese día\nSolo\nBarra y copa\nBares y pubs para tomar algo con calma.\nCopa\n1355 propuestas\n\nSon sugerencias con establecimientos independientes y cercanos: no son paquetes y cada parte se reserva por separado.\n\nAgenda · Viernes, 6 de noviembre\nMúsica y fiestas (60)\nToda la agenda (346)\nMúsica\n\"Concerts al Soterrani\"\n03:00 h · Sarrià\nDel 23/10/2026 al 20/11/2026\nFuente: Ajuntament de Barcelona (Open Data BCN, CC BY 4.0)\nMúsica\nTeatre Musical \" De 9 a 5\"\n03:00 h · el Congrés i els Indians\nDel 24/10/2026 al 14/11/2026\nFuente: Ajuntament de Barcelona (Open Data BCN, CC BY 4.0)\nMúsica\nConcert \"John Pollón\"\n03:00 h · el Poble-sec\nFuente: Ajuntament de Barcelona (Open Data BCN, CC BY 4.0)\nMúsica\nConcert \"La Oreja de Van Gogh\"\n03:00 h · el Poble-sec\nDel 06/11/2026 al 27/11/2026\nFuente: Ajuntament de Barcelona (Open Data BCN, CC BY 4.0)\nMúsica\nConcert \"Little Big\"\n03:00 h · les Corts\nFuente: Ajuntament de Barcelona (Open Data BCN, CC BY 4.0)\nMúsica\nConcert \"L’Atlàntida de Falla\", amb Kent Nagano i OCNE\n03:00 h · el Fort Pienc\nDel 06/11/2026 al 08/11/2026\nFuente: Ajuntament de Barcelona (",
+   "h1": [
+    "¿Qué te apetece en Barcelona?"
+   ],
+   "nodos": 421,
+   "alto": 2894,
+   "ancho_desborda": false,
+   "fuentes": [
+    "\"Hanken Grotesk\"",
+    "\"Bodoni Moda\""
+   ],
+   "botones_pequenos": 2,
+   "imagenes_rotas": [],
+   "errores_consola": [],
+   "peticiones_fallidas": [],
+   "peticiones_error": [],
+   "hosts": [
+    "cloudflareinsights.com",
+    "frosty-bird-92d2.juniornacht2.workers.dev",
+    "juniornacht2-11.github.io",
+    "mikenights.com",
+    "static.cloudflareinsights.com"
+   ]
+  },
+  {
+   "id": "04-idea-noche",
+   "disp": "pc",
+   "ruta": "/#/plan/08019",
+   "estado": 200,
+   "url_final": "https://mikenights.com/#/plan/08019",
+   "segundos": 9.7,
+   "titulo": "Cena para dos · Barcelona · MIKENIGHTS",
+   "texto": "Cambiar plan\nBarcelona · Vie, 6 nov · 2 personas\nCambiar\nMIKENIGHTS\nCena para dos en Barcelona\n\nRestaurantes con reserva, terraza o carta publicada, primero.\n\nCompartir\nOrdenar\nRecomendados\nDistancia al centro\nNombre\nPrecio (solo con precio publicado)\nFiltrar\nTodo\nTapas\n286\nJaponesa\n228\nEspañola\n192\nItaliana\n143\nAsiática\n118\nMediterránea\n111\nPizza\n107\nMexicana\n99\nHamburguesas\n87\nChina\n75\nIndia\n49\nMarisco y pescado\n47\nCarnes y brasa\n47\nKebab\n36\nCocina del país\n19\n\n3699 opciones · Viernes, 6 de noviembre · 2 personas\n\nBI\nBiocenter\n\nRestaurante · 610 m\n\nViernes: 10:00–23:30\n\nGU\nGuzzo\n\nRestaurante · 620 m\n\nViernes: 18:00–02:00\n\nCL\nCa La Nuri\n\nRestaurante · Mediterránea · 1,2 km\n\nViernes: 13:00–23:00\n\nRA\nRainbow\n\nRestaurante · Japonesa, Sushi · 1,3 km\n\nViernes: 13:00–16:00 y 20:30–23:30\n\nCA\nCasa Amalia\n\nRestaurante · Catalana · 1,5 km\n\nViernes: 13:00–17:30 y 19:30–00:00\n\nPÖ\nPötstot\n\nRestaurante · 1,6 km\n\nViernes: 13:00–17:00 y 19:00–23:55\n\nNO\nNogal\n\nRestaurante · Española, Cafe · 1,6 km\n\nViernes: 05:00–03:00\n\nBD\nBrisa do sil\n\nRestaurante · Española · 1,8 km\n\nViernes: 10:00–23:59\n\nPB\nPaisano Bistró\n\nRestaurante · Italiana · 2,3 km\n\nViernes: 11:00–23:00\n\nLS\nLa Sanguchería\n\nRestaurante · Peruana · 2,6 km\n\nViernes: 19:00–23:30\n\nRT\nRamen tan tan\n\nRestaurante · Ramen · 2,7 km\n\nViernes: 11:30–16:30 y 19:30–23:30\n\nMR\nMagna Roma\n\nRestaurante · Pizza · 2,8 km\n\nViernes: 18:00–23:30\n\nQT\nQing Tian Ramen\n\nRestaurante · Ramen · 2,9 km\n\nViernes: 10:00–23:00\n\nCB\nCan brasa\n\nRestaurante · Española · 2,9 km\n\nViernes: 07:00–23:59\n\nMM\nMetric Market\n\nRestaurante · 3,0 km\n\nViernes: 08:00–03:00\n\nVI\nVermut i força al canut\n\nRestaurante · Española · 3,3 km\n\nViernes: 18:00–23:30\n\nSA\nSaona\n\nRestaurante · Mediterránea · 3,7 km\n\nViernes: 20:00–23:59\n\nRE\nRevoltosa\n\nRestaurante · Mexicana · 3,8 km\n\nViernes: 17:00–23:59\n\nCA\nCadaqués\n\nRestaurante · Marisco, Regional · 660 m\n\nViernes: 03:00–01:00\n\nSU\nSabes una Cosa\n\nRestaurante · Mexicana · 2,3 km\n\nViernes: 20:00–23:30\n\nRK\nRestaurante Kinza\n\nRestaurante · Georgian · 2,3 km\n\nViernes: 13:00–00:00\n\nER\nEl Rincón de la Abuela Venezolana\n\nRestaurante · American · 2,4 km\n\nViernes: 12:00–23:00\n\nBB\nBilbao Berria\n\nRestaurante · Española · 120 m\n\nViernes: 10:00–00:00\n\nRC\nRestaurante Can Bo\n\nRestaurante · Tapas · 130 m\n\nViernes: 12:00–00:00\n\nMostrar más (24 de 3699)\nSobre estos datos\n\n¿Tienes un local en Barcelona? Recibe reservas en MIKENIGHTS gratis y sin comisiones.\nRecibir reservas\nAñadir mi negocio\n\nOpenFreeMap © OpenMapTiles Data from OpenStreetMap\nBus",
+   "h1": [
+    "Cena para dos en Barcelona"
+   ],
+   "nodos": 1141,
+   "alto": 3989,
+   "ancho_desborda": false,
+   "fuentes": [
+    "\"Hanken Grotesk\"",
+    "\"Bodoni Moda\"",
+    "\"Helvetica Neue\""
+   ],
+   "botones_pequenos": 29,
+   "imagenes_rotas": [],
+   "errores_consola": [],
+   "peticiones_fallidas": [],
+   "peticiones_error": [],
+   "hosts": [
+    "cdn.jsdelivr.net",
+    "cloudflareinsights.com",
+    "frosty-bird-92d2.juniornacht2.workers.dev",
+    "juniornacht2-11.github.io",
+    "mikenights.com",
+    "static.cloudflareinsights.com",
+    "tiles.openfreemap.org"
+   ]
+  },
+  {
+   "id": "05-resultados-fiesta",
+   "disp": "pc",
+   "ruta": "/#/resultados/08019/2026-11-06/2/fiesta",
+   "estado": 200,
+   "url_final": "https://mikenights.com/#/resultados/08019/2026-11-06/2/fiesta",
+   "segundos": 6.2,
+   "titulo": "Fiesta · Barcelona · MIKENIGHTS",
+   "texto": "Cambiar plan\nBarcelona · Vie, 6 nov · 2 personas\nCambiar\nMIKENIGHTS\nFiesta en Barcelona\nCompartir\nOrdenar\nRecomendados\nDistancia al centro\nNombre\nPrecio (solo con precio publicado)\nFiltrar\nTodo\nDiscotecas\n64\nBares de copas\n1023\nPubs\n332\nMúsica en directo\n2\nSalas y eventos\n16\n\n1339 opciones · Viernes, 6 de noviembre · 2 personas\n\nSH\nShôko\n\nBar · 1,7 km\n\nViernes: 12:00–03:00\n\nTOP MUNDIAL\nnº 7 del mundo · World's 100 Best Clubs 2025\n\nWikimedia Commons\nSA\nSala Apolo\n\nDiscoteca o club · 1,2 km\n\nConcert \"Camellos\"\n\nTOP MUNDIAL\nnº 34 del mundo · World's 100 Best Clubs 2025\n\nOP\nOpium\n\nBar · 1,7 km\n\nHorario no publicado\n\nTOP MUNDIAL\nnº 9 del mundo · World's 100 Best Clubs 2025\n\nSC\nSutton Club\n\nDiscoteca o club · 2,4 km\n\nHorario no publicado\n\nTOP MUNDIAL\nnº 12 del mundo · World's 100 Best Clubs 2025\n\nDB\nDowntown Barcelona\n\nDiscoteca o club · 5,2 km\n\nMadrugada del sábado: 00:00–06:00\n\nDESTACADA\nRecomendada en guías de ocio de Barcelona\n\nJA\nJamboree\n\nDiscoteca o club · 510 m\n\nFesta \"Disco Saturday Night: Dj Eley\"\n\nDESTACADA\nRecomendada en guías de ocio de Barcelona\n\nHC\nHyde Club\n\nDiscoteca o club · 1,5 km\n\nHorario no publicado\n\nDESTACADA\nRecomendada en guías de ocio de Barcelona\n\nRA\nRazzmatazz\n\nDiscoteca o club · 1,9 km\n\nConcert \"Festival Partiendo La Pana - Tributos a Estopa y Melendi\"\n\nDESTACADA\nRecomendada en guías de ocio de Barcelona\n\nDU\nDuvet\n\nDiscoteca o club · 2,0 km\n\nHorario no publicado\n\nDESTACADA\nRecomendada en guías de ocio de Barcelona\n\nBB\nBling Bling\n\nDiscoteca o club · 2,3 km\n\nHorario no publicado\n\nDESTACADA\nRecomendada en guías de ocio de Barcelona\n\nLF\nLa Fira Casanova\n\nDiscoteca o club · 2,4 km\n\nHorario no publicado\n\nDESTACADA\nRecomendada en guías de ocio de Barcelona\n\nLB\nLa Biblio\n\nDiscoteca o club · 2,4 km\n\nHorario no publicado\n\nDESTACADA\nRecomendada en guías de ocio de Barcelona\n\nOZ\nOtto Zutz\n\nDiscoteca o club · 2,8 km\n\nHorario no publicado\n\nDESTACADA\nRecomendada en guías de ocio de Barcelona\n\nSB\nSala Bikini\n\nDiscoteca o club · 3,3 km\n\nHorario no publicado\n\nDESTACADA\nRecomendada en guías de ocio de Barcelona\n\nCB\nCraft Barcelona\n\nPub · 130 m\n\nViernes: 18:00–03:00\n\nMB\nMagma Bar\n\nBar · 240 m\n\nViernes: 18:00–02:30\n\nGI\nGinger\n\nBar · 250 m\n\nViernes: 19:30–02:30\n\nDG\nDux Gin & Cocktail Bar Barcelona\n\nBar · 310 m\n\nViernes: 18:30–02:30\n\nBB\nBar Brutal\n\nBar · 370 m\n\nViernes: 13:00–00:30\n\nKÆ\nKælderkold\n\nPub · 390 m\n\nViernes: 12:30–03:00\n\nOV\nOviso\n\nPub · 400 m\n\nViernes: 10:00–01:30\n\nMB\nManchester Bar\n\nBar · 460 m\n\nViernes: 18:30–00:00\n\n#B\n#Bubita\n\nBar · 470 m\n\nV",
+   "h1": [
+    "Fiesta en Barcelona"
+   ],
+   "nodos": 1169,
+   "alto": 4112,
+   "ancho_desborda": false,
+   "fuentes": [
+    "\"Hanken Grotesk\"",
+    "\"Bodoni Moda\"",
+    "\"Helvetica Neue\""
+   ],
+   "botones_pequenos": 29,
+   "imagenes_rotas": [],
+   "errores_consola": [],
+   "peticiones_fallidas": [],
+   "peticiones_error": [],
+   "hosts": [
+    "cdn.jsdelivr.net",
+    "cloudflareinsights.com",
+    "commons.wikimedia.org",
+    "frosty-bird-92d2.juniornacht2.workers.dev",
+    "juniornacht2-11.github.io",
+    "mikenights.com",
+    "static.cloudflareinsights.com",
+    "thumb.wikimedia.org",
+    "tiles.openfreemap.org",
+    "www.wikidata.org"
+   ]
+  },
+  {
+   "id": "06-resultados-cenas",
+   "disp": "pc",
+   "ruta": "/#/resultados/08019/2026-11-06/2/cenas",
+   "estado": 200,
+   "url_final": "https://mikenights.com/#/resultados/08019/2026-11-06/2/cenas",
+   "segundos": 6.6,
+   "titulo": "Cenas · Barcelona · MIKENIGHTS",
+   "texto": "Cambiar plan\nBarcelona · Vie, 6 nov · 2 personas\nCambiar\nMIKENIGHTS\nCenas en Barcelona\nCompartir\nOrdenar\nRecomendados\nDistancia al centro\nNombre\nPrecio (solo con precio publicado)\nFiltrar\nTodo\nTapas\n286\nJaponesa\n228\nEspañola\n192\nItaliana\n143\nAsiática\n118\nMediterránea\n111\nPizza\n107\nMexicana\n99\nHamburguesas\n87\nChina\n75\nIndia\n49\nMarisco y pescado\n47\nCarnes y brasa\n47\nKebab\n36\nCocina del país\n19\n\n3699 opciones · Viernes, 6 de noviembre · 2 personas\n\nBB\nBilbao Berria\n\nRestaurante · Española · 120 m\n\nViernes: 10:00–00:00\n\nRC\nRestaurante Can Bo\n\nRestaurante · Tapas · 130 m\n\nViernes: 12:00–00:00\n\nBB\nBun Bo Gótico\n\nRestaurante · Vietnamese · 150 m\n\nViernes: 12:00–01:00\n\nPD\nPizzería Da Nanni\n\nRestaurante · Italian pizza · 150 m\n\nViernes: 12:00–22:30\n\nRL\nRestaurante Loto\n\nRestaurante · 210 m\n\nViernes: 13:00–16:00 y 20:00–23:00\n\nLU\nLuigi\n\nRestaurante · Italiana · 240 m\n\nViernes: 12:00–00:00\n\nGR\nGrasshopper\n\nRestaurante · Japonesa · 270 m\n\nViernes: 13:00–23:30\n\nSD\nSet de Gòtic\n\nRestaurante · 270 m\n\nViernes: 09:00–00:00\n\nBD\nBar del Pi\n\nRestaurante · Española, Tapas · 280 m\n\nViernes: 09:00–23:00\n\nTD\nTaller de Tapas\n\nRestaurante · 280 m\n\nViernes: 12:00–00:00\n\nRL\nRestaurant La Taverneta Barcelona\n\nRestaurante · Francesa · 290 m\n\nViernes: 13:00–00:00\n\nLC\nLa Central\n\nRestaurante · Hamburguesas · 290 m\n\nViernes: 12:30–01:00\n\nBL\nBodega la Palma\n\nRestaurante · 300 m\n\nViernes: 12:00–17:00 y 19:00–00:00\n\nLC\nLa Cereria\n\nRestaurante · Regional · 300 m\n\nViernes: 13:00–00:00\n\nLC\nLe Cucine Mandarosso\n\nRestaurante · Italiana · 300 m\n\nEspectacle \"Palles gratis!\", a càrrec de Roger Pelàez & Vidal Soler\n\nAV\nAvinyo10\n\nRestaurante · Mediterránea, Española · 320 m\n\nViernes: 12:00–23:30\n\nZF\nZiryab Fusion Tapas Bar\n\nRestaurante · Arab · 330 m\n\nViernes: 13:00–00:00\n\nNC\nNou Celler\n\nRestaurante · 330 m\n\nViernes: 08:00–23:30\n\nGO\nGovinda\n\nRestaurante · India · 330 m\n\nViernes: 13:00–16:00 y 20:00–23:30\n\nAN\nAnduriña\n\nRestaurante · 330 m\n\nViernes: 08:00–01:00\n\nVE\nVelada\n\nRestaurante · Española, Hamburguesas · 340 m\n\nViernes: 13:00–23:00\n\nIR\nIrati\n\nRestaurante · Tapas · 340 m\n\nViernes: 11:00–00:30\n\nRL\nRestaurant La Plassohla\n\nRestaurante · 350 m\n\nViernes: 07:00–16:00 y 19:30–00:00\n\nVJ\nVegan Junk Food Bar\n\nRestaurante · 350 m\n\nViernes: 12:00–01:00\n\nMostrar más (24 de 3699)\nSobre estos datos\n\n¿Tienes un local en Barcelona? Recibe reservas en MIKENIGHTS gratis y sin comisiones.\nRecibir reservas\nAñadir mi negocio\n\nOpenFreeMap © OpenMapTiles Data from OpenStreetMap\nBuscar en esta zona",
+   "h1": [
+    "Cenas en Barcelona"
+   ],
+   "nodos": 1143,
+   "alto": 3957,
+   "ancho_desborda": false,
+   "fuentes": [
+    "\"Hanken Grotesk\"",
+    "\"Bodoni Moda\"",
+    "\"Helvetica Neue\""
+   ],
+   "botones_pequenos": 29,
+   "imagenes_rotas": [],
+   "errores_consola": [],
+   "peticiones_fallidas": [],
+   "peticiones_error": [],
+   "hosts": [
+    "cdn.jsdelivr.net",
+    "cloudflareinsights.com",
+    "frosty-bird-92d2.juniornacht2.workers.dev",
+    "juniornacht2-11.github.io",
+    "mikenights.com",
+    "static.cloudflareinsights.com",
+    "tiles.openfreemap.org"
+   ]
+  },
+  {
+   "id": "07-resultados-mapa",
+   "disp": "pc",
+   "ruta": "/#/resultados/08019/2026-11-06/2/fiesta",
+   "estado": 200,
+   "url_final": "https://mikenights.com/#/resultados/08019/2026-11-06/2/fiesta",
+   "fallo": "o view action, attempt #15\n  -   waiting 500ms\n  -   waiting for element to be stable\n  -   element is not visible\n  - retrying scroll into view action, attempt #16\n  -   waiting 500ms\n  -   waiting for element to be stable\n  -   element is not visible\n  - retrying scroll into view action, attempt #17\n  -   waiting 500ms\n  -   waiting for element to be stable\n  -   element is not visible\n  - retrying scroll into view action, attempt #18\n  -   waiting 500ms\n  -   waiting for element to be stable\n  -   element is not visible\n  - retrying scroll into view action, attempt #19\n  -   waiting 500ms\n\n",
+   "errores_consola": [],
+   "peticiones_fallidas": [],
+   "peticiones_error": [],
+   "hosts": [
+    "cdn.jsdelivr.net",
+    "cloudflareinsights.com",
+    "commons.wikimedia.org",
+    "frosty-bird-92d2.juniornacht2.workers.dev",
+    "juniornacht2-11.github.io",
+    "mikenights.com",
+    "static.cloudflareinsights.com",
+    "thumb.wikimedia.org",
+    "tiles.openfreemap.org",
+    "www.wikidata.org"
+   ]
+  },
+  {
+   "id": "08-ficha",
+   "disp": "pc",
+   "ruta": "/#/resultados/08019/2026-11-06/2/fiesta",
+   "estado": 200,
+   "url_final": "https://mikenights.com/#/resultados/08019/2026-11-06/2/fiesta",
+   "segundos": 8.3,
+   "titulo": "Fiesta · Barcelona · MIKENIGHTS",
+   "texto": "Volver\nShôko\nShôko\nSH\n\nBar\n\nTOP MUNDIAL\nnº 7 del mundo · World's 100 Best Clubs 2025 · ver fuente\n\nBar en Passeig Marítim del Port Olímpic 36, 08005, Barcelona. Tiene terraza. Horario publicado: lun a dom 12:00–03:00.\n\nWeb oficial\nGuardar\nCompartir\nHorario y datos\nDirección\nPasseig Marítim del Port Olímpic 36, 08005, Barcelona\nEse día\nViernes: 12:00–03:00 (según OpenStreetMap)\nHorario completo\nlun a dom 12:00–03:00\nDónde está\nOpenFreeMap © OpenMapTiles Data from OpenStreetMap\nPróximos eventos aquí\n\nNo hay eventos de este local en la agenda.\n\nOpiniones\nEscribir una opinión\n\nTodavía no hay opiniones. ¡Sé el primero en contar cómo es!\n\n¿Es tu local?\nCompleta la ficha con fotos, carta y ofertas, o recibe reservas desde MIKENIGHTS. Es gratis.\nCompletar la ficha\nActivar reservas\nCómo llegar\n\nDatos del local: © colaboradores de OpenStreetMap (ODbL). Opiniones y fotos aportadas por usuarios y propietarios, revisadas antes de publicarse. Ver en Google Maps · Corregir en OpenStreetMap",
+   "h1": [
+    "Fiesta en Barcelona"
+   ],
+   "nodos": 1264,
+   "alto": 4112,
+   "ancho_desborda": false,
+   "fuentes": [
+    "\"Hanken Grotesk\"",
+    "\"Bodoni Moda\"",
+    "\"Helvetica Neue\""
+   ],
+   "botones_pequenos": 34,
+   "imagenes_rotas": [],
+   "errores_consola": [],
+   "peticiones_fallidas": [],
+   "peticiones_error": [],
+   "hosts": [
+    "cdn.jsdelivr.net",
+    "cloudflareinsights.com",
+    "commons.wikimedia.org",
+    "frosty-bird-92d2.juniornacht2.workers.dev",
+    "juniornacht2-11.github.io",
+    "mikenights.com",
+    "static.cloudflareinsights.com",
+    "thumb.wikimedia.org",
+    "tiles.openfreemap.org",
+    "www.wikidata.org"
+   ]
+  },
+  {
+   "id": "09-favoritos-vacio",
+   "disp": "pc",
+   "ruta": "/",
+   "estado": 200,
+   "url_final": "https://mikenights.com/",
+   "fallo": "o view action, attempt #15\n  -   waiting 500ms\n  -   waiting for element to be stable\n  -   element is not visible\n  - retrying scroll into view action, attempt #16\n  -   waiting 500ms\n  -   waiting for element to be stable\n  -   element is not visible\n  - retrying scroll into view action, attempt #17\n  -   waiting 500ms\n  -   waiting for element to be stable\n  -   element is not visible\n  - retrying scroll into view action, attempt #18\n  -   waiting 500ms\n  -   waiting for element to be stable\n  -   element is not visible\n  - retrying scroll into view action, attempt #19\n  -   waiting 500ms\n\n",
+   "errores_consola": [],
+   "peticiones_fallidas": [],
+   "peticiones_error": [],
+   "hosts": [
+    "cloudflareinsights.com",
+    "juniornacht2-11.github.io",
+    "mikenights.com",
+    "static.cloudflareinsights.com"
+   ]
+  },
+  {
+   "id": "10-favoritos-con-uno",
+   "disp": "pc",
+   "ruta": "/#/resultados/08019/2026-11-06/2/fiesta",
+   "estado": 200,
+   "url_final": "https://mikenights.com/#/resultados/08019/2026-11-06/2/fiesta",
+   "fallo": "o view action, attempt #15\n  -   waiting 500ms\n  -   waiting for element to be stable\n  -   element is not visible\n  - retrying scroll into view action, attempt #16\n  -   waiting 500ms\n  -   waiting for element to be stable\n  -   element is not visible\n  - retrying scroll into view action, attempt #17\n  -   waiting 500ms\n  -   waiting for element to be stable\n  -   element is not visible\n  - retrying scroll into view action, attempt #18\n  -   waiting 500ms\n  -   waiting for element to be stable\n  -   element is not visible\n  - retrying scroll into view action, attempt #19\n  -   waiting 500ms\n\n",
+   "errores_consola": [],
+   "peticiones_fallidas": [],
+   "peticiones_error": [],
+   "hosts": [
+    "cdn.jsdelivr.net",
+    "cloudflareinsights.com",
+    "commons.wikimedia.org",
+    "frosty-bird-92d2.juniornacht2.workers.dev",
+    "juniornacht2-11.github.io",
+    "mikenights.com",
+    "static.cloudflareinsights.com",
+    "thumb.wikimedia.org",
+    "tiles.openfreemap.org",
+    "www.wikidata.org"
+   ]
+  },
+  {
+   "id": "11-mis-reservas",
+   "disp": "pc",
+   "ruta": "/",
+   "estado": 200,
+   "url_final": "https://mikenights.com/",
+   "segundos": 6.7,
+   "titulo": "MIKENIGHTS · Tu noche empieza aquí",
+   "texto": "Mis reservas\n\nTodavía no has hecho ninguna reserva desde este móvil.\n\nSe guardan solo en este navegador.",
+   "h1": [
+    "Tu noche empieza\naquí."
+   ],
+   "nodos": 371,
+   "alto": 1968,
+   "ancho_desborda": false,
+   "fuentes": [
+    "\"Hanken Grotesk\"",
+    "\"Bodoni Moda\""
+   ],
+   "botones_pequenos": 1,
+   "imagenes_rotas": [],
+   "errores_consola": [],
+   "peticiones_fallidas": [],
+   "peticiones_error": [],
+   "hosts": [
+    "cloudflareinsights.com",
+    "juniornacht2-11.github.io",
+    "mikenights.com",
+    "static.cloudflareinsights.com"
+   ]
+  },
+  {
+   "id": "12-panel-acceso",
+   "disp": "pc",
+   "ruta": "/#panel",
+   "estado": 200,
+   "url_final": "https://mikenights.com/#panel",
+   "segundos": 5.7,
+   "titulo": "MIKENIGHTS · Tu noche empieza aquí",
+   "texto": "Volver\nPanel de reservas\n\nPara restaurantes, bares, discotecas, hoteles, hostales y quien alquila habitaciones o pisos: recibe reservas en MIKENIGHTS gratis y sin comisiones.\n\nCrear cuenta\nTu nombre\nEmail\nTeléfono (no se publica)\nContraseña (mínimo 10 caracteres)\nCondiciones para dueños (resumen)\nAcepto las condiciones para dueños\nCrear mi cuenta",
+   "h1": [
+    "Tu noche empieza\naquí."
+   ],
+   "nodos": 408,
+   "alto": 1968,
+   "ancho_desborda": false,
+   "fuentes": [
+    "\"Hanken Grotesk\"",
+    "\"Bodoni Moda\""
+   ],
+   "botones_pequenos": 2,
+   "imagenes_rotas": [],
+   "errores_consola": [
+    "Refused to connect to 'data:,' because it violates the following Content Security Policy directive: \"connect-src 'self' https://hagen.challenges.cloudflare.com https://brunhild.challenges.cloudflare.com https://*.alg13.dnstest.challenges.cloudflare.com https://*.mldsa44.dnstest.challenges.cloudflare",
+    "Refused to connect to 'data:,' because it violates the following Content Security Policy directive: \"connect-src 'self' https://hagen.challenges.cloudflare.com https://brunhild.challenges.cloudflare.com https://*.alg13.dnstest.challenges.cloudflare.com https://*.mldsa44.dnstest.challenges.cloudflare",
+    "Refused to connect to 'data:,' because it violates the document's Content Security Policy.",
+    "%c%d font-size:0;color:transparent NaN",
+    "%c%d font-size:0;color:transparent NaN",
+    "%c%o font-size:0;color:transparent {}",
+    "%c%o font-size:0;color:transparent {}"
+   ],
+   "peticiones_fallidas": [
+    "https://brunhild.challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/i/a560db6b8cfaf331/Cj8LqqQiZOpKFh8Ee7UGq3JLdHbHYmIl2k3RtTMtlqTEN5dZvy5CoDFMaZutJe6LlZa · net::ERR_NAME_NOT_RESOLVED"
+   ],
+   "peticiones_error": [
+    "https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/pat/a560db6b8cfaf331/1793934123093/26550d8d6840472393d91a51a80c1f142be8a556dcfd08ddc2db7c9ac19d · 401"
+   ],
+   "hosts": [
+    "challenges.cloudflare.com",
+    "cloudflareinsights.com",
+    "juniornacht2-11.github.io",
+    "mikenights.com",
+    "static.cloudflareinsights.com"
+   ]
+  },
+  {
+   "id": "13-alta-local",
+   "disp": "pc",
+   "ruta": "/#alta",
+   "estado": 200,
+   "url_final": "https://mikenights.com/#alta",
+   "segundos": 6.3,
+   "titulo": "MIKENIGHTS · Tu noche empieza aquí",
+   "texto": "Añadir un negocio a MIKENIGHTS\n\nSi tu restaurante, bar, discoteca, hotel o apartamento no aparece en MIKENIGHTS, envíanos sus datos. Revisamos cada solicitud antes de publicarla y podemos llamarte para comprobar que representas al negocio. Tus datos de contacto no se publican.\n\nDe momento, solo negocios en España. Si tu local está en otro país y ya aparece en la web, ábrelo y pulsa «Completar la ficha» o «Activar reservas».\n\nTipo de negocio\nElige…\nRestaurante\nBar\nPub\nCoctelería\nKaraoke\nDiscoteca o club\nSala de conciertos o música en directo\nEspacio de eventos\nHotel\nHostal o pensión\nCasa rural\nApartamento turístico\nAlbergue\nMotel\nTipo de cocina (solo restaurantes)\n—\nEspañola\nRegional\nTapas\nItaliana\nPizza\nJaponesa\nSushi\nChina\nMexicana\nIndia\nMediterránea\nMarisco\nHamburguesas\nAsiática\nInternacional\nVegetariana\nVegana\nAsador\nArgentina\nVasca\nCatalana\nGallega\nFrancesa\nTailandesa\nPeruana\nGriega\nLibanesa\nKebab\nPescado\nParrilla\nPortuguesa\nAlemana\nBritánica\nIrlandesa\nAustriaca\nSuiza\nBelga\nNeerlandesa\nCroata\nFish and chips\nNombre del negocio (se publica)\nMunicipio\nDirección (se publica)\nMarca en el mapa dónde está (toca o haz clic en el sitio exacto)\nOpenFreeMap © OpenMapTiles Data from OpenStreetMap\n\nTodavía no has marcado el sitio.\n\nTeléfono del negocio (se publica)\nHorario (se publica)\nWeb\nEnlace para reservar\nDescripción (se publica)\nMúsica y ambiente (se publica, marca hasta 8)\nMúsica en directo\nTerraza\nLGTBI+\nCócteles\nKaraoke\nEntrada libre\nLatino y reguetón\nElectrónica\nRock e indie\nJazz y blues\nFlamenco y rumba\nHip hop y R&B\nPop y comercial\nTus datos de contacto (no se publican)\nTu nombre\nEmail\nTeléfono\nFotos (opcional, hasta 6)\nCondiciones de uso (resumen)\nConfirmo que represento a este negocio, que las fotos son nuestras y acepto las condiciones\nEnviar solicitud",
+   "h1": [
+    "Tu noche empieza\naquí."
+   ],
+   "nodos": 534,
+   "alto": 1968,
+   "ancho_desborda": false,
+   "fuentes": [
+    "\"Hanken Grotesk\"",
+    "\"Bodoni Moda\"",
+    "\"Helvetica Neue\""
+   ],
+   "botones_pequenos": 18,
+   "imagenes_rotas": [],
+   "errores_consola": [
+    "Refused to connect to 'data:,' because it violates the following Content Security Policy directive: \"connect-src 'self' https://hagen.challenges.cloudflare.com https://brunhild.challenges.cloudflare.com https://*.alg13.dnstest.challenges.cloudflare.com https://*.mldsa44.dnstest.challenges.cloudflare",
+    "Refused to connect to 'data:,' because it violates the following Content Security Policy directive: \"connect-src 'self' https://hagen.challenges.cloudflare.com https://brunhild.challenges.cloudflare.com https://*.alg13.dnstest.challenges.cloudflare.com https://*.mldsa44.dnstest.challenges.cloudflare",
+    "Refused to connect to 'data:,' because it violates the document's Content Security Policy.",
+    "%c%d font-size:0;color:transparent NaN",
+    "%c%d font-size:0;color:transparent NaN",
+    "%c%o font-size:0;color:transparent {}",
+    "%c%o font-size:0;color:transparent {}"
+   ],
+   "peticiones_fallidas": [
+    "https://brunhild.challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/i/a560db93db6a7608/CsmqYTx1pGBD7mUPM1RIBGriJfhklW1Xlw50huWJmmnZum2m-UduOVkf7XQ0lHVmuIX · net::ERR_NAME_NOT_RESOLVED"
+   ],
+   "peticiones_error": [
+    "https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/pat/a560db93db6a7608/1793934129628/109fe95f95f7fd98c891413bc111497ffce0fe33f41c57aa62d00c792dc0 · 401"
+   ],
+   "hosts": [
+    "cdn.jsdelivr.net",
+    "challenges.cloudflare.com",
+    "cloudflareinsights.com",
+    "juniornacht2-11.github.io",
+    "mikenights.com",
+    "static.cloudflareinsights.com",
+    "tiles.openfreemap.org"
+   ]
+  },
+  {
+   "id": "14-habitacion",
+   "disp": "pc",
+   "ruta": "/#habitacion",
+   "estado": 200,
+   "url_final": "https://mikenights.com/#habitacion",
+   "segundos": 6.0,
+   "titulo": "MIKENIGHTS · Tu noche empieza aquí",
+   "texto": "Publicar una habitación\n\n¿Alquilas una habitación de tu casa o piso para dormir una noche? Publícala gratis en MIKENIGHTS. La revisamos antes de publicarla. Se publica solo la calle (sin número) y un punto aproximado; tu nombre, email y teléfono no se publican.\n\nPara alquilar habitaciones a turistas por noches hace falta estar inscrito en el registro de turismo de tu comunidad autónoma. Solo publicamos habitaciones con número de registro.\n\nTítulo (se publica)\nMunicipio\nCalle, sin número (se publica)\nMarca en el mapa la zona (se mostrará un punto aproximado, no tu portal)\nOpenFreeMap © OpenMapTiles Data from OpenStreetMap\n\nTodavía no has marcado la zona.\n\nNº de registro turístico\nPrecio por noche (opcional, se publica)\nEnlace para reservar o contactar (se publica)\nDescripción (se publica)\nTus datos de contacto (no se publican)\nTu nombre\nEmail\nTeléfono\nFotos (opcional, hasta 6)\nCondiciones de uso (resumen)\nConfirmo que la habitación es mía o que la gestiono, que tiene número de registro turístico, que las fotos son mías y acepto las condiciones\nPublicar mi habitación",
+   "h1": [
+    "Tu noche empieza\naquí."
+   ],
+   "nodos": 443,
+   "alto": 1968,
+   "ancho_desborda": false,
+   "fuentes": [
+    "\"Hanken Grotesk\"",
+    "\"Bodoni Moda\"",
+    "\"Helvetica Neue\""
+   ],
+   "botones_pequenos": 5,
+   "imagenes_rotas": [],
+   "errores_consola": [
+    "%c%d font-size:0;color:transparent NaN",
+    "%c%d font-size:0;color:transparent NaN",
+    "%c%o font-size:0;color:transparent {}",
+    "%c%o font-size:0;color:transparent {}",
+    "Refused to connect to 'data:,' because it violates the following Content Security Policy directive: \"connect-src 'self' https://hagen.challenges.cloudflare.com https://brunhild.challenges.cloudflare.com https://*.alg13.dnstest.challenges.cloudflare.com https://*.mldsa44.dnstest.challenges.cloudflare",
+    "Refused to connect to 'data:,' because it violates the following Content Security Policy directive: \"connect-src 'self' https://hagen.challenges.cloudflare.com https://brunhild.challenges.cloudflare.com https://*.alg13.dnstest.challenges.cloudflare.com https://*.mldsa44.dnstest.challenges.cloudflare",
+    "Refused to connect to 'data:,' because it violates the following Content Security Policy directive: \"connect-src 'self' https://hagen.challenges.cloudflare.com https://brunhild.challenges.cloudflare.com https://*.alg13.dnstest.challenges.cloudflare.com https://*.mldsa44.dnstest.challenges.cloudflare",
+    "Refused to connect to 'data:,' because it violates the document's Content Security Policy."
+   ],
+   "peticiones_fallidas": [
+    "https://brunhild.challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/i/a560dbbe19b51bd6/CspGAudG2S70j6Og3IiqfkoPxeTXrJ8BPA0BR10JlJCuWZuHiTGSglVcvTe_kd1ThX0 · net::ERR_NAME_NOT_RESOLVED"
+   ],
+   "peticiones_error": [
+    "https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/pat/a560dbbe19b51bd6/1793934136593/4ffc5ad9568b9f6e304041b54277d82f3c134e40ee7a9475620a6dee3a3d · 401"
+   ],
+   "hosts": [
+    "cdn.jsdelivr.net",
+    "challenges.cloudflare.com",
+    "cloudflareinsights.com",
+    "juniornacht2-11.github.io",
+    "mikenights.com",
+    "static.cloudflareinsights.com",
+    "tiles.openfreemap.org"
+   ]
+  },
+  {
+   "id": "15-legal",
+   "disp": "pc",
+   "ruta": "/",
+   "estado": 200,
+   "url_final": "https://mikenights.com/",
+   "segundos": 6.8,
+   "titulo": "MIKENIGHTS · Tu noche empieza aquí",
+   "texto": "Aviso legal y fuentes\nTitular de la web\nContacto\nmodonochesoporte@gmail.com\nQué es y qué no es MIKENIGHTS\n\nMIKENIGHTS muestra establecimientos registrados en OpenStreetMap. No vende entradas ni cobra pagos, y no publica precios que no estén verificados. Solo en los locales marcados «Reserva aquí» puedes pedir una reserva desde la web: la disponibilidad y los precios los pone el propio local, que acepta o rechaza cada solicitud, y se paga en el local. Los combos son sugerencias con establecimientos independientes, no paquetes. Comprueba siempre la información con cada local.\n\nFuentes y licencias\nLocales, restaurantes y alojamientos: © colaboradores de OpenStreetMap, licencia ODbL, consultados mediante el servicio de locales de MIKENIGHTS en Cloudflare (Overpass API) y, como respaldo, mediante las teselas de OpenFreeMap (versión básica: nombre, tipo y ubicación).\nFotos: aportadas por clientes y propietarios (revisadas antes de publicarse) y Wikimedia Commons para lugares conocidos (cada una con su licencia y autor en el enlace).\nMapa: OpenFreeMap con datos © OpenMapTiles y OpenStreetMap; librería MapLibre GL JS (BSD-3).\nMunicipios: INE (relación de municipios 2026). Centros y población: CNIG/IGN (CC BY 4.0) e INE, vía Softline GeoDB.\nDiscotecas destacadas: las que aparecen en rankings internacionales (The World's 100 Best Clubs 2025, DJ Mag Top 100 Clubs 2026), en guías de ocio de cada ciudad o en prensa por su apertura. Cada una lleva su fuente en la ficha.\nPueblos, pedanías y barrios del buscador: OpenStreetMap (ODbL).\nCiudades de otros países: GeoNames (geonames.org, CC BY 4.0). Sus locales y alojamientos vienen de OpenStreetMap (actualizados cada semana) y sus conciertos, de Ticketmaster; fuera de España no hay registros oficiales de turismo conectados.\nAgenda: Ayuntamiento de Madrid (datos.madrid.es, CC BY 4.0), Generalitat de Catalunya (Agenda cultural, dades obertes), Junta de Castilla y León (agenda cultural, datos abiertos), Ayuntamiento de Gijón, Ayuntamiento de Málaga (datos abiertos), Ayuntamiento de Zaragoza (datos abiertos), Institut Valencià de Cultura (dades obertes GVA), Gobierno Vasco · Kulturklik (Open Data Euskadi), Junta de Andalucía (agenda, datos abiertos), Concello de Vigo (axenda, datos abertos) y Ticketmaster (Discovery API), actualizada cada día; las entradas se compran en la web de cada fuente. No se muestran eventos de otras fuentes ni inventados.\nOpiniones y fotos de usuarios\n\nCualquier persona puede enviar su opinión y fotos de",
+   "h1": [
+    "Tu noche empieza\naquí."
+   ],
+   "nodos": 397,
+   "alto": 1968,
+   "ancho_desborda": false,
+   "fuentes": [
+    "\"Hanken Grotesk\"",
+    "\"Bodoni Moda\""
+   ],
+   "botones_pequenos": 4,
+   "imagenes_rotas": [],
+   "errores_consola": [],
+   "peticiones_fallidas": [],
+   "peticiones_error": [],
+   "hosts": [
+    "cloudflareinsights.com",
+    "juniornacht2-11.github.io",
+    "mikenights.com",
+    "static.cloudflareinsights.com"
+   ]
+  },
+  {
+   "id": "16-para-locales",
+   "disp": "pc",
+   "ruta": "/para-locales.html",
+   "estado": 200,
+   "url_final": "https://mikenights.com/para-locales",
+   "segundos": 4.7,
+   "titulo": "MIKENIGHTS para locales · Tu local en el plan de la noche",
+   "texto": "MIKENIGHTS\nEspañol\nEnglish\nFrançais\nDeutsch\nItaliano\nPortuguês\nNederlands\nCatalà\nРусский\n中文\nVer la web\nPara restaurantes, bares, discotecas y alojamientos\nTu local, dentro del plan de la noche\n\nEn MIKENIGHTS la gente elige ciudad, fecha y con quién sale, y le proponemos planes con sitios reales y cercanos: cena y copa, ruta de bares, discoteca o la noche completa con hotel. Tu local ya puede estar ahí. Haz que se vea como tú quieres.\n\nBuscar mi local y completar la ficha\nMi local no aparece\n126.000+\nrestaurantes, bares y discotecas en España\n340.000+\nalojamientos de registros oficiales\n8.132\nmunicipios de España\n420.000+\nlocales y alojamientos en 12 países de Europa\nRecibe reservas en tu local, gratis\n\nMesas para restaurantes, lista y reservados para discotecas, y habitaciones por noches para hoteles, hostales y quien alquila habitaciones. Tú pones los días, las plazas y los precios, y aceptas o rechazas cada solicitud desde tu panel. Sin comisiones: por ahora el cliente paga en el local.\n\nAbrir el panel de dueños\n¿Alquilas una habitación en tu casa o piso?\n\nPublícala gratis en el plan «Habitaciones», para quien sale y busca dónde dormir esa noche. De momento, solo en España: necesitas el número de registro turístico de tu comunidad. Publicamos la calle sin número y un punto aproximado, nunca tu portal.\n\nPublicar mi habitación\nQué ganas completando tu ficha\n01\nTus fotos, primero y en grande\n\nLas fotos del local salen arriba de la ficha, antes que las de los clientes.\n\n02\nOfertas dentro de los planes\n\nHasta 3 ofertas con su precio («menú para dos + copa, 45 €», «entrada + 2 copas»). Aparecen en las experiencias para parejas, amigos o ir solo.\n\n03\nReservas en tu web, sin comisiones\n\nPonemos tu enlace de reservas o de entradas. El cliente reserva contigo y tú no pagas nada por reserva.\n\n04\nCarta y precio de entrada\n\nLa gente decide antes de salir: precios de la carta, de las copas o de la entrada, tal como los publicas tú.\n\n05\nEn Google, ciudad por ciudad\n\nCada ciudad de España tiene su página «Ocio nocturno en…» con sus locales, pensada para aparecer en las búsquedas.\n\n06\nOpiniones reales y moderadas\n\nLas opiniones se revisan antes de publicarse: nada de insultos ni spam. Puedes avisar de cualquier problema.\n\nCómo funciona\nBusca tu ciudad y abre la ficha de tu local\n\nEn la web, elige tu ciudad y un plan. Toca tu local (en cualquier parte de su tarjeta) para abrir su ficha. Si no aparece y está en España, usa «Añadir mi negocio».\n\nPulsa «Completar la ficha»\n\n",
+   "h1": [
+    "Tu local, dentro del plan de la noche"
+   ],
+   "nodos": 164,
+   "alto": 3481,
+   "ancho_desborda": false,
+   "fuentes": [
+    "\"Bodoni Moda\"",
+    "\"Hanken Grotesk\""
+   ],
+   "botones_pequenos": 3,
+   "imagenes_rotas": [],
+   "errores_consola": [],
+   "peticiones_fallidas": [],
+   "peticiones_error": [],
+   "hosts": [
+    "cloudflareinsights.com",
+    "mikenights.com",
+    "static.cloudflareinsights.com"
+   ]
+  },
+  {
+   "id": "17-ciudades",
+   "disp": "pc",
+   "ruta": "/ocio-nocturno/",
+   "estado": 200,
+   "url_final": "https://mikenights.com/ocio-nocturno/",
+   "segundos": 4.8,
+   "titulo": "Ocio nocturno en España por ciudades | MIKENIGHTS",
+   "texto": "MIKENIGHTS\nCiudades\nOcio nocturno en España, ciudad por ciudad\n\nDiscotecas, bares, restaurantes y alojamientos de toda España con datos abiertos.\n\nOrganiza tu noche\nCiudades más buscadas\n\nMadridBarcelonaValènciaSevillaZaragozaMálagaMurciaPalmaLas Palmas de Gran CanariaBilbaoAlacantCórdobaValladolidVigoGijónL'Hospitalet de LlobregatVitoria-GasteizA CoruñaElxGranadaTerrassaBadalonaOviedoCartagenaSabadellJerez de la FronteraMóstolesSanta Cruz de TenerifePamplonaAlmeríaAlcalá de HenaresFuenlabradaDonostiaLeganésGetafeBurgosAlbaceteCastelló de la PlanaSantanderAlcorcón\n\nPor provincias\n\nAlbaceteAlicante/AlacantAlmeríaAraba/ÁlavaAsturiasÁvilaBadajozBalears, IllesBarcelonaBizkaiaBurgosCáceresCádizCantabriaCastellón/CastellóCeutaCiudad RealCórdobaCoruña, ACuencaGipuzkoaGironaGranadaGuadalajaraHuelvaHuescaJaénLeónLleidaLugoMadridMálagaMelillaMurciaNavarraOurensePalenciaPalmas, LasPontevedraRioja, LaSalamancaSanta Cruz de TenerifeSegoviaSevillaSoriaTarragonaTeruelToledoValencia/ValènciaValladolidZamoraZaragoza\n\nDatos de locales: © colaboradores de OpenStreetMap (ODbL). Alojamientos: registros oficiales de turismo de las comunidades autónomas (datos abiertos). Municipios: INE. Sin precios inventados: la información de cada local la publica el propio local.",
+   "h1": [
+    "Ocio nocturno en España, ciudad por ciudad"
+   ],
+   "nodos": 128,
+   "alto": 1109,
+   "ancho_desborda": false,
+   "fuentes": [
+    "\"Bodoni Moda\"",
+    "system-ui"
+   ],
+   "botones_pequenos": 1,
+   "imagenes_rotas": [],
+   "errores_consola": [],
+   "peticiones_fallidas": [],
+   "peticiones_error": [],
+   "hosts": [
+    "mikenights.com",
+    "static.cloudflareinsights.com"
+   ]
+  },
+  {
+   "id": "18-seo-ciudad",
+   "disp": "pc",
+   "ruta": "/ocio-nocturno/barcelona-08019",
+   "estado": 200,
+   "url_final": "https://mikenights.com/ocio-nocturno/barcelona-08019",
+   "segundos": 4.7,
+   "titulo": "Ocio nocturno en Barcelona: discotecas, bares, cenas y dónde dormir | MIKENIGHTS",
+   "texto": "MIKENIGHTS\nCiudades\n\nCiudades › Barcelona\n\nOcio nocturno en Barcelona\n\nEn Barcelona hay 66 discotecas y salas, 1.352 bares y pubs, 3.693 restaurantes y 5.744 alojamientos en MIKENIGHTS. Elige con quién sales y te proponemos planes con sitios reales y cercanos entre sí: cena y copa, ruta de bares, discoteca o la noche completa con hotel.\n\nOrganiza tu noche en Barcelona Ver locales para salir\nLas discotecas más destacadas de Barcelona\n\nPor rankings internacionales (The World's 100 Best Clubs, DJ Mag Top 100 Clubs), guías de ocio y prensa. Cada una con su fuente.\n\nTOP MUNDIAL\nShôko\nBar · Passeig Marítim del Port Olímpic 36\nnº 7 del mundo · World's 100 Best Clubs 2025 · fuente\nTOP MUNDIAL\nSala Apolo\nDiscoteca o club\nnº 34 del mundo · World's 100 Best Clubs 2025 · fuente\nTOP MUNDIAL\nSutton Club\nDiscoteca o club · Carrer Tuset 13\nnº 12 del mundo · World's 100 Best Clubs 2025 · fuente\nTOP MUNDIAL\nOpium\nBar · Passeig Marítim de la Barceloneta 34\nnº 9 del mundo · World's 100 Best Clubs 2025 · fuente\nDESTACADA\nDowntown Barcelona\nDiscoteca o club · Avinguda del Doctor Marañón 17\nRecomendada en guías de ocio de Barcelona · fuente\nDESTACADA\nRazzmatazz\nDiscoteca o club · Carrer dels Almogàvers 122\nRecomendada en guías de ocio de Barcelona · fuente\nDESTACADA\nLa Fira Casanova\nDiscoteca o club · Carrer de Casanova 171\nRecomendada en guías de ocio de Barcelona · fuente\nDESTACADA\nBling Bling\nDiscoteca o club · Carrer de Tuset, 8\nRecomendada en guías de ocio de Barcelona · fuente\nDESTACADA\nDuvet\nDiscoteca o club · Carrer de Còrsega, 327\nRecomendada en guías de ocio de Barcelona · fuente\nDESTACADA\nHyde Club\nDiscoteca o club · Passatge de Domingo, 3\nRecomendada en guías de ocio de Barcelona · fuente\nDESTACADA\nJamboree\nDiscoteca o club · Plaça Reial 18\nRecomendada en guías de ocio de Barcelona · fuente\nDESTACADA\nLa Biblio\nDiscoteca o club · Carrer de Moià 1\nRecomendada en guías de ocio de Barcelona · fuente\nDESTACADA\nOtto Zutz\nDiscoteca o club · Carrer de Lincoln 15\nRecomendada en guías de ocio de Barcelona · fuente\nDESTACADA\nSala Bikini\nDiscoteca o club · Avinguda Diagonal 547\nRecomendada en guías de ocio de Barcelona · fuente\nPor estilo en Barcelona\n\nDiscotecas y clubesMúsica en directoCoctelerías y cóctelesAmbiente LGTBI+Terrazas para tomar algoMúsica latina y reguetónMúsica electrónica y technoRock e indieJazz y bluesFlamenco y rumbaPop y música comercial\n\nZonas para salir en Barcelona\n\nSanta Annal'EixampleSanta Maria del Piel Gòticel Ravalel Callla Catedralel PalauSant Pere",
+   "h1": [
+    "Ocio nocturno en Barcelona"
+   ],
+   "nodos": 658,
+   "alto": 6438,
+   "ancho_desborda": false,
+   "fuentes": [
+    "\"Bodoni Moda\"",
+    "system-ui"
+   ],
+   "botones_pequenos": 131,
+   "imagenes_rotas": [],
+   "errores_consola": [],
+   "peticiones_fallidas": [],
+   "peticiones_error": [],
+   "hosts": [
+    "mikenights.com",
+    "static.cloudflareinsights.com"
+   ]
+  },
+  {
+   "id": "19-seo-tema",
+   "disp": "pc",
+   "ruta": "/ocio-nocturno/discotecas-en-barcelona-08019",
+   "estado": 200,
+   "url_final": "https://mikenights.com/ocio-nocturno/discotecas-en-barcelona-08019",
+   "segundos": 4.7,
+   "titulo": "Discotecas y clubes en Barcelona | MIKENIGHTS",
+   "texto": "MIKENIGHTS\nCiudades\n\nCiudades › Barcelona › Barcelona\n\nDiscotecas y clubes en Barcelona\n\n66 sitios en Barcelona según los datos abiertos de OpenStreetMap, con los destacados por rankings y guías primero. Toca para ver horarios, cómo llegar y planes cerca.\n\nVer en el mapa y con horarios\nTOP MUNDIAL\nSala Apolo\nDiscoteca o club\nnº 34 del mundo · World's 100 Best Clubs 2025 · fuente\nTOP MUNDIAL\nSutton Club\nDiscoteca o club · Carrer Tuset 13\nnº 12 del mundo · World's 100 Best Clubs 2025 · fuente\nDESTACADA\nDowntown Barcelona\nDiscoteca o club · Avinguda del Doctor Marañón 17\nRecomendada en guías de ocio de Barcelona · fuente\nDESTACADA\nRazzmatazz\nDiscoteca o club · Carrer dels Almogàvers 122\nRecomendada en guías de ocio de Barcelona · fuente\nDESTACADA\nLa Fira Casanova\nDiscoteca o club · Carrer de Casanova 171\nRecomendada en guías de ocio de Barcelona · fuente\nDESTACADA\nBling Bling\nDiscoteca o club · Carrer de Tuset, 8\nRecomendada en guías de ocio de Barcelona · fuente\nDESTACADA\nDuvet\nDiscoteca o club · Carrer de Còrsega, 327\nRecomendada en guías de ocio de Barcelona · fuente\nDESTACADA\nHyde Club\nDiscoteca o club · Passatge de Domingo, 3\nRecomendada en guías de ocio de Barcelona · fuente\nDESTACADA\nJamboree\nDiscoteca o club · Plaça Reial 18\nRecomendada en guías de ocio de Barcelona · fuente\nDESTACADA\nLa Biblio\nDiscoteca o club · Carrer de Moià 1\nRecomendada en guías de ocio de Barcelona · fuente\nDESTACADA\nOtto Zutz\nDiscoteca o club · Carrer de Lincoln 15\nRecomendada en guías de ocio de Barcelona · fuente\nDESTACADA\nSala Bikini\nDiscoteca o club · Avinguda Diagonal 547\nRecomendada en guías de ocio de Barcelona · fuente\nAlmo2bar\nDiscoteca o club · Carrer de Bruniquer 59,61\nAntilla Latin Club\nDiscoteca o club · Carrer d'Aragó 141\nArena Xperience\nDiscoteca o club · Ronda de Sant Pere 19-21\nBelieve Club\nDiscoteca o club · Carrer de Balmes 56\nBerlin Dark\nDiscoteca o club · Passatge de Prunera 18\nCosta Breve\nDiscoteca o club · Carrer d'Aribau 230\nMaricon Ghetto LGBT+ bar\nDiscoteca o club · Carrer d'Aribau 55\nNight Barcelona\nDiscoteca o club · Carrer de la Diputació 161\nNitsa Club\nDiscoteca o club\nOpen Mind\nDiscoteca o club\nSafari Disco Club\nDiscoteca o club · Carrer de Tarragona 141-157\nAlmodobar\nDiscoteca o club · Carrer d'en Grassot 36\nBarroko's\nDiscoteca o club · Carrer d'Aribau 242\nChica Club\nDiscoteca o club · Carrer del Rosselló 217\nClub Astoria\nDiscoteca o club · Carrer de París 193\nHarlem Jazz Club\nDiscoteca o club · Carrer de la Comtessa de Sobradiel 8\nLa Paloma\nDisc",
+   "h1": [
+    "Discotecas y clubes en Barcelona"
+   ],
+   "nodos": 313,
+   "alto": 2868,
+   "ancho_desborda": false,
+   "fuentes": [
+    "\"Bodoni Moda\"",
+    "system-ui"
+   ],
+   "botones_pequenos": 76,
+   "imagenes_rotas": [],
+   "errores_consola": [],
+   "peticiones_fallidas": [],
+   "peticiones_error": [],
+   "hosts": [
+    "mikenights.com",
+    "static.cloudflareinsights.com"
+   ]
+  },
+  {
+   "id": "20-seo-local",
+   "disp": "pc",
+   "ruta": "/ocio-nocturno/local-sala-apolo-08019",
+   "estado": 200,
+   "url_final": "https://mikenights.com/ocio-nocturno/local-sala-apolo-08019",
+   "segundos": 4.6,
+   "titulo": "Sala Apolo (Barcelona): nº 34 del mundo · World's 100 Best Clubs 2025 | MIKENIGHTS",
+   "texto": "MIKENIGHTS\nCiudades\n\nCiudades › Barcelona › Barcelona\n\nSala Apolo\n\nDiscoteca o club en Barcelona.\n\nTOP MUNDIAL · nº 34 del mundo · World's 100 Best Clubs 2025 (ver fuente).\n\nEstilo: Música en directo, Música electrónica y techno.\n\nVer horario, cómo llegar y planes cerca Ver en el mapa\nMás para salir en Barcelona\nTOP MUNDIAL\nShôko\nBar · Passeig Marítim del Port Olímpic 36\nnº 7 del mundo · World's 100 Best Clubs 2025 · fuente\nTOP MUNDIAL\nSutton Club\nDiscoteca o club · Carrer Tuset 13\nnº 12 del mundo · World's 100 Best Clubs 2025 · fuente\nTOP MUNDIAL\nOpium\nBar · Passeig Marítim de la Barceloneta 34\nnº 9 del mundo · World's 100 Best Clubs 2025 · fuente\nDESTACADA\nDowntown Barcelona\nDiscoteca o club · Avinguda del Doctor Marañón 17\nRecomendada en guías de ocio de Barcelona · fuente\nDESTACADA\nRazzmatazz\nDiscoteca o club · Carrer dels Almogàvers 122\nRecomendada en guías de ocio de Barcelona · fuente\nDESTACADA\nLa Fira Casanova\nDiscoteca o club · Carrer de Casanova 171\nRecomendada en guías de ocio de Barcelona · fuente\nDESTACADA\nBling Bling\nDiscoteca o club · Carrer de Tuset, 8\nRecomendada en guías de ocio de Barcelona · fuente\nDESTACADA\nDuvet\nDiscoteca o club · Carrer de Còrsega, 327\nRecomendada en guías de ocio de Barcelona · fuente\nDESTACADA\nHyde Club\nDiscoteca o club · Passatge de Domingo, 3\nRecomendada en guías de ocio de Barcelona · fuente\nDESTACADA\nJamboree\nDiscoteca o club · Plaça Reial 18\nRecomendada en guías de ocio de Barcelona · fuente\nDESTACADA\nLa Biblio\nDiscoteca o club · Carrer de Moià 1\nRecomendada en guías de ocio de Barcelona · fuente\nDESTACADA\nOtto Zutz\nDiscoteca o club · Carrer de Lincoln 15\nRecomendada en guías de ocio de Barcelona · fuente\nDatos de locales: © colaboradores de OpenStreetMap (ODbL). Alojamientos: registros oficiales de turismo de las comunidades autónomas (datos abiertos). Municipios: INE. Sin precios inventados: la información de cada local la publica el propio local.",
+   "h1": [
+    "Sala Apolo"
+   ],
+   "nodos": 127,
+   "alto": 1289,
+   "ancho_desborda": false,
+   "fuentes": [
+    "\"Bodoni Moda\"",
+    "system-ui"
+   ],
+   "botones_pequenos": 29,
+   "imagenes_rotas": [],
+   "errores_consola": [],
+   "peticiones_fallidas": [],
+   "peticiones_error": [],
+   "hosts": [
+    "mikenights.com",
+    "static.cloudflareinsights.com"
+   ]
+  },
+  {
+   "id": "21-ingles",
+   "disp": "pc",
+   "ruta": "/",
+   "estado": 200,
+   "url_final": "https://mikenights.com/",
+   "segundos": 4.9,
+   "titulo": "MIKENIGHTS · Tu noche empieza aquí",
+   "texto": "MIKENIGHTS\nFavourites\nEN\nEspañol\nEnglish\nFrançais\nDeutsch\nItaliano\nPortuguês\nNederlands\nCatalà\nРусский\n中文\nWhere are you going out?\nDate\nPeople\n2\nSee plans\n3 · Club\n1 · Dinner · 2 · Drinks\n© OpenStreetMap · OpenFreeMap\nYour night starts\nhere.\n\nDinner, drinks and a club, a few minutes' walk apart. Real places, with opening hours and directions.\n\nA night in El Born\nBarcelona · on foot\n1\nEl Xampanyet · dinner\nTapas · closes at 23:00\n70 m · 1 min walk\n2\nBar Sauvage · drinks\nBar · until 03:30\n910 m · 11 min walk\n3\nArena Xperience · club\nClub · 23:59 to 06:00\nPlan my night\nAnother plan\n\nA real example in Barcelona with opening hours from OpenStreetMap. Check them with each venue.\n\nDinner\nDrinks\nClubs\nLive\nSleep\nThis weekend in Madrid\nWeekend nightlife plans\n\nFriday 6 November\n\n17:30\nDanza entre mujeres\nEspacio de Igualdad María de Maeztu. Latina\n18:00\nTablao Flamenco 1911: El Tablao Más Antiguo del Mundo\nTablao Flamenco 1911\n19:00\nActuación musical e improvisación sobre proyecciones: `Atmósferas Sonoras y Visuales´\nEdificio Sociocultural Marta Escudero Díaz-Tejeiro (Villaverde)\n\nSaturday 7 November\n\n11:00\nForró en la Biblio\nBiblioteca Pública Municipal Eugenio Trías. Casa de Fieras de El Retiro (Retiro)\n12:00\nXXVIII Festival Internacional COMA'26\nCentro Cultural Casa de Vacas (Retiro)\n18:00\nDúo de jazz y bolero. Natalia Baeza y Jesús Parra\nCentro Sociocultural San Fermín (Usera)\n\nSunday 8 November\n\n12:00\nEl cuerpo del flamenco\nCentro Danza Matadero - CDM\n12:00\nPoética Ópera\nCentro Cultural Casa del Reloj (Arganzuela)\n12:00\nSwing y letras en San Fermin\nBiblioteca Pública Municipal San Fermín (Usera)\n\nConcerts and parties from the official listings for Friday, Saturday and Sunday.\n\nDo you run a venue?\n\nComplete your listing and get bookings, with no commission.\n\nGet bookings\nFor venues",
+   "h1": [
+    "Your night starts\nhere."
+   ],
+   "nodos": 362,
+   "alto": 1968,
+   "ancho_desborda": false,
+   "fuentes": [
+    "\"Hanken Grotesk\"",
+    "\"Bodoni Moda\""
+   ],
+   "botones_pequenos": 1,
+   "imagenes_rotas": [],
+   "errores_consola": [],
+   "peticiones_fallidas": [],
+   "peticiones_error": [],
+   "hosts": [
+    "cloudflareinsights.com",
+    "juniornacht2-11.github.io",
+    "mikenights.com",
+    "static.cloudflareinsights.com"
+   ]
+  },
+  {
+   "id": "22-no-existe",
+   "disp": "pc",
+   "ruta": "/esta-pagina-no-existe",
+   "estado": 404,
+   "url_final": "https://mikenights.com/esta-pagina-no-existe",
+   "segundos": 4.5,
+   "titulo": "",
+   "texto": "",
+   "h1": [],
+   "nodos": 3,
+   "alto": 900,
+   "ancho_desborda": false,
+   "fuentes": [],
+   "botones_pequenos": 0,
+   "imagenes_rotas": [],
+   "errores_consola": [
+    "Failed to load resource: the server responded with a status of 404 ()"
+   ],
+   "peticiones_fallidas": [],
+   "peticiones_error": [
+    "https://mikenights.com/esta-pagina-no-existe · 404"
+   ],
+   "hosts": [
+    "mikenights.com"
+   ]
+  },
+  {
+   "id": "23-enlace-local",
+   "disp": "pc",
+   "ruta": "/#/local/08019/node%2F0",
+   "estado": 200,
+   "url_final": "https://mikenights.com/#/local/08019/node%2F0",
+   "segundos": 6.3,
+   "titulo": "Fiesta · Barcelona · MIKENIGHTS",
+   "texto": "Cambiar plan\nBarcelona · Vie, 6 nov · 2 personas\nCambiar\nMIKENIGHTS\nFiesta en Barcelona\nCompartir\nOrdenar\nRecomendados\nDistancia al centro\nNombre\nPrecio (solo con precio publicado)\nFiltrar\nTodo\nDiscotecas\n64\nBares de copas\n1023\nPubs\n332\nMúsica en directo\n2\nSalas y eventos\n16\n\n1339 opciones · Viernes, 6 de noviembre · 2 personas\n\nSH\nShôko\n\nBar · 1,7 km\n\nViernes: 12:00–03:00\n\nTOP MUNDIAL\nnº 7 del mundo · World's 100 Best Clubs 2025\n\nWikimedia Commons\nSA\nSala Apolo\n\nDiscoteca o club · 1,2 km\n\nConcert \"Camellos\"\n\nTOP MUNDIAL\nnº 34 del mundo · World's 100 Best Clubs 2025\n\nOP\nOpium\n\nBar · 1,7 km\n\nHorario no publicado\n\nTOP MUNDIAL\nnº 9 del mundo · World's 100 Best Clubs 2025\n\nSC\nSutton Club\n\nDiscoteca o club · 2,4 km\n\nHorario no publicado\n\nTOP MUNDIAL\nnº 12 del mundo · World's 100 Best Clubs 2025\n\nDB\nDowntown Barcelona\n\nDiscoteca o club · 5,2 km\n\nMadrugada del sábado: 00:00–06:00\n\nDESTACADA\nRecomendada en guías de ocio de Barcelona\n\nJA\nJamboree\n\nDiscoteca o club · 510 m\n\nFesta \"Disco Saturday Night: Dj Eley\"\n\nDESTACADA\nRecomendada en guías de ocio de Barcelona\n\nHC\nHyde Club\n\nDiscoteca o club · 1,5 km\n\nHorario no publicado\n\nDESTACADA\nRecomendada en guías de ocio de Barcelona\n\nRA\nRazzmatazz\n\nDiscoteca o club · 1,9 km\n\nConcert \"Festival Partiendo La Pana - Tributos a Estopa y Melendi\"\n\nDESTACADA\nRecomendada en guías de ocio de Barcelona\n\nDU\nDuvet\n\nDiscoteca o club · 2,0 km\n\nHorario no publicado\n\nDESTACADA\nRecomendada en guías de ocio de Barcelona\n\nBB\nBling Bling\n\nDiscoteca o club · 2,3 km\n\nHorario no publicado\n\nDESTACADA\nRecomendada en guías de ocio de Barcelona\n\nLF\nLa Fira Casanova\n\nDiscoteca o club · 2,4 km\n\nHorario no publicado\n\nDESTACADA\nRecomendada en guías de ocio de Barcelona\n\nLB\nLa Biblio\n\nDiscoteca o club · 2,4 km\n\nHorario no publicado\n\nDESTACADA\nRecomendada en guías de ocio de Barcelona\n\nOZ\nOtto Zutz\n\nDiscoteca o club · 2,8 km\n\nHorario no publicado\n\nDESTACADA\nRecomendada en guías de ocio de Barcelona\n\nSB\nSala Bikini\n\nDiscoteca o club · 3,3 km\n\nHorario no publicado\n\nDESTACADA\nRecomendada en guías de ocio de Barcelona\n\nCB\nCraft Barcelona\n\nPub · 130 m\n\nViernes: 18:00–03:00\n\nMB\nMagma Bar\n\nBar · 240 m\n\nViernes: 18:00–02:30\n\nGI\nGinger\n\nBar · 250 m\n\nViernes: 19:30–02:30\n\nDG\nDux Gin & Cocktail Bar Barcelona\n\nBar · 310 m\n\nViernes: 18:30–02:30\n\nBB\nBar Brutal\n\nBar · 370 m\n\nViernes: 13:00–00:30\n\nKÆ\nKælderkold\n\nPub · 390 m\n\nViernes: 12:30–03:00\n\nOV\nOviso\n\nPub · 400 m\n\nViernes: 10:00–01:30\n\nMB\nManchester Bar\n\nBar · 460 m\n\nViernes: 18:30–00:00\n\n#B\n#Bubita\n\nBar · 470 m\n\nV",
+   "h1": [
+    "Fiesta en Barcelona"
+   ],
+   "nodos": 1169,
+   "alto": 4112,
+   "ancho_desborda": false,
+   "fuentes": [
+    "\"Hanken Grotesk\"",
+    "\"Bodoni Moda\"",
+    "\"Helvetica Neue\""
+   ],
+   "botones_pequenos": 29,
+   "imagenes_rotas": [],
+   "errores_consola": [],
+   "peticiones_fallidas": [],
+   "peticiones_error": [],
+   "hosts": [
+    "cdn.jsdelivr.net",
+    "cloudflareinsights.com",
+    "commons.wikimedia.org",
+    "frosty-bird-92d2.juniornacht2.workers.dev",
+    "juniornacht2-11.github.io",
+    "mikenights.com",
+    "static.cloudflareinsights.com",
+    "thumb.wikimedia.org",
+    "tiles.openfreemap.org",
+    "www.wikidata.org"
+   ]
+  }
+ ]
+}
