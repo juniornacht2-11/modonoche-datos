@@ -12,7 +12,9 @@ TRABAJOS += [('ps-movil', 390, 280, '?z=17.3&lat=41.37395&lng=2.16962&pts=2.1701
              ('ps-plan-movil', 390, 420, '?z=17.4&lat=41.37392&lng=2.16962&pts=2.170174,41.373601;2.169049,41.37388;2.169518,41.374356'),
              ('apolo-ficha', 390, 220, '?z=16.6&lat=41.374391&lng=2.169561&ruta=0&pts=2.169561,41.374391'),
              ('apolo-ficha-esc', 440, 300, '?z=16.4&lat=41.374391&lng=2.169561&ruta=0&pts=2.169561,41.374391;2.167898,41.375481;2.169049,41.37388;2.170174,41.373601')]
-TRABAJOS = TRABAJOS[5:]
+TRABAJOS = [('stereo-tarjeta', 360, 360, '?z=17.2&lat=41.37388&lng=2.169049&ruta=0&pin=0&pts=2.169049,41.37388'),
+            ('stereo-ficha-esc', 720, 420, '?z=17.0&lat=41.37388&lng=2.169049&ruta=0&pin=0&pts=2.169049,41.37388'),
+            ('steam-tarjeta', 360, 360, '?z=17.2&lat=41.3851&lng=2.154923&ruta=0&pin=0&pts=2.154923,41.3851')]
 async def main():
     async with async_playwright() as p:
         b = await p.chromium.launch(args=['--use-angle=swiftshader', '--enable-unsafe-swiftshader', '--ignore-gpu-blocklist'])
